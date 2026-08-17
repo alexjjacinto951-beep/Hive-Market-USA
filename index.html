@@ -12,6 +12,7 @@
   <style>
     :root {
       --bg-yellow: #FFD400;
+      --ipod-yellow: #FFFF00; /* Vibrant pure electric yellow */
       --deep-black: #000000;
       --card-black: #0C0D10;
       --pure-white: #FFFFFF;
@@ -96,9 +97,8 @@
       cursor: pointer;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.3s ease;
       position: relative;
-      font-family: 'Manrope', sans-serif;
     }
     .nav-link:hover {
       opacity: 0.5;
@@ -127,7 +127,7 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-      transition: transform 0.2s ease;
+      transition: transform 0.3s ease;
     }
     .header-hm-symbol:hover {
       transform: scale(1.06);
@@ -141,12 +141,14 @@
       line-height: 1;
     }
 
-    /* Page View Controller */
+    /* -------------------------------------------------------------
+       SMOOTH PAGE VIEW TRANSITION
+    ------------------------------------------------------------- */
     .page-view {
       display: none;
       opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(16px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .page-view.active {
       display: block;
@@ -155,7 +157,7 @@
     }
 
     /* -------------------------------------------------------------
-       FULL BLEED EDGE-TO-EDGE HD COVER HERO
+       FULL-SCREEN BLEED LANDING HERO
     ------------------------------------------------------------- */
     .landing-fullscreen-hero {
       width: 100vw;
@@ -171,7 +173,6 @@
       border-bottom: var(--border-thin);
     }
 
-    /* HD Full-Bleed Backgrounds */
     .landing-bg-image {
       position: absolute;
       inset: 0;
@@ -193,7 +194,6 @@
       transform: scale(1);
     }
 
-    /* Subtle Dark Vignette Overlay */
     .hero-vignette-overlay {
       position: absolute;
       inset: 0;
@@ -250,15 +250,16 @@
       text-transform: uppercase;
       cursor: pointer;
       text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .btn-minimal-white:hover {
       background: var(--pure-white);
       color: var(--deep-black);
       border-color: var(--pure-white);
+      transform: translateY(-2px);
     }
 
-    /* Down Arrow */
+    /* Down Arrow with Slow Floating Animation */
     .down-arrow-anchor {
       position: absolute;
       bottom: 24px;
@@ -275,13 +276,13 @@
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.3);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       animation: floatSlow 3.2s ease-in-out infinite;
     }
     .down-arrow-anchor:hover {
       background: rgba(255, 255, 255, 0.25);
       border-color: var(--pure-white);
-      transform: translateY(3px);
+      transform: translateY(4px);
     }
     .down-arrow-text {
       font-size: 0.65rem;
@@ -335,7 +336,7 @@
     .conveyor-track {
       display: flex;
       gap: 24px;
-      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform;
     }
 
@@ -349,7 +350,7 @@
       flex-direction: column;
       justify-content: space-between;
       cursor: pointer;
-      transition: all 0.35s ease;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .event-card-slide:hover {
       background: rgba(255, 255, 255, 0.07);
@@ -406,7 +407,7 @@
       background: transparent;
       border: 1px solid rgba(255, 255, 255, 0.4);
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
       padding: 0;
     }
     .dot-circle:hover {
@@ -446,7 +447,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
       opacity: 0.95;
     }
     .home-gallery-item:hover img {
@@ -470,7 +471,7 @@
       letter-spacing: 0.06em;
     }
 
-    /* Editorial Panels */
+    /* Editorial Interior Panels */
     .editorial-panel {
       background: var(--deep-black);
       color: var(--pure-white);
@@ -524,7 +525,7 @@
       font-family: 'Manrope', sans-serif;
       font-size: 0.85rem;
       outline: none;
-      transition: border-color 0.2s;
+      transition: border-color 0.3s;
     }
     .clean-input:focus {
       border-color: var(--bg-yellow);
@@ -541,15 +542,16 @@
       letter-spacing: 0.2em;
       cursor: pointer;
       text-transform: uppercase;
-      transition: all 0.2s;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       margin-top: 10px;
     }
     .btn-submit:hover {
       background: var(--pure-white);
       border-color: var(--pure-white);
+      transform: translateY(-2px);
     }
 
-    /* Specification Table */
+    /* Spec Table */
     .spec-table {
       width: 100%;
       border-collapse: collapse;
@@ -581,9 +583,10 @@
       align-items: center;
       gap: 20px;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
     .event-row:hover {
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(255, 255, 255, 0.03);
     }
     .event-date {
       font-weight: 500;
@@ -613,6 +616,10 @@
     .review-card {
       border: 1px solid rgba(255, 255, 255, 0.15);
       padding: 24px;
+      transition: border-color 0.3s ease;
+    }
+    .review-card:hover {
+      border-color: var(--bg-yellow);
     }
     .review-quote {
       font-size: 0.92rem;
@@ -629,40 +636,40 @@
     }
 
     /* -------------------------------------------------------------
-       WHITE IPOD BODY WITH BLACK & GREY ACCENTS
+       #FFFF00 YELLOW IPOD BODY (WHITE + BLACK ACCENTS)
     ------------------------------------------------------------- */
     #ipod-widget {
       position: fixed;
       bottom: 24px;
       right: 24px;
-      width: 210px;
-      background: #FFFFFF;
-      border: 1px solid #D1D5DB;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.05);
-      border-radius: 26px;
+      width: 212px;
+      background: var(--ipod-yellow); /* #FFFF00 */
+      border: 2px solid var(--pure-white);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.15);
+      border-radius: 28px;
       padding: 14px 12px 18px;
       z-index: 9999;
       user-select: none;
       cursor: grab;
-      transition: box-shadow 0.2s ease;
+      transition: box-shadow 0.3s ease;
       font-family: 'Manrope', sans-serif;
     }
     #ipod-widget:active {
       cursor: grabbing;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     }
     
     .ipod-screen {
-      background: #0D0F12;
-      border: 1.5px solid #23272F;
+      background: var(--deep-black);
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
       border-radius: 12px;
       padding: 8px 10px;
       height: 84px;
-      color: #FFFFFF;
+      color: var(--pure-white);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.8);
     }
     .ipod-header-bar {
       display: flex;
@@ -670,13 +677,13 @@
       font-size: 0.58rem;
       letter-spacing: 0.12em;
       font-weight: 600;
-      color: #E5E7EB;
+      color: var(--ipod-yellow);
       border-bottom: 1px dashed rgba(255, 255, 255, 0.18);
       padding-bottom: 3px;
     }
     .ipod-track-artist {
       font-size: 0.55rem;
-      color: #9CA3AF;
+      color: rgba(255, 255, 255, 0.65);
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
@@ -684,56 +691,56 @@
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.02em;
-      color: #FFFFFF;
+      color: var(--pure-white);
       line-height: 1.2;
     }
     .ipod-progress-track {
       height: 3px;
-      background: #282C35;
+      background: rgba(255, 255, 255, 0.15);
       border-radius: 2px;
       overflow: hidden;
     }
     .ipod-progress-fill {
       width: 30%;
       height: 100%;
-      background: #FFFFFF;
+      background: var(--ipod-yellow);
     }
 
-    /* Grey Click Wheel */
+    /* Click Wheel (White Wheel + Black Details) */
     .ipod-wheel {
       width: 106px;
       height: 106px;
-      background: #F3F4F6;
-      border: 1px solid #E5E7EB;
+      background: var(--pure-white);
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 50%;
       margin: 12px auto 0;
       position: relative;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
     .wheel-btn {
       position: absolute;
       font-size: 0.58rem;
       font-weight: 800;
-      color: #374151;
+      color: var(--deep-black);
       cursor: pointer;
       background: none;
       border: none;
       letter-spacing: 0.08em;
-      transition: color 0.15s ease;
+      transition: color 0.15s ease, opacity 0.15s ease;
       font-family: 'Manrope', sans-serif;
     }
-    .wheel-btn:hover { color: #000000; }
+    .wheel-btn:hover { opacity: 0.6; }
     .wheel-menu { top: 7px; left: 50%; transform: translateX(-50%); }
     .wheel-prev { left: 8px; top: 50%; transform: translateY(-50%); }
     .wheel-next { right: 8px; top: 50%; transform: translateY(-50%); }
     .wheel-play { bottom: 7px; left: 50%; transform: translateX(-50%); }
     
-    /* Center Button */
+    /* Center Button (Deep Black + Yellow HM Initials) */
     .center-btn {
       width: 40px;
       height: 40px;
-      background: #1F242D;
-      border: 1.5px solid #FFFFFF;
+      background: var(--deep-black);
+      border: 1.5px solid var(--pure-white);
       border-radius: 50%;
       position: absolute;
       top: 50%;
@@ -744,10 +751,10 @@
       align-items: center;
       justify-content: center;
       font-size: 0.62rem;
-      font-weight: 700;
-      color: #FFFFFF;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      transition: transform 0.1s ease;
+      font-weight: 800;
+      color: var(--ipod-yellow);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+      transition: transform 0.15s ease;
       font-family: 'Manrope', sans-serif;
     }
     .center-btn:active {
@@ -757,9 +764,9 @@
       text-align: center;
       margin-top: 8px;
       font-size: 0.55rem;
-      color: #6B7280;
+      color: var(--deep-black);
       letter-spacing: 0.14em;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     /* Modal */
@@ -772,8 +779,8 @@
       justify-content: center;
       z-index: 10000;
       padding: 24px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
     .modal-card {
       background: var(--deep-black);
@@ -783,10 +790,10 @@
       padding: 36px;
       position: relative;
       color: var(--pure-white);
-      animation: modalSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: modalSlide 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
     @keyframes modalSlide {
-      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      from { opacity: 0; transform: translateY(16px) scale(0.98); }
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
     .modal-close {
@@ -843,7 +850,7 @@
     688 Beaumont Ave, Beaumont CA &nbsp;|&nbsp; Mon–Fri 11–7 • Sat–Sun 12–8 &nbsp;|&nbsp; (951) 845-5669
   </div>
 
-  <!-- Editorial Top Flush Header -->
+  <!-- Editorial Header -->
   <header>
     <div class="header-inner">
       <ul class="nav-left">
@@ -853,7 +860,7 @@
         <li><a class="nav-link" onclick="navigateTo('gallery')">Gallery</a></li>
       </ul>
 
-      <!-- Center Icon -->
+      <!-- HM Icon -->
       <a class="brand-center" onclick="navigateTo('home')" aria-label="Hive Market Home">
         <div class="header-hm-symbol">
           <span>HM</span>
@@ -879,7 +886,6 @@
       <img src="Storefront 2.JPG" class="landing-bg-image" id="bg-slide-1" alt="Hive Market Storefront 2" />
       <img src="Storefront 3.JPG" class="landing-bg-image" id="bg-slide-2" alt="Hive Market Storefront 3" />
       
-      <!-- Subtle Contrast Overlay -->
       <div class="hero-vignette-overlay"></div>
 
       <div class="landing-hero-content">
@@ -1270,7 +1276,7 @@
     </div>
   </main>
 
-  <!-- White iPod Body with Black & Grey Accents -->
+  <!-- #FFFF00 Yellow iPod Body with White & Black Accents -->
   <div id="ipod-widget">
     <div class="ipod-screen">
       <div class="ipod-header-bar">
@@ -1286,7 +1292,7 @@
       </div>
     </div>
 
-    <!-- Grey Click Wheel with Dark Center Button -->
+    <!-- White Click Wheel with Black Center Button -->
     <div class="ipod-wheel">
       <button class="wheel-btn wheel-menu" onclick="showPlayerTip()">MENU</button>
       <button class="wheel-btn wheel-prev" onclick="prevTrack()">⏮</button>
@@ -1329,22 +1335,34 @@
     
     setInterval(rotateLandingBg, 5000);
 
-    /* SPA Router */
+    /* -------------------------------------------------------------
+       SMOOTH PAGE ROUTER
+    ------------------------------------------------------------- */
     function navigateTo(pageId) {
-      document.querySelectorAll('.page-view').forEach(p => {
-        p.classList.remove('active');
-      });
-      
-      const target = document.getElementById(`page-${pageId}`);
-      if (target) {
-        target.classList.add('active');
-      }
-
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.toggle('active', link.getAttribute('onclick')?.includes(pageId));
+      const activePages = document.querySelectorAll('.page-view.active');
+      activePages.forEach(p => {
+        p.style.opacity = '0';
+        p.style.transform = 'translateY(12px)';
       });
 
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        document.querySelectorAll('.page-view').forEach(p => {
+          p.classList.remove('active');
+          p.style.opacity = '';
+          p.style.transform = '';
+        });
+        
+        const target = document.getElementById(`page-${pageId}`);
+        if (target) {
+          target.classList.add('active');
+        }
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.toggle('active', link.getAttribute('onclick')?.includes(pageId));
+        });
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 250);
     }
 
     function smoothScrollToEvents(e) {
@@ -1355,7 +1373,9 @@
       }
     }
 
-    /* Carousel */
+    /* -------------------------------------------------------------
+       CAROUSEL SCRIPT WITH SLOW EASING
+    ------------------------------------------------------------- */
     let currentSlide = 0;
     const totalSlides = 4;
     const track = document.getElementById('conveyor-track');
@@ -1382,7 +1402,7 @@
     }
 
     function startConveyor() {
-      conveyorInterval = setInterval(nextSlide, 3800);
+      conveyorInterval = setInterval(nextSlide, 4200);
     }
 
     function pauseConveyor() {
