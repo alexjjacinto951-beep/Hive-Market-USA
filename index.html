@@ -107,7 +107,7 @@
       padding-bottom: 2px;
     }
 
-    /* Center HM Graphic Icon Badge (Replaces repetitive text) */
+    /* Center HM Graphic Icon Badge */
     .brand-center {
       display: flex;
       align-items: center;
@@ -134,7 +134,7 @@
       font-family: 'Manrope', sans-serif;
       font-weight: 800;
       font-size: 1.2rem;
-      color: rgba(255, 246, 150, 0.85); /* Semi-transparent yellow silhouette imprint */
+      color: rgba(255, 246, 150, 0.85);
       letter-spacing: -0.06em;
       user-select: none;
       line-height: 1;
@@ -161,9 +161,7 @@
       transform: translateY(0);
     }
 
-    /* -------------------------------------------------------------
-       LANDING PAGE (STOREFRONT BACKGROUND + CLEAN TEXT)
-    ------------------------------------------------------------- */
+    /* Landing Page */
     .landing-cover-wrap {
       width: 100%;
       position: relative;
@@ -248,7 +246,7 @@
       border-color: var(--pure-white);
     }
 
-    /* Transparent Down Arrow & Teaser Cue */
+    /* Transparent Down Arrow */
     .down-arrow-anchor {
       position: absolute;
       bottom: 20px;
@@ -288,9 +286,7 @@
       50% { transform: translateY(6px); }
     }
 
-    /* -------------------------------------------------------------
-       EVENTS & DEALS CAROUSEL (CONVEYOR BELT)
-    ------------------------------------------------------------- */
+    /* Events Carousel / Conveyor Belt */
     .section-editorial-header {
       border-top: var(--border-thin);
       border-bottom: var(--border-thin);
@@ -405,9 +401,7 @@
       transform: scale(1.25);
     }
 
-    /* -------------------------------------------------------------
-       HOMEPAGE CURATED PHOTO GALLERY
-    ------------------------------------------------------------- */
+    /* Homepage Gallery Grid */
     .home-gallery-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -458,9 +452,7 @@
       letter-spacing: 0.06em;
     }
 
-    /* -------------------------------------------------------------
-       INTERIOR EDITORIAL PANELS
-    ------------------------------------------------------------- */
+    /* Editorial Panels */
     .editorial-panel {
       background: var(--deep-black);
       color: var(--pure-white);
@@ -539,7 +531,7 @@
       border-color: var(--pure-white);
     }
 
-    /* Specification Table */
+    /* Spec Table */
     .spec-table {
       width: 100%;
       border-collapse: collapse;
@@ -562,7 +554,7 @@
       font-weight: 300;
     }
 
-    /* Events List View in Page */
+    /* Events List View */
     .event-row {
       border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       padding: 22px 0;
@@ -619,32 +611,32 @@
     }
 
     /* -------------------------------------------------------------
-       MINIMALIST BLACK & WHITE MONOCHROME IPOD
+       WHITE IPOD BODY WITH BLACK & GREY ACCENTS (CLASSIC LOOK)
     ------------------------------------------------------------- */
     #ipod-widget {
       position: fixed;
       bottom: 24px;
       right: 24px;
       width: 210px;
-      background: #000000;
-      border: 1.5px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      background: #FFFFFF;
+      border: 1px solid #D1D5DB;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.05);
       border-radius: 26px;
       padding: 14px 12px 18px;
       z-index: 9999;
       user-select: none;
       cursor: grab;
-      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+      transition: box-shadow 0.2s ease;
       font-family: 'Manrope', sans-serif;
     }
     #ipod-widget:active {
       cursor: grabbing;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
     }
     
     .ipod-screen {
-      background: #0F1115;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #0D0F12;
+      border: 1.5px solid #23272F;
       border-radius: 12px;
       padding: 8px 10px;
       height: 84px;
@@ -652,7 +644,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.5);
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
     }
     .ipod-header-bar {
       display: flex;
@@ -660,13 +652,13 @@
       font-size: 0.58rem;
       letter-spacing: 0.12em;
       font-weight: 600;
-      color: #FFFFFF;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+      color: #E5E7EB;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.18);
       padding-bottom: 3px;
     }
     .ipod-track-artist {
       font-size: 0.55rem;
-      color: rgba(255, 255, 255, 0.55);
+      color: #9CA3AF;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
@@ -679,7 +671,7 @@
     }
     .ipod-progress-track {
       height: 3px;
-      background: rgba(255, 255, 255, 0.12);
+      background: #282C35;
       border-radius: 2px;
       overflow: hidden;
     }
@@ -689,41 +681,41 @@
       background: #FFFFFF;
     }
 
-    /* Minimalist Click Wheel (Black Body + Crisp White Details) */
+    /* Grey & Black Click Wheel */
     .ipod-wheel {
       width: 106px;
       height: 106px;
-      background: #14171E;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #F3F4F6;
+      border: 1px solid #E5E7EB;
       border-radius: 50%;
       margin: 12px auto 0;
       position: relative;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
     }
     .wheel-btn {
       position: absolute;
       font-size: 0.58rem;
-      font-weight: 700;
-      color: #FFFFFF;
+      font-weight: 800;
+      color: #374151;
       cursor: pointer;
       background: none;
       border: none;
       letter-spacing: 0.08em;
-      transition: opacity 0.15s ease;
+      transition: color 0.15s ease;
       font-family: 'Manrope', sans-serif;
     }
-    .wheel-btn:hover { opacity: 0.6; }
+    .wheel-btn:hover { color: #000000; }
     .wheel-menu { top: 7px; left: 50%; transform: translateX(-50%); }
     .wheel-prev { left: 8px; top: 50%; transform: translateY(-50%); }
     .wheel-next { right: 8px; top: 50%; transform: translateY(-50%); }
     .wheel-play { bottom: 7px; left: 50%; transform: translateX(-50%); }
     
-    /* White Center Button */
+    /* Center Button (Dark Grey / Black Finish) */
     .center-btn {
       width: 40px;
       height: 40px;
-      background: #FFFFFF;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: #1F242D;
+      border: 1.5px solid #FFFFFF;
       border-radius: 50%;
       position: absolute;
       top: 50%;
@@ -735,8 +727,8 @@
       justify-content: center;
       font-size: 0.62rem;
       font-weight: 700;
-      color: #000000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      color: #FFFFFF;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
       transition: transform 0.1s ease;
       font-family: 'Manrope', sans-serif;
     }
@@ -747,7 +739,7 @@
       text-align: center;
       margin-top: 8px;
       font-size: 0.55rem;
-      color: rgba(255, 255, 255, 0.6);
+      color: #6B7280;
       letter-spacing: 0.14em;
       font-weight: 600;
     }
@@ -837,7 +829,7 @@
         <li><a class="nav-link" onclick="navigateTo('gallery')">Gallery</a></li>
       </ul>
 
-      <!-- HM Silhouette Icon replacing repetitive text -->
+      <!-- HM Silhouette Icon -->
       <a class="brand-center" onclick="navigateTo('home')" aria-label="Hive Market Home">
         <div class="header-hm-symbol">
           <span>HM</span>
@@ -1259,7 +1251,7 @@
     </div>
   </main>
 
-  <!-- Monochrome Black & White Minimalist iPod -->
+  <!-- White iPod Body with Black & Grey Accents -->
   <div id="ipod-widget">
     <div class="ipod-screen">
       <div class="ipod-header-bar">
@@ -1275,7 +1267,7 @@
       </div>
     </div>
 
-    <!-- Click Wheel -->
+    <!-- Grey Click Wheel with Dark Center Button -->
     <div class="ipod-wheel">
       <button class="wheel-btn wheel-menu" onclick="showPlayerTip()">MENU</button>
       <button class="wheel-btn wheel-prev" onclick="prevTrack()">⏮</button>
@@ -1302,7 +1294,6 @@
   <script>
     lucide.createIcons();
 
-    // Smooth navigation with slow transition
     function navigateTo(pageId) {
       document.querySelectorAll('.page-view').forEach(p => {
         p.classList.remove('active');
@@ -1328,9 +1319,7 @@
       }
     }
 
-    /* -------------------------------------------------------------
-       SLOW CONVEYOR BELT / CAROUSEL SCRIPT
-    ------------------------------------------------------------- */
+    /* Conveyor Belt / Carousel */
     let currentSlide = 0;
     const totalSlides = 4;
     const track = document.getElementById('conveyor-track');
@@ -1339,7 +1328,7 @@
     let conveyorInterval = null;
 
     function updateCarousel() {
-      const cardWidth = cards[0].offsetWidth + 24; // width + gap
+      const cardWidth = cards[0].offsetWidth + 24;
       track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
 
       dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
@@ -1357,7 +1346,7 @@
     }
 
     function startConveyor() {
-      conveyorInterval = setInterval(nextSlide, 3800); // Calm pacing
+      conveyorInterval = setInterval(nextSlide, 3800);
     }
 
     function pauseConveyor() {
@@ -1371,9 +1360,7 @@
     startConveyor();
     window.addEventListener('resize', updateCarousel);
 
-    /* -------------------------------------------------------------
-       BOOKING & REVIEW HANDLERS
-    ------------------------------------------------------------- */
+    /* Form Handlers */
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     const dateInput = document.getElementById('book-date');
@@ -1425,9 +1412,7 @@
       closeEventModal();
     }
 
-    /* -------------------------------------------------------------
-       DRAGGABLE IPOD SCRIPT
-    ------------------------------------------------------------- */
+    /* Draggable iPod */
     const ipod = document.getElementById("ipod-widget");
     let isDragging = false;
     let offset = { x: 0, y: 0 };
