@@ -162,7 +162,7 @@
     }
 
     /* -------------------------------------------------------------
-       LANDING PAGE (INFINITE STOREFRONT BELT BACKDROP)
+       LANDING PAGE (FULL-BLEED ROTATING BACKGROUND SLIDESHOW)
     ------------------------------------------------------------- */
     .landing-cover-wrap {
       width: 100%;
@@ -178,37 +178,27 @@
       justify-content: center;
     }
 
-    /* Infinite Carousel Track for 3 Storefront Photos */
-    .hero-belt-track {
+    /* Full Background Image Slider Layers */
+    .landing-bg-slide {
       position: absolute;
       top: 0;
       left: 0;
-      height: 100%;
-      display: flex;
-      width: 600%;
-      animation: infiniteBeltLoop 36s linear infinite;
-      will-change: transform;
-    }
-    .hero-belt-slide {
-      width: 16.66666%;
-      height: 100%;
-      position: relative;
-      flex-shrink: 0;
-    }
-    .hero-belt-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      opacity: 0.85;
-      filter: contrast(1.05) brightness(0.9);
+      object-position: center;
+      opacity: 0;
+      filter: contrast(1.05) brightness(0.85);
+      transform: scale(1.04);
+      transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .landing-bg-slide.active-bg {
+      opacity: 0.92;
+      transform: scale(1);
     }
 
-    @keyframes infiniteBeltLoop {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-50%); }
-    }
-    
     .landing-hero-content {
       position: relative;
       z-index: 2;
@@ -221,13 +211,13 @@
       pointer-events: none;
     }
     
-    /* Official Hive Market Custom Vector Logo Overlay */
+    /* Official Logo Graphic Asset Overlay */
     .landing-official-logo {
       width: 100%;
       max-width: 580px;
       height: auto;
       display: block;
-      filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.85)) invert(1);
+      filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.9)) invert(1);
       margin-bottom: 20px;
       transition: transform 0.4s ease;
     }
@@ -878,30 +868,12 @@
 
     <!-- PAGE 1: SLEEK MINIMAL LANDING PAGE -->
     <div id="page-home" class="page-view active">
-      <!-- Full-bleed Storefront Infinite Belt Cover -->
+      <!-- Full-bleed Storefront Slow Transition Background -->
       <div class="landing-cover-wrap">
-        <div class="hero-belt-track">
-          <!-- Set 1 of Storefront Photos -->
-          <div class="hero-belt-slide">
-            <img src="Storefront 1.jpg" alt="Hive Market Storefront 1" />
-          </div>
-          <div class="hero-belt-slide">
-            <img src="Storefront 2.jpg" alt="Hive Market Storefront 2" />
-          </div>
-          <div class="hero-belt-slide">
-            <img src="Storefront 3.jpg" alt="Hive Market Storefront 3" />
-          </div>
-          <!-- Set 2 (Seamless Infinite Duplicate) -->
-          <div class="hero-belt-slide">
-            <img src="Storefront 1.jpg" alt="Hive Market Storefront 1 Duplicate" />
-          </div>
-          <div class="hero-belt-slide">
-            <img src="Storefront 2.jpg" alt="Hive Market Storefront 2 Duplicate" />
-          </div>
-          <div class="hero-belt-slide">
-            <img src="Storefront 3.jpg" alt="Hive Market Storefront 3 Duplicate" />
-          </div>
-        </div>
+        <!-- 3 Full-bleed background layers that crossfade smoothly every 5 seconds -->
+        <img src="Storefront 1.jpg" class="landing-bg-slide active-bg" id="bg-slide-0" alt="Hive Market Storefront 1" />
+        <img src="Storefront 2.jpg" class="landing-bg-slide" id="bg-slide-1" alt="Hive Market Storefront 2" />
+        <img src="Storefront 3.jpg" class="landing-bg-slide" id="bg-slide-2" alt="Hive Market Storefront 3" />
         
         <div class="landing-hero-content">
           <!-- Official Hive Market Custom Vector Logo Asset -->
@@ -1346,6 +1318,26 @@
   <script>
     lucide.createIcons();
 
+    /* -------------------------------------------------------------
+       LANDING PAGE BACKGROUND SLIDER (5s TIMING & SMOOTH FADE)
+    ------------------------------------------------------------- */
+    let currentBgSlide = 0;
+    const totalBgSlides = 3;
+
+    function rotateLandingBg() {
+      const slides = document.querySelectorAll('.landing-bg-slide');
+      slides.forEach((s, idx) => {
+        s.classList.toggle('active-bg', idx === currentBgSlide);
+      });
+      currentBgSlide = (currentBgSlide + 1) % totalBgSlides;
+    }
+    
+    // Rotate background every 5000ms (5 seconds)
+    setInterval(rotateLandingBg, 5000);
+
+    /* -------------------------------------------------------------
+       SPA PAGE ROUTER
+    ------------------------------------------------------------- */
     function navigateTo(pageId) {
       document.querySelectorAll('.page-view').forEach(p => {
         p.classList.remove('active');
@@ -1371,7 +1363,9 @@
       }
     }
 
-    /* Conveyor Belt / Carousel */
+    /* -------------------------------------------------------------
+       CONVEYOR BELT / CAROUSEL
+    ------------------------------------------------------------- */
     let currentSlide = 0;
     const totalSlides = 4;
     const track = document.getElementById('conveyor-track');
@@ -1412,7 +1406,9 @@
     startConveyor();
     window.addEventListener('resize', updateCarousel);
 
-    /* Form Handlers */
+    /* -------------------------------------------------------------
+       FORM HANDLERS
+    ------------------------------------------------------------- */
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     const dateInput = document.getElementById('book-date');
@@ -1464,7 +1460,9 @@
       closeEventModal();
     }
 
-    /* Draggable iPod */
+    /* -------------------------------------------------------------
+       DRAGGABLE IPOD SCRIPT
+    ------------------------------------------------------------- */
     const ipod = document.getElementById("ipod-widget");
     let isDragging = false;
     let offset = { x: 0, y: 0 };
