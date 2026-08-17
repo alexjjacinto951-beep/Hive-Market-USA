@@ -43,20 +43,17 @@
       letter-spacing: 0.04em;
     }
 
-    /* Top Utility Strip */
+    /* Minimal Top Utility Strip */
     .top-strip {
       background: var(--deep-black);
       color: var(--pure-white);
       text-align: center;
-      padding: 8px 16px;
+      padding: 7px 16px;
       font-size: 0.68rem;
-      font-weight: 400;
+      font-weight: 300;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-family: 'Manrope', sans-serif;
     }
 
     /* Ultra-Clean Flush Editorial Header */
@@ -98,6 +95,7 @@
       letter-spacing: 0.14em;
       transition: opacity 0.2s ease;
       position: relative;
+      font-family: 'Manrope', sans-serif;
     }
     .nav-link:hover {
       opacity: 0.5;
@@ -132,20 +130,28 @@
       transform: scale(1.06);
     }
     .header-hm-symbol span {
+      font-family: 'Manrope', sans-serif;
       font-weight: 800;
       font-size: 1.15rem;
-      color: rgba(255, 246, 150, 0.9);
+      color: rgba(255, 246, 150, 0.85);
       letter-spacing: -0.06em;
       user-select: none;
       line-height: 1;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 36px 36px 48px;
     }
 
     /* Page View Controller */
     .page-view {
       display: none;
       opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(10px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .page-view.active {
       display: block;
@@ -154,12 +160,12 @@
     }
 
     /* -------------------------------------------------------------
-       FULL-SCREEN BLEED LANDING PAGE
+       FULL-BLEED ROTATING STOREFRONT HERO
     ------------------------------------------------------------- */
     .landing-fullscreen-hero {
       width: 100vw;
       height: calc(100vh - 98px);
-      min-height: 580px;
+      min-height: 560px;
       position: relative;
       background: var(--deep-black);
       overflow: hidden;
@@ -170,29 +176,46 @@
       border-bottom: var(--border-thin);
     }
 
-    /* Cross-fading Full Background Layers */
-    .landing-bg-slide {
+    /* Background Images with Blur Backdrops to prevent over-zooming */
+    .landing-slide-container {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center;
       opacity: 0;
-      filter: contrast(1.05) brightness(0.78);
-      transform: scale(1.03);
-      transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: 1;
       pointer-events: none;
     }
-    .landing-bg-slide.active-bg {
+    .landing-slide-container.active-bg {
       opacity: 1;
-      transform: scale(1);
+    }
+
+    .slide-bg-ambient {
+      position: absolute;
+      inset: -20px;
+      width: calc(100% + 40px);
+      height: calc(100% + 40px);
+      object-fit: cover;
+      object-position: center;
+      filter: blur(24px) brightness(0.4);
+      transform: scale(1.1);
+    }
+
+    .slide-main-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      filter: contrast(1.03) brightness(0.92);
+      z-index: 2;
     }
 
     .landing-hero-content {
       position: relative;
-      z-index: 3;
+      z-index: 4;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -202,37 +225,40 @@
       pointer-events: none;
     }
     
+    /* Logo Overlay */
     .landing-official-logo {
       width: 100%;
-      max-width: 620px;
+      max-width: 540px;
       height: auto;
       display: block;
-      filter: drop-shadow(0 6px 30px rgba(0, 0, 0, 0.95)) invert(1);
-      margin-bottom: 20px;
+      filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.95)) invert(1);
+      margin-bottom: 18px;
     }
     
     .landing-hero-subtitle {
-      font-size: 1rem;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.95rem;
       font-weight: 300;
       letter-spacing: 0.35em;
       color: var(--pure-white);
       text-transform: uppercase;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
       opacity: 0.95;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
     }
     .landing-enter-action {
       pointer-events: auto;
       display: inline-block;
+      margin-top: 4px;
     }
     .btn-minimal-white {
       background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.4);
       color: var(--pure-white);
-      padding: 12px 36px;
-      font-size: 0.75rem;
+      padding: 11px 32px;
+      font-size: 0.72rem;
       font-weight: 400;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -250,7 +276,7 @@
     .down-arrow-anchor {
       position: absolute;
       bottom: 24px;
-      z-index: 4;
+      z-index: 5;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -272,7 +298,7 @@
       transform: translateY(3px);
     }
     .down-arrow-text {
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--pure-white);
@@ -284,14 +310,6 @@
     @keyframes floatSlow {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(6px); }
-    }
-
-    /* Main Container for Sub-sections and Interior Pages */
-    .container {
-      width: 100%;
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 36px 36px 48px;
     }
 
     /* -------------------------------------------------------------
@@ -415,7 +433,7 @@
     ------------------------------------------------------------- */
     .home-gallery-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
     .home-gallery-item {
@@ -427,7 +445,7 @@
     }
     .home-gallery-thumb {
       width: 100%;
-      height: 380px;
+      height: 420px;
       background: var(--card-black);
       border: var(--border-thin);
       overflow: hidden;
@@ -440,10 +458,10 @@
       object-fit: cover;
       display: block;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-      opacity: 0.9;
+      opacity: 0.95;
     }
     .home-gallery-item:hover img {
-      transform: scale(1.04);
+      transform: scale(1.03);
       opacity: 1;
     }
     .home-gallery-caption {
@@ -624,7 +642,7 @@
     }
 
     /* -------------------------------------------------------------
-       WHITE IPOD BODY WITH BLACK & GREY ACCENTS
+       WHITE IPOD WITH BLACK & GREY ACCENTS
     ------------------------------------------------------------- */
     #ipod-widget {
       position: fixed;
@@ -811,7 +829,7 @@
         justify-content: center;
       }
       .landing-official-logo {
-        max-width: 320px;
+        max-width: 300px;
       }
       .landing-fullscreen-hero {
         height: calc(100vh - 120px);
@@ -868,13 +886,28 @@
   <div id="page-home" class="page-view active">
     <!-- Edge-to-Edge 100% Screen Bleed Rotating Storefront Hero -->
     <div class="landing-fullscreen-hero">
-      <img src="./Storefront%201.jpg" class="landing-bg-slide active-bg" id="bg-slide-0" alt="Hive Market Storefront 1" />
-      <img src="./Storefront%202.jpg" class="landing-bg-slide" id="bg-slide-1" alt="Hive Market Storefront 2" />
-      <img src="./Storefront%203.jpg" class="landing-bg-slide" id="bg-slide-2" alt="Hive Market Storefront 3" />
+      
+      <!-- Slide 1 -->
+      <div class="landing-slide-container active-bg" id="bg-slide-0">
+        <img src="Storefront 1.jpg" class="slide-bg-ambient" alt="" />
+        <img src="Storefront 1.jpg" class="slide-main-image" alt="Hive Market Storefront 1" />
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="landing-slide-container" id="bg-slide-1">
+        <img src="Storefront 2.jpg" class="slide-bg-ambient" alt="" />
+        <img src="Storefront 2.jpg" class="slide-main-image" alt="Hive Market Storefront 2" />
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="landing-slide-container" id="bg-slide-2">
+        <img src="Storefront 3.jpg" class="slide-bg-ambient" alt="" />
+        <img src="Storefront 3.jpg" class="slide-main-image" alt="Hive Market Storefront 3" />
+      </div>
       
       <div class="landing-hero-content">
         <!-- Official Logo Asset -->
-        <img src="./HIVE%20MARKET%20LOGO.png" class="landing-official-logo" alt="Hive Market Logo" />
+        <img src="HIVE MARKET LOGO.png" class="landing-official-logo" alt="Hive Market Logo" />
         <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
         <div class="landing-enter-action">
           <a onclick="navigateTo('what-we-buy')" class="btn-minimal-white">Explore Curation</a>
@@ -949,44 +982,36 @@
         </div>
       </div>
 
-      <!-- SECTION: HOMEPAGE CURATED PHOTO GALLERY -->
+      <!-- SECTION: HOMEPAGE GALLERY -->
       <div style="margin-top: 54px;">
         <div class="section-editorial-header">
-          <span class="section-editorial-title">Archival Floor Gallery</span>
-          <a onclick="navigateTo('gallery')" class="nav-link">View Full Dossier (4) →</a>
+          <span class="section-editorial-title">Storefront Perspectives</span>
+          <a onclick="navigateTo('gallery')" class="nav-link">View Full Gallery →</a>
         </div>
 
         <div class="home-gallery-grid">
           <div class="home-gallery-item" onclick="navigateTo('gallery')">
             <div class="home-gallery-thumb">
-              <img src="image_15.png" alt="Sidewalk Rack" />
+              <img src="Storefront 1.jpg" alt="Sidewalk Rack" />
             </div>
-            <div class="home-gallery-caption">Exterior</div>
-            <div class="home-gallery-sub">Sidewalk Flea Racks</div>
+            <div class="home-gallery-caption">Perspective 01</div>
+            <div class="home-gallery-sub">Outdoor Sidewalk Racks</div>
           </div>
 
           <div class="home-gallery-item" onclick="navigateTo('gallery')">
             <div class="home-gallery-thumb">
-              <img src="image_14.png" alt="Leather Footwear" />
+              <img src="Storefront 2.jpg" alt="Store Entrance" />
             </div>
-            <div class="home-gallery-caption">Footwear</div>
-            <div class="home-gallery-sub">Leather Loafers & Boots</div>
+            <div class="home-gallery-caption">Perspective 02</div>
+            <div class="home-gallery-sub">Window Graphics & Entry</div>
           </div>
 
           <div class="home-gallery-item" onclick="navigateTo('gallery')">
             <div class="home-gallery-thumb">
-              <img src="image_2.png" alt="Apparel Racks" />
+              <img src="Storefront 3.jpg" alt="Storefront View" />
             </div>
-            <div class="home-gallery-caption">Apparel</div>
-            <div class="home-gallery-sub">Color-Curated Racks</div>
-          </div>
-
-          <div class="home-gallery-item" onclick="navigateTo('gallery')">
-            <div class="home-gallery-thumb">
-              <img src="image_5.png" alt="Turntable Setup" />
-            </div>
-            <div class="home-gallery-caption">Audio Lounge</div>
-            <div class="home-gallery-sub">Analog Sound System</div>
+            <div class="home-gallery-caption">Perspective 03</div>
+            <div class="home-gallery-sub">Full Window Showcase</div>
           </div>
         </div>
       </div>
@@ -1086,39 +1111,31 @@
     <div id="page-gallery" class="page-view">
       <div class="editorial-panel">
         <h1>Storefront & Interior Dossier</h1>
-        <p>A visual index of 688 Beaumont Ave, from our color-blocked racks to the analog audio lounge.</p>
+        <p>A visual index of 688 Beaumont Ave, from our outdoor sidewalk setups to window curation.</p>
 
         <div class="home-gallery-grid" style="margin-top: 28px;">
           <div class="home-gallery-item">
             <div class="home-gallery-thumb" style="border: 1px solid rgba(255, 255, 255, 0.15);">
-              <img src="image_12.png" alt="Front Door" />
+              <img src="Storefront 1.jpg" alt="Front Door" />
+            </div>
+            <div class="home-gallery-caption" style="color: var(--bg-yellow);">Exterior</div>
+            <div class="home-gallery-sub" style="color: var(--pure-white); text-shadow: none;">Sidewalk Racks & Entrance</div>
+          </div>
+
+          <div class="home-gallery-item">
+            <div class="home-gallery-thumb" style="border: 1px solid rgba(255, 255, 255, 0.15);">
+              <img src="Storefront 2.jpg" alt="Color Racks" />
             </div>
             <div class="home-gallery-caption" style="color: var(--bg-yellow);">Storefront</div>
-            <div class="home-gallery-sub" style="color: var(--pure-white); text-shadow: none;">Main Entrance & Hours</div>
+            <div class="home-gallery-sub" style="color: var(--pure-white); text-shadow: none;">Buy Sell Trade Graphics</div>
           </div>
 
           <div class="home-gallery-item">
             <div class="home-gallery-thumb" style="border: 1px solid rgba(255, 255, 255, 0.15);">
-              <img src="image_2.png" alt="Color Racks" />
+              <img src="Storefront 3.jpg" alt="Leather Footwear" />
             </div>
-            <div class="home-gallery-caption" style="color: var(--bg-yellow);">Interior</div>
-            <div class="home-gallery-sub" style="color: var(--pure-white); text-shadow: none;">Color-Curated Apparel Racks</div>
-          </div>
-
-          <div class="home-gallery-item">
-            <div class="home-gallery-thumb" style="border: 1px solid rgba(255, 255, 255, 0.15);">
-              <img src="image_14.png" alt="Leather Footwear" />
-            </div>
-            <div class="home-gallery-caption" style="color: var(--bg-yellow);">Footwear</div>
-            <div class="home-gallery-sub" style="color: var(--pure-white); text-shadow: none;">Leather Loafers & Boots</div>
-          </div>
-
-          <div class="home-gallery-item">
-            <div class="home-gallery-thumb" style="border: 1px solid rgba(255, 255, 255, 0.15);">
-              <img src="image_5.png" alt="Audio Lounge" />
-            </div>
-            <div class="home-gallery-caption" style="color: var(--bg-yellow);">Audio Lounge</div>
-            <div class="home-gallery-sub" style="color: var(--pure-white); text-shadow: none;">Analog Turntable & Vinyl Vault</div>
+            <div class="home-gallery-caption" style="color: var(--bg-yellow);">Window View</div>
+            <div class="home-gallery-sub" style="color: var(--pure-white); text-shadow: none;">Main Window Display</div>
           </div>
         </div>
       </div>
@@ -1276,7 +1293,7 @@
     </div>
   </main>
 
-  <!-- White iPod Body with Black & Grey Accents -->
+  <!-- Classic White / Grey Minimalist iPod -->
   <div id="ipod-widget">
     <div class="ipod-screen">
       <div class="ipod-header-bar">
@@ -1320,25 +1337,23 @@
     lucide.createIcons();
 
     /* -------------------------------------------------------------
-       5-SECOND SMOOTH ROTATING BACKGROUND SLIDER
+       5-SECOND BACKGROUND ROTATOR
     ------------------------------------------------------------- */
     let currentBgSlide = 0;
     const totalBgSlides = 3;
-    const bgSlides = document.querySelectorAll('.landing-bg-slide');
 
     function rotateLandingBg() {
       currentBgSlide = (currentBgSlide + 1) % totalBgSlides;
-      bgSlides.forEach((slide, idx) => {
-        if (idx === currentBgSlide) {
-          slide.classList.add('active-bg');
-        } else {
-          slide.classList.remove('active-bg');
+      for (let i = 0; i < totalBgSlides; i++) {
+        const slide = document.getElementById(`bg-slide-${i}`);
+        if (slide) {
+          slide.classList.toggle('active-bg', i === currentBgSlide);
         }
-      });
+      }
     }
-
-    // Set 5-second interval timer
-    let bgInterval = setInterval(rotateLandingBg, 5000);
+    
+    // Rotate background every 5000ms
+    setInterval(rotateLandingBg, 5000);
 
     /* -------------------------------------------------------------
        SPA PAGE ROUTER
@@ -1369,7 +1384,7 @@
     }
 
     /* -------------------------------------------------------------
-       CAROUSEL / CONVEYOR BELT SCRIPT
+       CAROUSEL SCRIPT
     ------------------------------------------------------------- */
     let currentSlide = 0;
     const totalSlides = 4;
