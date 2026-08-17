@@ -98,6 +98,7 @@
       letter-spacing: 0.14em;
       transition: opacity 0.2s ease;
       position: relative;
+      font-family: 'Manrope', sans-serif;
     }
     .nav-link:hover {
       opacity: 0.5;
@@ -154,7 +155,7 @@
     }
 
     /* -------------------------------------------------------------
-       FULL-SCREEN BLEED LANDING HERO
+       FULL BLEED EDGE-TO-EDGE HD COVER HERO
     ------------------------------------------------------------- */
     .landing-fullscreen-hero {
       width: 100vw;
@@ -170,40 +171,35 @@
       border-bottom: var(--border-thin);
     }
 
-    .landing-slide-container {
+    /* HD Full-Bleed Backgrounds */
+    .landing-bg-image {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
       opacity: 0;
-      transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+      filter: contrast(1.06) brightness(0.78);
+      transform: scale(1.02);
+      transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.25, 1, 0.5, 1);
       z-index: 1;
       pointer-events: none;
+      image-rendering: -webkit-optimize-contrast;
     }
-    .landing-slide-container.active-bg {
+    
+    .landing-bg-image.active-bg {
       opacity: 1;
+      transform: scale(1);
     }
 
-    .slide-bg-ambient {
-      position: absolute;
-      inset: -20px;
-      width: calc(100% + 40px);
-      height: calc(100% + 40px);
-      object-fit: cover;
-      object-position: center;
-      filter: blur(24px) brightness(0.35);
-      transform: scale(1.1);
-    }
-
-    .slide-main-image {
+    /* Subtle Dark Vignette Overlay */
+    .hero-vignette-overlay {
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      filter: contrast(1.03) brightness(0.92);
+      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.65) 100%);
       z-index: 2;
+      pointer-events: none;
     }
 
     .landing-hero-content {
@@ -220,10 +216,10 @@
     
     .landing-official-logo {
       width: 100%;
-      max-width: 540px;
+      max-width: 560px;
       height: auto;
       display: block;
-      filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.95)) invert(1);
+      filter: drop-shadow(0 6px 30px rgba(0, 0, 0, 0.95)) invert(1);
       margin-bottom: 18px;
     }
     
@@ -235,17 +231,17 @@
       text-transform: uppercase;
       margin-bottom: 24px;
       opacity: 0.95;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
     }
     .landing-enter-action {
       pointer-events: auto;
       display: inline-block;
     }
     .btn-minimal-white {
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.45);
       color: var(--pure-white);
       padding: 12px 36px;
       font-size: 0.75rem;
@@ -309,7 +305,7 @@
       padding: 36px 36px 48px;
     }
 
-    /* Conveyor Carousel */
+    /* Conveyor Belt */
     .section-editorial-header {
       border-top: var(--border-thin);
       border-bottom: var(--border-thin);
@@ -474,7 +470,7 @@
       letter-spacing: 0.06em;
     }
 
-    /* Interior Panels */
+    /* Editorial Panels */
     .editorial-panel {
       background: var(--deep-black);
       color: var(--pure-white);
@@ -847,7 +843,7 @@
     688 Beaumont Ave, Beaumont CA &nbsp;|&nbsp; Mon–Fri 11–7 • Sat–Sun 12–8 &nbsp;|&nbsp; (951) 845-5669
   </div>
 
-  <!-- Header -->
+  <!-- Editorial Top Flush Header -->
   <header>
     <div class="header-inner">
       <ul class="nav-left">
@@ -857,7 +853,7 @@
         <li><a class="nav-link" onclick="navigateTo('gallery')">Gallery</a></li>
       </ul>
 
-      <!-- HM Silhouette Icon -->
+      <!-- Center Icon -->
       <a class="brand-center" onclick="navigateTo('home')" aria-label="Hive Market Home">
         <div class="header-hm-symbol">
           <span>HM</span>
@@ -878,24 +874,14 @@
     <!-- Edge-to-Edge 100% Screen Bleed Rotating Storefront Hero -->
     <div class="landing-fullscreen-hero">
       
-      <!-- Slide 1 -->
-      <div class="landing-slide-container active-bg" id="bg-slide-0">
-        <img src="Storefront 1.JPG" class="slide-bg-ambient" alt="" />
-        <img src="Storefront 1.JPG" class="slide-main-image" alt="Hive Market Storefront 1" />
-      </div>
-
-      <!-- Slide 2 -->
-      <div class="landing-slide-container" id="bg-slide-1">
-        <img src="Storefront 2.JPG" class="slide-bg-ambient" alt="" />
-        <img src="Storefront 2.JPG" class="slide-main-image" alt="Hive Market Storefront 2" />
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="landing-slide-container" id="bg-slide-2">
-        <img src="Storefront 3.JPG" class="slide-bg-ambient" alt="" />
-        <img src="Storefront 3.JPG" class="slide-main-image" alt="Hive Market Storefront 3" />
-      </div>
+      <!-- Full Edge-to-Edge Background Layers -->
+      <img src="Storefront 1.JPG" class="landing-bg-image active-bg" id="bg-slide-0" alt="Hive Market Storefront 1" />
+      <img src="Storefront 2.JPG" class="landing-bg-image" id="bg-slide-1" alt="Hive Market Storefront 2" />
+      <img src="Storefront 3.JPG" class="landing-bg-image" id="bg-slide-2" alt="Hive Market Storefront 3" />
       
+      <!-- Subtle Contrast Overlay -->
+      <div class="hero-vignette-overlay"></div>
+
       <div class="landing-hero-content">
         <!-- Logo Asset -->
         <img src="HIVE MARKET LOGO.png" class="landing-official-logo" alt="Hive Market Logo" />
@@ -1284,7 +1270,7 @@
     </div>
   </main>
 
-  <!-- White iPod with Dark Center Button -->
+  <!-- White iPod Body with Black & Grey Accents -->
   <div id="ipod-widget">
     <div class="ipod-screen">
       <div class="ipod-header-bar">
