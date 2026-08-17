@@ -161,7 +161,9 @@
       transform: translateY(0);
     }
 
-    /* Landing Page */
+    /* -------------------------------------------------------------
+       LANDING PAGE (INFINITE STOREFRONT BELT BACKDROP)
+    ------------------------------------------------------------- */
     .landing-cover-wrap {
       width: 100%;
       position: relative;
@@ -175,41 +177,61 @@
       align-items: center;
       justify-content: center;
     }
-    .landing-cover-img {
+
+    /* Infinite Carousel Track for 3 Storefront Photos */
+    .hero-belt-track {
       position: absolute;
       top: 0;
       left: 0;
+      height: 100%;
+      display: flex;
+      width: 600%;
+      animation: infiniteBeltLoop 36s linear infinite;
+      will-change: transform;
+    }
+    .hero-belt-slide {
+      width: 16.66666%;
+      height: 100%;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .hero-belt-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
       opacity: 0.85;
       filter: contrast(1.05) brightness(0.9);
-      transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
     }
-    .landing-cover-wrap:hover .landing-cover-img {
-      transform: scale(1.02);
-      opacity: 0.92;
+
+    @keyframes infiniteBeltLoop {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
     }
     
     .landing-hero-content {
       position: relative;
       z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
       padding: 30px;
-      max-width: 800px;
+      max-width: 860px;
       pointer-events: none;
     }
-    .landing-hero-title {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 300;
-      font-size: 3.6rem;
-      letter-spacing: 0.28em;
-      color: var(--pure-white);
-      text-transform: uppercase;
-      line-height: 1.1;
-      margin-bottom: 12px;
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    
+    /* Official Hive Market Custom Vector Logo Overlay */
+    .landing-official-logo {
+      width: 100%;
+      max-width: 580px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.85)) invert(1);
+      margin-bottom: 20px;
+      transition: transform 0.4s ease;
     }
+    
     .landing-hero-subtitle {
       font-family: 'Manrope', sans-serif;
       font-size: 0.95rem;
@@ -218,12 +240,13 @@
       color: var(--pure-white);
       text-transform: uppercase;
       margin-bottom: 24px;
-      opacity: 0.9;
+      opacity: 0.95;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
     }
     .landing-enter-action {
       pointer-events: auto;
       display: inline-block;
-      margin-top: 8px;
+      margin-top: 4px;
     }
     .btn-minimal-white {
       background: rgba(255, 255, 255, 0.12);
@@ -246,7 +269,7 @@
       border-color: var(--pure-white);
     }
 
-    /* Transparent Down Arrow */
+    /* Transparent Down Arrow & Teaser Cue */
     .down-arrow-anchor {
       position: absolute;
       bottom: 20px;
@@ -286,7 +309,9 @@
       50% { transform: translateY(6px); }
     }
 
-    /* Events Carousel / Conveyor Belt */
+    /* -------------------------------------------------------------
+       EVENTS & DEALS CAROUSEL (CONVEYOR BELT)
+    ------------------------------------------------------------- */
     .section-editorial-header {
       border-top: var(--border-thin);
       border-bottom: var(--border-thin);
@@ -401,7 +426,9 @@
       transform: scale(1.25);
     }
 
-    /* Homepage Gallery Grid */
+    /* -------------------------------------------------------------
+       HOMEPAGE CURATED PHOTO GALLERY
+    ------------------------------------------------------------- */
     .home-gallery-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -452,7 +479,9 @@
       letter-spacing: 0.06em;
     }
 
-    /* Editorial Panels */
+    /* -------------------------------------------------------------
+       INTERIOR EDITORIAL PANELS
+    ------------------------------------------------------------- */
     .editorial-panel {
       background: var(--deep-black);
       color: var(--pure-white);
@@ -531,7 +560,7 @@
       border-color: var(--pure-white);
     }
 
-    /* Spec Table */
+    /* Specification Table */
     .spec-table {
       width: 100%;
       border-collapse: collapse;
@@ -611,7 +640,7 @@
     }
 
     /* -------------------------------------------------------------
-       WHITE IPOD BODY WITH BLACK & GREY ACCENTS (CLASSIC LOOK)
+       WHITE IPOD BODY WITH BLACK & GREY ACCENTS
     ------------------------------------------------------------- */
     #ipod-widget {
       position: fixed;
@@ -681,7 +710,7 @@
       background: #FFFFFF;
     }
 
-    /* Grey & Black Click Wheel */
+    /* Grey Click Wheel */
     .ipod-wheel {
       width: 106px;
       height: 106px;
@@ -710,7 +739,7 @@
     .wheel-next { right: 8px; top: 50%; transform: translateY(-50%); }
     .wheel-play { bottom: 7px; left: 50%; transform: translateX(-50%); }
     
-    /* Center Button (Dark Grey / Black Finish) */
+    /* Center Button */
     .center-btn {
       width: 40px;
       height: 40px;
@@ -797,8 +826,8 @@
         flex-wrap: wrap;
         justify-content: center;
       }
-      .landing-hero-title {
-        font-size: 2.2rem;
+      .landing-official-logo {
+        max-width: 320px;
       }
       .event-card-slide {
         flex: 0 0 85%;
@@ -849,11 +878,34 @@
 
     <!-- PAGE 1: SLEEK MINIMAL LANDING PAGE -->
     <div id="page-home" class="page-view active">
-      <!-- Full-bleed Storefront Cover -->
+      <!-- Full-bleed Storefront Infinite Belt Cover -->
       <div class="landing-cover-wrap">
-        <img src="image_10.png" class="landing-cover-img" alt="Hive Market Storefront" />
+        <div class="hero-belt-track">
+          <!-- Set 1 of Storefront Photos -->
+          <div class="hero-belt-slide">
+            <img src="Storefront 1.jpg" alt="Hive Market Storefront 1" />
+          </div>
+          <div class="hero-belt-slide">
+            <img src="Storefront 2.jpg" alt="Hive Market Storefront 2" />
+          </div>
+          <div class="hero-belt-slide">
+            <img src="Storefront 3.jpg" alt="Hive Market Storefront 3" />
+          </div>
+          <!-- Set 2 (Seamless Infinite Duplicate) -->
+          <div class="hero-belt-slide">
+            <img src="Storefront 1.jpg" alt="Hive Market Storefront 1 Duplicate" />
+          </div>
+          <div class="hero-belt-slide">
+            <img src="Storefront 2.jpg" alt="Hive Market Storefront 2 Duplicate" />
+          </div>
+          <div class="hero-belt-slide">
+            <img src="Storefront 3.jpg" alt="Hive Market Storefront 3 Duplicate" />
+          </div>
+        </div>
+        
         <div class="landing-hero-content">
-          <h1 class="landing-hero-title">Hive Market</h1>
+          <!-- Official Hive Market Custom Vector Logo Asset -->
+          <img src="HIVE MARKET LOGO.png" class="landing-official-logo" alt="Hive Market Logo" />
           <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
           <div class="landing-enter-action">
             <a onclick="navigateTo('what-we-buy')" class="btn-minimal-white">Explore Curation</a>
