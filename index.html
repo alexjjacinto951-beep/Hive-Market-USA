@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hive Market USA | Curated Vintage & Streetwear | Beaumont, CA</title>
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg: #FAF6EE;
+      --card-bg: #FFFDF9;
+      --ink: #181512;
+      --honey-gold: #F4A213;
+      --terracotta: #D94E34;
+      --forest: #2D6A4F;
+      --lavender: #8E7DBE;
+      --border-width: 3px;
+      --shadow-offset: 4px;
+      --shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--ink);
+      --shadow-hover: 6px 6px 0px var(--ink);
+      --shadow-active: 1px 1px 0px var(--ink);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: radial-gradient(#d8d0be 1.2px, transparent 1.2px);
+      background-size: 24px 24px;
+      color: var(--ink);
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Fredoka', cursive;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .retro-card {
+      background: var(--card-bg);
+      border: var(--border-width) solid var(--ink);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      transition: all 0.15s ease;
+    }
+
+    .retro-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Fredoka', cursive;
+      font-size: 1.05rem;
+      padding: 12px 24px;
+      border: var(--border-width) solid var(--ink);
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--ink);
+      transition: all 0.1s ease;
+      user-select: none;
+    }
+
+    .retro-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .retro-btn:active {
+      transform: translate(3px, 3px);
+      box-shadow: var(--shadow-active);
+    }
+
+    .btn-honey { background: var(--honey-gold); }
+    .btn-terracotta { background: var(--terracotta); color: #fff; }
+    .btn-forest { background: var(--forest); color: #fff; }
+    .btn-lavender { background: var(--lavender); color: #fff; }
+
+    /* Top Banner Ticker */
+    .ticker-wrap {
+      background: var(--honey-gold);
+      border-bottom: var(--border-width) solid var(--ink);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 7px 0;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .ticker {
+      display: inline-block;
+      animation: marquee 24s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 246, 238, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: var(--border-width) solid var(--ink);
+      z-index: 1000;
+      padding: 12px 24px;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .logo-badge {
+      background: var(--ink);
+      color: var(--honey-gold);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .nav-links a:hover {
+      background: rgba(244, 162, 19, 0.25);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .rating-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      padding: 6px 14px;
+      border: 2px solid var(--ink);
+      border-radius: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+    .hero-title {
+      font-size: 3.6rem;
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 26px;
+      color: #3F3A36;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .hero-visual {
+      position: relative;
+      background: var(--honey-gold);
+      border-radius: 24px;
+      border: var(--border-width) solid var(--ink);
+      box-shadow: 8px 8px 0px var(--ink);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .vibe-tag {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--terracotta);
+      color: white;
+      padding: 6px 12px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      transform: rotate(4deg);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    /* Section Styles */
+    .section-title-wrap {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+    .section-desc {
+      font-size: 1.05rem;
+      color: #555;
+    }
+
+    /* Filter Grid */
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 26px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: #fff;
+      border: 2px solid var(--ink);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+    .filter-btn.active {
+      background: var(--ink);
+      color: #fff;
+    }
+    .buy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+    .buy-card {
+      padding: 24px;
+    }
+    .status-pill {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1.5px solid var(--ink);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .pill-hot { background: #FFE066; }
+    .pill-yes { background: #A7C957; }
+    .pill-no { background: #FFAAA6; }
+
+    /* Sell / Booking */
+    .booking-wrapper {
+      background: #fff;
+      border: var(--border-width) solid var(--ink);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+    .form-control {
+      width: 100%;
+      padding: 11px 14px;
+      border: 2px solid var(--ink);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: #FAF7F0;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--honey-gold);
+      background: #fff;
+    }
+    .slots-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .time-slot {
+      padding: 9px;
+      text-align: center;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.85rem;
+      background: #FAF7F0;
+    }
+    .time-slot.selected {
+      background: var(--honey-gold);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* Events */
+    .event-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .event-card {
+      padding: 24px;
+      cursor: pointer;
+    }
+    .event-date-stamp {
+      background: var(--honey-gold);
+      border: 2px solid var(--ink);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 12px;
+      font-size: 0.85rem;
+    }
+
+    /* Vendor Portal */
+    .vendor-section {
+      background: var(--forest);
+      border: var(--border-width) solid var(--ink);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 40px;
+      color: #fff;
+    }
+    .vendor-form {
+      background: var(--card-bg);
+      border: var(--border-width) solid var(--ink);
+      border-radius: 16px;
+      padding: 28px;
+      color: var(--ink);
+      margin-top: 24px;
+    }
+
+    /* Store Info */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+    }
+    .info-box {
+      padding: 24px;
+      text-align: center;
+    }
+    .info-icon {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    /* Floating Draggable iPod */
+    #ipod-widget {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 220px;
+      background: linear-gradient(145deg, #f0f0f0, #cacaca);
+      border: 3px solid #1a1a1a;
+      border-radius: 28px;
+      padding: 16px 14px 20px;
+      box-shadow: 6px 6px 0px rgba(0,0,0,0.8), 0 10px 25px rgba(0,0,0,0.2);
+      z-index: 9999;
+      user-select: none;
+      cursor: grab;
+    }
+    #ipod-widget:active {
+      cursor: grabbing;
+    }
+    .ipod-screen {
+      background: #8FA382;
+      border: 2px solid #333;
+      border-radius: 8px;
+      padding: 8px;
+      height: 90px;
+      box-shadow: inset 2px 2px 4px rgba(0,0,0,0.3);
+      color: #1A2611;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .ipod-header-bar {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.65rem;
+      font-weight: 700;
+      border-bottom: 1px dashed #4e5f41;
+      padding-bottom: 2px;
+    }
+    .ipod-track-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .ipod-wheel {
+      width: 120px;
+      height: 120px;
+      background: #FFFFFF;
+      border: 2px solid #555;
+      border-radius: 50%;
+      margin: 14px auto 0;
+      position: relative;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    }
+    .wheel-btn {
+      position: absolute;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #777;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .wheel-btn:hover { color: #000; }
+    .wheel-menu { top: 6px; left: 50%; transform: translateX(-50%); }
+    .wheel-prev { left: 8px; top: 50%; transform: translateY(-50%); }
+    .wheel-next { right: 8px; top: 50%; transform: translateY(-50%); }
+    .wheel-play { bottom: 6px; left: 50%; transform: translateX(-50%); }
+    .center-btn {
+      width: 44px;
+      height: 44px;
+      background: #ececec;
+      border: 2px solid #777;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      padding: 20px;
+    }
+    .modal-card {
+      background: var(--card-bg);
+      border: var(--border-width) solid var(--ink);
+      border-radius: 20px;
+      max-width: 500px;
+      width: 100%;
+      padding: 30px;
+      position: relative;
+      box-shadow: 8px 8px 0 var(--ink);
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--terracotta);
+      color: #fff;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @media (max-width: 868px) {
+      .hero { grid-template-columns: 1fr; }
+      .booking-wrapper { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-title { font-size: 2.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Marquee -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      🐝 WELCOME TO HIVE MARKET USA • 688 BEAUMONT AVE, BEAUMONT CA • OPEN DAILY UNTIL 7 PM • CALL (909) 222-5719 • WE BUY & TRADE VINTAGE THREADS • 5.0 RATED COMMUNITY VIBES • 🐝
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo-area">
+        <span class="logo-badge brand-font">🐝 HIVE MARKET USA</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#what-we-buy">What We Buy</a></li>
+        <li><a href="#sell">Sell & Trade</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#vendors">Vendors</a></li>
+        <li><a href="#info">Store Info</a></li>
+      </ul>
+      <a href="#sell" class="retro-btn btn-honey" style="padding: 8px 16px; font-size: 0.9rem;">
+        <i data-lucide="calendar"></i> Book Drop-Off
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="container">
+    <section class="hero" id="about">
+      <div>
+        <div class="rating-badge">
+          <span>⭐️⭐️⭐️⭐️⭐️ 5.0 Stars</span>
+          <span style="color: #666; font-size: 0.85rem;">(Beaumont's Favorite)</span>
+        </div>
+        <h1 class="hero-title">Vintage clothing, rare finds & good energy in Beaumont.</h1>
+        <p class="hero-subtitle">
+          "Good environment, great service, and nice aesthetic." Step into the Hive for handpicked 90s tees, vintage streetwear, Y2K fits, and one-of-a-kind reworked pieces right on Beaumont Ave.
+        </p>
+        <div class="hero-actions">
+          <a href="#what-we-buy" class="retro-btn btn-honey">
+            <i data-lucide="shopping-bag"></i> What We Buy
+          </a>
+          <a href="#sell" class="retro-btn btn-terracotta">
+            <i data-lucide="dollar-sign"></i> Sell Your Clothes
+          </a>
+          <a href="https://maps.google.com/?q=688+Beaumont+Ave,+Beaumont,+CA+92223" target="_blank" class="retro-btn" style="background:#fff;">
+            <i data-lucide="map-pin"></i> Get Directions
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <span class="vibe-tag">Open Today 'Til 7:00 PM</span>
+        <div style="font-size: 4.2rem; margin: 15px 0;">🐝 🧥 👟 📻</div>
+        <h3 style="font-size: 1.4rem; margin-bottom: 6px;">Fresh Racks Loaded Daily</h3>
+        <p style="font-size: 0.95rem; margin-bottom: 14px;">Curated apparel, denim, jackets, and accessories.</p>
+        <div style="background: rgba(255,255,255,0.85); padding: 8px 14px; border-radius: 8px; border: 1.5px solid var(--ink); display: inline-flex; align-items: center; gap: 8px;">
+          <span style="font-weight: 700; color: var(--forest);">📞 (909) 222-5719</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: What We Buy -->
+    <section id="what-we-buy" style="margin-top: 85px;">
+      <div class="section-title-wrap">
+        <h2 class="section-title">What We’re Buying & Trading</h2>
+        <p class="section-desc">Turn your closet into instant cash or bonus store trade credit.</p>
+      </div>
+
+      <div class="filter-tabs">
+        <button class="filter-btn active" onclick="filterItems('all')">All Items</button>
+        <button class="filter-btn" onclick="filterItems('apparel')">Vintage Apparel</button>
+        <button class="filter-btn" onclick="filterItems('outerwear')">Outerwear & Denim</button>
+        <button class="filter-btn" onclick="filterItems('accessories')">Kicks & Accessories</button>
+      </div>
+
+      <div class="buy-grid" id="buy-grid">
+        <div class="retro-card buy-card" data-cat="apparel">
+          <span class="status-pill pill-hot">🔥 Highest Payout</span>
+          <h3>90s & Y2K Graphic Tees</h3>
+          <p style="margin: 8px 0 12px; font-size: 0.9rem; color:#444;">Vintage band tees, Harley Davidson, racing shirts, anime, pop culture, and single-stitch nostalgia.</p>
+          <div style="font-size: 0.85rem; font-weight: 600; color: var(--forest);">Condition: Faded & worn-in is great!</div>
+        </div>
+
+        <div class="retro-card buy-card" data-cat="outerwear">
+          <span class="status-pill pill-hot">🔥 In Demand</span>
+          <h3>Workwear & Vintage Denim</h3>
+          <p style="margin: 8px 0 12px; font-size: 0.9rem; color:#444;">Carhartt jackets/vests, vintage Levi's 501/550, Dickies, military surplus, and varsity bombers.</p>
+          <div style="font-size: 0.85rem; font-weight: 600; color: var(--forest);">All sizes accepted</div>
+        </div>
+
+        <div class="retro-card buy-card" data-cat="accessories">
+          <span class="status-pill pill-yes">✓ Always Buying</span>
+          <h3>Retro Caps, Hats & Sneakers</h3>
+          <p style="margin: 8px 0 12px; font-size: 0.9rem; color:#444;">Vintage snapbacks, trucker hats, beanies, clean retro sneakers, and genuine leather belts.</p>
+          <div style="font-size: 0.85rem; font-weight: 600; color: var(--forest);">Clean, wearable condition</div>
+        </div>
+
+        <div class="retro-card buy-card" data-cat="apparel">
+          <span class="status-pill pill-no">✕ What We Skip</span>
+          <h3>Fast Fashion & Basic Mall Brands</h3>
+          <p style="margin: 8px 0 12px; font-size: 0.9rem; color:#666;">We pass on fast-fashion brands (Shein, Forever 21, Temu), counterfeit goods, or unwashed items.</p>
+          <div style="font-size: 0.85rem; font-weight: 600; color: var(--terracotta);">Quality & authenticity come first</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Sell / Book Appointment -->
+    <section id="sell" style="margin-top: 85px;">
+      <div class="section-title-wrap">
+        <h2 class="section-title">Sell To Hive Market</h2>
+        <p class="section-desc">Schedule a drop-off evaluation or walk in during buying hours.</p>
+      </div>
+
+      <div class="booking-wrapper">
+        <div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 12px;">The Hive Buying Process</h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;">
+            <li style="display: flex; gap: 10px; align-items: flex-start;">
+              <span style="background:var(--honey-gold); border: 1.5px solid var(--ink); border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">1</span>
+              <span><strong>Bring in up to 2 clean bags/bins</strong> of vintage or streetwear items.</span>
+            </li>
+            <li style="display: flex; gap: 10px; align-items: flex-start;">
+              <span style="background:var(--honey-gold); border: 1.5px solid var(--ink); border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">2</span>
+              <span><strong>We review on the spot</strong> (15-20 min) while you check out the store.</span>
+            </li>
+            <li style="display: flex; gap: 10px; align-items: flex-start;">
+              <span style="background:var(--honey-gold); border: 1.5px solid var(--ink); border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">3</span>
+              <span><strong>Instant payout:</strong> Walk out with Cash, Zelle/Venmo, or extra Store Credit!</span>
+            </li>
+          </ul>
+
+          <div style="background: #FFF9DB; border: 2px dashed #E5B50A; border-radius: 12px; padding: 14px;">
+            <p style="font-size: 0.85rem; color: #744210; font-weight: 600;">
+              📍 Beaumont Store Address: 688 Beaumont Ave, Beaumont, CA 92223
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <form id="booking-form" onsubmit="handleBooking(event)">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" class="form-control" placeholder="Jordan Rivera" required />
+            </div>
+
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" class="form-control" placeholder="(909) 000-0000" required />
+            </div>
+
+            <div class="form-group">
+              <label>Preferred Date</label>
+              <input type="date" id="book-date" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+              <label>Time Slot</label>
+              <div class="slots-grid">
+                <div class="time-slot" onclick="selectTime(this)">12:00 PM</div>
+                <div class="time-slot selected" onclick="selectTime(this)">1:30 PM</div>
+                <div class="time-slot" onclick="selectTime(this)">3:00 PM</div>
+                <div class="time-slot" onclick="selectTime(this)">4:30 PM</div>
+                <div class="time-slot" onclick="selectTime(this)">5:30 PM</div>
+                <div class="time-slot" onclick="selectTime(this)">6:15 PM</div>
+              </div>
+            </div>
+
+            <button type="submit" class="retro-btn btn-honey" style="width: 100%; margin-top: 10px;">
+              Confirm Drop-Off Appointment
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Events Calendar -->
+    <section id="events" style="margin-top: 85px;">
+      <div class="section-title-wrap">
+        <h2 class="section-title">Hive Community Events</h2>
+        <p class="section-desc">Vintage pop-up markets, community sidewalk sales, and drop parties.</p>
+      </div>
+
+      <div class="event-cards-grid">
+        <div class="retro-card event-card" onclick="openEventModal('Beaumont Vintage Sidewalk Flea', 'Saturday, Sept 5 • 11:00 AM – 5:00 PM', 'Come out for our outdoor market featuring local vintage vendors, sneaker curators, cold drinks, and good music on Beaumont Ave.', 'Hive Market Front & Alley')">
+          <span class="event-date-stamp">Sat, Sept 5</span>
+          <h3>Beaumont Vintage Sidewalk Flea</h3>
+          <p style="font-size: 0.9rem; color: #555; margin: 8px 0 14px;">Outdoor racks, local brand pop-ups, and special vintage steals.</p>
+          <span style="font-weight: 700; color: var(--terracotta); font-size: 0.9rem;">View Event Details →</span>
+        </div>
+
+        <div class="retro-card event-card" onclick="openEventModal('The 90s Tee & Denim Drop Party', 'Friday, Sept 18 • 4:00 PM – 7:00 PM', 'We are unloading 300+ fresh handpicked vintage t-shirts and denim pieces straight onto the racks. First 20 people get exclusive Hive stickers.', 'Main Store')">
+          <span class="event-date-stamp">Fri, Sept 18</span>
+          <h3>90s Tee & Denim Drop Party</h3>
+          <p style="font-size: 0.9rem; color: #555; margin: 8px 0 14px;">300+ curated tees and jacket drops before the weekend.</p>
+          <span style="font-weight: 700; color: var(--terracotta); font-size: 0.9rem;">View Event Details →</span>
+        </div>
+
+        <div class="retro-card event-card" onclick="openEventModal('Local Creator Market Day', 'Saturday, Oct 3 • 12:00 PM – 6:00 PM', 'A showcase of Beaumont and Inland Empire creators including handmade jewelry, rework artists, and art prints.', 'Hive Courtyard')">
+          <span class="event-date-stamp">Sat, Oct 3</span>
+          <h3>Local Creator Market Day</h3>
+          <p style="font-size: 0.9rem; color: #555; margin: 8px 0 14px;">Supporting local Inland Empire makers, artists, and curators.</p>
+          <span style="font-weight: 700; color: var(--terracotta); font-size: 0.9rem;">View Event Details →</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Vendor Applications -->
+    <section id="vendors" style="margin-top: 85px;">
+      <div class="vendor-section">
+        <h2 style="font-size: 2.3rem;">Vendors: Pop-Up at Hive Market</h2>
+        <p style="font-size: 1.05rem; opacity: 0.95; margin-top: 6px;">
+          Are you an Inland Empire vintage curator, artist, or jewelry maker? Join our community pop-up days.
+        </p>
+
+        <div class="vendor-form">
+          <form onsubmit="handleVendorSubmit(event)">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" class="form-control" placeholder="Sam Taylor" required />
+              </div>
+              <div class="form-group">
+                <label>Brand / Store Name</label>
+                <input type="text" class="form-control" placeholder="ST Vintage Goods" required />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label>Phone or Email</label>
+                <input type="text" class="form-control" placeholder="(909) ... or name@domain.com" required />
+              </div>
+              <div class="form-group">
+                <label>Instagram Handle</label>
+                <input type="text" class="form-control" placeholder="@yourbrand" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Products You Sell</label>
+              <input type="text" class="form-control" placeholder="e.g. 90s streetwear, handmade accessories, art" required />
+            </div>
+
+            <button type="submit" class="retro-btn btn-honey" style="width: 100%; margin-top: 6px;">
+              Submit Pop-Up Application
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Store Information -->
+    <section id="info" style="margin-top: 85px; margin-bottom: 80px;">
+      <div class="section-title-wrap">
+        <h2 class="section-title">Visit Hive Market USA</h2>
+        <p class="section-desc">Located in the heart of Beaumont, California.</p>
+      </div>
+
+      <div class="info-grid">
+        <div class="retro-card info-box">
+          <div class="info-icon">📍</div>
+          <h3>Address</h3>
+          <p style="margin-top: 8px; color: #444;">
+            <strong>688 Beaumont Ave</strong><br />
+            Beaumont, CA 92223<br />
+            <a href="https://maps.google.com/?q=688+Beaumont+Ave,+Beaumont,+CA+92223" target="_blank" style="color: var(--terracotta); font-weight: 700; font-size: 0.85rem; text-decoration: none;">Get Google Maps Directions →</a>
+          </p>
+        </div>
+
+        <div class="retro-card info-box">
+          <div class="info-icon">⏰</div>
+          <h3>Hours</h3>
+          <p style="margin-top: 8px; color: #444;">
+            <strong>Open Daily</strong><br />
+            Until 7:00 PM<br />
+            <span style="font-size: 0.85rem; color: #2D6A4F; font-weight: 700;">🟢 Open Today</span>
+          </p>
+        </div>
+
+        <div class="retro-card info-box">
+          <div class="info-icon">📞</div>
+          <h3>Direct Line</h3>
+          <p style="margin-top: 8px; color: #444;">
+            <strong>Phone:</strong> (909) 222-5719<br />
+            <span style="font-size: 0.85rem; color: #666;">Call ahead for buying questions or trade holds</span>
+          </p>
+        </div>
+
+        <div class="retro-card info-box">
+          <div class="info-icon">⭐️</div>
+          <h3>Customer Reviews</h3>
+          <p style="margin-top: 8px; color: #444; font-size: 0.9rem; font-style: italic;">
+            "Good environment, great service."<br />
+            "Place has a nice aesthetic too, would check out again."
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Interactive iPod -->
+  <div id="ipod-widget">
+    <div class="ipod-screen">
+      <div class="ipod-header-bar">
+        <span>Hive Pod</span>
+        <span id="ipod-status">PAUSED</span>
+        <span>⚡ 100%</span>
+      </div>
+      <div>
+        <div style="font-size: 0.65rem; color: #3c4b33;" id="ipod-artist">Hive Market Radio</div>
+        <div class="ipod-track-title" id="ipod-title">Track 1: Beaumont Chill Beats</div>
+      </div>
+      <div style="height: 3px; background: #6e8262; border-radius: 2px; overflow: hidden;">
+        <div id="ipod-progress" style="width: 30%; height: 100%; background: #1A2611;"></div>
+      </div>
+    </div>
+
+    <!-- Click Wheel -->
+    <div class="ipod-wheel">
+      <button class="wheel-btn wheel-menu" onclick="showPlayerTip()">MENU</button>
+      <button class="wheel-btn wheel-prev" onclick="prevTrack()">⏮</button>
+      <button class="wheel-btn wheel-next" onclick="nextTrack()">⏭</button>
+      <button class="wheel-btn wheel-play" onclick="togglePlay()">▶❚❚</button>
+      <div class="center-btn" onclick="togglePlay()">
+        <span style="font-size: 0.6rem; font-weight: 700; color: #444;">SELECT</span>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 8px; font-size: 0.65rem; color: #555; font-weight: 700;">
+      DRAGGABLE RETRO PLAYER 🎶
+    </div>
+  </div>
+
+  <!-- Event Modal -->
+  <div class="modal-overlay" id="event-modal" onclick="closeModal(event)">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeEventModal()">✕</button>
+      <span class="event-date-stamp" id="modal-date" style="margin-bottom: 10px;">Date</span>
+      <h2 id="modal-title" style="font-size: 1.6rem; margin: 8px 0 10px;">Event Title</h2>
+      <p style="font-weight: 600; color: var(--terracotta); margin-bottom: 10px;" id="modal-location">Location</p>
+      <p id="modal-desc" style="color: #444; line-height: 1.5; margin-bottom: 20px;">Details</p>
+      <button class="retro-btn btn-honey" style="width: 100%;" onclick="rsvpSuccess()">RSVP Free Pass</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    lucide.createIcons();
+
+    // Default Date
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const dateInput = document.getElementById('book-date');
+    if (dateInput) dateInput.value = tomorrow.toISOString().split('T')[0];
+
+    function selectTime(el) {
+      document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function filterItems(cat) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const cards = document.querySelectorAll('.buy-card');
+      cards.forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+      });
+    }
+
+    function handleBooking(e) {
+      e.preventDefault();
+      const time = document.querySelector('.time-slot.selected').innerText;
+      alert(`🐝 Hive Drop-Off Booked!\n\nWe reserved your appointment for ${dateInput.value} at ${time} at our Beaumont store (688 Beaumont Ave). See you then!`);
+      e.target.reset();
+    }
+
+    function handleVendorSubmit(e) {
+      e.preventDefault();
+      alert('🐝 Application Submitted!\n\nThanks for applying to pop-up at Hive Market USA. We will review your application and get in touch.');
+      e.target.reset();
+    }
+
+    function openEventModal(title, date, desc, loc) {
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-date').innerText = date;
+      document.getElementById('modal-desc').innerText = desc;
+      document.getElementById('modal-location').innerText = '📍 ' + loc;
+      document.getElementById('event-modal').style.display = 'flex';
+    }
+    function closeEventModal() {
+      document.getElementById('event-modal').style.display = 'none';
+    }
+    function closeModal(e) {
+      if (e.target.id === 'event-modal') closeEventModal();
+    }
+    function rsvpSuccess() {
+      alert('🎟️ You are on the Hive guest list! See you there.');
+      closeEventModal();
+    }
+
+    // Draggable iPod
+    const ipod = document.getElementById("ipod-widget");
+    let isDragging = false;
+    let offset = { x: 0, y: 0 };
+
+    ipod.addEventListener("mousedown", (e) => {
+      if (e.target.tagName.toLowerCase() === 'button' || e.target.classList.contains('center-btn') || e.target.classList.contains('wheel-btn')) return;
+      isDragging = true;
+      offset.x = e.clientX - ipod.getBoundingClientRect().left;
+      offset.y = e.clientY - ipod.getBoundingClientRect().top;
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      let left = Math.max(10, Math.min(window.innerWidth - ipod.offsetWidth - 10, e.clientX - offset.x));
+      let top = Math.max(10, Math.min(window.innerHeight - ipod.offsetHeight - 10, e.clientY - offset.y));
+      ipod.style.left = left + "px";
+      ipod.style.top = top + "px";
+      ipod.style.bottom = "auto";
+      ipod.style.right = "auto";
+    });
+
+    document.addEventListener("mouseup", () => { isDragging = false; });
+
+    // Web Audio Synthesizer
+    let audioCtx = null;
+    let isPlaying = false;
+    let currentTrackIdx = 0;
+    let synthInterval = null;
+
+    const playlist = [
+      { title: "Track 1: Beaumont Chill Beats", artist: "Hive Radio", notes: [261.63, 329.63, 392.00, 523.25] },
+      { title: "Track 2: Golden Hour Lo-Fi", artist: "Hive Radio", notes: [220.00, 261.63, 329.63, 440.00] },
+      { title: "Track 3: Racks & Crates Grooves", artist: "Hive Radio", notes: [174.61, 220.00, 261.63, 349.23] }
+    ];
+
+    function initAudio() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    function playTone(freq, dur = 0.35) {
+      if (!audioCtx) return;
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.07, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + dur);
+      } catch (err) {}
+    }
+
+    function togglePlay() {
+      initAudio();
+      isPlaying = !isPlaying;
+      const statusEl = document.getElementById('ipod-status');
+      
+      if (isPlaying) {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        statusEl.innerText = "PLAYING";
+        let step = 0;
+        synthInterval = setInterval(() => {
+          const track = playlist[currentTrackIdx];
+          const freq = track.notes[step % track.notes.length];
+          playTone(freq, 0.45);
+          step++;
+          document.getElementById('ipod-progress').style.width = ((step % 20) * 5) + "%";
+        }, 550);
+      } else {
+        statusEl.innerText = "PAUSED";
+        clearInterval(synthInterval);
+      }
+    }
+
+    function nextTrack() {
+      currentTrackIdx = (currentTrackIdx + 1) % playlist.length;
+      updateTrackDisplay();
+    }
+
+    function prevTrack() {
+      currentTrackIdx = (currentTrackIdx - 1 + playlist.length) % playlist.length;
+      updateTrackDisplay();
+    }
+
+    function updateTrackDisplay() {
+      const track = playlist[currentTrackIdx];
+      document.getElementById('ipod-title').innerText = track.title;
+      document.getElementById('ipod-artist').innerText = track.artist;
+      if (isPlaying) {
+        clearInterval(synthInterval);
+        togglePlay();
+        togglePlay();
+      }
+    }
+
+    function showPlayerTip() {
+      alert("🎧 Hive iPod: Click ▶❚❚ or the SELECT button to stream synthesizer lo-fi beats while browsing! Drag the player anywhere on the screen.");
+    }
+  </script>
+</body>
+</html>
