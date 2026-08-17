@@ -11,13 +11,11 @@
 
   <style>
     :root {
-      --bg: #FAF7F0;
+      --bg: #FEE75C; /* Playful sunny pool-day yellow */
       --card-bg: #FFFFFF;
-      --ink: #181512;
-      --honey-gold: #F4A213;
-      --honey-tag: #F7BF4F;
-      --terracotta: #D94E34;
-      --forest: #2D6A4F;
+      --ink: #111111; /* Sharp crisp black */
+      --white: #FFFFFF;
+      --accent-gray: #F2F2F2;
       --border-width: 3px;
       --shadow: 4px 4px 0px var(--ink);
       --shadow-hover: 6px 6px 0px var(--ink);
@@ -32,8 +30,8 @@
 
     body {
       background-color: var(--bg);
-      background-image: radial-gradient(#d6cec0 1.2px, transparent 1.2px);
-      background-size: 24px 24px;
+      background-image: radial-gradient(rgba(17, 17, 17, 0.12) 1.5px, transparent 1.5px);
+      background-size: 22px 22px;
       color: var(--ink);
       font-family: 'Space Grotesk', sans-serif;
       overflow-x: hidden;
@@ -54,7 +52,7 @@
       font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       line-height: 1;
       display: inline-flex;
       align-items: center;
@@ -81,17 +79,17 @@
       justify-content: center;
       gap: 8px;
       font-family: 'Fredoka', cursive;
-      font-size: 1.05rem;
-      padding: 12px 24px;
+      font-size: 1rem;
+      padding: 10px 22px;
       border: var(--border-width) solid var(--ink);
       border-radius: 12px;
       cursor: pointer;
       box-shadow: var(--shadow);
       text-decoration: none;
-      font-weight: 600;
-      color: var(--ink);
+      font-weight: 700;
       transition: all 0.1s ease;
       user-select: none;
+      white-space: nowrap;
     }
 
     .retro-btn:hover {
@@ -104,13 +102,13 @@
       box-shadow: var(--shadow-active);
     }
 
-    .btn-honey { background: var(--honey-gold); color: var(--ink); }
-    .btn-terracotta { background: var(--terracotta); color: #fff; }
-    .btn-forest { background: var(--forest); color: #fff; }
+    .btn-black { background: var(--ink); color: var(--white); }
+    .btn-white { background: var(--white); color: var(--ink); }
 
     /* Top Marquee */
     .ticker-wrap {
-      background: var(--honey-gold);
+      background: var(--ink);
+      color: var(--bg);
       border-bottom: var(--border-width) solid var(--ink);
       overflow: hidden;
       white-space: nowrap;
@@ -127,119 +125,148 @@
       100% { transform: translate3d(-50%, 0, 0); }
     }
 
-    /* Header Navigation */
+    /* Header Navigation - Single Flush Clean Line */
     header {
       position: sticky;
       top: 0;
-      background: rgba(250, 247, 240, 0.96);
-      backdrop-filter: blur(8px);
+      background: var(--white);
       border-bottom: var(--border-width) solid var(--ink);
       z-index: 1000;
-      padding: 12px 24px;
+      padding: 0 24px;
+      height: 70px;
     }
     .nav-container {
-      max-width: 1200px;
+      max-width: 1300px;
+      height: 100%;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
     }
     .logo-area {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       text-decoration: none;
       color: var(--ink);
       cursor: pointer;
+      flex-shrink: 0;
     }
     .logo-badge {
       background: var(--ink);
-      color: var(--honey-gold);
-      padding: 6px 14px;
-      border-radius: 10px;
+      color: var(--bg);
+      padding: 5px 10px;
+      border-radius: 8px;
       border: 2px solid var(--ink);
     }
+    
+    /* Navigation Bar */
     .nav-links {
       display: flex;
-      gap: 12px;
+      align-items: center;
+      gap: 6px;
       list-style: none;
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-links::-webkit-scrollbar {
+      display: none;
     }
     .nav-links a {
       text-decoration: none;
       color: var(--ink);
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 6px 12px;
       border-radius: 8px;
-      transition: background 0.2s;
+      transition: all 0.15s ease;
       cursor: pointer;
+      border: 2px solid transparent;
     }
-    .nav-links a.active, .nav-links a:hover {
-      background: var(--honey-gold);
+    .nav-links a:hover {
+      background: var(--bg);
+      border-color: var(--ink);
+    }
+    .nav-links a.active {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1250px;
+      width: 100%;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 36px 20px;
       flex: 1;
     }
 
     /* Page View Controller */
     .page-view {
       display: none;
-      animation: fadeIn 0.25s ease-in-out;
+      animation: fadeIn 0.2s ease-in-out;
     }
     .page-view.active {
       display: block;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+      from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Page Header Styles */
     .page-header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
+      background: var(--white);
+      border: var(--border-width) solid var(--ink);
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow: var(--shadow);
     }
     .page-header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 8px;
+      font-size: 2.6rem;
+      margin-bottom: 4px;
     }
     .page-header p {
-      font-size: 1.1rem;
-      color: #555;
+      font-size: 1.05rem;
+      color: #333;
     }
 
-    /* Hero Section */
+    /* Home Hero */
     .hero {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 36px;
+      gap: 32px;
       align-items: center;
-      margin-top: 10px;
+      background: var(--white);
+      border: var(--border-width) solid var(--ink);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 36px;
+      margin-bottom: 36px;
     }
     .hero-tagline {
       display: inline-block;
-      background: var(--honey-gold);
+      background: var(--bg);
       border: 2px solid var(--ink);
       padding: 4px 12px;
       border-radius: 20px;
       font-weight: 700;
-      font-size: 0.9rem;
-      margin-bottom: 14px;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
       box-shadow: 2px 2px 0 var(--ink);
     }
     .hero-title {
-      font-size: 3.6rem;
+      font-size: 3.2rem;
       line-height: 1.05;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
     .hero-subtitle {
-      font-size: 1.2rem;
-      margin-bottom: 24px;
-      color: #443e39;
+      font-size: 1.1rem;
+      margin-bottom: 22px;
+      color: #333;
     }
     .hero-actions {
       display: flex;
@@ -254,14 +281,14 @@
     }
     .hero-img-wrap {
       border: var(--border-width) solid var(--ink);
-      border-radius: 16px;
+      border-radius: 14px;
       overflow: hidden;
       box-shadow: var(--shadow);
-      background: #fff;
+      background: var(--white);
     }
     .hero-img-wrap img {
       width: 100%;
-      height: 220px;
+      height: 200px;
       object-fit: cover;
       display: block;
       transition: transform 0.3s;
@@ -273,26 +300,64 @@
       position: absolute;
       top: -12px;
       right: 12px;
-      background: var(--honey-tag);
+      background: var(--bg);
       color: var(--ink);
-      padding: 6px 14px;
+      padding: 5px 12px;
       border: 2px solid var(--ink);
       border-radius: 6px;
       font-weight: 700;
       transform: rotate(4deg);
-      box-shadow: 3px 3px 0 var(--ink);
+      box-shadow: 2px 2px 0 var(--ink);
       z-index: 2;
+      font-size: 0.85rem;
     }
 
-    /* Grids & Common Layouts */
+    /* Home Backdrop Gallery Strip */
+    .home-backdrop-section {
+      margin-bottom: 36px;
+    }
+    .home-gallery-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .backdrop-card {
+      border: var(--border-width) solid var(--ink);
+      border-radius: 14px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .backdrop-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .backdrop-card:hover img {
+      transform: scale(1.05);
+    }
+    .backdrop-label {
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      background: var(--white);
+      border-top: 2px solid var(--ink);
+      text-align: center;
+    }
+
+    /* Grids & Cards */
     .vibe-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
+      gap: 20px;
     }
     .vibe-card img {
       width: 100%;
-      height: 240px;
+      height: 230px;
       object-fit: cover;
       display: block;
     }
@@ -304,27 +369,27 @@
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       flex-wrap: wrap;
     }
     .filter-btn {
-      background: #fff;
+      background: var(--white);
       border: 2px solid var(--ink);
       padding: 8px 18px;
       border-radius: 20px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       box-shadow: 2px 2px 0 var(--ink);
     }
     .filter-btn.active {
       background: var(--ink);
-      color: #fff;
+      color: var(--white);
     }
 
     .buy-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
+      gap: 20px;
     }
     .buy-card-img {
       width: 100%;
@@ -333,7 +398,7 @@
       border-bottom: var(--border-width) solid var(--ink);
     }
     .buy-card-body {
-      padding: 20px;
+      padding: 18px;
     }
     .status-pill {
       font-size: 0.75rem;
@@ -344,14 +409,13 @@
       border: 1.5px solid var(--ink);
       display: inline-block;
       margin-bottom: 10px;
+      background: var(--bg);
+      color: var(--ink);
     }
-    .pill-hot { background: #FFE066; }
-    .pill-yes { background: #A7C957; }
-    .pill-no { background: #FFAAA6; }
 
-    /* Sell Booking Wrapper */
+    /* Booking Layout */
     .booking-wrapper {
-      background: #fff;
+      background: var(--white);
       border: var(--border-width) solid var(--ink);
       border-radius: 20px;
       box-shadow: var(--shadow);
@@ -376,12 +440,12 @@
       border-radius: 10px;
       font-family: inherit;
       font-size: 0.95rem;
-      background: #FAF7F0;
+      background: #FAFAFA;
     }
     .form-control:focus {
       outline: none;
-      border-color: var(--honey-gold);
-      background: #fff;
+      background: var(--white);
+      border-color: var(--ink);
     }
     .slots-grid {
       display: grid;
@@ -397,26 +461,26 @@
       cursor: pointer;
       font-weight: 600;
       font-size: 0.85rem;
-      background: #FAF7F0;
+      background: #FAFAFA;
     }
     .time-slot.selected {
-      background: var(--honey-gold);
-      color: var(--ink);
+      background: var(--ink);
+      color: var(--white);
       font-weight: 700;
     }
 
-    /* Events */
+    /* Events Cards */
     .event-cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
+      gap: 20px;
     }
     .event-card {
-      padding: 24px;
+      padding: 22px;
       cursor: pointer;
     }
     .event-date-stamp {
-      background: var(--honey-gold);
+      background: var(--bg);
       border: 2px solid var(--ink);
       padding: 4px 10px;
       border-radius: 6px;
@@ -426,41 +490,40 @@
       font-size: 0.85rem;
     }
 
-    /* Reviews Page Styles */
+    /* Reviews Layout */
     .review-summary-box {
-      background: var(--honey-gold);
+      background: var(--white);
       border: var(--border-width) solid var(--ink);
       border-radius: 16px;
       box-shadow: var(--shadow);
-      padding: 28px;
+      padding: 24px;
       text-align: center;
-      margin-bottom: 36px;
+      margin-bottom: 30px;
     }
     .reviews-layout {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
-      gap: 32px;
+      gap: 28px;
     }
     .testimonial-card {
-      padding: 22px;
-      margin-bottom: 18px;
+      padding: 20px;
+      margin-bottom: 16px;
     }
     .stars-line {
-      color: var(--terracotta);
       font-size: 1.1rem;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .reviewer-meta {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-top: 14px;
+      margin-top: 12px;
     }
     .reviewer-avatar {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
-      background: var(--honey-tag);
+      background: var(--bg);
       border: 1.5px solid var(--ink);
       display: flex;
       align-items: center;
@@ -471,27 +534,25 @@
 
     /* Vendor Portal */
     .vendor-section {
-      background: var(--forest);
+      background: var(--white);
       border: var(--border-width) solid var(--ink);
       border-radius: 20px;
       box-shadow: var(--shadow);
-      padding: 40px;
-      color: #fff;
+      padding: 36px;
     }
     .vendor-form {
-      background: var(--card-bg);
+      background: #FAFAFA;
       border: var(--border-width) solid var(--ink);
       border-radius: 16px;
-      padding: 28px;
-      color: var(--ink);
-      margin-top: 24px;
+      padding: 26px;
+      margin-top: 20px;
     }
 
     /* Store Info Grid */
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 22px;
+      gap: 20px;
     }
     .info-box {
       padding: 24px;
@@ -509,11 +570,11 @@
       bottom: 24px;
       right: 24px;
       width: 220px;
-      background: linear-gradient(145deg, #f0f0f0, #cacaca);
-      border: 3px solid #1a1a1a;
+      background: linear-gradient(145deg, #ffffff, #e0e0e0);
+      border: 3px solid var(--ink);
       border-radius: 28px;
       padding: 16px 14px 20px;
-      box-shadow: 6px 6px 0px rgba(0,0,0,0.8), 0 10px 25px rgba(0,0,0,0.2);
+      box-shadow: 6px 6px 0px var(--ink), 0 10px 25px rgba(0,0,0,0.15);
       z-index: 9999;
       user-select: none;
       cursor: grab;
@@ -522,13 +583,13 @@
       cursor: grabbing;
     }
     .ipod-screen {
-      background: #8FA382;
-      border: 2px solid #333;
+      background: #FFFFFF;
+      border: 2px solid var(--ink);
       border-radius: 8px;
       padding: 8px;
       height: 90px;
-      box-shadow: inset 2px 2px 4px rgba(0,0,0,0.3);
-      color: #1A2611;
+      box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1);
+      color: var(--ink);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -538,7 +599,7 @@
       justify-content: space-between;
       font-size: 0.65rem;
       font-weight: 700;
-      border-bottom: 1px dashed #4e5f41;
+      border-bottom: 1px dashed #999;
       padding-bottom: 2px;
     }
     .ipod-track-title {
@@ -550,22 +611,22 @@
       width: 120px;
       height: 120px;
       background: #FFFFFF;
-      border: 2px solid #555;
+      border: 2px solid var(--ink);
       border-radius: 50%;
       margin: 14px auto 0;
       position: relative;
-      box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.08);
     }
     .wheel-btn {
       position: absolute;
       font-size: 0.65rem;
       font-weight: 700;
-      color: #777;
+      color: #666;
       cursor: pointer;
       background: none;
       border: none;
     }
-    .wheel-btn:hover { color: #000; }
+    .wheel-btn:hover { color: var(--ink); }
     .wheel-menu { top: 6px; left: 50%; transform: translateX(-50%); }
     .wheel-prev { left: 8px; top: 50%; transform: translateY(-50%); }
     .wheel-next { right: 8px; top: 50%; transform: translateY(-50%); }
@@ -573,8 +634,8 @@
     .center-btn {
       width: 44px;
       height: 44px;
-      background: #ececec;
-      border: 2px solid #777;
+      background: var(--bg);
+      border: 2px solid var(--ink);
       border-radius: 50%;
       position: absolute;
       top: 50%;
@@ -586,7 +647,7 @@
       justify-content: center;
     }
 
-    /* Modal */
+    /* Modals */
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -611,8 +672,8 @@
       position: absolute;
       top: 16px;
       right: 16px;
-      background: var(--terracotta);
-      color: #fff;
+      background: var(--ink);
+      color: var(--white);
       border: 2px solid var(--ink);
       border-radius: 50%;
       width: 32px;
@@ -621,11 +682,23 @@
       cursor: pointer;
     }
 
-    @media (max-width: 868px) {
+    @media (max-width: 992px) {
+      header {
+        height: auto;
+        padding: 10px 16px;
+      }
+      .nav-container {
+        flex-wrap: wrap;
+      }
+      .nav-links {
+        order: 3;
+        width: 100%;
+        padding-bottom: 6px;
+      }
       .hero { grid-template-columns: 1fr; }
+      .home-gallery-strip { grid-template-columns: repeat(2, 1fr); }
       .booking-wrapper, .reviews-layout { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .hero-title { font-size: 2.7rem; }
+      .hero-title { font-size: 2.5rem; }
     }
   </style>
 </head>
@@ -638,27 +711,29 @@
     </div>
   </div>
 
-  <!-- Header Navigation -->
+  <!-- Header Navigation: Single Flush Line -->
   <header>
     <div class="nav-container">
       <a class="logo-area" onclick="navigateTo('home')">
         <div class="logo-badge hive-custom-logo">
           <span>HM</span>
         </div>
-        <span style="font-family: 'Fredoka', cursive; font-weight: 700; font-size: 1.15rem;">HIVE MARKET</span>
+        <span style="font-family: 'Fredoka', cursive; font-weight: 900; font-size: 1.15rem;">HIVE MARKET</span>
       </a>
-      <ul class="nav-links">
-        <li><a class="nav-item active" onclick="navigateTo('home')">Home</a></li>
-        <li><a class="nav-item" onclick="navigateTo('gallery')">Store Gallery</a></li>
-        <li><a class="nav-item" onclick="navigateTo('what-we-buy')">What We Buy</a></li>
-        <li><a class="nav-item" onclick="navigateTo('sell')">Sell / Trade</a></li>
-        <li><a class="nav-item" onclick="navigateTo('events')">Events</a></li>
-        <li><a class="nav-item" onclick="navigateTo('vendors')">Vendors</a></li>
-        <li><a class="nav-item" onclick="navigateTo('reviews')">Reviews</a></li>
-        <li><a class="nav-item" onclick="navigateTo('info')">Hours & Info</a></li>
-      </ul>
-      <a onclick="navigateTo('sell')" class="retro-btn btn-honey" style="padding: 8px 16px; font-size: 0.9rem;">
-        <i data-lucide="calendar"></i> Book Drop-Off
+
+      <nav class="nav-links">
+        <a class="nav-item active" onclick="navigateTo('home')">Home</a>
+        <a class="nav-item" onclick="navigateTo('gallery')">Gallery</a>
+        <a class="nav-item" onclick="navigateTo('what-we-buy')">What We Buy</a>
+        <a class="nav-item" onclick="navigateTo('sell')">Sell / Trade</a>
+        <a class="nav-item" onclick="navigateTo('events')">Events</a>
+        <a class="nav-item" onclick="navigateTo('vendors')">Vendors</a>
+        <a class="nav-item" onclick="navigateTo('reviews')">Reviews</a>
+        <a class="nav-item" onclick="navigateTo('info')">Hours & Info</a>
+      </nav>
+
+      <a onclick="navigateTo('sell')" class="retro-btn btn-black" style="padding: 6px 14px; font-size: 0.85rem;">
+        <i data-lucide="calendar" style="width: 16px; height: 16px;"></i> Book Drop-Off
       </a>
     </div>
   </header>
@@ -667,22 +742,23 @@
 
     <!-- PAGE 1: HOME -->
     <div id="page-home" class="page-view active">
+      <!-- Hero Banner -->
       <section class="hero">
         <div>
-          <span class="hero-tagline">✨ Curated Vintage & Streetwear</span>
+          <span class="hero-tagline">✨ Beaumont's Curated Thrift & Streetwear</span>
           <h1 class="hero-title">Buy. Sell. Trade. Mens & Womens Vintage.</h1>
           <p class="hero-subtitle">
-            A community vintage store and chill lounge right on Beaumont Ave. Step in for handpicked 90s single-stitch tees, vintage outerwear, clean sneakers, boots, and analog audio beats.
+            A vibrant community thrift space and chill lounge. Step into 688 Beaumont Ave for handpicked 90s single-stitch tees, vintage outerwear, clean sneakers, boots, and analog sound vibes.
           </p>
           <div class="hero-actions">
-            <a onclick="navigateTo('what-we-buy')" class="retro-btn btn-honey">
+            <a onclick="navigateTo('what-we-buy')" class="retro-btn btn-black">
               <i data-lucide="shopping-bag"></i> What We Buy
             </a>
-            <a onclick="navigateTo('sell')" class="retro-btn btn-terracotta">
+            <a onclick="navigateTo('sell')" class="retro-btn btn-white">
               <i data-lucide="dollar-sign"></i> Sell Your Clothes
             </a>
-            <a onclick="navigateTo('reviews')" class="retro-btn" style="background:#fff;">
-              <i data-lucide="message-square"></i> Community Reviews
+            <a onclick="navigateTo('events')" class="retro-btn btn-white">
+              <i data-lucide="sparkles"></i> Weekend Events
             </a>
           </div>
         </div>
@@ -698,40 +774,80 @@
         </div>
       </section>
 
-      <!-- Quick Category Previews on Home -->
-      <div style="margin-top: 70px;">
-        <h2 style="font-size: 2rem; margin-bottom: 20px; text-align: center;">Explore The Hive Experience</h2>
-        <div class="vibe-grid">
-          <div class="retro-card vibe-card" onclick="navigateTo('gallery')" style="cursor: pointer;">
-            <img src="image_3.png" alt="Checkout Counter" />
-            <div class="vibe-content">
-              <h3>The Storefront & Lounge →</h3>
-              <p style="font-size: 0.85rem; color: #555;">Tour the color-coded racks and curated shop interior.</p>
-            </div>
+      <!-- Store Backdrop Gallery Strip -->
+      <section class="home-backdrop-section">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 16px;">
+          <div>
+            <h2 style="font-size: 1.8rem;">Inside The Hive & Storefront</h2>
+            <p style="color: #333; font-size: 0.95rem;">Glimpse our sunny outdoor sidewalk racks, curated shop floor, and lounge.</p>
           </div>
-          <div class="retro-card vibe-card" onclick="navigateTo('what-we-buy')" style="cursor: pointer;">
-            <img src="image_2.png" alt="Clothing Racks" />
-            <div class="vibe-content">
-              <h3>We Pay Cash For Vintage →</h3>
-              <p style="font-size: 0.85rem; color: #555;">Learn what 90s apparel, denim, and kicks we're buying today.</p>
-            </div>
+          <a onclick="navigateTo('gallery')" class="retro-btn btn-white" style="padding: 6px 14px; font-size: 0.85rem;">
+            View Full Gallery →
+          </a>
+        </div>
+
+        <div class="home-gallery-strip">
+          <div class="backdrop-card" onclick="navigateTo('gallery')">
+            <img src="image_13.png" alt="Storefront Sidewalk Racks" />
+            <div class="backdrop-label">Sidewalk Flea Racks</div>
           </div>
-          <div class="retro-card vibe-card" onclick="navigateTo('events')" style="cursor: pointer;">
-            <img src="image_8.png" alt="Outdoor $10 Racks" />
-            <div class="vibe-content">
-              <h3>Sidewalk Fleas & Drops →</h3>
-              <p style="font-size: 0.85rem; color: #555;">Check out upcoming unboxing nights and vendor markets.</p>
-            </div>
+          <div class="backdrop-card" onclick="navigateTo('gallery')">
+            <img src="image_3.png" alt="Shop Interior & Checkout" />
+            <div class="backdrop-label">Curated Floor</div>
+          </div>
+          <div class="backdrop-card" onclick="navigateTo('gallery')">
+            <img src="image_5.png" alt="Analog Sound Lounge" />
+            <div class="backdrop-label">Audio & Crate Lounge</div>
+          </div>
+          <div class="backdrop-card" onclick="navigateTo('gallery')">
+            <img src="image_14.png" alt="Curated Footwear & Kicks" />
+            <div class="backdrop-label">Vintage Footwear</div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- Upcoming Events Highlight on Home -->
+      <section style="margin-top: 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 16px;">
+          <div>
+            <h2 style="font-size: 1.8rem;">Upcoming Events & Rack Drops</h2>
+            <p style="color: #333; font-size: 0.95rem;">Mark your calendar for our next Beaumont pop-ups and unboxings.</p>
+          </div>
+          <a onclick="navigateTo('events')" class="retro-btn btn-white" style="padding: 6px 14px; font-size: 0.85rem;">
+            All Events →
+          </a>
+        </div>
+
+        <div class="event-cards-grid">
+          <div class="retro-card event-card" onclick="openEventModal('Beaumont Sidewalk Flea & $10 Racks', 'Saturday, Sept 5 • 12:00 PM – 6:00 PM', 'Outdoor street racks, 10+ local vendor setups, drinks, and special discount racks right outside 688 Beaumont Ave.', 'Hive Storefront & Sidewalk')">
+            <span class="event-date-stamp">Sat, Sept 5</span>
+            <h3>Beaumont Sidewalk Flea & $10 Racks</h3>
+            <p style="font-size: 0.9rem; color: #444; margin: 8px 0 14px;">Outdoor $10 racks, local vendor pop-ups, and vintage steals.</p>
+            <span style="font-weight: 700; text-decoration: underline; font-size: 0.9rem;">View Event Details →</span>
+          </div>
+
+          <div class="retro-card event-card" onclick="openEventModal('300+ Vintage Tee & Kicks Drop', 'Friday, Sept 18 • 4:00 PM – 7:00 PM', 'Fresh unboxing! 300+ vintage single-stitch tees, jackets, Doc Martens, and Dunks hitting the racks.', 'Hive Main Store Floor')">
+            <span class="event-date-stamp">Fri, Sept 18</span>
+            <h3>300+ Vintage Tee & Kicks Drop</h3>
+            <p style="font-size: 0.9rem; color: #444; margin: 8px 0 14px;">Fresh unboxed vintage grails loaded straight onto the floor.</p>
+            <span style="font-weight: 700; text-decoration: underline; font-size: 0.9rem;">View Event Details →</span>
+          </div>
+
+          <div class="retro-card event-card" onclick="openEventModal('Local Artist Pop-Up Market', 'Saturday, Oct 3 • 12:00 PM – 6:00 PM', 'Featuring local Inland Empire makers, reworked apparel artists, jewelry creators, and art prints.', 'Hive Courtyard')">
+            <span class="event-date-stamp">Sat, Oct 3</span>
+            <h3>Local Artist Pop-Up Market</h3>
+            <p style="font-size: 0.9rem; color: #444; margin: 8px 0 14px;">Supporting local creatives and independent clothing brands.</p>
+            <span style="font-weight: 700; text-decoration: underline; font-size: 0.9rem;">View Event Details →</span>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- PAGE 2: STORE GALLERY -->
     <div id="page-gallery" class="page-view">
       <div class="page-header">
         <h1>Store Gallery</h1>
-        <p>Take a look inside 688 Beaumont Ave, from our analog audio lounge to our curated racks.</p>
+        <p>Explore 688 Beaumont Ave, from our analog audio lounge to our curated racks.</p>
       </div>
 
       <div class="vibe-grid">
@@ -803,46 +919,46 @@
         <div class="retro-card buy-card" data-cat="tees">
           <img src="image_2.png" class="buy-card-img" alt="Vintage Apparel" />
           <div class="buy-card-body">
-            <span class="status-pill pill-hot">🔥 Highest Payout</span>
+            <span class="status-pill">🔥 Highest Payout</span>
             <h3>90s & Y2K Graphic Tees</h3>
             <p style="margin: 6px 0 10px; font-size: 0.88rem; color:#444;">Vintage band tees, Harley Davidson, racing jackets, anime, sports jerseys, and single-stitch nostalgia.</p>
-            <div style="font-size: 0.85rem; font-weight: 600; color: var(--forest);">All sizes accepted</div>
+            <div style="font-size: 0.85rem; font-weight: 700;">All sizes accepted</div>
           </div>
         </div>
 
         <div class="retro-card buy-card" data-cat="shoes">
           <img src="image_14.png" class="buy-card-img" alt="Vintage Boots and Shoes" />
           <div class="buy-card-body">
-            <span class="status-pill pill-hot">🔥 High Demand</span>
+            <span class="status-pill">🔥 High Demand</span>
             <h3>Boots, Loafers & Kicks</h3>
             <p style="margin: 6px 0 10px; font-size: 0.88rem; color:#444;">Doc Martens, leather loafers, retro Dunks, Air Forces, New Balance, and vintage work boots.</p>
-            <div style="font-size: 0.85rem; font-weight: 600; color: var(--forest);">Clean, wearable condition</div>
+            <div style="font-size: 0.85rem; font-weight: 700;">Clean, wearable condition</div>
           </div>
         </div>
 
         <div class="retro-card buy-card" data-cat="accessories">
           <img src="image_6.png" class="buy-card-img" alt="Tagged Cross Purse" />
           <div class="buy-card-body">
-            <span class="status-pill pill-yes">✓ Always Buying</span>
+            <span class="status-pill">✓ Always Buying</span>
             <h3>Y2K Bags, Belts & Hats</h3>
             <p style="margin: 6px 0 10px; font-size: 0.88rem; color:#444;">Studded cross bags, vintage snapbacks, trucker caps, genuine leather belts, and retro jewelry.</p>
-            <div style="font-size: 0.85rem; font-weight: 600; color: var(--forest);">Unique statement pieces</div>
+            <div style="font-size: 0.85rem; font-weight: 700;">Unique statement pieces</div>
           </div>
         </div>
 
         <div class="retro-card buy-card" data-cat="tees">
-          <div style="height: 190px; background: #f0e6e6; display:flex; align-items:center; justify-content:center; border-bottom: 3px solid var(--ink); font-size: 3rem;">🚫</div>
+          <div style="height: 190px; background: var(--white); display:flex; align-items:center; justify-content:center; border-bottom: 3px solid var(--ink); font-size: 3rem;">🚫</div>
           <div class="buy-card-body">
-            <span class="status-pill pill-no">✕ What We Pass On</span>
+            <span class="status-pill" style="background: var(--ink); color: var(--white);">✕ What We Pass On</span>
             <h3>Fast Fashion & Basics</h3>
             <p style="margin: 6px 0 10px; font-size: 0.88rem; color:#666;">We pass on fast-fashion mall basics (Shein, Forever 21, Temu), unwashed items, or heavily damaged garments.</p>
-            <div style="font-size: 0.85rem; font-weight: 600; color: var(--terracotta);">Quality & curation first</div>
+            <div style="font-size: 0.85rem; font-weight: 700;">Quality & curation first</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- PAGE 4: SELL / BOOK AN APPOINTMENT -->
+    <!-- PAGE 4: SELL / APPOINTMENT -->
     <div id="page-sell" class="page-view">
       <div class="page-header">
         <h1>Sell & Trade With Us</h1>
@@ -854,21 +970,21 @@
           <h3 style="font-size: 1.5rem; margin-bottom: 12px;">The Selling Process</h3>
           <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;">
             <li style="display: flex; gap: 10px; align-items: flex-start;">
-              <span style="background:var(--honey-gold); border: 1.5px solid var(--ink); border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">1</span>
+              <span style="background:var(--bg); border: 2px solid var(--ink); border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">1</span>
               <span><strong>Bring up to 2 clean bags/bins</strong> of vintage clothing, shoes, or accessories.</span>
             </li>
             <li style="display: flex; gap: 10px; align-items: flex-start;">
-              <span style="background:var(--honey-gold); border: 1.5px solid var(--ink); border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">2</span>
+              <span style="background:var(--bg); border: 2px solid var(--ink); border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">2</span>
               <span><strong>Appraisal in 15–20 minutes</strong> while you browse the $10 racks or chill in our audio lounge.</span>
             </li>
             <li style="display: flex; gap: 10px; align-items: flex-start;">
-              <span style="background:var(--honey-gold); border: 1.5px solid var(--ink); border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">3</span>
+              <span style="background:var(--bg); border: 2px solid var(--ink); border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">3</span>
               <span><strong>Get paid on the spot:</strong> Cash, Venmo/Zelle, or take 1.5x in Store Trade Credit.</span>
             </li>
           </ul>
 
-          <div style="background: #FFF9DB; border: 2px dashed #E5B50A; border-radius: 12px; padding: 14px;">
-            <p style="font-size: 0.85rem; color: #744210; font-weight: 600;">
+          <div style="background: var(--bg); border: 2px dashed var(--ink); border-radius: 12px; padding: 14px;">
+            <p style="font-size: 0.85rem; font-weight: 700;">
               📍 688 Beaumont Ave, Beaumont, CA 92223 • Questions? Call (951) 845-5669
             </p>
           </div>
@@ -903,7 +1019,7 @@
               </div>
             </div>
 
-            <button type="submit" class="retro-btn btn-honey" style="width: 100%; margin-top: 10px;">
+            <button type="submit" class="retro-btn btn-black" style="width: 100%; margin-top: 10px;">
               Confirm Selling Appointment
             </button>
           </form>
@@ -923,21 +1039,21 @@
           <span class="event-date-stamp">Sat, Sept 5</span>
           <h3>Beaumont Sidewalk Flea & $10 Racks</h3>
           <p style="font-size: 0.9rem; color: #555; margin: 8px 0 14px;">Outdoor $10 racks, local vendor pop-ups, and vintage steals.</p>
-          <span style="font-weight: 700; color: var(--terracotta); font-size: 0.9rem;">View Event Details →</span>
+          <span style="font-weight: 700; text-decoration: underline; font-size: 0.9rem;">View Event Details →</span>
         </div>
 
         <div class="retro-card event-card" onclick="openEventModal('300+ Vintage Tee & Kicks Drop', 'Friday, Sept 18 • 4:00 PM – 7:00 PM', 'Fresh unboxing! 300+ vintage single-stitch tees, jackets, Doc Martens, and Dunks hitting the racks.', 'Hive Main Store Floor')">
           <span class="event-date-stamp">Fri, Sept 18</span>
           <h3>300+ Vintage Tee & Kicks Drop</h3>
           <p style="font-size: 0.9rem; color: #555; margin: 8px 0 14px;">Fresh unboxed vintage grails loaded straight onto the floor.</p>
-          <span style="font-weight: 700; color: var(--terracotta); font-size: 0.9rem;">View Event Details →</span>
+          <span style="font-weight: 700; text-decoration: underline; font-size: 0.9rem;">View Event Details →</span>
         </div>
 
         <div class="retro-card event-card" onclick="openEventModal('Local Artist Pop-Up Market', 'Saturday, Oct 3 • 12:00 PM – 6:00 PM', 'Featuring local Inland Empire makers, reworked apparel artists, jewelry creators, and art prints.', 'Hive Courtyard')">
           <span class="event-date-stamp">Sat, Oct 3</span>
           <h3>Local Artist Pop-Up Market</h3>
           <p style="font-size: 0.9rem; color: #555; margin: 8px 0 14px;">Supporting local creatives and independent clothing brands.</p>
-          <span style="font-weight: 700; color: var(--terracotta); font-size: 0.9rem;">View Event Details →</span>
+          <span style="font-weight: 700; text-decoration: underline; font-size: 0.9rem;">View Event Details →</span>
         </div>
       </div>
     </div>
@@ -945,8 +1061,8 @@
     <!-- PAGE 6: VENDOR SIGN-UP -->
     <div id="page-vendors" class="page-view">
       <div class="vendor-section">
-        <h1 style="font-size: 2.5rem; margin-bottom: 6px;">Pop-Up With Us! Vendor Application</h1>
-        <p style="font-size: 1.05rem; opacity: 0.95;">
+        <h1 style="font-size: 2.4rem; margin-bottom: 6px;">Pop-Up With Us! Vendor Application</h1>
+        <p style="font-size: 1.05rem; color: #333;">
           Are you an Inland Empire vintage curator, jeweler, upcycler, or artist? Join our weekend sidewalk markets and guest rack takeovers.
         </p>
 
@@ -979,7 +1095,7 @@
               <input type="text" class="form-control" placeholder="Vintage streetwear, sneakers, jewelry, art prints, reworked fits" required />
             </div>
 
-            <button type="submit" class="retro-btn btn-honey" style="width: 100%; margin-top: 6px;">
+            <button type="submit" class="retro-btn btn-black" style="width: 100%; margin-top: 6px;">
               Submit Pop-Up Application
             </button>
           </form>
@@ -995,8 +1111,8 @@
       </div>
 
       <div class="review-summary-box">
-        <h2 style="font-size: 2.2rem; margin-bottom: 4px;">⭐️⭐️⭐️⭐️⭐️ 5.0 Star Experience</h2>
-        <p style="font-weight: 600; font-size: 1.05rem;">Verified by local shoppers & vintage collectors across Southern California</p>
+        <h2 style="font-size: 2.2rem; margin-bottom: 4px;">Verified Local Feedback</h2>
+        <p style="font-weight: 600; font-size: 1rem; color: #444;">Trusted by local shoppers & vintage collectors across Southern California</p>
       </div>
 
       <div class="reviews-layout">
@@ -1004,7 +1120,7 @@
         <div id="reviews-container">
           <div class="retro-card testimonial-card">
             <div class="stars-line">★★★★★</div>
-            <p style="font-size: 1.05rem; font-weight: 500; color: #222;">"Good environment, great service."</p>
+            <p style="font-size: 1.05rem; font-weight: 600; color: var(--ink);">"Good environment, great service."</p>
             <div class="reviewer-meta">
               <div class="reviewer-avatar">G</div>
               <div>
@@ -1016,7 +1132,7 @@
 
           <div class="retro-card testimonial-card">
             <div class="stars-line">★★★★★</div>
-            <p style="font-size: 1.05rem; font-weight: 500; color: #222;">"Place has a nice aesthetic too, would check out again."</p>
+            <p style="font-size: 1.05rem; font-weight: 600; color: var(--ink);">"Place has a nice aesthetic too, would check out again."</p>
             <div class="reviewer-meta">
               <div class="reviewer-avatar">V</div>
               <div>
@@ -1028,7 +1144,7 @@
 
           <div class="retro-card testimonial-card">
             <div class="stars-line">★★★★★</div>
-            <p style="font-size: 1.05rem; font-weight: 500; color: #222;">"Sold two bins of 90s shirts and boots today. Super fair payout on the spot and great tunes playing while they checked my stuff out."</p>
+            <p style="font-size: 1.05rem; font-weight: 600; color: var(--ink);">"Sold two bins of 90s shirts and boots today. Super fair payout on the spot and great tunes playing while they checked my stuff out."</p>
             <div class="reviewer-meta">
               <div class="reviewer-avatar">M</div>
               <div>
@@ -1060,7 +1176,7 @@
                 <label>Your Experience / Favorite Find</label>
                 <textarea id="review-text" class="form-control" rows="3" placeholder="Tell us about the vibes or what you found..." required></textarea>
               </div>
-              <button type="submit" class="retro-btn btn-honey" style="width: 100%;">Post Review</button>
+              <button type="submit" class="retro-btn btn-black" style="width: 100%;">Post Review</button>
             </form>
           </div>
         </div>
@@ -1081,7 +1197,7 @@
           <p style="margin-top: 8px; color: #444;">
             <strong>688 Beaumont Ave</strong><br />
             Beaumont, CA 92223<br />
-            <a href="https://maps.google.com/?q=688+Beaumont+Ave,+Beaumont,+CA+92223" target="_blank" style="color: var(--terracotta); font-weight: 700; font-size: 0.85rem; text-decoration: none;">Open in Google Maps →</a>
+            <a href="https://maps.google.com/?q=688+Beaumont+Ave,+Beaumont,+CA+92223" target="_blank" style="color: var(--ink); font-weight: 700; font-size: 0.85rem; text-decoration: underline;">Open in Google Maps →</a>
           </p>
         </div>
 
@@ -1091,7 +1207,7 @@
           <p style="margin-top: 8px; color: #444; font-size: 0.95rem;">
             <strong>Monday – Friday:</strong> 11 AM – 7 PM<br />
             <strong>Saturday & Sunday:</strong> 12 PM – 8 PM<br />
-            <span style="font-size: 0.85rem; color: #2D6A4F; font-weight: 700;">🟢 Open 7 Days a Week</span>
+            <span style="font-size: 0.85rem; font-weight: 700;">🟢 Open 7 Days a Week</span>
           </p>
         </div>
 
@@ -1109,7 +1225,7 @@
           <h3>Shop Vibe</h3>
           <p style="margin-top: 8px; color: #444; font-size: 0.85rem; font-style: italic;">
             "Good environment, great service, nice aesthetic."<br />
-            <span style="font-weight: 700; color: var(--honey-gold); text-decoration: underline;">Click for the Mascot Secret!</span>
+            <span style="font-weight: 700; text-decoration: underline;">Click for the Mascot Secret!</span>
           </p>
         </div>
       </div>
@@ -1125,11 +1241,11 @@
         <span>⚡ 100%</span>
       </div>
       <div>
-        <div style="font-size: 0.65rem; color: #3c4b33;" id="ipod-artist">Hive Market FM</div>
+        <div style="font-size: 0.65rem; color: #555;" id="ipod-artist">Hive Market FM</div>
         <div class="ipod-track-title" id="ipod-title">Track 1: Beaumont Beats</div>
       </div>
-      <div style="height: 3px; background: #6e8262; border-radius: 2px; overflow: hidden;">
-        <div id="ipod-progress" style="width: 30%; height: 100%; background: #1A2611;"></div>
+      <div style="height: 3px; background: #e0e0e0; border-radius: 2px; overflow: hidden;">
+        <div id="ipod-progress" style="width: 30%; height: 100%; background: var(--ink);"></div>
       </div>
     </div>
 
@@ -1140,10 +1256,10 @@
       <button class="wheel-btn wheel-next" onclick="nextTrack()">⏭</button>
       <button class="wheel-btn wheel-play" onclick="togglePlay()">▶❚❚</button>
       <div class="center-btn" onclick="togglePlay()">
-        <span style="font-size: 0.6rem; font-weight: 700; color: #444;">SELECT</span>
+        <span style="font-size: 0.6rem; font-weight: 700; color: var(--ink);">SELECT</span>
       </div>
     </div>
-    <div style="text-align: center; margin-top: 8px; font-size: 0.65rem; color: #555; font-weight: 700;">
+    <div style="text-align: center; margin-top: 8px; font-size: 0.65rem; color: #333; font-weight: 700;">
       DRAGGABLE RETRO PLAYER 🎶
     </div>
   </div>
@@ -1154,9 +1270,9 @@
       <button class="modal-close" onclick="closeEventModal()">✕</button>
       <span class="event-date-stamp" id="modal-date" style="margin-bottom: 10px;">Date</span>
       <h2 id="modal-title" style="font-size: 1.6rem; margin: 8px 0 10px;">Event Title</h2>
-      <p style="font-weight: 600; color: var(--terracotta); margin-bottom: 10px;" id="modal-location">Location</p>
+      <p style="font-weight: 700; margin-bottom: 10px;" id="modal-location">Location</p>
       <p id="modal-desc" style="color: #444; line-height: 1.5; margin-bottom: 20px;">Details</p>
-      <button class="retro-btn btn-honey" style="width: 100%;" onclick="rsvpSuccess()">RSVP Free Pass</button>
+      <button class="retro-btn btn-black" style="width: 100%;" onclick="rsvpSuccess()">RSVP Free Pass</button>
     </div>
   </div>
 
@@ -1167,7 +1283,7 @@
       <img src="image_16.png" style="width: 100%; max-height: 260px; object-fit: cover; border-radius: 12px; border: 2px solid var(--ink); margin-bottom: 14px;" alt="Yellow M&M in Recliner" />
       <h2 style="font-size: 1.5rem; margin-bottom: 6px;">You Found the Mascot!</h2>
       <p style="font-size: 0.9rem; color: #444; margin-bottom: 16px;">The yellow M&M recliner is relaxing on our top shelf. Mention the <strong>"M&M Chair"</strong> at checkout for an extra $2 off your next t-shirt.</p>
-      <button class="retro-btn btn-honey" style="width: 100%;" onclick="document.getElementById('mm-modal').style.display='none'">Got It!</button>
+      <button class="retro-btn btn-black" style="width: 100%;" onclick="document.getElementById('mm-modal').style.display='none'">Got It!</button>
     </div>
   </div>
 
@@ -1233,7 +1349,7 @@
       newCard.className = 'retro-card testimonial-card';
       newCard.innerHTML = `
         <div class="stars-line">${stars}</div>
-        <p style="font-size: 1.05rem; font-weight: 500; color: #222;">"${text}"</p>
+        <p style="font-size: 1.05rem; font-weight: 600; color: var(--ink);">"${text}"</p>
         <div class="reviewer-meta">
           <div class="reviewer-avatar">${name.charAt(0).toUpperCase()}</div>
           <div>
