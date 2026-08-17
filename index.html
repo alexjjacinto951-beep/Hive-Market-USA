@@ -18,7 +18,6 @@
       --muted-white: rgba(255, 255, 255, 0.75);
       --border-thin: 1px solid rgba(0, 0, 0, 0.9);
       --border-white-thin: 1px solid rgba(255, 255, 255, 0.15);
-      --glass-panel: rgba(12, 13, 16, 0.92);
     }
 
     * {
@@ -44,17 +43,20 @@
       letter-spacing: 0.04em;
     }
 
-    /* Minimal Top Utility Strip */
+    /* Top Utility Strip */
     .top-strip {
       background: var(--deep-black);
       color: var(--pure-white);
       text-align: center;
-      padding: 7px 16px;
+      padding: 8px 16px;
       font-size: 0.68rem;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-family: 'Manrope', sans-serif;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Ultra-Clean Flush Editorial Header */
@@ -96,7 +98,6 @@
       letter-spacing: 0.14em;
       transition: opacity 0.2s ease;
       position: relative;
-      font-family: 'Manrope', sans-serif;
     }
     .nav-link:hover {
       opacity: 0.5;
@@ -116,8 +117,8 @@
       text-decoration: none;
     }
     .header-hm-symbol {
-      width: 46px;
-      height: 46px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: var(--bg-yellow);
       border: 1.5px solid var(--deep-black);
@@ -131,29 +132,20 @@
       transform: scale(1.06);
     }
     .header-hm-symbol span {
-      font-family: 'Manrope', sans-serif;
       font-weight: 800;
-      font-size: 1.2rem;
-      color: rgba(255, 246, 150, 0.85);
+      font-size: 1.15rem;
+      color: rgba(255, 246, 150, 0.9);
       letter-spacing: -0.06em;
       user-select: none;
       line-height: 1;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 24px 36px 48px;
-      flex: 1;
     }
 
     /* Page View Controller */
     .page-view {
       display: none;
       opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(8px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .page-view.active {
       display: block;
@@ -162,90 +154,85 @@
     }
 
     /* -------------------------------------------------------------
-       LANDING PAGE (FULL-BLEED ROTATING BACKGROUND SLIDESHOW)
+       FULL-SCREEN BLEED LANDING PAGE
     ------------------------------------------------------------- */
-    .landing-cover-wrap {
-      width: 100%;
+    .landing-fullscreen-hero {
+      width: 100vw;
+      height: calc(100vh - 98px);
+      min-height: 580px;
       position: relative;
       background: var(--deep-black);
-      border: var(--border-thin);
       overflow: hidden;
-      height: calc(100vh - 170px);
-      min-height: 520px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      border-bottom: var(--border-thin);
     }
 
-    /* Full Background Image Slider Layers */
+    /* Cross-fading Full Background Layers */
     .landing-bg-slide {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
       opacity: 0;
-      filter: contrast(1.05) brightness(0.85);
-      transform: scale(1.04);
+      filter: contrast(1.05) brightness(0.78);
+      transform: scale(1.03);
       transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.25, 1, 0.5, 1);
       z-index: 1;
       pointer-events: none;
     }
     .landing-bg-slide.active-bg {
-      opacity: 0.92;
+      opacity: 1;
       transform: scale(1);
     }
 
     .landing-hero-content {
       position: relative;
-      z-index: 2;
+      z-index: 3;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 30px;
+      padding: 20px;
       max-width: 860px;
       pointer-events: none;
     }
     
-    /* Official Logo Graphic Asset Overlay */
     .landing-official-logo {
       width: 100%;
-      max-width: 580px;
+      max-width: 620px;
       height: auto;
       display: block;
-      filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.9)) invert(1);
+      filter: drop-shadow(0 6px 30px rgba(0, 0, 0, 0.95)) invert(1);
       margin-bottom: 20px;
-      transition: transform 0.4s ease;
     }
     
     .landing-hero-subtitle {
-      font-family: 'Manrope', sans-serif;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 300;
       letter-spacing: 0.35em;
       color: var(--pure-white);
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
       opacity: 0.95;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
     }
     .landing-enter-action {
       pointer-events: auto;
       display: inline-block;
-      margin-top: 4px;
     }
     .btn-minimal-white {
       background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.4);
       color: var(--pure-white);
-      padding: 11px 32px;
-      font-size: 0.72rem;
+      padding: 12px 36px;
+      font-size: 0.75rem;
       font-weight: 400;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -259,33 +246,33 @@
       border-color: var(--pure-white);
     }
 
-    /* Transparent Down Arrow & Teaser Cue */
+    /* Down Arrow Cue */
     .down-arrow-anchor {
       position: absolute;
-      bottom: 20px;
-      z-index: 3;
+      bottom: 24px;
+      z-index: 4;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 6px;
       cursor: pointer;
       text-decoration: none;
-      padding: 8px 18px;
+      padding: 8px 20px;
       border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       animation: floatSlow 3.2s ease-in-out infinite;
     }
     .down-arrow-anchor:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.25);
       border-color: var(--pure-white);
       transform: translateY(3px);
     }
     .down-arrow-text {
-      font-size: 0.62rem;
+      font-size: 0.65rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--pure-white);
@@ -299,6 +286,14 @@
       50% { transform: translateY(6px); }
     }
 
+    /* Main Container for Sub-sections and Interior Pages */
+    .container {
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 36px 36px 48px;
+    }
+
     /* -------------------------------------------------------------
        EVENTS & DEALS CAROUSEL (CONVEYOR BELT)
     ------------------------------------------------------------- */
@@ -306,7 +301,7 @@
       border-top: var(--border-thin);
       border-bottom: var(--border-thin);
       padding: 16px 0;
-      margin: 54px 0 28px;
+      margin: 40px 0 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -346,7 +341,6 @@
       justify-content: space-between;
       cursor: pointer;
       transition: all 0.35s ease;
-      position: relative;
     }
     .event-card-slide:hover {
       background: rgba(255, 255, 255, 0.07);
@@ -819,6 +813,9 @@
       .landing-official-logo {
         max-width: 320px;
       }
+      .landing-fullscreen-hero {
+        height: calc(100vh - 120px);
+      }
       .event-card-slide {
         flex: 0 0 85%;
       }
@@ -827,6 +824,9 @@
       }
       .editorial-panel {
         padding: 28px;
+      }
+      .container {
+        padding: 24px 16px;
       }
     }
   </style>
@@ -864,33 +864,31 @@
     </div>
   </header>
 
-  <main class="container">
-
-    <!-- PAGE 1: SLEEK MINIMAL LANDING PAGE -->
-    <div id="page-home" class="page-view active">
-      <!-- Full-bleed Storefront Slow Transition Background -->
-      <div class="landing-cover-wrap">
-        <!-- 3 Full-bleed background layers that crossfade smoothly every 5 seconds -->
-        <img src="Storefront 1.jpg" class="landing-bg-slide active-bg" id="bg-slide-0" alt="Hive Market Storefront 1" />
-        <img src="Storefront 2.jpg" class="landing-bg-slide" id="bg-slide-1" alt="Hive Market Storefront 2" />
-        <img src="Storefront 3.jpg" class="landing-bg-slide" id="bg-slide-2" alt="Hive Market Storefront 3" />
-        
-        <div class="landing-hero-content">
-          <!-- Official Hive Market Custom Vector Logo Asset -->
-          <img src="HIVE MARKET LOGO.png" class="landing-official-logo" alt="Hive Market Logo" />
-          <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
-          <div class="landing-enter-action">
-            <a onclick="navigateTo('what-we-buy')" class="btn-minimal-white">Explore Curation</a>
-          </div>
+  <!-- PAGE 1: SLEEK MINIMAL LANDING PAGE -->
+  <div id="page-home" class="page-view active">
+    <!-- Edge-to-Edge 100% Screen Bleed Rotating Storefront Hero -->
+    <div class="landing-fullscreen-hero">
+      <img src="./Storefront%201.jpg" class="landing-bg-slide active-bg" id="bg-slide-0" alt="Hive Market Storefront 1" />
+      <img src="./Storefront%202.jpg" class="landing-bg-slide" id="bg-slide-1" alt="Hive Market Storefront 2" />
+      <img src="./Storefront%203.jpg" class="landing-bg-slide" id="bg-slide-2" alt="Hive Market Storefront 3" />
+      
+      <div class="landing-hero-content">
+        <!-- Official Logo Asset -->
+        <img src="./HIVE%20MARKET%20LOGO.png" class="landing-official-logo" alt="Hive Market Logo" />
+        <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
+        <div class="landing-enter-action">
+          <a onclick="navigateTo('what-we-buy')" class="btn-minimal-white">Explore Curation</a>
         </div>
-
-        <!-- Transparent Slow Animated Down Arrow -->
-        <a class="down-arrow-anchor" onclick="smoothScrollToEvents(event)">
-          <span class="down-arrow-text">Upcoming Events & Deals</span>
-          <i data-lucide="chevron-down" class="down-arrow-icon" style="width: 16px; height: 16px;"></i>
-        </a>
       </div>
 
+      <!-- Transparent Down Arrow -->
+      <a class="down-arrow-anchor" onclick="smoothScrollToEvents(event)">
+        <span class="down-arrow-text">Upcoming Events & Deals</span>
+        <i data-lucide="chevron-down" class="down-arrow-icon" style="width: 16px; height: 16px;"></i>
+      </a>
+    </div>
+
+    <main class="container">
       <!-- SECTION: SLOW CONVEYOR BELT OF EVENTS & DEALS -->
       <div id="home-events-anchor">
         <div class="section-editorial-header">
@@ -992,8 +990,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
+  </div>
 
+  <!-- INTERIOR PAGES CONTAINER -->
+  <main class="container">
     <!-- PAGE 2: WHAT WE BUY -->
     <div id="page-what-we-buy" class="page-view">
       <div class="editorial-panel">
@@ -1319,21 +1320,25 @@
     lucide.createIcons();
 
     /* -------------------------------------------------------------
-       LANDING PAGE BACKGROUND SLIDER (5s TIMING & SMOOTH FADE)
+       5-SECOND SMOOTH ROTATING BACKGROUND SLIDER
     ------------------------------------------------------------- */
     let currentBgSlide = 0;
     const totalBgSlides = 3;
+    const bgSlides = document.querySelectorAll('.landing-bg-slide');
 
     function rotateLandingBg() {
-      const slides = document.querySelectorAll('.landing-bg-slide');
-      slides.forEach((s, idx) => {
-        s.classList.toggle('active-bg', idx === currentBgSlide);
-      });
       currentBgSlide = (currentBgSlide + 1) % totalBgSlides;
+      bgSlides.forEach((slide, idx) => {
+        if (idx === currentBgSlide) {
+          slide.classList.add('active-bg');
+        } else {
+          slide.classList.remove('active-bg');
+        }
+      });
     }
-    
-    // Rotate background every 5000ms (5 seconds)
-    setInterval(rotateLandingBg, 5000);
+
+    // Set 5-second interval timer
+    let bgInterval = setInterval(rotateLandingBg, 5000);
 
     /* -------------------------------------------------------------
        SPA PAGE ROUTER
@@ -1364,7 +1369,7 @@
     }
 
     /* -------------------------------------------------------------
-       CONVEYOR BELT / CAROUSEL
+       CAROUSEL / CONVEYOR BELT SCRIPT
     ------------------------------------------------------------- */
     let currentSlide = 0;
     const totalSlides = 4;
