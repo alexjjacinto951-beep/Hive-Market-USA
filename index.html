@@ -43,20 +43,23 @@
       letter-spacing: 0.04em;
     }
 
-    /* Minimal Top Utility Strip */
+    /* Top Strip */
     .top-strip {
       background: var(--deep-black);
       color: var(--pure-white);
       text-align: center;
-      padding: 7px 16px;
+      padding: 8px 16px;
       font-size: 0.68rem;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-family: 'Manrope', sans-serif;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* Ultra-Clean Flush Editorial Header */
+    /* Header */
     header {
       position: sticky;
       top: 0;
@@ -95,7 +98,6 @@
       letter-spacing: 0.14em;
       transition: opacity 0.2s ease;
       position: relative;
-      font-family: 'Manrope', sans-serif;
     }
     .nav-link:hover {
       opacity: 0.5;
@@ -106,7 +108,7 @@
       padding-bottom: 2px;
     }
 
-    /* Center HM Graphic Icon Badge */
+    /* Center HM Icon */
     .brand-center {
       display: flex;
       align-items: center;
@@ -130,28 +132,20 @@
       transform: scale(1.06);
     }
     .header-hm-symbol span {
-      font-family: 'Manrope', sans-serif;
       font-weight: 800;
       font-size: 1.15rem;
-      color: rgba(255, 246, 150, 0.85);
+      color: rgba(255, 246, 150, 0.9);
       letter-spacing: -0.06em;
       user-select: none;
       line-height: 1;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 36px 36px 48px;
     }
 
     /* Page View Controller */
     .page-view {
       display: none;
       opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(8px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .page-view.active {
       display: block;
@@ -160,7 +154,7 @@
     }
 
     /* -------------------------------------------------------------
-       FULL-BLEED ROTATING STOREFRONT HERO
+       FULL-SCREEN BLEED LANDING HERO
     ------------------------------------------------------------- */
     .landing-fullscreen-hero {
       width: 100vw;
@@ -176,7 +170,6 @@
       border-bottom: var(--border-thin);
     }
 
-    /* Background Images with Blur Backdrops to prevent over-zooming */
     .landing-slide-container {
       position: absolute;
       inset: 0;
@@ -198,7 +191,7 @@
       height: calc(100% + 40px);
       object-fit: cover;
       object-position: center;
-      filter: blur(24px) brightness(0.4);
+      filter: blur(24px) brightness(0.35);
       transform: scale(1.1);
     }
 
@@ -225,7 +218,6 @@
       pointer-events: none;
     }
     
-    /* Logo Overlay */
     .landing-official-logo {
       width: 100%;
       max-width: 540px;
@@ -236,7 +228,6 @@
     }
     
     .landing-hero-subtitle {
-      font-family: 'Manrope', sans-serif;
       font-size: 0.95rem;
       font-weight: 300;
       letter-spacing: 0.35em;
@@ -249,16 +240,15 @@
     .landing-enter-action {
       pointer-events: auto;
       display: inline-block;
-      margin-top: 4px;
     }
     .btn-minimal-white {
       background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.4);
       color: var(--pure-white);
-      padding: 11px 32px;
-      font-size: 0.72rem;
+      padding: 12px 36px;
+      font-size: 0.75rem;
       font-weight: 400;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -272,7 +262,7 @@
       border-color: var(--pure-white);
     }
 
-    /* Down Arrow Cue */
+    /* Down Arrow */
     .down-arrow-anchor {
       position: absolute;
       bottom: 24px;
@@ -298,7 +288,7 @@
       transform: translateY(3px);
     }
     .down-arrow-text {
-      font-size: 0.62rem;
+      font-size: 0.65rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--pure-white);
@@ -312,9 +302,14 @@
       50% { transform: translateY(6px); }
     }
 
-    /* -------------------------------------------------------------
-       EVENTS & DEALS CAROUSEL (CONVEYOR BELT)
-    ------------------------------------------------------------- */
+    .container {
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 36px 36px 48px;
+    }
+
+    /* Conveyor Carousel */
     .section-editorial-header {
       border-top: var(--border-thin);
       border-bottom: var(--border-thin);
@@ -428,9 +423,7 @@
       transform: scale(1.25);
     }
 
-    /* -------------------------------------------------------------
-       HOMEPAGE CURATED PHOTO GALLERY
-    ------------------------------------------------------------- */
+    /* Homepage Gallery Grid */
     .home-gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -481,9 +474,7 @@
       letter-spacing: 0.06em;
     }
 
-    /* -------------------------------------------------------------
-       INTERIOR EDITORIAL PANELS
-    ------------------------------------------------------------- */
+    /* Interior Panels */
     .editorial-panel {
       background: var(--deep-black);
       color: var(--pure-white);
@@ -642,7 +633,7 @@
     }
 
     /* -------------------------------------------------------------
-       WHITE IPOD WITH BLACK & GREY ACCENTS
+       WHITE IPOD BODY WITH BLACK & GREY ACCENTS
     ------------------------------------------------------------- */
     #ipod-widget {
       position: fixed;
@@ -856,7 +847,7 @@
     688 Beaumont Ave, Beaumont CA &nbsp;|&nbsp; Mon–Fri 11–7 • Sat–Sun 12–8 &nbsp;|&nbsp; (951) 845-5669
   </div>
 
-  <!-- Editorial Top Flush Header (With HM Icon in Center) -->
+  <!-- Header -->
   <header>
     <div class="header-inner">
       <ul class="nav-left">
@@ -889,24 +880,24 @@
       
       <!-- Slide 1 -->
       <div class="landing-slide-container active-bg" id="bg-slide-0">
-        <img src="Storefront 1.jpg" class="slide-bg-ambient" alt="" />
-        <img src="Storefront 1.jpg" class="slide-main-image" alt="Hive Market Storefront 1" />
+        <img src="Storefront 1.JPG" class="slide-bg-ambient" alt="" />
+        <img src="Storefront 1.JPG" class="slide-main-image" alt="Hive Market Storefront 1" />
       </div>
 
       <!-- Slide 2 -->
       <div class="landing-slide-container" id="bg-slide-1">
-        <img src="Storefront 2.jpg" class="slide-bg-ambient" alt="" />
-        <img src="Storefront 2.jpg" class="slide-main-image" alt="Hive Market Storefront 2" />
+        <img src="Storefront 2.JPG" class="slide-bg-ambient" alt="" />
+        <img src="Storefront 2.JPG" class="slide-main-image" alt="Hive Market Storefront 2" />
       </div>
 
       <!-- Slide 3 -->
       <div class="landing-slide-container" id="bg-slide-2">
-        <img src="Storefront 3.jpg" class="slide-bg-ambient" alt="" />
-        <img src="Storefront 3.jpg" class="slide-main-image" alt="Hive Market Storefront 3" />
+        <img src="Storefront 3.JPG" class="slide-bg-ambient" alt="" />
+        <img src="Storefront 3.JPG" class="slide-main-image" alt="Hive Market Storefront 3" />
       </div>
       
       <div class="landing-hero-content">
-        <!-- Official Logo Asset -->
+        <!-- Logo Asset -->
         <img src="HIVE MARKET LOGO.png" class="landing-official-logo" alt="Hive Market Logo" />
         <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
         <div class="landing-enter-action">
@@ -914,7 +905,7 @@
         </div>
       </div>
 
-      <!-- Transparent Down Arrow -->
+      <!-- Down Arrow -->
       <a class="down-arrow-anchor" onclick="smoothScrollToEvents(event)">
         <span class="down-arrow-text">Upcoming Events & Deals</span>
         <i data-lucide="chevron-down" class="down-arrow-icon" style="width: 16px; height: 16px;"></i>
@@ -972,7 +963,7 @@
             </div>
           </div>
 
-          <!-- Interactive Circle Navigation Dots -->
+          <!-- Carousel Dots -->
           <div class="carousel-dots" id="carousel-dots">
             <button class="dot-circle active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
             <button class="dot-circle" onclick="goToSlide(1)" aria-label="Slide 2"></button>
@@ -992,7 +983,7 @@
         <div class="home-gallery-grid">
           <div class="home-gallery-item" onclick="navigateTo('gallery')">
             <div class="home-gallery-thumb">
-              <img src="Storefront 1.jpg" alt="Sidewalk Rack" />
+              <img src="Storefront 1.JPG" alt="Sidewalk Rack" />
             </div>
             <div class="home-gallery-caption">Perspective 01</div>
             <div class="home-gallery-sub">Outdoor Sidewalk Racks</div>
@@ -1000,7 +991,7 @@
 
           <div class="home-gallery-item" onclick="navigateTo('gallery')">
             <div class="home-gallery-thumb">
-              <img src="Storefront 2.jpg" alt="Store Entrance" />
+              <img src="Storefront 2.JPG" alt="Store Entrance" />
             </div>
             <div class="home-gallery-caption">Perspective 02</div>
             <div class="home-gallery-sub">Window Graphics & Entry</div>
@@ -1008,7 +999,7 @@
 
           <div class="home-gallery-item" onclick="navigateTo('gallery')">
             <div class="home-gallery-thumb">
-              <img src="Storefront 3.jpg" alt="Storefront View" />
+              <img src="Storefront 3.JPG" alt="Storefront View" />
             </div>
             <div class="home-gallery-caption">Perspective 03</div>
             <div class="home-gallery-sub">Full Window Showcase</div>
@@ -1116,7 +1107,7 @@
         <div class="home-gallery-grid" style="margin-top: 28px;">
           <div class="home-gallery-item">
             <div class="home-gallery-thumb" style="border: 1px solid rgba(255, 255, 255, 0.15);">
-              <img src="Storefront 1.jpg" alt="Front Door" />
+              <img src="Storefront 1.JPG" alt="Front Door" />
             </div>
             <div class="home-gallery-caption" style="color: var(--bg-yellow);">Exterior</div>
             <div class="home-gallery-sub" style="color: var(--pure-white); text-shadow: none;">Sidewalk Racks & Entrance</div>
@@ -1124,7 +1115,7 @@
 
           <div class="home-gallery-item">
             <div class="home-gallery-thumb" style="border: 1px solid rgba(255, 255, 255, 0.15);">
-              <img src="Storefront 2.jpg" alt="Color Racks" />
+              <img src="Storefront 2.JPG" alt="Color Racks" />
             </div>
             <div class="home-gallery-caption" style="color: var(--bg-yellow);">Storefront</div>
             <div class="home-gallery-sub" style="color: var(--pure-white); text-shadow: none;">Buy Sell Trade Graphics</div>
@@ -1132,7 +1123,7 @@
 
           <div class="home-gallery-item">
             <div class="home-gallery-thumb" style="border: 1px solid rgba(255, 255, 255, 0.15);">
-              <img src="Storefront 3.jpg" alt="Leather Footwear" />
+              <img src="Storefront 3.JPG" alt="Leather Footwear" />
             </div>
             <div class="home-gallery-caption" style="color: var(--bg-yellow);">Window View</div>
             <div class="home-gallery-sub" style="color: var(--pure-white); text-shadow: none;">Main Window Display</div>
@@ -1293,7 +1284,7 @@
     </div>
   </main>
 
-  <!-- Classic White / Grey Minimalist iPod -->
+  <!-- White iPod with Dark Center Button -->
   <div id="ipod-widget">
     <div class="ipod-screen">
       <div class="ipod-header-bar">
@@ -1336,9 +1327,7 @@
   <script>
     lucide.createIcons();
 
-    /* -------------------------------------------------------------
-       5-SECOND BACKGROUND ROTATOR
-    ------------------------------------------------------------- */
+    /* 5-Second Background Rotator */
     let currentBgSlide = 0;
     const totalBgSlides = 3;
 
@@ -1352,12 +1341,9 @@
       }
     }
     
-    // Rotate background every 5000ms
     setInterval(rotateLandingBg, 5000);
 
-    /* -------------------------------------------------------------
-       SPA PAGE ROUTER
-    ------------------------------------------------------------- */
+    /* SPA Router */
     function navigateTo(pageId) {
       document.querySelectorAll('.page-view').forEach(p => {
         p.classList.remove('active');
@@ -1383,9 +1369,7 @@
       }
     }
 
-    /* -------------------------------------------------------------
-       CAROUSEL SCRIPT
-    ------------------------------------------------------------- */
+    /* Carousel */
     let currentSlide = 0;
     const totalSlides = 4;
     const track = document.getElementById('conveyor-track');
@@ -1426,9 +1410,7 @@
     startConveyor();
     window.addEventListener('resize', updateCarousel);
 
-    /* -------------------------------------------------------------
-       FORM HANDLERS
-    ------------------------------------------------------------- */
+    /* Form Handlers */
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     const dateInput = document.getElementById('book-date');
@@ -1480,9 +1462,7 @@
       closeEventModal();
     }
 
-    /* -------------------------------------------------------------
-       DRAGGABLE IPOD SCRIPT
-    ------------------------------------------------------------- */
+    /* Draggable iPod */
     const ipod = document.getElementById("ipod-widget");
     let isDragging = false;
     let offset = { x: 0, y: 0 };
