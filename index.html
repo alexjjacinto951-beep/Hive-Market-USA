@@ -6,7 +6,7 @@
   <title>HIVE MARKET USA | Buy • Sell • Trade</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
@@ -18,6 +18,7 @@
       --muted-white: rgba(255, 255, 255, 0.75);
       --border-thin: 1px solid rgba(0, 0, 0, 0.9);
       --border-white-thin: 1px solid rgba(255, 255, 255, 0.15);
+      --glass-panel: rgba(12, 13, 16, 0.92);
     }
 
     * {
@@ -26,10 +27,14 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: var(--bg-yellow);
       color: var(--deep-black);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Manrope', sans-serif;
       font-weight: 300;
       overflow-x: hidden;
       line-height: 1.5;
@@ -88,7 +93,7 @@
       cursor: pointer;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.3s ease;
       position: relative;
     }
     .nav-link:hover {
@@ -107,11 +112,12 @@
       color: var(--deep-black);
     }
     .brand-title {
-      font-family: 'Cinzel', serif;
+      font-family: 'Manrope', sans-serif;
       font-weight: 500;
       font-size: 1.3rem;
       letter-spacing: 0.28em;
       line-height: 1;
+      text-transform: uppercase;
     }
 
     .container {
@@ -125,12 +131,19 @@
     /* Page View Controller */
     .page-view {
       display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .page-view.active {
       display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* Landing Page */
+    /* -------------------------------------------------------------
+       LANDING PAGE (FULL-BLEED EDITORIAL STOREFRONT)
+    ------------------------------------------------------------- */
     .landing-cover-wrap {
       width: 100%;
       position: relative;
@@ -140,6 +153,7 @@
       height: calc(100vh - 170px);
       min-height: 520px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
     }
@@ -152,7 +166,7 @@
       object-fit: cover;
       opacity: 0.85;
       filter: contrast(1.05) brightness(0.9);
-      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+      transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
     }
     .landing-cover-wrap:hover .landing-cover-img {
       transform: scale(1.02);
@@ -168,7 +182,7 @@
       pointer-events: none;
     }
     .landing-hero-title {
-      font-family: 'Cinzel', serif;
+      font-family: 'Manrope', sans-serif;
       font-weight: 400;
       font-size: 3.6rem;
       letter-spacing: 0.3em;
@@ -179,6 +193,7 @@
       text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
     }
     .landing-hero-subtitle {
+      font-family: 'Manrope', sans-serif;
       font-size: 0.95rem;
       font-weight: 300;
       letter-spacing: 0.35em;
@@ -205,7 +220,7 @@
       text-transform: uppercase;
       cursor: pointer;
       text-decoration: none;
-      transition: all 0.25s ease;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .btn-minimal-white:hover {
       background: var(--pure-white);
@@ -213,7 +228,222 @@
       border-color: var(--pure-white);
     }
 
-    /* Interior Black Editorial Panels */
+    /* Transparent Down Arrow & Teaser Cue */
+    .down-arrow-anchor {
+      position: absolute;
+      bottom: 20px;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: floatSlow 3.2s ease-in-out infinite;
+    }
+    .down-arrow-anchor:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: var(--pure-white);
+      transform: translateY(3px);
+    }
+    .down-arrow-text {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--pure-white);
+      font-weight: 500;
+    }
+    .down-arrow-icon {
+      color: var(--bg-yellow);
+      transition: transform 0.3s ease;
+    }
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* -------------------------------------------------------------
+       UPCOMING EVENTS & DEALS CAROUSEL (CONVEYOR BELT)
+    ------------------------------------------------------------- */
+    .section-editorial-header {
+      border-top: var(--border-thin);
+      border-bottom: var(--border-thin);
+      padding: 16px 0;
+      margin: 54px 0 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .section-editorial-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--deep-black);
+    }
+
+    .carousel-outer {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      background: var(--card-black);
+      border: var(--border-thin);
+      padding: 36px 28px 24px;
+    }
+
+    /* Slowly moving conveyor belt */
+    .conveyor-track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    .event-card-slide {
+      flex: 0 0 calc(33.333% - 16px);
+      min-width: 300px;
+      background: rgba(255, 255, 255, 0.03);
+      border: var(--border-white-thin);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.35s ease;
+      position: relative;
+    }
+    .event-card-slide:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: var(--bg-yellow);
+      transform: translateY(-4px);
+    }
+    .event-card-slide.active-card {
+      border-color: var(--bg-yellow);
+      box-shadow: inset 0 0 0 1px var(--bg-yellow);
+    }
+    .event-tag-pill {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      color: var(--bg-yellow);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .event-card-title {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--pure-white);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .event-card-desc {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--muted-white);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      text-transform: none;
+    }
+    .event-card-footer {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--bg-yellow);
+      text-transform: uppercase;
+    }
+
+    /* Small Navigation Dot Circles */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .dot-circle {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+    .dot-circle:hover {
+      border-color: var(--pure-white);
+      transform: scale(1.2);
+    }
+    .dot-circle.active {
+      background: var(--bg-yellow);
+      border-color: var(--bg-yellow);
+      transform: scale(1.25);
+    }
+
+    /* -------------------------------------------------------------
+       HOMEPAGE CURATED PHOTO GALLERY
+    ------------------------------------------------------------- */
+    .home-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .home-gallery-item {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .home-gallery-thumb {
+      width: 100%;
+      height: 380px;
+      background: var(--card-black);
+      border: var(--border-thin);
+      overflow: hidden;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .home-gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      opacity: 0.9;
+    }
+    .home-gallery-item:hover img {
+      transform: scale(1.04);
+      opacity: 1;
+    }
+    .home-gallery-caption {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--deep-black);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .home-gallery-sub {
+      font-size: 0.8rem;
+      color: var(--pure-white);
+      text-shadow: 1px 1px 0 var(--deep-black);
+      font-weight: 400;
+      margin-top: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* -------------------------------------------------------------
+       INTERIOR EDITORIAL PANELS
+    ------------------------------------------------------------- */
     .editorial-panel {
       background: var(--deep-black);
       color: var(--pure-white);
@@ -222,7 +452,6 @@
       margin-bottom: 36px;
     }
     .editorial-panel h1 {
-      font-family: 'Cinzel', serif;
       font-weight: 400;
       font-size: 2.2rem;
       letter-spacing: 0.22em;
@@ -265,7 +494,7 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 12px 16px;
       color: var(--pure-white);
-      font-family: inherit;
+      font-family: 'Manrope', sans-serif;
       font-size: 0.85rem;
       outline: none;
       transition: border-color 0.2s;
@@ -275,6 +504,7 @@
     }
 
     .btn-submit {
+      font-family: 'Manrope', sans-serif;
       background: var(--bg-yellow);
       color: var(--deep-black);
       border: 1px solid var(--bg-yellow);
@@ -315,52 +545,7 @@
       font-weight: 300;
     }
 
-    /* Gallery Grid */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-top: 28px;
-    }
-    .gallery-item {
-      display: flex;
-      flex-direction: column;
-    }
-    .gallery-thumb {
-      width: 100%;
-      height: 380px;
-      background: #000;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      overflow: hidden;
-      margin-bottom: 10px;
-    }
-    .gallery-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-      opacity: 0.9;
-    }
-    .gallery-item:hover img {
-      transform: scale(1.03);
-      opacity: 1;
-    }
-    .gallery-caption {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      color: var(--bg-yellow);
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-    .gallery-sub {
-      font-size: 0.78rem;
-      color: var(--pure-white);
-      font-weight: 300;
-      margin-top: 2px;
-    }
-
-    /* Events List View */
+    /* Events List View in Page */
     .event-row {
       border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       padding: 22px 0;
@@ -433,6 +618,7 @@
       user-select: none;
       cursor: grab;
       transition: box-shadow 0.2s ease;
+      font-family: 'Manrope', sans-serif;
     }
     #ipod-widget:active {
       cursor: grabbing;
@@ -486,7 +672,6 @@
       background: #000000;
     }
 
-    /* Crisp White Click Wheel */
     .ipod-wheel {
       width: 106px;
       height: 106px;
@@ -507,6 +692,7 @@
       border: none;
       letter-spacing: 0.08em;
       transition: opacity 0.15s ease;
+      font-family: 'Manrope', sans-serif;
     }
     .wheel-btn:hover { opacity: 0.6; }
     .wheel-menu { top: 7px; left: 50%; transform: translateX(-50%); }
@@ -514,7 +700,6 @@
     .wheel-next { right: 8px; top: 50%; transform: translateY(-50%); }
     .wheel-play { bottom: 7px; left: 50%; transform: translateX(-50%); }
     
-    /* White / Yellow Center Button */
     .center-btn {
       width: 40px;
       height: 40px;
@@ -534,6 +719,7 @@
       color: #000000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       transition: transform 0.1s ease;
+      font-family: 'Manrope', sans-serif;
     }
     .center-btn:active {
       transform: translate(-50%, -50%) scale(0.94);
@@ -557,6 +743,8 @@
       justify-content: center;
       z-index: 10000;
       padding: 24px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
     .modal-card {
       background: var(--deep-black);
@@ -566,6 +754,11 @@
       padding: 36px;
       position: relative;
       color: var(--pure-white);
+      animation: modalSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes modalSlide {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
     .modal-close {
       position: absolute;
@@ -596,7 +789,10 @@
       .landing-hero-title {
         font-size: 2.2rem;
       }
-      .form-row, .reviews-grid, .gallery-grid, .event-row {
+      .event-card-slide {
+        flex: 0 0 85%;
+      }
+      .home-gallery-grid, .form-row, .reviews-grid, .event-row {
         grid-template-columns: 1fr;
       }
       .editorial-panel {
@@ -639,6 +835,7 @@
 
     <!-- PAGE 1: SLEEK MINIMAL LANDING PAGE -->
     <div id="page-home" class="page-view active">
+      <!-- Full-bleed Storefront Cover -->
       <div class="landing-cover-wrap">
         <img src="image_10.png" class="landing-cover-img" alt="Hive Market Storefront" />
         <div class="landing-hero-content">
@@ -646,6 +843,114 @@
           <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
           <div class="landing-enter-action">
             <a onclick="navigateTo('what-we-buy')" class="btn-minimal-white">Explore Curation</a>
+          </div>
+        </div>
+
+        <!-- Transparent Slow Animated Down Arrow -->
+        <a class="down-arrow-anchor" onclick="smoothScrollToEvents(event)">
+          <span class="down-arrow-text">Upcoming Events & Deals</span>
+          <i data-lucide="chevron-down" class="down-arrow-icon" style="width: 16px; height: 16px;"></i>
+        </a>
+      </div>
+
+      <!-- SECTION: SLOW CONVEYOR BELT OF EVENTS & DEALS -->
+      <div id="home-events-anchor">
+        <div class="section-editorial-header">
+          <span class="section-editorial-title">Upcoming Schedule & Daily Deals</span>
+          <span style="font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;">688 BEAUMONT AVE</span>
+        </div>
+
+        <div class="carousel-outer" onmouseenter="pauseConveyor()" onmouseleave="resumeConveyor()">
+          <div class="conveyor-track" id="conveyor-track">
+            <!-- Slide 1 -->
+            <div class="event-card-slide active-card" onclick="openEventModal('Beaumont Sidewalk Flea & $10 Racks', 'Saturday, Sept 5 • 12:00 PM – 6:00 PM', 'Outdoor street racks, 10+ local vendor setups, drinks, and special discount racks right outside 688 Beaumont Ave.', '688 Beaumont Ave')">
+              <div>
+                <div class="event-tag-pill">WEEKEND FLEA • SAT SEPT 5</div>
+                <h3 class="event-card-title">Beaumont Sidewalk Flea & $10 Racks</h3>
+                <p class="event-card-desc">Outdoor racks loaded with $10 vintage tees, workwear, and independent regional vendor setups.</p>
+              </div>
+              <div class="event-card-footer">View Details & RSVP →</div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="event-card-slide" onclick="openEventModal('300+ Vintage Tee & Kicks Drop', 'Friday, Sept 18 • 4:00 PM – 7:00 PM', 'Fresh unboxing! 300+ vintage single-stitch tees, jackets, Doc Martens, and Dunks hitting the racks.', 'Main Store Floor')">
+              <div>
+                <div class="event-tag-pill">FLOOR DROP • FRI SEPT 18</div>
+                <h3 class="event-card-title">300+ Vintage Tee & Kicks Drop</h3>
+                <p class="event-card-desc">Fresh haul unboxed live on the floor. First 20 visitors receive exclusive store stickers & perks.</p>
+              </div>
+              <div class="event-card-footer">View Details & RSVP →</div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="event-card-slide" onclick="openEventModal('Local Artist Pop-Up Market', 'Saturday, Oct 3 • 12:00 PM – 6:00 PM', 'Featuring local Inland Empire makers, reworked apparel artists, jewelry creators, and art prints.', 'Hive Courtyard')">
+              <div>
+                <div class="event-tag-pill">POP-UP MARKET • SAT OCT 3</div>
+                <h3 class="event-card-title">Local Artist Pop-Up Market</h3>
+                <p class="event-card-desc">Showcasing regional handmade jewelry designers, custom reworked garments, and art prints.</p>
+              </div>
+              <div class="event-card-footer">View Details & RSVP →</div>
+            </div>
+
+            <!-- Slide 4: Deals -->
+            <div class="event-card-slide" onclick="openEventModal('Student & Trade Appreciation Thursdays', 'Every Thursday • All Day', 'Bring 10+ trade pieces on Thursday and receive an extra 20% bonus store credit on all evaluated inventory.', 'Buying Desk')">
+              <div>
+                <div class="event-tag-pill">WEEKLY SPECIAL • THURSDAYS</div>
+                <h3 class="event-card-title">Trade Credit Bonus Days</h3>
+                <p class="event-card-desc">Receive an extra 20% store trade bonus on all single-stitch t-shirts, jackets, and boots.</p>
+              </div>
+              <div class="event-card-footer">View Details & Policy →</div>
+            </div>
+          </div>
+
+          <!-- Interactive Circle Navigation Dots -->
+          <div class="carousel-dots" id="carousel-dots">
+            <button class="dot-circle active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+            <button class="dot-circle" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+            <button class="dot-circle" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+            <button class="dot-circle" onclick="goToSlide(3)" aria-label="Slide 4"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: HOMEPAGE CURATED PHOTO GALLERY -->
+      <div style="margin-top: 54px;">
+        <div class="section-editorial-header">
+          <span class="section-editorial-title">Archival Floor Gallery</span>
+          <a onclick="navigateTo('gallery')" class="nav-link">View Full Dossier (4) →</a>
+        </div>
+
+        <div class="home-gallery-grid">
+          <div class="home-gallery-item" onclick="navigateTo('gallery')">
+            <div class="home-gallery-thumb">
+              <img src="image_15.png" alt="Sidewalk Rack" />
+            </div>
+            <div class="home-gallery-caption">Exterior</div>
+            <div class="home-gallery-sub">Sidewalk Flea Racks</div>
+          </div>
+
+          <div class="home-gallery-item" onclick="navigateTo('gallery')">
+            <div class="home-gallery-thumb">
+              <img src="image_14.png" alt="Leather Footwear" />
+            </div>
+            <div class="home-gallery-caption">Footwear</div>
+            <div class="home-gallery-sub">Leather Loafers & Boots</div>
+          </div>
+
+          <div class="home-gallery-item" onclick="navigateTo('gallery')">
+            <div class="home-gallery-thumb">
+              <img src="image_2.png" alt="Apparel Racks" />
+            </div>
+            <div class="home-gallery-caption">Apparel</div>
+            <div class="home-gallery-sub">Color-Curated Racks</div>
+          </div>
+
+          <div class="home-gallery-item" onclick="navigateTo('gallery')">
+            <div class="home-gallery-thumb">
+              <img src="image_5.png" alt="Turntable Setup" />
+            </div>
+            <div class="home-gallery-caption">Audio Lounge</div>
+            <div class="home-gallery-sub">Analog Sound System</div>
           </div>
         </div>
       </div>
@@ -744,37 +1049,37 @@
         <h1>Storefront & Interior Dossier</h1>
         <p>A visual index of 688 Beaumont Ave, from our color-blocked racks to the analog audio lounge.</p>
 
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <div class="gallery-thumb">
+        <div class="home-gallery-grid" style="margin-top: 28px;">
+          <div class="home-gallery-item">
+            <div class="home-gallery-thumb" style="border: 1px solid rgba(255, 255, 255, 0.15);">
               <img src="image_12.png" alt="Front Door" />
             </div>
-            <div class="gallery-caption">Storefront</div>
-            <div class="gallery-sub">Main Entrance & Hours</div>
+            <div class="home-gallery-caption" style="color: var(--bg-yellow);">Storefront</div>
+            <div class="home-gallery-sub" style="color: var(--pure-white); text-shadow: none;">Main Entrance & Hours</div>
           </div>
 
-          <div class="gallery-item">
-            <div class="gallery-thumb">
+          <div class="home-gallery-item">
+            <div class="home-gallery-thumb" style="border: 1px solid rgba(255, 255, 255, 0.15);">
               <img src="image_2.png" alt="Color Racks" />
             </div>
-            <div class="gallery-caption">Interior</div>
-            <div class="gallery-sub">Color-Curated Apparel Racks</div>
+            <div class="home-gallery-caption" style="color: var(--bg-yellow);">Interior</div>
+            <div class="home-gallery-sub" style="color: var(--pure-white); text-shadow: none;">Color-Curated Apparel Racks</div>
           </div>
 
-          <div class="gallery-item">
-            <div class="gallery-thumb">
+          <div class="home-gallery-item">
+            <div class="home-gallery-thumb" style="border: 1px solid rgba(255, 255, 255, 0.15);">
               <img src="image_14.png" alt="Leather Footwear" />
             </div>
-            <div class="gallery-caption">Footwear</div>
-            <div class="gallery-sub">Leather Loafers & Boots</div>
+            <div class="home-gallery-caption" style="color: var(--bg-yellow);">Footwear</div>
+            <div class="home-gallery-sub" style="color: var(--pure-white); text-shadow: none;">Leather Loafers & Boots</div>
           </div>
 
-          <div class="gallery-item">
-            <div class="gallery-thumb">
+          <div class="home-gallery-item">
+            <div class="home-gallery-thumb" style="border: 1px solid rgba(255, 255, 255, 0.15);">
               <img src="image_5.png" alt="Audio Lounge" />
             </div>
-            <div class="gallery-caption">Audio Lounge</div>
-            <div class="gallery-sub">Analog Turntable & Vinyl Vault</div>
+            <div class="home-gallery-caption" style="color: var(--bg-yellow);">Audio Lounge</div>
+            <div class="home-gallery-sub" style="color: var(--pure-white); text-shadow: none;">Analog Turntable & Vinyl Vault</div>
           </div>
         </div>
       </div>
@@ -880,7 +1185,7 @@
         </div>
 
         <div style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px;">
-          <h2 style="font-family:'Cinzel',serif; font-size:1.1rem; font-weight:400; color:var(--bg-yellow); margin-bottom:12px;">Submit Feedback</h2>
+          <h2 style="font-size:1.1rem; font-weight:400; color:var(--bg-yellow); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.18em;">Submit Feedback</h2>
           <form class="form-grid" onsubmit="handleReviewSubmit(event)">
             <div class="form-row">
               <div>
@@ -966,7 +1271,7 @@
     <div class="modal-card">
       <button class="modal-close" onclick="closeEventModal()">✕</button>
       <div style="color:var(--bg-yellow); font-size:0.75rem; letter-spacing:0.16em; margin-bottom:8px;" id="modal-date">DATE</div>
-      <h2 id="modal-title" style="font-family:'Cinzel',serif; font-size:1.4rem; font-weight:400; letter-spacing:0.18em; margin-bottom:12px;">EVENT TITLE</h2>
+      <h2 id="modal-title" style="font-size:1.4rem; font-weight:400; letter-spacing:0.18em; margin-bottom:12px; text-transform:uppercase;">EVENT TITLE</h2>
       <p id="modal-desc" style="color:var(--muted-white); font-size:0.88rem; line-height:1.6; margin-bottom:24px;">Event details</p>
       <button class="btn-submit" style="width:100%; margin:0;" onclick="rsvpSuccess()">Claim Admission Pass</button>
     </div>
@@ -975,10 +1280,16 @@
   <script>
     lucide.createIcons();
 
+    // Smooth navigation with slow transition
     function navigateTo(pageId) {
-      document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.page-view').forEach(p => {
+        p.classList.remove('active');
+      });
+      
       const target = document.getElementById(`page-${pageId}`);
-      if (target) target.classList.add('active');
+      if (target) {
+        target.classList.add('active');
+      }
 
       document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.toggle('active', link.getAttribute('onclick')?.includes(pageId));
@@ -987,6 +1298,61 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    function smoothScrollToEvents(e) {
+      e.preventDefault();
+      const el = document.getElementById('home-events-anchor');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    /* -------------------------------------------------------------
+       SLOW CONVEYOR BELT / CAROUSEL SCRIPT
+    ------------------------------------------------------------- */
+    let currentSlide = 0;
+    const totalSlides = 4;
+    const track = document.getElementById('conveyor-track');
+    const dots = document.querySelectorAll('.dot-circle');
+    const cards = document.querySelectorAll('.event-card-slide');
+    let conveyorInterval = null;
+
+    function updateCarousel() {
+      // Calculate offset based on slide index and card width
+      const cardWidth = cards[0].offsetWidth + 24; // width + gap
+      track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+
+      dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+      cards.forEach((c, i) => c.classList.toggle('active-card', i === currentSlide));
+    }
+
+    function goToSlide(idx) {
+      currentSlide = idx;
+      updateCarousel();
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function startConveyor() {
+      conveyorInterval = setInterval(nextSlide, 3800); // Slow calm pacing
+    }
+
+    function pauseConveyor() {
+      clearInterval(conveyorInterval);
+    }
+
+    function resumeConveyor() {
+      startConveyor();
+    }
+
+    startConveyor();
+    window.addEventListener('resize', updateCarousel);
+
+    /* -------------------------------------------------------------
+       BOOKING & REVIEW HANDLERS
+    ------------------------------------------------------------- */
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     const dateInput = document.getElementById('book-date');
@@ -1038,7 +1404,9 @@
       closeEventModal();
     }
 
-    // Draggable iPod
+    /* -------------------------------------------------------------
+       DRAGGABLE IPOD SCRIPT
+    ------------------------------------------------------------- */
     const ipod = document.getElementById("ipod-widget");
     let isDragging = false;
     let offset = { x: 0, y: 0 };
