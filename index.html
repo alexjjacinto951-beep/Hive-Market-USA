@@ -312,6 +312,36 @@
     .down-arrow-anchor:hover .down-arrow-icon {
       transform: translateY(3px);
     }
+
+    /* Minimal Circular Arrow Button (Arrow Only) */
+    .icon-only-arrow-anchor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(20, 22, 26, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 255, 255, 0.32);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background-color 0.4s ease,
+                  border-color 0.4s ease;
+    }
+    .icon-only-arrow-anchor:hover {
+      background: rgba(30, 34, 40, 0.95);
+      border-color: rgba(255, 255, 255, 0.85);
+      transform: translateY(-4px) scale(1.08);
+    }
+    .icon-only-arrow-anchor:active, .icon-only-arrow-anchor.arrow-jump-active {
+      transform: translateY(18px) scale(0.9) !important;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
     @keyframes floatSlow {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(6px); }
@@ -1316,9 +1346,9 @@
             </div>
           </div>
 
-          <!-- Part B: Subtle Sub-Heading Integration -->
+          <!-- Part B: Subtle Sub-Heading Integration (Cleaned: No 'Interactive') -->
           <div class="calendar-sub-divider">
-            <span class="calendar-sub-title">Interactive Vault & Live Session Calendar</span>
+            <span class="calendar-sub-title">Live Vault & Drop Calendar</span>
             <span style="font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; color: rgba(0,0,0,0.6);">SELECT ANY DATE</span>
           </div>
 
@@ -1365,11 +1395,10 @@
         </div>
       </div>
 
-      <!-- Arrow Down to Archival Section -->
+      <!-- Arrow Down to Archival Section (Only the Arrow) -->
       <div style="display: flex; justify-content: center; margin: 42px 0 12px;">
-        <a class="down-arrow-anchor" style="position: static; animation: none;" onclick="smoothScrollToTarget('home-archival-anchor', event)">
-          <span class="down-arrow-text">Explore Studio Curation</span>
-          <i data-lucide="chevron-down" class="down-arrow-icon" style="width: 16px; height: 16px;"></i>
+        <a class="icon-only-arrow-anchor" onclick="smoothScrollToTarget('home-archival-anchor', event)" aria-label="Scroll Down">
+          <i data-lucide="chevron-down" style="width: 22px; height: 22px; color: var(--bg-yellow);"></i>
         </a>
       </div>
     </main>
