@@ -266,7 +266,6 @@
       border-color: var(--pure-white);
     }
 
-    /* Translucent Glass Pill Cue matching reference screenshot */
     .down-arrow-anchor {
       position: absolute;
       bottom: 24px;
@@ -326,7 +325,73 @@
     }
 
     /* -------------------------------------------------------------
-       UPCOMING EVENTS SECTION (TRANSLUCENT GLASSMORPHIC CONTAINER)
+       WHAT WE BUY FULL-SCREEN BACKGROUND SECTION
+    ------------------------------------------------------------- */
+    .what-we-buy-fullpage {
+      position: relative;
+      width: 100vw;
+      min-height: calc(100vh - 98px);
+      background: var(--deep-black);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+    }
+
+    .what-we-buy-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: contrast(1.05) brightness(0.68);
+      transform: scale(1.01);
+      z-index: 1;
+      image-rendering: -webkit-optimize-contrast;
+    }
+
+    .what-we-buy-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.85) 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .what-we-buy-glass-panel {
+      position: relative;
+      z-index: 3;
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(12, 13, 16, 0.72);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1.5px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+      padding: 48px 44px;
+      color: var(--pure-white);
+    }
+    .what-we-buy-glass-panel h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--bg-yellow);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .what-we-buy-glass-panel p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--trans-white-grey);
+      letter-spacing: 0.03em;
+      line-height: 1.6;
+      max-width: 800px;
+    }
+
+    /* -------------------------------------------------------------
+       EVENTS & DEALS (WHITE TRANSLUCENT GLASSMORPHIC CONTAINER)
     ------------------------------------------------------------- */
     .section-editorial-header {
       border-top: var(--border-thin);
@@ -345,7 +410,6 @@
       color: var(--deep-black);
     }
 
-    /* Translucent White Glass Carrier */
     .carousel-outer {
       position: relative;
       overflow: hidden;
@@ -365,7 +429,6 @@
       will-change: transform;
     }
 
-    /* Translucent Cards inside carousel */
     .event-card-slide {
       flex: 0 0 calc(33.333% - 16px);
       min-width: 300px;
@@ -587,16 +650,16 @@
       margin-top: 28px;
     }
     .spec-table th, .spec-table td {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
       padding: 16px 12px;
       text-align: left;
-      font-size: 0.82rem;
+      font-size: 0.84rem;
     }
     .spec-table th {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       letter-spacing: 0.2em;
       color: var(--bg-yellow);
-      font-weight: 500;
+      font-weight: 600;
     }
     .spec-table td {
       color: var(--trans-white-grey);
@@ -846,6 +909,13 @@
       .landing-fullscreen-hero {
         height: calc(100vh - 120px);
       }
+      .what-we-buy-fullpage {
+        min-height: auto;
+        padding: 40px 16px;
+      }
+      .what-we-buy-glass-panel {
+        padding: 32px 20px;
+      }
       .event-card-slide {
         flex: 0 0 85%;
       }
@@ -915,7 +985,7 @@
         </div>
       </div>
 
-      <!-- Down Arrow Clicker with Slow Smooth Easing Down Animation -->
+      <!-- Down Arrow Clicker with Slow Spring Easing Animation -->
       <a class="down-arrow-anchor" onclick="smoothScrollToEvents(event)">
         <span class="down-arrow-text">Upcoming Events & Deals</span>
         <i data-lucide="chevron-down" class="down-arrow-icon" style="width: 16px; height: 16px;"></i>
@@ -1019,11 +1089,15 @@
     </main>
   </div>
 
-  <!-- INTERIOR PAGES CONTAINER -->
-  <main class="container">
-    <!-- PAGE 2: WHAT WE BUY -->
-    <div id="page-what-we-buy" class="page-view">
-      <div class="editorial-panel">
+  <!-- PAGE 2: WHAT WE BUY (FULL SCREEN BACKGROUND IMAGE) -->
+  <div id="page-what-we-buy" class="page-view">
+    <div class="what-we-buy-fullpage">
+      <!-- Full Edge-to-Edge HD Image Backdrop -->
+      <img src="What we buy.JPG" class="what-we-buy-bg-img" alt="What We Buy Storefront Rack" />
+      <div class="what-we-buy-vignette"></div>
+
+      <!-- Glassmorphic Elevated Information Dossier Panel -->
+      <div class="what-we-buy-glass-panel">
         <h1>What We Buy & Trade</h1>
         <p>We purchase upfront for instant cash, Venmo/Zelle, or 1.5x store trade credit for curated vintage and streetwear garments.</p>
 
@@ -1037,41 +1111,43 @@
           </thead>
           <tbody>
             <tr>
-              <td>Graphic Tees</td>
+              <td><strong style="color:#FFF;">Graphic Tees</strong></td>
               <td>Single-stitch, band tees, 90s anime, Harley Davidson, racing jerseys, varsity outerwear.</td>
-              <td style="color: var(--bg-yellow);">Highest Payout</td>
+              <td style="color: var(--bg-yellow); font-weight:700;">Highest Payout</td>
             </tr>
             <tr>
-              <td>Denim & Workwear</td>
+              <td><strong style="color:#FFF;">Denim & Workwear</strong></td>
               <td>Vintage Levi's 501/550, Carhartt double-knee pants and jackets, Dickies, military surplus.</td>
-              <td style="color: var(--bg-yellow);">High Demand</td>
+              <td style="color: var(--bg-yellow); font-weight:700;">High Demand</td>
             </tr>
             <tr>
-              <td>Footwear</td>
+              <td><strong style="color:#FFF;">Footwear</strong></td>
               <td>Doc Martens, leather loafers, clean Nike Dunks, Jordan 1s, retro New Balance, work boots.</td>
-              <td style="color: var(--bg-yellow);">High Demand</td>
+              <td style="color: var(--bg-yellow); font-weight:700;">High Demand</td>
             </tr>
             <tr>
-              <td>Accessories</td>
+              <td><strong style="color:#FFF;">Accessories</strong></td>
               <td>Y2K studded bags, genuine leather belts, vintage snapbacks, trucker hats, silver jewelry.</td>
-              <td style="color: var(--pure-white);">Always Buying</td>
+              <td style="color: var(--pure-white); font-weight:600;">Always Buying</td>
             </tr>
             <tr>
-              <td>Declined Items</td>
+              <td><strong style="color:#FFAAA6;">Declined Items</strong></td>
               <td>Ultra fast-fashion (Shein, Temu, Forever 21), damaged garments, unwashed apparel.</td>
-              <td style="color: #FFAAA6;">No Buyout</td>
+              <td style="color: #FFAAA6; font-weight:600;">No Buyout</td>
             </tr>
           </tbody>
         </table>
 
-        <div style="margin-top: 32px;">
+        <div style="margin-top: 36px;">
           <button class="btn-submit interactive-click" onclick="navigateTo('sell', event)">Schedule Drop-Off Appointment</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- PAGE 3: SELL / TRADE -->
-    <div id="page-sell" class="page-view">
+  <!-- PAGE 3: SELL / TRADE -->
+  <div id="page-sell" class="page-view">
+    <main class="container">
       <div class="editorial-panel">
         <h1>Schedule an Appraisal</h1>
         <p>Walk-ins are welcomed during all open store hours. To reserve an appraisal slot for 1–2 bins, schedule below.</p>
@@ -1106,10 +1182,12 @@
           <button type="submit" class="btn-submit interactive-click">Confirm Reservation</button>
         </form>
       </div>
-    </div>
+    </main>
+  </div>
 
-    <!-- PAGE 4: GALLERY -->
-    <div id="page-gallery" class="page-view">
+  <!-- PAGE 4: GALLERY -->
+  <div id="page-gallery" class="page-view">
+    <main class="container">
       <div class="editorial-panel">
         <h1>Storefront & Interior Dossier</h1>
         <p>A visual index of 688 Beaumont Ave, from our outdoor sidewalk setups to window curation.</p>
@@ -1140,10 +1218,12 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
+  </div>
 
-    <!-- PAGE 5: EVENTS -->
-    <div id="page-events" class="page-view">
+  <!-- PAGE 5: EVENTS -->
+  <div id="page-events" class="page-view">
+    <main class="container">
       <div class="editorial-panel">
         <h1>Event Schedule</h1>
         <p>Upcoming sidewalk markets, floor unboxings, and sound sessions at 688 Beaumont Ave.</p>
@@ -1177,10 +1257,12 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
+  </div>
 
-    <!-- PAGE 6: VENDORS -->
-    <div id="page-vendors" class="page-view">
+  <!-- PAGE 6: VENDORS -->
+  <div id="page-vendors" class="page-view">
+    <main class="container">
       <div class="editorial-panel">
         <h1>Vendor Application</h1>
         <p>Independent vintage curators, rework designers, and artists seeking booth spaces or guest rack features.</p>
@@ -1216,10 +1298,12 @@
           <button type="submit" class="btn-submit interactive-click">Submit Application</button>
         </form>
       </div>
-    </div>
+    </main>
+  </div>
 
-    <!-- PAGE 7: REVIEWS -->
-    <div id="page-reviews" class="page-view">
+  <!-- PAGE 7: REVIEWS -->
+  <div id="page-reviews" class="page-view">
+    <main class="container">
       <div class="editorial-panel">
         <h1>Community Reviews</h1>
         <p>Verified feedback from Beaumont and Inland Empire shoppers.</p>
@@ -1258,10 +1342,12 @@
           </form>
         </div>
       </div>
-    </div>
+    </main>
+  </div>
 
-    <!-- PAGE 8: INFO -->
-    <div id="page-info" class="page-view">
+  <!-- PAGE 8: INFO -->
+  <div id="page-info" class="page-view">
+    <main class="container">
       <div class="editorial-panel">
         <h1>Location & Hours</h1>
         <p>Visit our brick-and-mortar space in Beaumont, California.</p>
@@ -1291,8 +1377,8 @@
           </tbody>
         </table>
       </div>
-    </div>
-  </main>
+    </main>
+  </div>
 
   <!-- #FFD400 Yellow iPod with White Wheel & Black Details -->
   <div id="ipod-widget">
@@ -1374,7 +1460,7 @@
       const activePages = document.querySelectorAll('.page-view.active');
       activePages.forEach(p => {
         p.style.opacity = '0';
-        p.style.transform = 'translateY(22px) scale(0.985)';
+        p.style.transform = 'translateY(18px) scale(0.985)';
       });
 
       setTimeout(() => {
@@ -1397,7 +1483,7 @@
       }, 350);
     }
 
-    /* Slow Spring Glide Downward to Events Section */
+    /* Slow Luxurious Smooth Glide Downward */
     function smoothScrollToEvents(event) {
       if (event) {
         event.preventDefault();
@@ -1414,7 +1500,7 @@
       const targetPosition = el.getBoundingClientRect().top + window.pageYOffset - 20;
       const startPosition = window.pageYOffset;
       const distance = targetPosition - startPosition;
-      const duration = 1400; // Slow, luxurious 1.4s glide
+      const duration = 1400;
       let startTime = null;
 
       function easeInOutCubic(t, b, c, d) {
