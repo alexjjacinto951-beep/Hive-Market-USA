@@ -313,7 +313,7 @@
       transform: translateY(3px);
     }
 
-    /* Minimal Circular Arrow Button (Arrow Only) */
+    /* Minimal Circular Arrow Button */
     .icon-only-arrow-anchor {
       display: flex;
       align-items: center;
@@ -391,7 +391,7 @@
       padding: 36px 32px 32px;
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 28px;
     }
 
     .carousel-outer {
@@ -494,14 +494,80 @@
       transform: scale(1.35);
     }
 
+    /* -------------------------------------------------------------
+       SLIM TICKER / ANNOUNCEMENT BELT STRIP
+    ------------------------------------------------------------- */
+    .cal-announcement-strip {
+      width: 100%;
+      background: var(--deep-black);
+      border: 1px solid rgba(0, 0, 0, 0.9);
+      border-radius: 4px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .cal-announcement-tag {
+      background: var(--bg-yellow);
+      color: var(--deep-black);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      z-index: 3;
+      flex-shrink: 0;
+      border-right: 1px solid var(--deep-black);
+    }
+    .cal-ticker-wrap {
+      flex: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      display: flex;
+    }
+    .cal-ticker-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 48px;
+      animation: tickerBeltLoop 24s linear infinite;
+      will-change: transform;
+      padding-left: 20px;
+    }
+    .cal-ticker-item {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--pure-white);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cal-ticker-item span.accent {
+      color: var(--bg-yellow);
+      font-weight: 700;
+    }
+    .cal-ticker-dot {
+      color: var(--bg-yellow);
+      font-size: 0.75rem;
+    }
+
+    @keyframes tickerBeltLoop {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
     /* Sub-Heading Divider */
     .calendar-sub-divider {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-top: 18px;
+      padding-top: 14px;
       border-top: 1.5px dashed rgba(0, 0, 0, 0.25);
-      margin-top: 8px;
     }
     .calendar-sub-title {
       font-size: 0.92rem;
@@ -1346,13 +1412,49 @@
             </div>
           </div>
 
-          <!-- Part B: Subtle Sub-Heading Integration (Cleaned: No 'Interactive') -->
+          <!-- Part B: Subtle Sub-Heading Integration -->
           <div class="calendar-sub-divider">
             <span class="calendar-sub-title">Live Vault & Drop Calendar</span>
             <span style="font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; color: rgba(0,0,0,0.6);">SELECT ANY DATE</span>
           </div>
 
-          <!-- Part C: Blended Sharp Calendar Grid -->
+          <!-- Part C: Live Announcement Belt Ticker Strip -->
+          <div class="cal-announcement-strip">
+            <div class="cal-announcement-tag">BULLETIN</div>
+            <div class="cal-ticker-wrap">
+              <div class="cal-ticker-track">
+                <!-- Ticker Content Set 1 -->
+                <div class="cal-ticker-item">
+                  <span class="cal-ticker-dot">●</span> <span>NOW EVALUATING: <span class="accent">FALL 90s HOODIES & CARHARTT JACKETS</span></span>
+                </div>
+                <div class="cal-ticker-item">
+                  <span class="cal-ticker-dot">●</span> <span>UPCOMING DROP: <span class="accent">300+ VINTAGE TEES & SHOES (FRI SEPT 18)</span></span>
+                </div>
+                <div class="cal-ticker-item">
+                  <span class="cal-ticker-dot">●</span> <span>INSTANT PAYOUTS: <span class="accent">CASH • VENMO • ZELLE • 1.5X STORE CREDIT</span></span>
+                </div>
+                <div class="cal-ticker-item">
+                  <span class="cal-ticker-dot">●</span> <span>WALK-INS WELCOME DAILY: <span class="accent">MON–FRI 11–7 • SAT–SUN 12–8</span></span>
+                </div>
+
+                <!-- Duplicate Loop for Continuous Flow -->
+                <div class="cal-ticker-item">
+                  <span class="cal-ticker-dot">●</span> <span>NOW EVALUATING: <span class="accent">FALL 90s HOODIES & CARHARTT JACKETS</span></span>
+                </div>
+                <div class="cal-ticker-item">
+                  <span class="cal-ticker-dot">●</span> <span>UPCOMING DROP: <span class="accent">300+ VINTAGE TEES & SHOES (FRI SEPT 18)</span></span>
+                </div>
+                <div class="cal-ticker-item">
+                  <span class="cal-ticker-dot">●</span> <span>INSTANT PAYOUTS: <span class="accent">CASH • VENMO • ZELLE • 1.5X STORE CREDIT</span></span>
+                </div>
+                <div class="cal-ticker-item">
+                  <span class="cal-ticker-dot">●</span> <span>WALK-INS WELCOME DAILY: <span class="accent">MON–FRI 11–7 • SAT–SUN 12–8</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Part D: Blended Sharp Calendar Grid -->
           <div class="calendar-integrated-grid">
             <!-- Left: Calendar Matrix -->
             <div>
