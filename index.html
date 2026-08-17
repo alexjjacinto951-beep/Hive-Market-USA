@@ -11,8 +11,8 @@
 
   <style>
     :root {
-      --bg-yellow: #FFFF00; /* Swapped: Vibrant pure electric yellow for main site background */
-      --ipod-yellow: #FFD400; /* Swapped: Warm golden honey yellow for the retro iPod body */
+      --bg-yellow: #FFFF00;
+      --ipod-yellow: #FFD400;
       --deep-black: #000000;
       --card-black: #0C0D10;
       --pure-white: #FFFFFF;
@@ -45,7 +45,7 @@
       letter-spacing: 0.04em;
     }
 
-    /* Subtle Spring / Jumpy Interactive Click State */
+    /* Spring click behavior */
     .interactive-click {
       cursor: pointer;
       user-select: none;
@@ -124,7 +124,7 @@
       border-bottom: 1.5px solid var(--deep-black);
     }
 
-    /* Center HM Icon Badge */
+    /* High-Contrast Bold Center HM Badge */
     .brand-center {
       display: flex;
       align-items: center;
@@ -135,25 +135,28 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: var(--bg-yellow);
-      border: 1.5px solid var(--deep-black);
+      background: var(--deep-black);
+      border: 2px solid var(--deep-black);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .header-hm-symbol:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
     }
     .header-hm-symbol span {
       font-weight: 800;
-      font-size: 1.15rem;
-      color: rgba(255, 246, 150, 0.9);
-      letter-spacing: -0.06em;
+      font-size: 1.12rem;
+      color: var(--bg-yellow);
+      letter-spacing: -0.04em;
       user-select: none;
       line-height: 1;
     }
 
-    /* -------------------------------------------------------------
-       CLEAN SLOW SPRING / JUMPY PAGE VIEW TRANSITION
-    ------------------------------------------------------------- */
+    /* Page View Transitions */
     .page-view {
       display: none;
       opacity: 0;
@@ -267,7 +270,7 @@
       border-color: var(--pure-white);
     }
 
-    /* Down Arrow */
+    /* Glass Pill Button with spring transition */
     .down-arrow-anchor {
       position: absolute;
       bottom: 24px;
@@ -277,27 +280,41 @@
       align-items: center;
       gap: 6px;
       text-decoration: none;
-      padding: 8px 20px;
+      padding: 10px 24px;
       border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid rgba(255, 255, 255, 0.42);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
       animation: floatSlow 3.4s ease-in-out infinite;
+      transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background-color 0.4s ease,
+                  border-color 0.4s ease;
     }
     .down-arrow-anchor:hover {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: var(--pure-white);
+      background: rgba(255, 255, 255, 0.26);
+      border-color: rgba(255, 255, 255, 0.85);
+      transform: translateY(-4px) scale(1.03);
+    }
+    .down-arrow-anchor:active, .down-arrow-anchor.arrow-jump-active {
+      transform: translateY(18px) scale(0.92) !important;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     .down-arrow-text {
-      font-size: 0.65rem;
+      font-size: 0.68rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--trans-white-grey);
-      font-weight: 500;
+      color: var(--pure-white);
+      font-weight: 600;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     }
     .down-arrow-icon {
       color: var(--bg-yellow);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .down-arrow-anchor:hover .down-arrow-icon {
+      transform: translateY(3px);
     }
     @keyframes floatSlow {
       0%, 100% { transform: translateY(0px); }
@@ -312,7 +329,7 @@
     }
 
     /* -------------------------------------------------------------
-       EVENTS & DEALS (WHITE & YELLOW PALETTE, BLACK TEXT)
+       EVENTS & DEALS (WHITE TRANSLUCENT GLASSMORPHIC CONTAINER)
     ------------------------------------------------------------- */
     .section-editorial-header {
       border-top: var(--border-thin);
@@ -331,13 +348,16 @@
       color: var(--deep-black);
     }
 
+    /* Translucent White Glass Carrier */
     .carousel-outer {
       position: relative;
       overflow: hidden;
       width: 100%;
-      background: var(--pure-white);
-      border: 1.5px solid var(--deep-black);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1.5px solid rgba(0, 0, 0, 0.85);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
       padding: 36px 28px 24px;
     }
 
@@ -348,25 +368,30 @@
       will-change: transform;
     }
 
+    /* Translucent Cards inside carousel */
     .event-card-slide {
       flex: 0 0 calc(33.333% - 16px);
       min-width: 300px;
-      background: #FAF8F2;
-      border: 1.5px solid rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 0.68);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(0, 0, 0, 0.15);
       padding: 28px 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
     }
     .event-card-slide:hover {
-      background: #FFFDE6;
+      background: rgba(255, 255, 255, 0.95);
       border-color: var(--deep-black);
+      transform: translateY(-4px);
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
     }
     .event-card-slide.active-card {
       border-color: var(--deep-black);
-      background: #FFFCE0;
-      box-shadow: inset 0 0 0 1px var(--deep-black);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: inset 0 0 0 1px var(--deep-black), 0 8px 24px rgba(0, 0, 0, 0.06);
     }
     .event-tag-pill {
       font-size: 0.62rem;
@@ -375,7 +400,8 @@
       color: var(--deep-black);
       background: var(--bg-yellow);
       display: inline-block;
-      padding: 3px 8px;
+      padding: 4px 10px;
+      border: 1px solid rgba(0, 0, 0, 0.7);
       border-radius: 4px;
       text-transform: uppercase;
       margin-bottom: 12px;
@@ -391,7 +417,7 @@
     .event-card-desc {
       font-size: 0.85rem;
       font-weight: 400;
-      color: #222222;
+      color: #1a1a1a;
       line-height: 1.55;
       margin-bottom: 20px;
       text-transform: none;
@@ -402,7 +428,7 @@
       letter-spacing: 0.12em;
       color: var(--deep-black);
       text-transform: uppercase;
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
       padding-top: 12px;
     }
 
@@ -639,14 +665,14 @@
     }
 
     /* -------------------------------------------------------------
-       #FFD400 YELLOW IPOD (SWAPPED FROM BACKGROUND)
+       #FFD400 YELLOW IPOD (WHITE WHEEL + BLACK ACCENTS)
     ------------------------------------------------------------- */
     #ipod-widget {
       position: fixed;
       bottom: 24px;
       right: 24px;
       width: 212px;
-      background: var(--ipod-yellow); /* #FFD400 */
+      background: var(--ipod-yellow);
       border: 2px solid var(--pure-white);
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.15);
       border-radius: 28px;
@@ -855,7 +881,7 @@
         <li><a class="nav-link interactive-click" onclick="navigateTo('gallery', event)">Gallery</a></li>
       </ul>
 
-      <!-- Center HM Icon -->
+      <!-- High-Contrast Bold Center HM Icon Badge -->
       <a class="brand-center interactive-click" onclick="navigateTo('home', event)" aria-label="Hive Market Home">
         <div class="header-hm-symbol">
           <span>HM</span>
@@ -900,7 +926,7 @@
     </div>
 
     <main class="container">
-      <!-- SECTION: SLOW CONVEYOR BELT OF EVENTS & DEALS (WHITE & YELLOW PALETTE, BLACK TEXT) -->
+      <!-- SECTION: SLOW CONVEYOR BELT OF EVENTS & DEALS -->
       <div id="home-events-anchor">
         <div class="section-editorial-header">
           <span class="section-editorial-title">Upcoming Schedule & Daily Deals</span>
@@ -1331,7 +1357,7 @@
     setInterval(rotateLandingBg, 5000);
 
     /* -------------------------------------------------------------
-       JUMPY SPRING CLICK ANIMATION & SMOOTH PAGE REDIRECTION
+       JUMPY SPRING CLICK & SLOW ANIMATION HANDLER
     ------------------------------------------------------------- */
     function triggerJumpClick(element) {
       if (!element) return;
@@ -1348,7 +1374,6 @@
         triggerJumpClick(clickedEl);
       }
 
-      // Smooth fade-out current page with subtle scale bounce
       const activePages = document.querySelectorAll('.page-view.active');
       activePages.forEach(p => {
         p.style.opacity = '0';
@@ -1378,14 +1403,18 @@
     function smoothScrollToEvents(event) {
       if (event) {
         event.preventDefault();
-        triggerJumpClick(event.currentTarget);
+        const btn = event.currentTarget;
+        btn.classList.add('arrow-jump-active');
+        setTimeout(() => {
+          btn.classList.remove('arrow-jump-active');
+        }, 280);
       }
       setTimeout(() => {
         const el = document.getElementById('home-events-anchor');
         if (el) {
           el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-      }, 200);
+      }, 260);
     }
 
     /* Conveyor Belt / Carousel */
