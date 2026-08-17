@@ -54,6 +54,7 @@
       font-weight: 300;
       letter-spacing: 0.18em;
       text-transform: uppercase;
+      font-family: 'Manrope', sans-serif;
     }
 
     /* Ultra-Clean Flush Editorial Header */
@@ -64,7 +65,7 @@
       border-bottom: var(--border-thin);
       z-index: 1000;
       padding: 0 36px;
-      height: 60px;
+      height: 64px;
     }
     .header-inner {
       max-width: 100%;
@@ -87,37 +88,56 @@
 
     .nav-link {
       font-size: 0.72rem;
-      font-weight: 400;
+      font-weight: 500;
       color: var(--deep-black);
       text-decoration: none;
       cursor: pointer;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.2s ease;
       position: relative;
+      font-family: 'Manrope', sans-serif;
     }
     .nav-link:hover {
       opacity: 0.5;
     }
     .nav-link.active {
-      font-weight: 600;
-      border-bottom: 1px solid var(--deep-black);
+      font-weight: 700;
+      border-bottom: 1.5px solid var(--deep-black);
       padding-bottom: 2px;
     }
 
+    /* Center HM Graphic Icon Badge (Replaces repetitive text) */
     .brand-center {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
       text-decoration: none;
-      color: var(--deep-black);
     }
-    .brand-title {
+    .header-hm-symbol {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--bg-yellow);
+      border: 1.5px solid var(--deep-black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      transition: transform 0.2s ease;
+    }
+    .header-hm-symbol:hover {
+      transform: scale(1.06);
+    }
+    .header-hm-symbol span {
       font-family: 'Manrope', sans-serif;
-      font-weight: 500;
-      font-size: 1.3rem;
-      letter-spacing: 0.28em;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: rgba(255, 246, 150, 0.85); /* Semi-transparent yellow silhouette imprint */
+      letter-spacing: -0.06em;
+      user-select: none;
       line-height: 1;
-      text-transform: uppercase;
     }
 
     .container {
@@ -142,7 +162,7 @@
     }
 
     /* -------------------------------------------------------------
-       LANDING PAGE (FULL-BLEED EDITORIAL STOREFRONT)
+       LANDING PAGE (STOREFRONT BACKGROUND + CLEAN TEXT)
     ------------------------------------------------------------- */
     .landing-cover-wrap {
       width: 100%;
@@ -183,9 +203,9 @@
     }
     .landing-hero-title {
       font-family: 'Manrope', sans-serif;
-      font-weight: 400;
+      font-weight: 300;
       font-size: 3.6rem;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.28em;
       color: var(--pure-white);
       text-transform: uppercase;
       line-height: 1.1;
@@ -239,7 +259,7 @@
       gap: 6px;
       cursor: pointer;
       text-decoration: none;
-      padding: 8px 16px;
+      padding: 8px 18px;
       border-radius: 9999px;
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(8px);
@@ -262,7 +282,6 @@
     }
     .down-arrow-icon {
       color: var(--bg-yellow);
-      transition: transform 0.3s ease;
     }
     @keyframes floatSlow {
       0%, 100% { transform: translateY(0px); }
@@ -270,7 +289,7 @@
     }
 
     /* -------------------------------------------------------------
-       UPCOMING EVENTS & DEALS CAROUSEL (CONVEYOR BELT)
+       EVENTS & DEALS CAROUSEL (CONVEYOR BELT)
     ------------------------------------------------------------- */
     .section-editorial-header {
       border-top: var(--border-thin);
@@ -298,7 +317,6 @@
       padding: 36px 28px 24px;
     }
 
-    /* Slowly moving conveyor belt */
     .conveyor-track {
       display: flex;
       gap: 24px;
@@ -360,7 +378,6 @@
       text-transform: uppercase;
     }
 
-    /* Small Navigation Dot Circles */
     .carousel-dots {
       display: flex;
       justify-content: center;
@@ -602,40 +619,40 @@
     }
 
     /* -------------------------------------------------------------
-       YELLOW RETRO IPOD (YELLOW BODY + CRISP WHITE ACCENTS)
+       MINIMALIST BLACK & WHITE MONOCHROME IPOD
     ------------------------------------------------------------- */
     #ipod-widget {
       position: fixed;
       bottom: 24px;
       right: 24px;
       width: 210px;
-      background: #FFD400;
-      border: 2px solid #FFFFFF;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.15);
+      background: #000000;
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
       border-radius: 26px;
       padding: 14px 12px 18px;
       z-index: 9999;
       user-select: none;
       cursor: grab;
-      transition: box-shadow 0.2s ease;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
       font-family: 'Manrope', sans-serif;
     }
     #ipod-widget:active {
       cursor: grabbing;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
     }
     
     .ipod-screen {
-      background: #FFFFFF;
-      border: 1.5px solid rgba(0, 0, 0, 0.08);
+      background: #0F1115;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 12px;
       padding: 8px 10px;
       height: 84px;
-      color: #000000;
+      color: #FFFFFF;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.06);
+      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.5);
     }
     .ipod-header-bar {
       display: flex;
@@ -643,13 +660,13 @@
       font-size: 0.58rem;
       letter-spacing: 0.12em;
       font-weight: 600;
-      color: #000000;
-      border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
+      color: #FFFFFF;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
       padding-bottom: 3px;
     }
     .ipod-track-artist {
       font-size: 0.55rem;
-      color: #777777;
+      color: rgba(255, 255, 255, 0.55);
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
@@ -657,36 +674,37 @@
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.02em;
-      color: #000000;
+      color: #FFFFFF;
       line-height: 1.2;
     }
     .ipod-progress-track {
       height: 3px;
-      background: rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.12);
       border-radius: 2px;
       overflow: hidden;
     }
     .ipod-progress-fill {
       width: 30%;
       height: 100%;
-      background: #000000;
+      background: #FFFFFF;
     }
 
+    /* Minimalist Click Wheel (Black Body + Crisp White Details) */
     .ipod-wheel {
       width: 106px;
       height: 106px;
-      background: #FFFFFF;
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: #14171E;
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 50%;
       margin: 12px auto 0;
       position: relative;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
     .wheel-btn {
       position: absolute;
       font-size: 0.58rem;
       font-weight: 700;
-      color: #000000;
+      color: #FFFFFF;
       cursor: pointer;
       background: none;
       border: none;
@@ -700,11 +718,12 @@
     .wheel-next { right: 8px; top: 50%; transform: translateY(-50%); }
     .wheel-play { bottom: 7px; left: 50%; transform: translateX(-50%); }
     
+    /* White Center Button */
     .center-btn {
       width: 40px;
       height: 40px;
-      background: #FFD400;
-      border: 2px solid #FFFFFF;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 50%;
       position: absolute;
       top: 50%;
@@ -717,7 +736,7 @@
       font-size: 0.62rem;
       font-weight: 700;
       color: #000000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
       transition: transform 0.1s ease;
       font-family: 'Manrope', sans-serif;
     }
@@ -728,7 +747,7 @@
       text-align: center;
       margin-top: 8px;
       font-size: 0.55rem;
-      color: #000000;
+      color: rgba(255, 255, 255, 0.6);
       letter-spacing: 0.14em;
       font-weight: 600;
     }
@@ -808,7 +827,7 @@
     688 Beaumont Ave, Beaumont CA &nbsp;|&nbsp; Mon–Fri 11–7 • Sat–Sun 12–8 &nbsp;|&nbsp; (951) 845-5669
   </div>
 
-  <!-- Editorial Top Flush Header -->
+  <!-- Editorial Top Flush Header (With HM Icon in Center) -->
   <header>
     <div class="header-inner">
       <ul class="nav-left">
@@ -818,8 +837,11 @@
         <li><a class="nav-link" onclick="navigateTo('gallery')">Gallery</a></li>
       </ul>
 
-      <a class="brand-center" onclick="navigateTo('home')">
-        <span class="brand-title">HIVE MARKET</span>
+      <!-- HM Silhouette Icon replacing repetitive text -->
+      <a class="brand-center" onclick="navigateTo('home')" aria-label="Hive Market Home">
+        <div class="header-hm-symbol">
+          <span>HM</span>
+        </div>
       </a>
 
       <ul class="nav-right">
@@ -1237,7 +1259,7 @@
     </div>
   </main>
 
-  <!-- Yellow & White Draggable iPod Player -->
+  <!-- Monochrome Black & White Minimalist iPod -->
   <div id="ipod-widget">
     <div class="ipod-screen">
       <div class="ipod-header-bar">
@@ -1253,7 +1275,7 @@
       </div>
     </div>
 
-    <!-- Crisp White Click Wheel -->
+    <!-- Click Wheel -->
     <div class="ipod-wheel">
       <button class="wheel-btn wheel-menu" onclick="showPlayerTip()">MENU</button>
       <button class="wheel-btn wheel-prev" onclick="prevTrack()">⏮</button>
@@ -1317,7 +1339,6 @@
     let conveyorInterval = null;
 
     function updateCarousel() {
-      // Calculate offset based on slide index and card width
       const cardWidth = cards[0].offsetWidth + 24; // width + gap
       track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
 
@@ -1336,7 +1357,7 @@
     }
 
     function startConveyor() {
-      conveyorInterval = setInterval(nextSlide, 3800); // Slow calm pacing
+      conveyorInterval = setInterval(nextSlide, 3800); // Calm pacing
     }
 
     function pauseConveyor() {
