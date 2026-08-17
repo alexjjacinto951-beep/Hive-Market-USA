@@ -854,10 +854,10 @@
       padding: 48px;
       margin-bottom: 36px;
     }
-    .editorial-panel h1 {
-      font-weight: 400;
-      font-size: 2.2rem;
-      letter-spacing: 0.22em;
+    .editorial-panel h1, .editorial-panel h2 {
+      font-weight: 700;
+      font-size: 2.1rem;
+      letter-spacing: 0.14em;
       color: var(--bg-yellow);
       margin-bottom: 8px;
       text-transform: uppercase;
@@ -868,7 +868,7 @@
       color: var(--trans-white-grey);
       letter-spacing: 0.04em;
       line-height: 1.6;
-      max-width: 700px;
+      max-width: 800px;
     }
 
     /* Form Fields */
@@ -1293,13 +1293,13 @@
     688 Beaumont Ave, Beaumont CA &nbsp;|&nbsp; Mon–Fri 11–7 • Sat–Sun 12–8 &nbsp;|&nbsp; (951) 845-5669
   </div>
 
-  <!-- Editorial Top Flush Header -->
+  <!-- Editorial Top Flush Header (Swapped Positions & Unified Events/Vendors Tab) -->
   <header>
     <div class="header-inner">
       <ul class="nav-left">
         <li><a class="nav-link interactive-click active" onclick="navigateTo('home', event)">Home</a></li>
         <li><a class="nav-link interactive-click" onclick="navigateTo('sell-trade', event)">Sell / Trade</a></li>
-        <li><a class="nav-link interactive-click" onclick="navigateTo('gallery', event)">Gallery</a></li>
+        <li><a class="nav-link interactive-click" onclick="navigateTo('events-hub', event)">Events</a></li>
       </ul>
 
       <!-- High-Contrast Center HM Icon Badge -->
@@ -1310,8 +1310,7 @@
       </a>
 
       <ul class="nav-right">
-        <li><a class="nav-link interactive-click" onclick="navigateTo('events', event)">Events</a></li>
-        <li><a class="nav-link interactive-click" onclick="navigateTo('vendors', event)">Vendors</a></li>
+        <li><a class="nav-link interactive-click" onclick="navigateTo('gallery', event)">Gallery</a></li>
         <li><a class="nav-link interactive-click" onclick="navigateTo('reviews', event)">Reviews</a></li>
         <li><a class="nav-link interactive-click" onclick="navigateTo('info', event)">Info</a></li>
       </ul>
@@ -1614,7 +1613,102 @@
     </div>
   </div>
 
-  <!-- PAGE 3: GALLERY -->
+  <!-- PAGE 3: UNIFIED EVENTS & VENDOR/ARTIST APPLICATION HUB -->
+  <div id="page-events-hub" class="page-view">
+    <main class="container">
+      <!-- Section 1: Upcoming Event Schedule -->
+      <div class="editorial-panel">
+        <h1>Event Schedule & Sessions</h1>
+        <p>Upcoming sidewalk fleas, live floor unboxings, community popup markets, and evening concert sound sessions at 688 Beaumont Ave.</p>
+
+        <div style="margin-top: 28px;">
+          <div class="event-row interactive-click" onclick="openEventModal('Beaumont Sidewalk Flea & $10 Racks', 'Saturday, Sept 5 • 12:00 PM – 6:00 PM', 'Outdoor street racks, 10+ local vendor setups, drinks, and special discount racks right outside 688 Beaumont Ave.', '688 Beaumont Ave', event)">
+            <div class="event-date">SAT, SEPT 5</div>
+            <div>
+              <div class="event-title">Beaumont Sidewalk Flea & $10 Racks</div>
+              <div class="event-desc">Outdoor street racks, 10+ local vendor setups, drinks, and vintage steals.</div>
+            </div>
+            <div><button class="btn-submit interactive-click" style="padding: 8px 16px; font-size: 0.68rem; margin:0;">RSVP</button></div>
+          </div>
+
+          <div class="event-row interactive-click" onclick="openEventModal('300+ Vintage Tee & Kicks Drop', 'Friday, Sept 18 • 4:00 PM – 7:00 PM', 'Fresh unboxing! 300+ vintage single-stitch tees, jackets, Doc Martens, and Dunks hitting the racks.', 'Main Store Floor', event)">
+            <div class="event-date">FRI, SEPT 18</div>
+            <div>
+              <div class="event-title">300+ Vintage Tee & Kicks Drop</div>
+              <div class="event-desc">Fresh unboxed vintage grails loaded straight onto the floor. First 20 visitors receive perks.</div>
+            </div>
+            <div><button class="btn-submit interactive-click" style="padding: 8px 16px; font-size: 0.68rem; margin:0;">RSVP</button></div>
+          </div>
+
+          <div class="event-row interactive-click" onclick="openEventModal('Local Artist Pop-Up Market & Live Sound', 'Saturday, Oct 3 • 12:00 PM – 6:00 PM', 'Featuring local Inland Empire makers, reworked apparel artists, jewelry creators, and live acoustic music in the courtyard.', 'Hive Courtyard', event)">
+            <div class="event-date">SAT, OCT 3</div>
+            <div>
+              <div class="event-title">Local Artist Pop-Up Market & Live Sound</div>
+              <div class="event-desc">Supporting regional creatives, independent rework labels, and local musicians.</div>
+            </div>
+            <div><button class="btn-submit interactive-click" style="padding: 8px 16px; font-size: 0.68rem; margin:0;">RSVP</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Vendor & Performer Application Form -->
+      <div class="editorial-panel" style="margin-top: 36px;">
+        <h2>Vendor & Artist Showcase Application</h2>
+        <p>Apply for outdoor market booth spaces, guest rack curation, or perform live sets during our evening concert and acoustic sound sessions.</p>
+
+        <form class="form-grid" onsubmit="handleVendorSubmit(event)">
+          <div class="form-row">
+            <div>
+              <label class="field-label">Contact / Artist Name</label>
+              <input type="text" class="clean-input" placeholder="Sam Taylor / Moniker" required />
+            </div>
+            <div>
+              <label class="field-label">Brand, Project or Band Name</label>
+              <input type="text" class="clean-input" placeholder="ST Vintage / The Sound Collective" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label class="field-label">Email or Phone</label>
+              <input type="text" class="clean-input" placeholder="sam@domain.com" required />
+            </div>
+            <div>
+              <label class="field-label">Instagram / Portfolio / Music Link</label>
+              <input type="text" class="clean-input" placeholder="@yourbrand or soundcloud.com/link" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label class="field-label">Application Type</label>
+              <select class="clean-input" style="background:#0C0D10;">
+                <option selected>Outdoor Market Vendor Booth (Apparel, Jewelry, Art)</option>
+                <option>Performing Artist / Live Musical Set (Concert Nights)</option>
+                <option>Guest In-Store Rack Curation</option>
+                <option>DJ / Sound Curator (Weekend Sessions)</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label">Preferred Event Date</label>
+              <input type="text" class="clean-input" placeholder="e.g. Sept 5 Sidewalk Flea or Oct 3" required />
+            </div>
+          </div>
+
+          <div>
+            <label class="field-label">Brief Description of Set or Products</label>
+            <input type="text" class="clean-input" placeholder="Overview of goods, instruments, setup space needed..." required />
+          </div>
+
+          <div>
+            <button type="submit" class="btn-submit interactive-click">Submit Application</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <!-- PAGE 4: GALLERY -->
   <div id="page-gallery" class="page-view">
     <main class="container">
       <div class="editorial-panel">
@@ -1650,87 +1744,7 @@
     </main>
   </div>
 
-  <!-- PAGE 4: EVENTS -->
-  <div id="page-events" class="page-view">
-    <main class="container">
-      <div class="editorial-panel">
-        <h1>Event Schedule</h1>
-        <p>Upcoming sidewalk markets, floor unboxings, and sound sessions at 688 Beaumont Ave.</p>
-
-        <div style="margin-top: 28px;">
-          <div class="event-row interactive-click" onclick="openEventModal('Beaumont Sidewalk Flea & $10 Racks', 'Saturday, Sept 5 • 12:00 PM – 6:00 PM', 'Outdoor street racks, 10+ local vendor setups, drinks, and special discount racks right outside 688 Beaumont Ave.', '688 Beaumont Ave', event)">
-            <div class="event-date">SAT, SEPT 5</div>
-            <div>
-              <div class="event-title">Beaumont Sidewalk Flea & $10 Racks</div>
-              <div class="event-desc">Outdoor racks, 10+ local vendor setups, and vintage steals.</div>
-            </div>
-            <div><button class="btn-submit interactive-click" style="padding: 8px 16px; font-size: 0.68rem; margin:0;">RSVP</button></div>
-          </div>
-
-          <div class="event-row interactive-click" onclick="openEventModal('300+ Vintage Tee & Kicks Drop', 'Friday, Sept 18 • 4:00 PM – 7:00 PM', 'Fresh unboxing! 300+ vintage single-stitch tees, jackets, Doc Martens, and Dunks hitting the racks.', 'Main Store Floor', event)">
-            <div class="event-date">FRI, SEPT 18</div>
-            <div>
-              <div class="event-title">300+ Vintage Tee & Kicks Drop</div>
-              <div class="event-desc">Fresh unboxed vintage grails loaded straight onto the floor.</div>
-            </div>
-            <div><button class="btn-submit interactive-click" style="padding: 8px 16px; font-size: 0.68rem; margin:0;">RSVP</button></div>
-          </div>
-
-          <div class="event-row interactive-click" onclick="openEventModal('Local Artist Pop-Up Market', 'Saturday, Oct 3 • 12:00 PM – 6:00 PM', 'Featuring local Inland Empire makers, reworked apparel artists, jewelry creators, and art prints.', 'Hive Courtyard', event)">
-            <div class="event-date">SAT, OCT 3</div>
-            <div>
-              <div class="event-title">Local Artist Pop-Up Market</div>
-              <div class="event-desc">Supporting regional creatives and independent rework labels.</div>
-            </div>
-            <div><button class="btn-submit interactive-click" style="padding: 8px 16px; font-size: 0.68rem; margin:0;">RSVP</button></div>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <!-- PAGE 5: VENDORS -->
-  <div id="page-vendors" class="page-view">
-    <main class="container">
-      <div class="editorial-panel">
-        <h1>Vendor Application</h1>
-        <p>Independent vintage curators, rework designers, and artists seeking booth spaces or guest rack features.</p>
-
-        <form class="form-grid" onsubmit="handleVendorSubmit(event)">
-          <div class="form-row">
-            <div>
-              <label class="field-label">Contact Name</label>
-              <input type="text" class="clean-input" placeholder="Sam Taylor" required />
-            </div>
-            <div>
-              <label class="field-label">Brand / Moniker</label>
-              <input type="text" class="clean-input" placeholder="ST Vintage Archive" required />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div>
-              <label class="field-label">Email or Phone</label>
-              <input type="text" class="clean-input" placeholder="sam@domain.com" required />
-            </div>
-            <div>
-              <label class="field-label">Instagram Handle</label>
-              <input type="text" class="clean-input" placeholder="@yourbrand" required />
-            </div>
-          </div>
-
-          <div>
-            <label class="field-label">Product Overview</label>
-            <input type="text" class="clean-input" placeholder="Vintage streetwear, jewelry, rework apparel" required />
-          </div>
-
-          <button type="submit" class="btn-submit interactive-click">Submit Application</button>
-        </form>
-      </div>
-    </main>
-  </div>
-
-  <!-- PAGE 6: REVIEWS -->
+  <!-- PAGE 5: REVIEWS -->
   <div id="page-reviews" class="page-view">
     <main class="container">
       <div class="editorial-panel">
@@ -1774,7 +1788,7 @@
     </main>
   </div>
 
-  <!-- PAGE 7: INFO -->
+  <!-- PAGE 6: INFO -->
   <div id="page-info" class="page-view">
     <main class="container">
       <div class="editorial-panel">
@@ -2123,7 +2137,7 @@
 
     function handleVendorSubmit(e) {
       e.preventDefault();
-      alert('APPLICATION RECEIVED\n\nOur curation team will review your brand catalog.');
+      alert('APPLICATION RECEIVED\n\nThank you for applying to showcase/perform with Hive Market! Our team will review your submission.');
       e.target.reset();
     }
 
