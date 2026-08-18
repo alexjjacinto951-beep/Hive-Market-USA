@@ -167,7 +167,7 @@
     }
 
     /* -------------------------------------------------------------
-       FULL-SCREEN BLEED LANDING HERO
+       FULL-SCREEN BLEED HERO TEMPLATES (HOME & MARKET HUB)
     ------------------------------------------------------------- */
     .landing-fullscreen-hero {
       width: 100vw;
@@ -207,7 +207,7 @@
     .hero-vignette-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.68) 100%);
+      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.75) 100%);
       z-index: 2;
       pointer-events: none;
     }
@@ -1606,34 +1606,47 @@
     </div>
   </div>
 
-  <!-- PAGE 3: UNIFIED MARKET HUB (COMMUNITY ESSAY + APPLICATIONS + SCHEDULE) -->
+  <!-- PAGE 3: UNIFIED MARKET HUB WITH FULL-BLEED HERO & INTEGRATED APPLICATION + SCHEDULE -->
   <div id="page-market-hub" class="page-view">
-    <main class="container">
-      
-      <!-- Section 1: Community Narrative & Hub Identity -->
-      <div class="editorial-panel">
-        <h1>Market Hub & Community</h1>
-        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--pure-white); margin-bottom: 16px;">
-          Hive Market is more than a curated vintage shop—it’s a physical gathering space designed to bridge subculture, sound, and local creativity across the Inland Empire. 
-        </p>
-        <p style="margin-bottom: 24px;">
-          We regularly host outdoor sidewalk flea markets, parking lot community takeovers, and intimate in-store concert sound sessions. Whether you're an independent vintage dealer looking to host a popup booth, a rework designer showcasing one-of-a-kind apparel, or an emerging artist, band, or DJ looking to play live sets, our platform is built for you.
+    <!-- Market Hub Edge-to-Edge Hero Section -->
+    <div class="landing-fullscreen-hero" style="background: var(--deep-black);">
+      <img src="Inside.JPG" class="landing-bg-image active-bg" alt="Market Hub Live Gathering" />
+      <div class="hero-vignette-overlay" style="background: radial-gradient(circle at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.88) 100%);"></div>
+
+      <div class="landing-hero-content" style="max-width: 920px;">
+        <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.28em; color: var(--bg-yellow); margin-bottom: 12px; text-transform: uppercase;">
+          BEAUMONT CULTURAL COLLECTIVE
+        </div>
+        <h1 style="font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pure-white); line-height: 1.15; margin-bottom: 18px;">
+          Market Hub & Community
+        </h1>
+        <p style="font-size: 1.02rem; line-height: 1.65; color: var(--trans-white-grey); max-width: 780px; margin-bottom: 28px; font-weight: 300;">
+          Hive Market is more than a curated vintage shop—it is an authentic gathering space built to cultivate community, sound, and independent creativity across the Inland Empire. We host sidewalk flea markets, parking lot community takeovers, and intimate in-store concert sound sessions for emerging artists, bands, and DJs.
         </p>
 
-        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-          <a href="#hub-apply-anchor" class="btn-submit interactive-click" style="text-decoration:none; margin:0;" onclick="smoothScrollToTarget('hub-apply-anchor', event)">
-            Apply For Booths & Sets ↓
+        <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
+          <a class="btn-minimal-white interactive-click" style="background: var(--bg-yellow); color: var(--deep-black); font-weight: 700; border-color: var(--bg-yellow);" onclick="smoothScrollToTarget('hub-apply-anchor', event)">
+            Apply For Booths & Sets
           </a>
-          <a href="#hub-schedule-anchor" class="btn-submit interactive-click" style="background:transparent; color:var(--pure-white); border-color:rgba(255,255,255,0.4); text-decoration:none; margin:0;" onclick="smoothScrollToTarget('hub-schedule-anchor', event)">
-            View Live Schedule ↓
+          <a class="btn-minimal-white interactive-click" onclick="smoothScrollToTarget('hub-schedule-anchor', event)">
+            View Live Schedule
           </a>
         </div>
       </div>
 
-      <!-- Section 2: Vendor & Artist Showcase Application Form -->
-      <div class="editorial-panel" id="hub-apply-anchor" style="margin-top: 36px;">
+      <!-- Down Arrow Transition Cue -->
+      <a class="down-arrow-anchor" onclick="smoothScrollToTarget('hub-apply-anchor', event)">
+        <span class="down-arrow-text">Applications & Schedule</span>
+        <i data-lucide="chevron-down" class="down-arrow-icon" style="width: 16px; height: 16px;"></i>
+      </a>
+    </div>
+
+    <!-- Market Hub Main Body Content -->
+    <main class="container">
+      <!-- Section 1: Vendor & Artist Showcase Application Form -->
+      <div class="editorial-panel" id="hub-apply-anchor" style="margin-top: 48px;">
         <h2>Vendor & Artist Showcase Application</h2>
-        <p>Reserve booth spaces for upcoming outdoor flea markets or submit your portfolio/links to perform live sets during our evening sound sessions.</p>
+        <p>Reserve booth spaces for upcoming outdoor flea markets or submit your portfolio and tracks to perform live sets during our evening concert and acoustic sound sessions.</p>
 
         <form class="form-grid" onsubmit="handleVendorSubmit(event)">
           <div class="form-row">
@@ -1685,7 +1698,7 @@
         </form>
       </div>
 
-      <!-- Section 3: Upcoming Event Schedule & RSVP -->
+      <!-- Section 2: Upcoming Event Schedule & RSVP -->
       <div class="editorial-panel" id="hub-schedule-anchor" style="margin-top: 36px;">
         <h2>Event Schedule & Passes</h2>
         <p>Upcoming flea markets, live floor unboxings, community popups, and evening concert sound sessions at 688 Beaumont Ave.</p>
@@ -1719,7 +1732,6 @@
           </div>
         </div>
       </div>
-
     </main>
   </div>
 
