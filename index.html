@@ -918,6 +918,48 @@
       max-width: 800px;
     }
 
+    /* Meet the Owners Component */
+    .meet-owners-wrap {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 36px;
+      align-items: center;
+      margin-top: 32px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .meet-owners-thumb {
+      width: 100%;
+      height: 480px;
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+    .meet-owners-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: contrast(1.06) brightness(0.96);
+    }
+    .meet-owners-content h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--pure-white);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    .meet-owners-role {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      color: var(--bg-yellow);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
     /* FAQ Collapsible Component */
     .faq-accordion-group {
       margin-top: 28px;
@@ -1341,6 +1383,12 @@
         grid-template-columns: 1fr;
         gap: 28px;
       }
+      .meet-owners-wrap {
+        grid-template-columns: 1fr;
+      }
+      .meet-owners-thumb {
+        height: 380px;
+      }
       .sell-trade-fullpage {
         min-height: auto;
         padding: 40px 16px 60px;
@@ -1373,7 +1421,7 @@
     688 Beaumont Ave, Beaumont CA &nbsp;|&nbsp; Mon–Fri 11–7 • Sat–Sun 12–8 &nbsp;|&nbsp; (951) 845-5669
   </div>
 
-  <!-- Editorial Header -->
+  <!-- Editorial Top Flush Header -->
   <header>
     <div class="header-inner">
       <ul class="nav-left">
@@ -1382,7 +1430,7 @@
         <li><a class="nav-link interactive-click" onclick="navigateTo('market-hub', event)">Market Hub</a></li>
       </ul>
 
-      <!-- Center HM Icon Badge -->
+      <!-- High-Contrast Center HM Icon Badge -->
       <a class="brand-center interactive-click" onclick="navigateTo('home', event)" aria-label="Hive Market Home">
         <div class="header-hm-symbol">
           <span>HM</span>
@@ -1595,11 +1643,11 @@
       </div>
     </div>
 
-    <!-- SECTION: HOMEPAGE LOCATION, HOURS & CONTACT STRIP (DIRECTLY BELOW 3 PHOTOS) -->
+    <!-- SECTION: HOMEPAGE MARKET LOCATION, HOURS & CONTACT STRIP (BELOW 3 PHOTOS) -->
     <div class="home-location-strip">
       <div class="home-location-grid">
         <div class="home-loc-box">
-          <h3>Flagship Space</h3>
+          <h3>Market Location</h3>
           <p style="font-size: 1.1rem; color: var(--pure-white); font-weight: 600; margin-bottom: 4px;">688 Beaumont Ave</p>
           <p>Beaumont, California 92223</p>
           <a href="https://maps.google.com/?q=688+Beaumont+Ave,+Beaumont,+CA+92223" target="_blank">Get Directions →</a>
@@ -1874,7 +1922,7 @@
     </main>
   </div>
 
-  <!-- PAGE 5: ABOUT US (REPLACED REVIEWS) -->
+  <!-- PAGE 5: ABOUT US (WITH MEET THE OWNERS SECTION) -->
   <div id="page-about" class="page-view">
     <main class="container">
       <div class="editorial-panel">
@@ -1905,11 +1953,28 @@
             <p style="font-size: 0.84rem; color: var(--trans-white-grey); line-height: 1.6;">More than retail—a lounge to listen to vinyl, play retro video games, explore collectibles, and talk fashion.</p>
           </div>
         </div>
+
+        <!-- Meet the Owners Section -->
+        <div class="meet-owners-wrap">
+          <div class="meet-owners-thumb">
+            <img src="m&j.JPG" alt="Hive Market Owners Marissa & Jordan" />
+          </div>
+          <div class="meet-owners-content">
+            <div class="meet-owners-role">Founders & Curators</div>
+            <h3>Marissa & Jordan</h3>
+            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--trans-white-grey); margin-bottom: 16px;">
+              Hive Market was born out of a shared passion for archive street culture, vintage preservation, and fostering creative spaces in Beaumont. As lifelong collectors and curators, Marissa and Jordan started Hive with a single mission: to build a physical haven where independent designers, musicians, and vintage lovers can connect under one roof.
+            </p>
+            <p style="font-size: 0.88rem; line-height: 1.65; color: rgba(255, 255, 255, 0.75);">
+              From hand-picking every single garment on the racks to hosting community flea markets and in-store concert sound sessions, Marissa & Jordan continue to shape the cultural heartbeat of 688 Beaumont Ave.
+            </p>
+          </div>
+        </div>
       </div>
     </main>
   </div>
 
-  <!-- PAGE 6: FAQ (REPLACED INFO IN NAVBAR) -->
+  <!-- PAGE 6: FAQ -->
   <div id="page-faq" class="page-view">
     <main class="container">
       <div class="editorial-panel">
