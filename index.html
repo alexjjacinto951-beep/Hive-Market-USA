@@ -119,7 +119,7 @@
       border-bottom: 2px solid var(--deep-black);
     }
 
-    /* Direct Cutout HM Header Logo (No Circle Wrapper) */
+    /* Direct Cutout HM Header Logo */
     .brand-center {
       display: flex;
       align-items: center;
@@ -209,7 +209,6 @@
       max-width: 860px;
     }
     
-    /* Original Full Wordmark Logo in Center Hero */
     .landing-official-logo {
       width: 100%;
       max-width: 560px;
@@ -1214,7 +1213,7 @@
     }
 
     /* -------------------------------------------------------------
-       WHO WE ARE / WASTELAND STYLE EDITORIAL LAYOUT
+       WHO WE ARE / SINGLE LARGER POLAROID EDITORIAL LAYOUT
     ------------------------------------------------------------- */
     .who-we-are-wrap {
       max-width: 1100px;
@@ -1233,61 +1232,48 @@
 
     .who-we-are-top-grid {
       display: grid;
-      grid-template-columns: 460px 1fr;
-      gap: 48px;
+      grid-template-columns: 380px 1fr;
+      gap: 44px;
       align-items: center;
       margin-bottom: 28px;
     }
 
-    /* Polaroid Double Stack */
-    .polaroid-stack-container {
-      position: relative;
+    /* Single Bigger Polaroid Frame */
+    .polaroid-single-container {
       width: 100%;
-      height: 380px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .polaroid-card {
-      position: absolute;
+    .polaroid-single-card {
       background: #FFFFFF;
-      padding: 12px 12px 34px 12px;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      padding: 14px 14px 38px 14px;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
       border-radius: 2px;
+      transform: rotate(-2.5deg);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       cursor: pointer;
+      width: 100%;
+      max-width: 350px;
     }
-    .polaroid-card:hover {
-      transform: scale(1.04) rotate(0deg) !important;
-      z-index: 10;
-      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.65);
+    .polaroid-single-card:hover {
+      transform: scale(1.03) rotate(0deg) !important;
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.75);
     }
-    .polaroid-img-box {
-      width: 200px;
-      height: 220px;
+    .polaroid-single-img-box {
+      width: 100%;
+      height: 320px;
       overflow: hidden;
       background: #1a1a1a;
     }
-    .polaroid-img-box img {
+    .polaroid-single-img-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center top;
       display: block;
       filter: contrast(1.05) brightness(0.98);
-    }
-
-    .polaroid-card.left-card {
-      left: 20px;
-      top: 30px;
-      transform: rotate(-5deg);
-      z-index: 2;
-    }
-    .polaroid-card.right-card {
-      right: 40px;
-      top: 10px;
-      transform: rotate(6deg);
-      z-index: 3;
     }
 
     .who-we-are-narrative {
@@ -1454,8 +1440,8 @@
     ------------------------------------------------------------- */
     .event-gallery-collage {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
       margin-top: 28px;
     }
 
@@ -1476,12 +1462,12 @@
 
     .event-collage-media {
       width: 100%;
-      height: 380px;
+      height: 440px;
       position: relative;
       overflow: hidden;
       background: #000;
     }
-    .event-collage-media img, .event-collage-media video {
+    .event-collage-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -1489,8 +1475,7 @@
       transition: transform 0.7s ease, filter 0.4s ease;
       filter: contrast(1.06) brightness(0.95);
     }
-    .event-collage-card:hover .event-collage-media img,
-    .event-collage-card:hover .event-collage-media video {
+    .event-collage-card:hover .event-collage-media img {
       transform: scale(1.03);
       filter: contrast(1.08) brightness(1);
     }
@@ -1732,9 +1717,10 @@
       }
       .who-we-are-top-grid {
         grid-template-columns: 1fr;
+        gap: 24px;
       }
-      .polaroid-stack-container {
-        height: 320px;
+      .polaroid-single-card {
+        max-width: 300px;
       }
       .events-calendar-composite-card {
         padding: 24px 16px;
@@ -1766,12 +1752,6 @@
       .home-location-grid {
         grid-template-columns: 1fr;
         gap: 28px;
-      }
-      .meet-owners-wrap {
-        grid-template-columns: 1fr;
-      }
-      .meet-owners-thumb {
-        height: 380px;
       }
       .swish-success-panel {
         grid-template-columns: 1fr;
@@ -2376,101 +2356,71 @@
     </main>
   </div>
 
-  <!-- PAGE 4: GALLERY (EVENT GALLERY COLLAGE SHOWCASE) -->
+  <!-- PAGE 4: GALLERY (EVENT GALLERY COLLAGE - UPDATED WITH 4 SPECIFIED IMAGES) -->
   <div id="page-gallery" class="page-view">
     <main class="container">
       <div class="editorial-panel">
         <h1>Event Gallery</h1>
-        <p>A visual dossier of the shows, sound sessions, and sidewalk fleas we have been throwing at 688 Beaumont Ave.</p>
+        <p>A visual dossier of the live shows, performances, and audience crowds at 688 Beaumont Ave.</p>
 
         <div class="event-gallery-collage">
-          <!-- Item 1: Live Concert Night -->
+          <!-- Item 1: singing.JPG -->
           <div class="event-collage-card interactive-click">
             <div class="event-collage-media">
-              <img src="live event.JPG" alt="Hive Concert Night Stage" />
+              <img src="singing.JPG" alt="Live Vocal Performance at Hive Market" />
               <div class="event-collage-badge">
-                <i data-lucide="music" style="width: 12px; height: 12px;"></i> LIVE SHOW
+                <i data-lucide="mic" style="width: 12px; height: 12px;"></i> LIVE SET
               </div>
             </div>
             <div class="event-collage-caption">
               <span class="event-collage-tag">CONCERT NIGHTS</span>
-              <h3 class="event-collage-headline">Evening Sound Sessions</h3>
-              <p class="event-collage-sub">Live emerging artist showcases & acoustic music inside the shop.</p>
+              <h3 class="event-collage-headline">Live Vocal Session</h3>
+              <p class="event-collage-sub">Intimate live performances and emerging artists taking the floor.</p>
             </div>
           </div>
 
-          <!-- Item 2: Community Audience -->
+          <!-- Item 2: singing 2.JPG -->
           <div class="event-collage-card interactive-click">
             <div class="event-collage-media">
-              <img src="audience.JPG" alt="Hive Market Community Gathering" />
+              <img src="singing 2.JPG" alt="Courtyard Lights & Performance" />
               <div class="event-collage-badge">
-                <i data-lucide="users" style="width: 12px; height: 12px;"></i> COMMUNITY
+                <i data-lucide="sparkles" style="width: 12px; height: 12px;"></i> SPOTLIGHT
+              </div>
+            </div>
+            <div class="event-collage-caption">
+              <span class="event-collage-tag">AFTER HOURS</span>
+              <h3 class="event-collage-headline">Flashlight Sound Session</h3>
+              <p class="event-collage-sub">Audience crowd illuminating the space during an acoustic showcase.</p>
+            </div>
+          </div>
+
+          <!-- Item 3: dj jordan.JPG -->
+          <div class="event-collage-card interactive-click">
+            <div class="event-collage-media">
+              <img src="dj jordan.JPG" alt="DJ Jordan Mixing Live Sets" />
+              <div class="event-collage-badge">
+                <i data-lucide="disc" style="width: 12px; height: 12px;"></i> DJ SET
+              </div>
+            </div>
+            <div class="event-collage-caption">
+              <span class="event-collage-tag">ANALOG CULTURE</span>
+              <h3 class="event-collage-headline">DJ Jordan at the Decks</h3>
+              <p class="event-collage-sub">Live mixing, beat drops, and vinyl rotation throughout the market.</p>
+            </div>
+          </div>
+
+          <!-- Item 4: ppl.JPG -->
+          <div class="event-collage-card interactive-click">
+            <div class="event-collage-media">
+              <img src="ppl.JPG" alt="Community Crowd Recording Live Music" />
+              <div class="event-collage-badge">
+                <i data-lucide="users" style="width: 12px; height: 12px;"></i> AUDIENCE
               </div>
             </div>
             <div class="event-collage-caption">
               <span class="event-collage-tag">COMMUNITY VIBES</span>
               <h3 class="event-collage-headline">The Local Crowd</h3>
-              <p class="event-collage-sub">Subcultural gatherings bringing Beaumont creatives together under one roof.</p>
-            </div>
-          </div>
-
-          <!-- Item 3: Night Atmosphere -->
-          <div class="event-collage-card interactive-click">
-            <div class="event-collage-media">
-              <img src="night hive.JPG" alt="Hive Storefront at Night" />
-              <div class="event-collage-badge">
-                <i data-lucide="moon" style="width: 12px; height: 12px;"></i> NIGHT MARKET
-              </div>
-            </div>
-            <div class="event-collage-caption">
-              <span class="event-collage-tag">AFTER HOURS</span>
-              <h3 class="event-collage-headline">Night Market & DJ Sets</h3>
-              <p class="event-collage-sub">Vinyl rotation, street racks, and late-night thrifting sessions.</p>
-            </div>
-          </div>
-
-          <!-- Item 4: Audio Deck Setup -->
-          <div class="event-collage-card interactive-click">
-            <div class="event-collage-media">
-              <img src="TV ST.JPG" alt="Hive DJ Deck & Retro TV Setup" />
-              <div class="event-collage-badge">
-                <i data-lucide="disc" style="width: 12px; height: 12px;"></i> SOUND
-              </div>
-            </div>
-            <div class="event-collage-caption">
-              <span class="event-collage-tag">ANALOG CULTURE</span>
-              <h3 class="event-collage-headline">Audio & DJ Stage</h3>
-              <p class="event-collage-sub">Curated record crates and analog sound systems live on the floor.</p>
-            </div>
-          </div>
-
-          <!-- Item 5: Sidewalk Flea & Market Racks -->
-          <div class="event-collage-card interactive-click">
-            <div class="event-collage-media">
-              <img src="Storefront 2.JPG" alt="Sidewalk Flea Racks" />
-              <div class="event-collage-badge">
-                <i data-lucide="tag" style="width: 12px; height: 12px;"></i> FLEA MARKET
-              </div>
-            </div>
-            <div class="event-collage-caption">
-              <span class="event-collage-tag">OUTDOOR FLEA</span>
-              <h3 class="event-collage-headline">Street Racks & $10 Drops</h3>
-              <p class="event-collage-sub">Outdoor vendor pop-ups and vintage grails right outside our doors.</p>
-            </div>
-          </div>
-
-          <!-- Item 6: Storefront Floor Unboxing -->
-          <div class="event-collage-card interactive-click">
-            <div class="event-collage-media">
-              <img src="Inside.JPG" alt="Hive Market Interior Floor" />
-              <div class="event-collage-badge">
-                <i data-lucide="sparkles" style="width: 12px; height: 12px;"></i> ARCHIVE
-              </div>
-            </div>
-            <div class="event-collage-caption">
-              <span class="event-collage-tag">VAULT DROPS</span>
-              <h3 class="event-collage-headline">Floor Unboxings</h3>
-              <p class="event-collage-sub">300+ fresh vintage tees and workwear pieces hitting the floor live.</p>
+              <p class="event-collage-sub">Creatives, vintage heads, and locals connecting right by the racks.</p>
             </div>
           </div>
         </div>
@@ -2478,29 +2428,21 @@
     </main>
   </div>
 
-  <!-- PAGE 5: ABOUT US (WHO WE ARE - WASTELAND INSPIRED EDITORIAL LAYOUT) -->
+  <!-- PAGE 5: ABOUT US (WHO WE ARE - SINGLE LARGER POLAROID EDITORIAL LAYOUT) -->
   <div id="page-about" class="page-view">
     <main class="container">
       <div class="editorial-panel">
         <div class="who-we-are-wrap">
           <h1 class="who-we-are-title">Who We Are</h1>
 
-          <!-- Top Row: Double Polaroid Stack + Intro Column -->
+          <!-- Top Row: Single Larger Polaroid Frame + Intro Column -->
           <div class="who-we-are-top-grid">
             
-            <!-- Polaroid Stack -->
-            <div class="polaroid-stack-container">
-              <!-- Polaroid 1 (Jordan) -->
-              <div class="polaroid-card left-card">
-                <div class="polaroid-img-box">
-                  <img src="m&j.JPG" alt="Jordan - Founder & Curator" style="object-position: 28% top;" />
-                </div>
-              </div>
-
-              <!-- Polaroid 2 (Marissa) -->
-              <div class="polaroid-card right-card">
-                <div class="polaroid-img-box">
-                  <img src="m&j.JPG" alt="Marissa - Founder & Curator" style="object-position: 78% top;" />
+            <!-- Single Larger Polaroid Card -->
+            <div class="polaroid-single-container">
+              <div class="polaroid-single-card">
+                <div class="polaroid-single-img-box">
+                  <img src="m&j.JPG" alt="Hive Market Founders Marissa & Jordan" />
                 </div>
               </div>
             </div>
