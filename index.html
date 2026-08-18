@@ -9,9 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Official Instagram Embed Script Engine -->
-  <script async src="//www.instagram.com/embed.js"></script>
-
   <style>
     :root {
       --bg-yellow: #FFFF00;
@@ -316,7 +313,7 @@
     }
 
     /* -------------------------------------------------------------
-       SECTION: WHAT'S NEW (NATIVE INSTAGRAM REELS SHOWCASE)
+       SECTION: WHAT'S NEW (STATIC CSS GRID FOR NATIVE REELS)
     ------------------------------------------------------------- */
     .section-editorial-header {
       border-top: var(--border-thin);
@@ -335,85 +332,37 @@
       color: var(--deep-black);
     }
 
-    /* Centered Glass Carrier for Native Reels Embeds */
-    .reels-showcase-carrier {
+    .reels-grid-carrier {
       background: rgba(255, 255, 255, 0.35);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border: 1.5px solid rgba(0, 0, 0, 0.85);
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-      padding: 32px 24px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: 36px 24px;
     }
 
-    .reels-conveyor-controls {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: calc(100% - 24px);
-      display: flex;
-      justify-content: space-between;
-      pointer-events: none;
-      z-index: 10;
-    }
-
-    .reels-nav-arrow {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: rgba(12, 13, 16, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      color: var(--pure-white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      pointer-events: auto;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-      transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
-    }
-    .reels-nav-arrow:hover {
-      background: var(--bg-yellow);
-      color: var(--deep-black);
-      transform: scale(1.08);
-    }
-
-    .reels-viewport-box {
-      width: 100%;
-      max-width: 1200px;
-      overflow: hidden;
-      padding: 6px 0;
-    }
-
-    .reels-grid-track {
-      display: flex;
+    .reels-static-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
-      will-change: transform;
-      align-items: flex-start;
-      justify-content: flex-start;
+      align-items: start;
+      justify-items: center;
+      width: 100%;
     }
 
-    /* Individual Native Reel Wrapper (Styled to match Instagram iframe standards) */
-    .reel-native-item {
-      flex: 0 0 calc(33.333% - 16px);
-      min-width: 320px;
+    .reel-grid-item {
+      width: 100%;
       max-width: 380px;
+      min-width: 280px;
       background: #FFFFFF;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
       display: flex;
       justify-content: center;
-      margin: 0 auto;
     }
 
-    /* Instagram Native Media Override for Crisp Centering */
-    .reel-native-item blockquote.instagram-media {
+    .reel-grid-item blockquote.instagram-media {
       margin: 0 !important;
       padding: 0 !important;
       width: 100% !important;
@@ -1722,9 +1671,8 @@
       .landing-fullscreen-hero {
         height: calc(100vh - 120px);
       }
-      .reel-native-item {
-        flex: 0 0 85%;
-        min-width: 280px;
+      .reels-static-grid {
+        grid-template-columns: 1fr;
       }
       .events-calendar-composite-card {
         padding: 24px 16px;
@@ -1850,7 +1798,7 @@
     </div>
 
     <main class="container">
-      <!-- SECTION: WHAT'S NEW (NATIVE INSTAGRAM REELS SHOWCASE) -->
+      <!-- SECTION: WHAT'S NEW (STATIC CSS GRID FOR NATIVE REELS) -->
       <div id="home-whats-new-anchor">
         <div class="section-editorial-header">
           <h2 class="section-editorial-title">What's New</h2>
@@ -1860,66 +1808,42 @@
           </a>
         </div>
 
-        <div class="reels-showcase-carrier">
-          <!-- Conveyor Arrows -->
-          <div class="reels-conveyor-controls">
-            <button class="reels-nav-arrow" onclick="slideReelsConveyor(-1)" aria-label="Previous Reels">
-              <i data-lucide="chevron-left" style="width: 22px; height: 22px;"></i>
-            </button>
-            <button class="reels-nav-arrow" onclick="slideReelsConveyor(1)" aria-label="Next Reels">
-              <i data-lucide="chevron-right" style="width: 22px; height: 22px;"></i>
-            </button>
-          </div>
-
-          <!-- Centered Reels Carousel Viewport -->
-          <div class="reels-viewport-box">
-            <div class="reels-grid-track" id="reels-grid-track">
-              
-              <!-- Native Instagram Reel 1 -->
-              <div class="reel-native-item">
-                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C8q8q0_J3sE/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
-                  <div style="padding:16px; text-align:center;">
-                    <a href="https://www.instagram.com/hivemarketusa/" target="_blank" style="color:#000; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:600; text-decoration:none;">
-                      Watch Reel on @hivemarketusa
-                    </a>
-                  </div>
-                </blockquote>
-              </div>
-
-              <!-- Native Instagram Reel 2 -->
-              <div class="reel-native-item">
-                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C7b1X2mJ0vR/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
-                  <div style="padding:16px; text-align:center;">
-                    <a href="https://www.instagram.com/hivemarketusa/" target="_blank" style="color:#000; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:600; text-decoration:none;">
-                      Watch Reel on @hivemarketusa
-                    </a>
-                  </div>
-                </blockquote>
-              </div>
-
-              <!-- Native Instagram Reel 3 -->
-              <div class="reel-native-item">
-                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C6m7Y4xL8zQ/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
-                  <div style="padding:16px; text-align:center;">
-                    <a href="https://www.instagram.com/hivemarketusa/" target="_blank" style="color:#000; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:600; text-decoration:none;">
-                      Watch Reel on @hivemarketusa
-                    </a>
-                  </div>
-                </blockquote>
-              </div>
-
-              <!-- Native Instagram Reel 4 -->
-              <div class="reel-native-item">
-                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C5k9P1wL5rT/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
-                  <div style="padding:16px; text-align:center;">
-                    <a href="https://www.instagram.com/hivemarketusa/" target="_blank" style="color:#000; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:600; text-decoration:none;">
-                      Watch Reel on @hivemarketusa
-                    </a>
-                  </div>
-                </blockquote>
-              </div>
-
+        <div class="reels-grid-carrier">
+          <div class="reels-static-grid">
+            
+            <!-- Native Reel Embed 1 -->
+            <div class="reel-grid-item">
+              <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C8q8q0_J3sE/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+                <div style="padding:16px; text-align:center;">
+                  <a href="https://www.instagram.com/hivemarketusa/" target="_blank" style="color:#000; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:600; text-decoration:none;">
+                    Watch Reel on @hivemarketusa
+                  </a>
+                </div>
+              </blockquote>
             </div>
+
+            <!-- Native Reel Embed 2 -->
+            <div class="reel-grid-item">
+              <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C7b1X2mJ0vR/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+                <div style="padding:16px; text-align:center;">
+                  <a href="https://www.instagram.com/hivemarketusa/" target="_blank" style="color:#000; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:600; text-decoration:none;">
+                    Watch Reel on @hivemarketusa
+                  </a>
+                </div>
+              </blockquote>
+            </div>
+
+            <!-- Native Reel Embed 3 -->
+            <div class="reel-grid-item">
+              <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C6m7Y4xL8zQ/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+                <div style="padding:16px; text-align:center;">
+                  <a href="https://www.instagram.com/hivemarketusa/" target="_blank" style="color:#000; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:600; text-decoration:none;">
+                    Watch Reel on @hivemarketusa
+                  </a>
+                </div>
+              </blockquote>
+            </div>
+
           </div>
         </div>
       </div>
@@ -1932,7 +1856,7 @@
         </div>
 
         <div class="events-calendar-composite-card">
-          <!-- Part A: Carousel -->
+          <!-- Carousel -->
           <div class="carousel-outer" onmouseenter="pauseConveyor()" onmouseleave="resumeConveyor()">
             <div class="conveyor-track" id="conveyor-track">
               <div class="event-card-slide interactive-click active-card" onclick="openEventModal('Beaumont Sidewalk Flea & $10 Racks', 'Saturday, Sept 5 • 12:00 PM – 6:00 PM', 'Outdoor street racks, 10+ local vendor setups, drinks, and special discount racks right outside 688 Beaumont Ave.', '688 Beaumont Ave', event)">
@@ -1980,7 +1904,7 @@
             </div>
           </div>
 
-          <!-- Part B: Ticker Strip -->
+          <!-- Ticker Strip -->
           <div class="cal-announcement-strip">
             <div class="cal-announcement-tag">ANNOUNCEMENTS</div>
             <div class="cal-ticker-wrap">
@@ -2014,13 +1938,13 @@
             </div>
           </div>
 
-          <!-- Part C: Sub-Heading -->
+          <!-- Sub-Heading -->
           <div class="calendar-sub-divider">
             <span class="calendar-sub-title">Stay in the loop</span>
             <span style="font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; color: rgba(0,0,0,0.6);">SELECT ANY DATE</span>
           </div>
 
-          <!-- Part D: Calendar Grid -->
+          <!-- Calendar Grid -->
           <div class="calendar-integrated-grid">
             <div>
               <div class="cal-header">
@@ -2648,7 +2572,7 @@
     }
     setInterval(rotateLandingBg, 5000);
 
-    /* Page Switcher with Instagram Engine Processing */
+    /* Page Switcher with Instagram Parser Re-execution */
     function navigateTo(pageId, event) {
       if (event) event.preventDefault();
 
@@ -2674,7 +2598,6 @@
           link.classList.toggle('active', link.getAttribute('onclick')?.includes(pageId));
         });
 
-        // Trigger official Instagram Embeds parser on return
         if (window.instgrm && window.instgrm.Embeds) {
           window.instgrm.Embeds.process();
         }
@@ -2691,29 +2614,6 @@
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
-
-    /* -------------------------------------------------------------
-       NATIVE INSTAGRAM REELS CAROUSEL ENGINE
-    ------------------------------------------------------------- */
-    let reelConveyorIndex = 0;
-    const totalReels = 4;
-
-    function slideReelsConveyor(direction) {
-      const track = document.getElementById('reels-grid-track');
-      if (!track || !track.children.length) return;
-      
-      const itemWidth = track.children[0].offsetWidth + 24;
-      const maxIndex = Math.max(0, totalReels - 1);
-      
-      reelConveyorIndex = Math.max(0, Math.min(maxIndex, reelConveyorIndex + direction));
-      track.style.transform = `translateX(-${reelConveyorIndex * itemWidth}px)`;
-    }
-
-    window.addEventListener('load', () => {
-      if (window.instgrm && window.instgrm.Embeds) {
-        window.instgrm.Embeds.process();
-      }
-    });
 
     /* Newsletter Handler */
     function handleNewsletterSubmit(e) {
@@ -3061,5 +2961,8 @@
       alert("HIVE AUDIO: Click ▶❚❚ to stream background ambient beats.");
     }
   </script>
+
+  <!-- Official Instagram Embed Processing Script Placed At End of Body -->
+  <script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
