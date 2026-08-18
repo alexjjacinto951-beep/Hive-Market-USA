@@ -41,7 +41,7 @@
       letter-spacing: 0.04em;
     }
 
-    /* Subtle, smooth interactive micro-states (glitch-free) */
+    /* Subtle interactive micro-states */
     .interactive-click {
       cursor: pointer;
       user-select: none;
@@ -240,7 +240,6 @@
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
     }
 
-    /* Subtle, stable pill button */
     .down-arrow-anchor {
       position: absolute;
       bottom: 24px;
@@ -284,7 +283,6 @@
       transform: translateY(2px);
     }
 
-    /* Subtle circular arrow icon button (no wobble/flicker) */
     .icon-only-arrow-anchor {
       display: inline-flex;
       align-items: center;
@@ -337,7 +335,6 @@
       color: var(--deep-black);
     }
 
-    /* Main Glass Carrier for Carousel & Calendar */
     .events-calendar-composite-card {
       background: rgba(255, 255, 255, 0.35);
       backdrop-filter: blur(24px);
@@ -728,15 +725,98 @@
     }
 
     /* -------------------------------------------------------------
-       HOMEPAGE LOCATION, HOURS & CONTACT STRIP (BELOW 3 PHOTOS)
+       KEEP IN TOUCH / NEWSLETTER SECTION (BELOW 3 PHOTOS)
     ------------------------------------------------------------- */
-    .home-location-strip {
-      background: var(--deep-black);
+    .newsletter-section-wrap {
+      background: var(--card-black);
       color: var(--pure-white);
       border-top: var(--border-thin);
       border-bottom: var(--border-thin);
       padding: 56px 36px;
-      margin-top: 0;
+    }
+    .newsletter-inner-container {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+    .newsletter-tag {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.24em;
+      color: var(--bg-yellow);
+      text-transform: uppercase;
+    }
+    .newsletter-headline {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--pure-white);
+      line-height: 1.15;
+    }
+    .newsletter-subtext {
+      font-size: 0.92rem;
+      color: var(--trans-white-grey);
+      font-weight: 300;
+      max-width: 580px;
+      line-height: 1.6;
+    }
+    .newsletter-form-inline {
+      width: 100%;
+      max-width: 540px;
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .newsletter-input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      padding: 14px 18px;
+      color: var(--pure-white);
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 0.88rem;
+      outline: none;
+      border-radius: 4px;
+      transition: border-color 0.25s ease, background-color 0.25s ease;
+    }
+    .newsletter-input:focus {
+      border-color: var(--bg-yellow);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .newsletter-btn-submit {
+      font-family: 'Hanken Grotesk', sans-serif;
+      background: var(--bg-yellow);
+      color: var(--deep-black);
+      border: 1.5px solid var(--bg-yellow);
+      padding: 14px 28px;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    .newsletter-btn-submit:hover {
+      background: var(--pure-white);
+      border-color: var(--pure-white);
+      transform: translateY(-2px);
+    }
+
+    /* -------------------------------------------------------------
+       HOMEPAGE LOCATION, HOURS & CONTACT STRIP
+    ------------------------------------------------------------- */
+    .home-location-strip {
+      background: var(--deep-black);
+      color: var(--pure-white);
+      border-bottom: var(--border-thin);
+      padding: 56px 36px;
     }
     .home-location-grid {
       max-width: 1400px;
@@ -1581,6 +1661,10 @@
       .trio-photo-item {
         height: 60vh;
       }
+      .newsletter-form-inline {
+        flex-direction: column;
+        gap: 10px;
+      }
       .home-location-grid {
         grid-template-columns: 1fr;
         gap: 28px;
@@ -1835,6 +1919,22 @@
         <div class="trio-photo-item">
           <img src="MM.JPG" alt="Hive Market Collectibles & Shelving" />
         </div>
+      </div>
+    </div>
+
+    <!-- SECTION: KEEP IN TOUCH / NEWSLETTER SUBSCRIPTION (BELOW 3 PHOTOS) -->
+    <div class="newsletter-section-wrap">
+      <div class="newsletter-inner-container">
+        <span class="newsletter-tag">COMMUNITY DISPATCH</span>
+        <h2 class="newsletter-headline">Keep in Touch</h2>
+        <p class="newsletter-subtext">
+          Subscribe to get early access to 300+ vintage t-shirt drops, private vault unboxings, outdoor flea market dates, and live concert announcements.
+        </p>
+
+        <form class="newsletter-form-inline" onsubmit="handleNewsletterSubmit(event)">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address..." required />
+          <button type="submit" class="newsletter-btn-submit">Subscribe</button>
+        </form>
       </div>
     </div>
 
@@ -2425,13 +2525,20 @@
       }, 250);
     }
 
-    /* Reliable native smooth scrolling */
+    /* Native smooth scrolling */
     function smoothScrollToTarget(targetId, event) {
       if (event) event.preventDefault();
       const el = document.getElementById(targetId);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    }
+
+    /* Newsletter Handler */
+    function handleNewsletterSubmit(e) {
+      e.preventDefault();
+      alert("THANK YOU FOR SUBSCRIBING\n\nYou're officially on the Hive Market dispatch list for early drops & sound session invites.");
+      e.target.reset();
     }
 
     /* Swish Vanish & Restore */
