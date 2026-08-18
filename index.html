@@ -44,15 +44,17 @@
     .interactive-click {
       cursor: pointer;
       user-select: none;
-      transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+      transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                  background-color 0.4s ease, 
+                  opacity 0.4s ease;
       will-change: transform;
     }
     .interactive-click:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px) scale(1.015);
     }
-    .interactive-click:active {
-      transform: translateY(0) scale(0.98);
-      transition-duration: 0.1s;
+    .interactive-click:active, .interactive-click.jump-animate {
+      transform: scale(0.92) translateY(2px) !important;
+      transition: transform 0.14s cubic-bezier(0.25, 1, 0.5, 1) !important;
     }
 
     /* Top Strip */
@@ -134,10 +136,10 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .header-hm-symbol:hover {
-      transform: scale(1.05);
+      transform: scale(1.08);
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
     }
     .header-hm-symbol span {
@@ -153,13 +155,14 @@
     .page-view {
       display: none;
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: translateY(22px) scale(0.985);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.85s cubic-bezier(0.34, 1.45, 0.64, 1);
     }
     .page-view.active {
       display: block;
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
 
     /* Full-Screen Landing Hero */
@@ -186,7 +189,7 @@
       object-position: center 45%;
       opacity: 0;
       filter: contrast(1.06) brightness(0.78);
-      transform: scale(1.01);
+      transform: scale(1.02);
       transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.25, 1, 0.5, 1);
       z-index: 1;
       pointer-events: none;
@@ -237,6 +240,7 @@
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
     }
 
+    /* Spring Jumpy Arrow Anchors */
     .down-arrow-anchor {
       position: absolute;
       bottom: 24px;
@@ -246,23 +250,27 @@
       align-items: center;
       gap: 6px;
       text-decoration: none;
-      padding: 10px 24px;
+      padding: 10px 26px;
       border-radius: 9999px;
       background: rgba(20, 22, 26, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 255, 255, 0.28);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+      animation: floatSlow 3.4s ease-in-out infinite;
+      transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background-color 0.4s ease,
+                  border-color 0.4s ease;
       cursor: pointer;
-      transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     }
     .down-arrow-anchor:hover {
       background: rgba(30, 34, 40, 0.9);
-      border-color: rgba(255, 255, 255, 0.6);
-      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.65);
+      transform: translateY(-4px) scale(1.03);
     }
-    .down-arrow-anchor:active {
-      transform: translateY(1px);
+    .down-arrow-anchor:active, .down-arrow-anchor.arrow-jump-active {
+      transform: translateY(18px) scale(0.92) !important;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     .down-arrow-text {
       font-size: 0.68rem;
@@ -274,35 +282,43 @@
     }
     .down-arrow-icon {
       color: var(--bg-yellow);
-      transition: transform 0.25s ease;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .down-arrow-anchor:hover .down-arrow-icon {
-      transform: translateY(2px);
+      transform: translateY(3px);
     }
 
     .icon-only-arrow-anchor {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: rgba(20, 22, 26, 0.7);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 255, 255, 0.32);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
       text-decoration: none;
       cursor: pointer;
-      transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+      transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background-color 0.4s ease,
+                  border-color 0.4s ease;
     }
     .icon-only-arrow-anchor:hover {
       background: rgba(30, 34, 40, 0.95);
-      border-color: rgba(255, 255, 255, 0.7);
-      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.85);
+      transform: translateY(-4px) scale(1.08);
     }
-    .icon-only-arrow-anchor:active {
-      transform: translateY(1px);
+    .icon-only-arrow-anchor:active, .icon-only-arrow-anchor.arrow-jump-active {
+      transform: translateY(18px) scale(0.9) !important;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(6px); }
     }
 
     .container {
@@ -353,7 +369,7 @@
     .conveyor-track {
       display: flex;
       gap: 24px;
-      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: transform 1.2s cubic-bezier(0.34, 1.35, 0.64, 1);
       will-change: transform;
     }
 
@@ -373,7 +389,7 @@
     .event-card-slide:hover {
       background: rgba(255, 255, 255, 0.95);
       border-color: var(--deep-black);
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
     }
     .event-card-slide.active-card {
@@ -425,24 +441,25 @@
       justify-content: center;
       align-items: center;
       gap: 12px;
-      margin-top: 16px;
+      margin-top: 20px;
     }
     .dot-circle {
-      width: 9px;
-      height: 9px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: transparent;
       border: 1.5px solid var(--deep-black);
       padding: 0;
       cursor: pointer;
-      transition: background-color 0.2s ease, transform 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .dot-circle:hover {
       background: rgba(0, 0, 0, 0.3);
+      transform: scale(1.25);
     }
     .dot-circle.active {
       background: var(--deep-black);
-      transform: scale(1.2);
+      transform: scale(1.35);
     }
 
     /* -------------------------------------------------------------
@@ -570,12 +587,13 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .cal-nav-btn:hover {
       border-color: var(--bg-yellow);
       color: var(--bg-yellow);
       background: rgba(255, 255, 0, 0.08);
+      transform: scale(1.12);
     }
 
     .cal-weekdays {
@@ -604,7 +622,7 @@
       position: relative;
       cursor: pointer;
       border: 1px solid transparent;
-      transition: background-color 0.2s ease, border-color 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .cal-day-cell.empty {
       cursor: default;
@@ -612,6 +630,7 @@
     .cal-day-cell:not(.empty):hover {
       background: rgba(255, 255, 255, 0.08);
       border-color: rgba(255, 255, 255, 0.3);
+      transform: scale(1.08);
     }
     .cal-day-cell.has-event::after {
       content: '';
@@ -712,12 +731,12 @@
       object-fit: cover;
       object-position: center;
       display: block;
-      transition: transform 0.6s ease, filter 0.4s ease;
+      transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
       filter: contrast(1.05) brightness(0.92);
       image-rendering: -webkit-optimize-contrast;
     }
     .trio-photo-item:hover img {
-      transform: scale(1.03);
+      transform: scale(1.04);
       filter: contrast(1.08) brightness(1);
     }
 
@@ -1059,7 +1078,7 @@
     }
 
     /* -------------------------------------------------------------
-       TRANSLUCENT PANELS & SUBTLE SLIDE TRANSITION
+       TRANSLUCENT PANELS & SWISH TRANSITIONS
     ------------------------------------------------------------- */
     .editorial-panel-translucent {
       background: rgba(12, 13, 16, 0.72);
@@ -1742,9 +1761,9 @@
         <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
       </div>
 
-      <!-- Hero Down Arrow -->
+      <!-- Hero Down Arrow with Jump & Glide -->
       <a class="down-arrow-anchor" onclick="smoothScrollToTarget('home-events-anchor', event)">
-        <span class="down-arrow-text">Upcoming Events & Deals</span>
+        <span class="down-arrow-text">Upcoming Events & Sales</span>
         <i data-lucide="chevron-down" class="down-arrow-icon" style="width: 16px; height: 16px;"></i>
       </a>
     </div>
@@ -1887,10 +1906,10 @@
         </div>
       </div>
 
-      <!-- Arrow Down to Archival Section -->
+      <!-- Arrow Down to Archival Section with Jump & Glide -->
       <div style="display: flex; justify-content: center; margin: 42px 0 12px;">
         <a class="icon-only-arrow-anchor" onclick="smoothScrollToTarget('home-archival-anchor', event)" aria-label="Scroll Down">
-          <i data-lucide="chevron-down" style="width: 20px; height: 20px; color: var(--bg-yellow);"></i>
+          <i data-lucide="chevron-down" style="width: 22px; height: 22px; color: var(--bg-yellow);"></i>
         </a>
       </div>
     </main>
@@ -2098,10 +2117,10 @@
     </div>
   </div>
 
-  <!-- PAGE 3: UNIFIED MARKET HUB -->
+  <!-- PAGE 3: UNIFIED MARKET HUB (UPDATED TO "live event.JPG") -->
   <div id="page-market-hub" class="page-view">
     <div class="landing-fullscreen-hero" style="background: var(--deep-black);">
-      <img src="Inside.JPG" class="landing-bg-image active-bg" alt="Market Hub Live Gathering" />
+      <img src="live event.JPG" class="landing-bg-image active-bg" alt="Market Hub Live Concert & Community Event" />
       <div class="hero-vignette-overlay" style="background: radial-gradient(circle at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.88) 100%);"></div>
 
       <div class="landing-hero-content" style="max-width: 920px;">
@@ -2123,6 +2142,7 @@
     </div>
 
     <main class="container">
+      <!-- Section 1: Translucent Application Form -->
       <div class="editorial-panel-translucent" id="hub-apply-anchor" style="margin-top: 48px;">
         <button class="tab-return-arrow-btn" id="hub-vendor-return-btn" onclick="restoreSwishForm('hub-vendor')" aria-label="Open New Application">
           <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
@@ -2204,6 +2224,7 @@
         </div>
       </div>
 
+      <!-- Section 2: Translucent Event Schedule & RSVP -->
       <div class="editorial-panel-translucent" id="hub-schedule-anchor" style="margin-top: 36px;">
         <button class="tab-return-arrow-btn" id="hub-rsvp-return-btn" onclick="restoreSwishForm('hub-rsvp')" aria-label="View Schedule">
           <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
@@ -2474,14 +2495,26 @@
     }
     setInterval(rotateLandingBg, 5000);
 
-    /* Page Switcher with Instagram Parser Re-execution */
+    /* Page Switcher with Spring Micro Jump */
+    function triggerJumpClick(element) {
+      if (!element) return;
+      element.classList.add('jump-animate');
+      setTimeout(() => {
+        element.classList.remove('jump-animate');
+      }, 180);
+    }
+
     function navigateTo(pageId, event) {
-      if (event) event.preventDefault();
+      if (event) {
+        event.preventDefault();
+        const clickedEl = event.currentTarget || event.target;
+        triggerJumpClick(clickedEl);
+      }
 
       const activePages = document.querySelectorAll('.page-view.active');
       activePages.forEach(p => {
         p.style.opacity = '0';
-        p.style.transform = 'translateY(12px)';
+        p.style.transform = 'translateY(18px) scale(0.985)';
       });
 
       setTimeout(() => {
@@ -2501,16 +2534,45 @@
         });
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 250);
+      }, 350);
     }
 
-    /* Native smooth scrolling */
+    /* Spring Jumpy Glide Scroll Animation for Down Arrows */
     function smoothScrollToTarget(targetId, event) {
-      if (event) event.preventDefault();
-      const el = document.getElementById(targetId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (event) {
+        event.preventDefault();
+        const btn = event.currentTarget;
+        btn.classList.add('arrow-jump-active');
+        setTimeout(() => {
+          btn.classList.remove('arrow-jump-active');
+        }, 280);
       }
+
+      const el = document.getElementById(targetId);
+      if (!el) return;
+
+      const targetPosition = el.getBoundingClientRect().top + window.pageYOffset - 20;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const duration = 1400;
+      let startTime = null;
+
+      function easeInOutCubic(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t * t + b;
+        t -= 2;
+        return (c / 2) * (t * t * t + 2) + b;
+      }
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      }
+
+      requestAnimationFrame(animation);
     }
 
     /* Newsletter Handler */
@@ -2633,7 +2695,7 @@
 
       for (let day = 1; day <= daysInMonth; day++) {
         const cell = document.createElement('div');
-        cell.className = 'cal-day-cell';
+        cell.className = 'cal-day-cell interactive-click';
         cell.innerText = day;
 
         const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
@@ -2662,6 +2724,8 @@
     }
 
     function displayCalendarEvent(dateKey, day, monthName, year, event) {
+      if (event) triggerJumpClick(event.currentTarget);
+
       const tagEl = document.getElementById('cal-selected-tag');
       const titleEl = document.getElementById('cal-selected-headline');
       const timeEl = document.getElementById('cal-selected-time');
@@ -2705,6 +2769,7 @@
     }
 
     function goToSlide(idx, event) {
+      if (event) triggerJumpClick(event.currentTarget);
       currentSlide = idx;
       updateCarousel();
     }
@@ -2740,6 +2805,7 @@
     }
 
     function openEventModal(title, date, desc, loc, event) {
+      if (event) triggerJumpClick(event.currentTarget);
       document.getElementById('modal-title').innerText = title;
       document.getElementById('modal-date').innerText = date;
       document.getElementById('modal-desc').innerText = desc;
