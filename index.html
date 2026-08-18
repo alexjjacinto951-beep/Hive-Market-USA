@@ -790,7 +790,7 @@
     }
 
     /* -------------------------------------------------------------
-       COMBINED SELL / TRADE FULL-SCREEN BACKDROP SECTION
+       SELL / TRADE PAGE (DEELUX INSPIRED VINTAGE HIVE EDITORIAL)
     ------------------------------------------------------------- */
     .sell-trade-fullpage {
       position: relative;
@@ -838,7 +838,7 @@
     }
 
     .sell-trade-card {
-      background: rgba(12, 13, 16, 0.78);
+      background: rgba(12, 13, 16, 0.82);
       backdrop-filter: blur(28px);
       -webkit-backdrop-filter: blur(28px);
       border: 1.5px solid rgba(255, 255, 255, 0.2);
@@ -861,6 +861,141 @@
       letter-spacing: 0.03em;
       line-height: 1.6;
       max-width: 820px;
+    }
+
+    /* Step Breakdown Cards (DeeLux Inspo) */
+    .step-section-block {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 32px;
+      margin-top: 24px;
+      border-radius: 4px;
+    }
+    .step-num-heading {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--bg-yellow);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .step-sub-tagline {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--pure-white);
+      margin-bottom: 20px;
+    }
+    .step-sub-tagline strong {
+      color: var(--bg-yellow);
+    }
+
+    /* In-Section Accordion */
+    .trade-toggle-wrap {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .trade-toggle-btn {
+      width: 100%;
+      padding: 16px 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      border: none;
+      color: var(--pure-white);
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+    .trade-toggle-btn span.toggle-symbol {
+      color: var(--bg-yellow);
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    .trade-toggle-content {
+      padding: 4px 4px 18px;
+      display: none;
+    }
+    .trade-toggle-wrap.open .trade-toggle-content {
+      display: block;
+    }
+    .trade-toggle-wrap.open .toggle-symbol {
+      transform: rotate(45deg);
+    }
+    .trade-bullet-list {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .trade-bullet-list li {
+      font-size: 0.88rem;
+      color: var(--trans-white-grey);
+      line-height: 1.55;
+      position: relative;
+      padding-left: 18px;
+    }
+    .trade-bullet-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--bg-yellow);
+      font-size: 1.1rem;
+    }
+    .trade-bullet-list li strong {
+      color: var(--pure-white);
+    }
+
+    /* 2 & 3 Step Row Grids */
+    .step-grid-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .step-card-box {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .step-icon-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: rgba(255, 255, 0, 0.12);
+      border: 1px solid var(--bg-yellow);
+      color: var(--bg-yellow);
+      margin-bottom: 16px;
+    }
+
+    /* Acuity Scheduler Container */
+    .acuity-booking-wrap {
+      border: 1.5px solid rgba(255, 255, 255, 0.22);
+      background: rgba(0, 0, 0, 0.6);
+      padding: 36px 32px;
+      margin-top: 24px;
+      border-radius: 4px;
+    }
+    .acuity-notice-box {
+      background: rgba(255, 255, 0, 0.08);
+      border-left: 3px solid var(--bg-yellow);
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      font-size: 0.85rem;
+      color: var(--trans-white-grey);
+    }
+    .acuity-notice-box strong {
+      color: var(--bg-yellow);
     }
 
     /* Editorial Interior Panels */
@@ -1039,29 +1174,6 @@
     .btn-submit:hover {
       background: var(--pure-white);
       border-color: var(--pure-white);
-    }
-
-    /* Specification Table */
-    .spec-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 28px;
-    }
-    .spec-table th, .spec-table td {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-      padding: 16px 12px;
-      text-align: left;
-      font-size: 0.84rem;
-    }
-    .spec-table th {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      color: var(--bg-yellow);
-      font-weight: 600;
-    }
-    .spec-table td {
-      color: var(--trans-white-grey);
-      font-weight: 300;
     }
 
     /* Events List View */
@@ -1342,6 +1454,9 @@
         padding-left: 0;
         padding-top: 20px;
       }
+      .step-grid-duo {
+        grid-template-columns: 1fr;
+      }
       .archival-trio-grid {
         grid-template-columns: 1fr;
         height: auto;
@@ -1576,7 +1691,7 @@
 
               <div>
                 <button class="btn-submit interactive-click" style="width: 100%; margin: 0;" onclick="navigateTo('sell-trade', event)">
-                  Schedule On This Date
+                  Book Your Appointment
                 </button>
               </div>
             </div>
@@ -1627,98 +1742,162 @@
         <div class="home-loc-box">
           <h3>Direct Desk Line</h3>
           <p style="font-size: 1.1rem; color: var(--pure-white); font-weight: 600; margin-bottom: 4px;">(951) 845-5669</p>
-          <p>Call for trade inquiries & appraisal slots</p>
+          <p>Call for trade inquiries & appointment booking</p>
           <a href="tel:9518455669">Call Store Desk →</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- PAGE 2: COMBINED SELL / TRADE -->
+  <!-- PAGE 2: COMBINED SELL / TRADE (DEELUX INSPIRED EDITORIAL WITH 40 ITEM LIMIT & ACUITY READY) -->
   <div id="page-sell-trade" class="page-view">
     <div class="sell-trade-fullpage">
       <img src="What we buy.JPG" class="sell-trade-bg-img" alt="What We Buy Storefront Rack" />
       <div class="sell-trade-vignette"></div>
 
       <div class="sell-trade-glass-stack">
+        <!-- Main Sell / Trade Guide Card -->
         <div class="sell-trade-card">
-          <h1>What We Buy & Trade</h1>
-          <p>We purchase upfront for instant cash, Venmo/Zelle, or 1.5x store trade credit for curated vintage and streetwear garments.</p>
+          <h1>Sell & Trade Guide</h1>
+          <p>Bring in your curated archive items, vintage t-shirts, rugged workwear, and footwear for instant cash or elevated store credit.</p>
 
-          <table class="spec-table">
-            <thead>
-              <tr>
-                <th>Classification</th>
-                <th>Accepted Styles & Era</th>
-                <th>Evaluation Payout</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong style="color:#FFF;">Graphic Tees</strong></td>
-                <td>Single-stitch, band tees, 90s anime, Harley Davidson, racing jerseys, varsity outerwear.</td>
-                <td style="color: var(--bg-yellow); font-weight:700;">Highest Payout</td>
-              </tr>
-              <tr>
-                <td><strong style="color:#FFF;">Denim & Workwear</strong></td>
-                <td>Vintage Levi's 501/550, Carhartt double-knee pants and jackets, Dickies, military surplus.</td>
-                <td style="color: var(--bg-yellow); font-weight:700;">High Demand</td>
-              </tr>
-              <tr>
-                <td><strong style="color:#FFF;">Footwear</strong></td>
-                <td>Doc Martens, leather loafers, clean Nike Dunks, Jordan 1s, retro New Balance, work boots.</td>
-                <td style="color: var(--bg-yellow); font-weight:700;">High Demand</td>
-              </tr>
-              <tr>
-                <td><strong style="color:#FFF;">Accessories</strong></td>
-                <td>Y2K studded bags, genuine leather belts, vintage snapbacks, trucker hats, silver jewelry.</td>
-                <td style="color: var(--pure-white); font-weight:600;">Always Buying</td>
-              </tr>
-              <tr>
-                <td><strong style="color:#FFAAA6;">Declined Items</strong></td>
-                <td>Ultra fast-fashion (Shein, Temu, Forever 21), damaged garments, unwashed apparel.</td>
-                <td style="color: #FFAAA6; font-weight:600;">No Buyout</td>
-              </tr>
-            </tbody>
-          </table>
+          <!-- Step 1: Organize Your Clothes (40 Item Limit + DeeLux Toggle UI) -->
+          <div class="step-section-block">
+            <div class="step-num-heading">1. Organize Your Clothes</div>
+            <div class="step-sub-tagline">We have a <strong>40 item limit</strong> per appointment, so select your best pieces!</div>
+
+            <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 14px;">
+              <!-- Toggle 1: What to Bring In -->
+              <div class="trade-toggle-wrap open" id="toggle-bring">
+                <button class="trade-toggle-btn" onclick="toggleTradeSection('toggle-bring')">
+                  <span>What to Bring In</span>
+                  <span class="toggle-symbol">+</span>
+                </button>
+                <div class="trade-toggle-content">
+                  <p style="font-size:0.86rem; color:var(--bg-yellow); font-weight:600; margin-bottom:6px;">Clothing, footwear, and accessories that are:</p>
+                  <ul class="trade-bullet-list">
+                    <li><strong>Clean:</strong> Freshly laundered & odor free.</li>
+                    <li><strong>In Great Condition:</strong> No unintended holes, heavy stains, or hardware breakage.</li>
+                    <li><strong>In Season & Timely:</strong> 90s vintage tees, Carhartt work jackets, denim, and knitwear.</li>
+                    <li><strong>Trending Streetwear & Archive:</strong> Single-stitch band/anime/skate tees, Y2K items, and Doc Martens.</li>
+                    <li><strong>Designer & Select Workwear:</strong> Genuine leather goods, military surplus, and curated archive jackets.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Toggle 2: What to Leave Home -->
+              <div class="trade-toggle-wrap" id="toggle-leave">
+                <button class="trade-toggle-btn" onclick="toggleTradeSection('toggle-leave')">
+                  <span>What to Leave Home</span>
+                  <span class="toggle-symbol">+</span>
+                </button>
+                <div class="trade-toggle-content">
+                  <p style="font-size:0.86rem; color:#FFAAA6; font-weight:600; margin-bottom:6px;">We currently do not purchase:</p>
+                  <ul class="trade-bullet-list">
+                    <li>Ultra fast-fashion (Shein, Temu, Forever 21, Fashion Nova, basic Zara).</li>
+                    <li>Children’s clothes, sleepwear, or undergarments.</li>
+                    <li>Formal suits, gowns, and corporate business attire.</li>
+                    <li>Swimwear, household goods, or unwashed garments.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 & 3 Side by Side Grid -->
+          <div class="step-grid-duo">
+            <!-- Step 2: Bring ID -->
+            <div class="step-card-box">
+              <div>
+                <div class="step-icon-badge">
+                  <i data-lucide="id-card" style="width: 22px; height: 22px;"></i>
+                </div>
+                <div class="step-num-heading" style="font-size: 1.15rem;">2. Bring Your ID or Passport</div>
+                <p style="font-size: 0.88rem; line-height: 1.6; color: var(--trans-white-grey); margin-top: 8px;">
+                  <strong style="color: var(--pure-white);">Valid government-issued identification</strong> is required for all appointments, trade drop-offs, and cash payouts. You must be <strong style="color: var(--bg-yellow);">18 years or older</strong> to sell.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3: Cash or Credit -->
+            <div class="step-card-box">
+              <div>
+                <div class="step-icon-badge">
+                  <i data-lucide="banknote" style="width: 22px; height: 22px;"></i>
+                </div>
+                <div class="step-num-heading" style="font-size: 1.15rem;">3. Claim Your Cash or Credit</div>
+                <p style="font-size: 0.88rem; line-height: 1.6; color: var(--trans-white-grey); margin-top: 8px;">
+                  Each selected item is priced individually by our buyers. Receive <strong style="color: var(--bg-yellow);">30% cash/Venmo/Zelle</strong> of our selling price on the spot, or take <strong style="color: var(--bg-yellow);">50% in store trade credit</strong> to spend anytime.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
+        <!-- Appointment Booking & Acuity Scheduler Section -->
         <div class="sell-trade-card" id="booking-section">
-          <h2>Schedule an Appraisal</h2>
-          <p>Walk-ins are welcomed during all open store hours. To guarantee an expedited appraisal slot for your collection or bins, reserve below.</p>
+          <h2>Book Your Appointment</h2>
+          <p>Read the guidelines above before reserving your slot. Walk-ins are always welcomed during open hours, but booking guarantees an expedited appraisal.</p>
 
-          <form class="form-grid" onsubmit="handleBooking(event)">
-            <div class="form-row">
-              <div>
-                <label class="field-label">Full Name</label>
-                <input type="text" class="clean-input" placeholder="Jordan Rivera" required />
-              </div>
-              <div>
-                <label class="field-label">Phone Number</label>
-                <input type="tel" class="clean-input" placeholder="(951) 000-0000" required />
-              </div>
+          <div class="acuity-booking-wrap">
+            <div class="acuity-notice-box">
+              <strong>WHAT TO KNOW BEFORE YOU BOOK:</strong> Please ensure your maximum 40 items are freshly washed, placed neatly in bags or bins, and that you have your valid ID ready upon arrival at 688 Beaumont Ave.
             </div>
 
-            <div class="form-row">
-              <div>
-                <label class="field-label">Preferred Date</label>
-                <input type="date" id="book-date" class="clean-input" required />
+            <!-- Native Integrated Scheduler Form (Acuity Ready Embed Point) -->
+            <form class="form-grid" onsubmit="handleBooking(event)">
+              <div class="form-row">
+                <div>
+                  <label class="field-label">Full Name</label>
+                  <input type="text" class="clean-input" placeholder="Jordan Rivera" required />
+                </div>
+                <div>
+                  <label class="field-label">Phone Number</label>
+                  <input type="tel" class="clean-input" placeholder="(951) 000-0000" required />
+                </div>
               </div>
-              <div>
-                <label class="field-label">Inventory Volume</label>
-                <select class="clean-input">
-                  <option>1 Bag (5–10 items)</option>
-                  <option selected>1–2 Bins (10–25 items)</option>
-                  <option>Footwear / Boots Collection</option>
-                  <option>Bulk Vault Curation (25+ items)</option>
-                </select>
-              </div>
-            </div>
 
-            <div>
-              <button type="submit" class="btn-submit interactive-click">Confirm Appraisal Slot</button>
-            </div>
-          </form>
+              <div class="form-row">
+                <div>
+                  <label class="field-label">Preferred Appointment Date</label>
+                  <input type="date" id="book-date" class="clean-input" required />
+                </div>
+                <div>
+                  <label class="field-label">Preferred Time Slot</label>
+                  <select class="clean-input" style="background:#0C0D10;">
+                    <option>12:00 PM – Early Afternoon</option>
+                    <option selected>2:00 PM – Mid Afternoon</option>
+                    <option>4:00 PM – Late Afternoon</option>
+                    <option>6:00 PM – Evening Session</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div>
+                  <label class="field-label">Estimated Item Count (Max 40)</label>
+                  <select class="clean-input" style="background:#0C0D10;">
+                    <option>Quick Review (5–15 items)</option>
+                    <option selected>Standard Vault Batch (15–30 items)</option>
+                    <option>Full Appointment Limit (30–40 items)</option>
+                    <option>Footwear & Boots Collection</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="field-label">Payout Preference</label>
+                  <select class="clean-input" style="background:#0C0D10;">
+                    <option selected>50% Store Trade Credit (Best Value)</option>
+                    <option>30% Instant Cash / Venmo / Zelle</option>
+                    <option>Decide at Evaluation</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <button type="submit" class="btn-submit interactive-click">Book Your Appointment</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -1942,7 +2121,7 @@
     <main class="container">
       <div class="editorial-panel">
         <h1>Frequently Asked Questions</h1>
-        <p>Everything you need to know about buying, selling, trading, attending events, and booking slots at Hive Market.</p>
+        <p>Everything you need to know about buying, selling, trading, attending events, and booking appointments at Hive Market.</p>
 
         <div class="faq-accordion-group">
           <!-- Item 1 -->
@@ -1952,7 +2131,7 @@
               <span class="faq-toggle-icon">+</span>
             </button>
             <div class="faq-answer-body">
-              Bring your freshly laundered vintage tees, denim, Carhartt jackets, or clean footwear into the store during regular hours. Our appraisal team evaluates items on the spot. You can choose instant cash payout, Venmo/Zelle, or receive 1.5x store trade credit to shop anything in the building.
+              Bring up to 40 clean, odor-free items into the store during regular hours or via a booked appointment. Our appraisal team evaluates items on the spot. You can choose 30% cash/Venmo/Zelle payout, or take 50% in store trade credit to shop anything in the building.
             </div>
           </div>
 
@@ -1963,40 +2142,40 @@
               <span class="faq-toggle-icon">+</span>
             </button>
             <div class="faq-answer-body">
-              Walk-ins are welcomed during all standard hours (Mon–Fri 11–7, Sat–Sun 12–8). However, if you are bringing multiple bins, bulk vault collections, or footwear collections, scheduling an appraisal on our Sell/Trade page guarantees prioritized, expedited review.
+              Walk-ins are welcomed during all standard hours (Mon–Fri 11–7, Sat–Sun 12–8). However, booking an appointment on our Sell/Trade page guarantees an expedited, dedicated evaluation slot.
             </div>
           </div>
 
           <!-- Item 3 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
-              <span class="q-title">How do I get a vendor booth at your outdoor markets?</span>
+              <span class="q-title">What is the item limit per selling appointment?</span>
               <span class="faq-toggle-icon">+</span>
             </button>
             <div class="faq-answer-body">
-              Head over to our <strong>Market Hub</strong> page and submit the Vendor & Artist Showcase form. Select your preferred market date and describe your brand or curation. Our curation team will review your application and send over setup confirmation.
+              We have a strict <strong>40 item limit</strong> per appointment so our buyers can thoroughly inspect each piece. Please bring your best, cleanest garments and shoes.
             </div>
           </div>
 
           <!-- Item 4 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
-              <span class="q-title">Can musicians, DJs, or bands perform at Hive Market?</span>
+              <span class="q-title">What identification is required?</span>
               <span class="faq-toggle-icon">+</span>
             </button>
             <div class="faq-answer-body">
-              Yes! We regularly host evening sound sessions, acoustic courtyard performances, and weekend DJ sets. Submit your sound links (Soundcloud, Spotify, Instagram) via our <strong>Market Hub</strong> application form.
+              A valid government-issued ID, Driver’s License, or Passport is required by California law for all buyouts and trade drop-offs. Sellers must be at least 18 years of age.
             </div>
           </div>
 
           <!-- Item 5 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
-              <span class="q-title">What brands and styles do you decline?</span>
+              <span class="q-title">How do I get a vendor booth at your outdoor markets?</span>
               <span class="faq-toggle-icon">+</span>
             </button>
             <div class="faq-answer-body">
-              We do not purchase fast-fashion brands (Shein, Temu, Forever 21, Zara basics), heavily stained or damaged garments (unless intentional vintage distress), or unwashed clothing.
+              Head over to our <strong>Market Hub</strong> page and submit the Vendor & Artist Showcase form. Select your preferred market date and describe your brand or curation. Our team will review your application and send over setup confirmation.
             </div>
           </div>
         </div>
@@ -2144,6 +2323,12 @@
       requestAnimationFrame(animation);
     }
 
+    /* DeeLux Toggle Function */
+    function toggleTradeSection(elementId) {
+      const el = document.getElementById(elementId);
+      if (el) el.classList.toggle('open');
+    }
+
     /* FAQ Accordion Toggle */
     function toggleFaq(btn) {
       const item = btn.parentElement;
@@ -2261,7 +2446,7 @@
         tagEl.innerText = `${dayOfWeek.toUpperCase()} • ${monthName.toUpperCase()} ${day}`;
         titleEl.innerText = "Open Curation & Appraisal Desk";
         timeEl.innerHTML = `<i data-lucide="clock" style="width: 14px; height: 14px;"></i><span>Standard Store Hours (Open Daily)</span>`;
-        descEl.innerText = `688 Beaumont Ave is open for buying, selling, and trading. Reserve an appraisal slot for your bins or drop by to shop the racks.`;
+        descEl.innerText = `688 Beaumont Ave is open for buying, selling, and trading. Book an appointment for up to 40 items or drop by to shop.`;
       }
       lucide.createIcons();
     }
@@ -2316,7 +2501,7 @@
 
     function handleBooking(e) {
       e.preventDefault();
-      alert(`APPOINTMENT CONFIRMED\n\nDrop-off date reserved for ${dateInput.value} at 688 Beaumont Ave.`);
+      alert(`APPOINTMENT CONFIRMED\n\nYour selling slot for ${dateInput.value} has been booked at 688 Beaumont Ave.`);
       e.target.reset();
     }
 
