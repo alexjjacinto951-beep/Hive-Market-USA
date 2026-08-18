@@ -316,7 +316,7 @@
     }
 
     /* -------------------------------------------------------------
-       COMBINED EVENTS & CALENDAR SECTION
+       SECTION: WHAT'S NEW (INSTAGRAM MEDIA CONVEYOR BELT)
     ------------------------------------------------------------- */
     .section-editorial-header {
       border-top: var(--border-thin);
@@ -335,6 +335,119 @@
       color: var(--deep-black);
     }
 
+    .whats-new-carousel-card {
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1.5px solid rgba(0, 0, 0, 0.85);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .whats-new-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform;
+    }
+
+    .ig-post-card {
+      flex: 0 0 calc(25% - 15px);
+      min-width: 260px;
+      background: var(--card-black);
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+    .ig-post-card:hover {
+      border-color: var(--bg-yellow);
+      transform: translateY(-3px);
+    }
+
+    .ig-media-wrap {
+      width: 100%;
+      height: 280px;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+    }
+    .ig-media-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+      filter: contrast(1.04);
+    }
+    .ig-post-card:hover .ig-media-wrap img {
+      transform: scale(1.04);
+    }
+    .ig-type-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: var(--pure-white);
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+    .ig-post-info {
+      padding: 18px 16px;
+      background: var(--card-black);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      gap: 12px;
+    }
+    .ig-post-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.64rem;
+      color: var(--bg-yellow);
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .ig-post-caption {
+      font-size: 0.82rem;
+      color: var(--trans-white-grey);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .ig-post-action {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--pure-white);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .ig-post-action:hover {
+      color: var(--bg-yellow);
+    }
+
+    /* -------------------------------------------------------------
+       COMBINED EVENTS & CALENDAR SECTION
+    ------------------------------------------------------------- */
     .events-calendar-composite-card {
       background: rgba(255, 255, 255, 0.35);
       backdrop-filter: blur(24px);
@@ -1638,6 +1751,9 @@
       .landing-fullscreen-hero {
         height: calc(100vh - 120px);
       }
+      .ig-post-card {
+        flex: 0 0 82%;
+      }
       .events-calendar-composite-card {
         padding: 24px 16px;
       }
@@ -1755,13 +1871,165 @@
       </div>
 
       <!-- Hero Down Arrow -->
-      <a class="down-arrow-anchor" onclick="smoothScrollToTarget('home-events-anchor', event)">
-        <span class="down-arrow-text">Upcoming Events & Deals</span>
+      <a class="down-arrow-anchor" onclick="smoothScrollToTarget('home-whats-new-anchor', event)">
+        <span class="down-arrow-text">Explore What's New</span>
         <i data-lucide="chevron-down" class="down-arrow-icon" style="width: 16px; height: 16px;"></i>
       </a>
     </div>
 
     <main class="container">
+      <!-- SECTION: WHAT'S NEW (INSTAGRAM MEDIA CONVEYOR BELT) -->
+      <div id="home-whats-new-anchor">
+        <div class="section-editorial-header">
+          <h2 class="section-editorial-title">What's New</h2>
+          <a href="https://instagram.com" target="_blank" style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; color: var(--deep-black); text-decoration: none; display: flex; align-items: center; gap: 6px;">
+            <i data-lucide="instagram" style="width: 14px; height: 14px;"></i>
+            <span>@HIVEMARKET</span>
+          </a>
+        </div>
+
+        <div class="whats-new-carousel-card" onmouseenter="pauseWhatsNew()" onmouseleave="resumeWhatsNew()">
+          <div class="whats-new-track" id="whats-new-track">
+            <!-- IG Post 1: Video/Reel Style -->
+            <div class="ig-post-card interactive-click">
+              <div class="ig-media-wrap">
+                <img src="Storefront 2.JPG" alt="Fresh Haul Floor Drop Video" />
+                <div class="ig-type-badge">
+                  <i data-lucide="video" style="width: 12px; height: 12px;"></i>
+                  <span>REEL</span>
+                </div>
+              </div>
+              <div class="ig-post-info">
+                <div>
+                  <div class="ig-post-meta">
+                    <span>LATEST DROP</span>
+                    <span>2 HOURS AGO</span>
+                  </div>
+                  <p class="ig-post-caption" style="margin-top: 8px;">
+                    300+ single-stitch vintage tees just hit the floor! Band tees, 90s anime, and Carhartt jackets ready to shop.
+                  </p>
+                </div>
+                <a href="https://instagram.com" target="_blank" class="ig-post-action">
+                  <span>Watch on Instagram</span>
+                  <i data-lucide="arrow-up-right" style="width: 13px; height: 13px;"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- IG Post 2: Photo Post Style -->
+            <div class="ig-post-card interactive-click">
+              <div class="ig-media-wrap">
+                <img src="What we buy.JPG" alt="Curated Rack Perspectives" />
+                <div class="ig-type-badge">
+                  <i data-lucide="camera" style="width: 12px; height: 12px;"></i>
+                  <span>POST</span>
+                </div>
+              </div>
+              <div class="ig-post-info">
+                <div>
+                  <div class="ig-post-meta">
+                    <span>VAULT CURATION</span>
+                    <span>YESTERDAY</span>
+                  </div>
+                  <p class="ig-post-caption" style="margin-top: 8px;">
+                    The rack is fully restocked for the weekend flea. Tap in early for the cleanest cuts and footwear before they're gone.
+                  </p>
+                </div>
+                <a href="https://instagram.com" target="_blank" class="ig-post-action">
+                  <span>View Post</span>
+                  <i data-lucide="arrow-up-right" style="width: 13px; height: 13px;"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- IG Post 3: Video/Reel Sound Sessions -->
+            <div class="ig-post-card interactive-click">
+              <div class="ig-media-wrap">
+                <img src="TV ST.JPG" alt="Sound Stage DJ Session" />
+                <div class="ig-type-badge">
+                  <i data-lucide="music" style="width: 12px; height: 12px;"></i>
+                  <span>SOUND</span>
+                </div>
+              </div>
+              <div class="ig-post-info">
+                <div>
+                  <div class="ig-post-meta">
+                    <span>LIVE SESSIONS</span>
+                    <span>3 DAYS AGO</span>
+                  </div>
+                  <p class="ig-post-caption" style="margin-top: 8px;">
+                    Live vinyl set from our last courtyard session. Upcoming artist bookings are now open for next month's market!
+                  </p>
+                </div>
+                <a href="https://instagram.com" target="_blank" class="ig-post-action">
+                  <span>Listen on Instagram</span>
+                  <i data-lucide="arrow-up-right" style="width: 13px; height: 13px;"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- IG Post 4: Photo Collectibles -->
+            <div class="ig-post-card interactive-click">
+              <div class="ig-media-wrap">
+                <img src="MM.JPG" alt="Store Collectibles & Accessories" />
+                <div class="ig-type-badge">
+                  <i data-lucide="camera" style="width: 12px; height: 12px;"></i>
+                  <span>POST</span>
+                </div>
+              </div>
+              <div class="ig-post-info">
+                <div>
+                  <div class="ig-post-meta">
+                    <span>ARCHIVE FINDS</span>
+                    <span>5 DAYS AGO</span>
+                  </div>
+                  <p class="ig-post-caption" style="margin-top: 8px;">
+                    Retro collectibles, vintage ceramics, and rare accessories curated by the desk. Bring your trades in today!
+                  </p>
+                </div>
+                <a href="https://instagram.com" target="_blank" class="ig-post-action">
+                  <span>View Post</span>
+                  <i data-lucide="arrow-up-right" style="width: 13px; height: 13px;"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- IG Post 5: Inside Studio View -->
+            <div class="ig-post-card interactive-click">
+              <div class="ig-media-wrap">
+                <img src="Inside.JPG" alt="Interior Hive Storefront" />
+                <div class="ig-type-badge">
+                  <i data-lucide="video" style="width: 12px; height: 12px;"></i>
+                  <span>REEL</span>
+                </div>
+              </div>
+              <div class="ig-post-info">
+                <div>
+                  <div class="ig-post-meta">
+                    <span>STORE VIBES</span>
+                    <span>1 WEEK AGO</span>
+                  </div>
+                  <p class="ig-post-caption" style="margin-top: 8px;">
+                    Come hang out, listen to records, and check out the new vintage drops at 688 Beaumont Ave. Open 7 days a week.
+                  </p>
+                </div>
+                <a href="https://instagram.com" target="_blank" class="ig-post-action">
+                  <span>Watch Reel</span>
+                  <i data-lucide="arrow-up-right" style="width: 13px; height: 13px;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Dots for What's New -->
+          <div class="carousel-dots" id="whats-new-dots">
+            <button class="dot-circle active" onclick="goToWhatsNewSlide(0)" aria-label="Slide 1"></button>
+            <button class="dot-circle" onclick="goToWhatsNewSlide(1)" aria-label="Slide 2"></button>
+            <button class="dot-circle" onclick="goToWhatsNewSlide(2)" aria-label="Slide 3"></button>
+          </div>
+        </div>
+      </div>
+
       <!-- SECTION: INTEGRATED EVENTS, DAILY DEALS & LIVE CALENDAR -->
       <div id="home-events-anchor">
         <div class="section-editorial-header">
@@ -1922,7 +2190,7 @@
       </div>
     </div>
 
-    <!-- SECTION: KEEP IN TOUCH / NEWSLETTER SUBSCRIPTION (BELOW 3 PHOTOS) -->
+    <!-- SECTION: KEEP IN TOUCH / NEWSLETTER SUBSCRIPTION -->
     <div class="newsletter-section-wrap">
       <div class="newsletter-inner-container">
         <span class="newsletter-tag">COMMUNITY DISPATCH</span>
@@ -2139,9 +2407,7 @@
     </div>
 
     <main class="container">
-      <!-- Section 1: Translucent Application Form -->
       <div class="editorial-panel-translucent" id="hub-apply-anchor" style="margin-top: 48px;">
-        
         <button class="tab-return-arrow-btn" id="hub-vendor-return-btn" onclick="restoreSwishForm('hub-vendor')" aria-label="Open New Application">
           <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
           <span style="writing-mode: vertical-rl; text-orientation: mixed; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.16em;">NEW APP</span>
@@ -2222,9 +2488,7 @@
         </div>
       </div>
 
-      <!-- Section 2: Translucent Event Schedule & RSVP -->
       <div class="editorial-panel-translucent" id="hub-schedule-anchor" style="margin-top: 36px;">
-        
         <button class="tab-return-arrow-btn" id="hub-rsvp-return-btn" onclick="restoreSwishForm('hub-rsvp')" aria-label="View Schedule">
           <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
           <span style="writing-mode: vertical-rl; text-orientation: mixed; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.16em;">SCHEDULE</span>
@@ -2323,7 +2587,7 @@
     </main>
   </div>
 
-  <!-- PAGE 5: ABOUT US (WITH MEET THE OWNERS SECTION) -->
+  <!-- PAGE 5: ABOUT US -->
   <div id="page-about" class="page-view">
     <main class="container">
       <div class="editorial-panel">
@@ -2533,6 +2797,44 @@
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
+
+    /* What's New Belt Conveyor */
+    let whatsNewSlide = 0;
+    const totalWhatsNewSlides = 3;
+    const whatsNewTrack = document.getElementById('whats-new-track');
+    const whatsNewDots = document.querySelectorAll('#whats-new-dots .dot-circle');
+    let whatsNewInterval = null;
+
+    function updateWhatsNewCarousel() {
+      if (!whatsNewTrack) return;
+      const cardWidth = whatsNewTrack.children[0].offsetWidth + 20;
+      whatsNewTrack.style.transform = `translateX(-${whatsNewSlide * cardWidth}px)`;
+
+      whatsNewDots.forEach((d, i) => d.classList.toggle('active', i === whatsNewSlide));
+    }
+
+    function goToWhatsNewSlide(idx) {
+      whatsNewSlide = idx;
+      updateWhatsNewCarousel();
+    }
+
+    function nextWhatsNewSlide() {
+      whatsNewSlide = (whatsNewSlide + 1) % totalWhatsNewSlides;
+      updateWhatsNewCarousel();
+    }
+
+    function startWhatsNew() {
+      whatsNewInterval = setInterval(nextWhatsNewSlide, 4200);
+    }
+    function pauseWhatsNew() {
+      clearInterval(whatsNewInterval);
+    }
+    function resumeWhatsNew() {
+      startWhatsNew();
+    }
+
+    startWhatsNew();
+    window.addEventListener('resize', updateWhatsNewCarousel);
 
     /* Newsletter Handler */
     function handleNewsletterSubmit(e) {
