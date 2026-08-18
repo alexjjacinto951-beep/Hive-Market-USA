@@ -998,6 +998,136 @@
       color: var(--bg-yellow);
     }
 
+    /* -------------------------------------------------------------
+       SWISH VANISH ANIMATION & TRANSLUCENT PANELS
+    ------------------------------------------------------------- */
+    .editorial-panel-translucent {
+      background: rgba(12, 13, 16, 0.72);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+      color: var(--trans-white-grey);
+      padding: 48px;
+      margin-bottom: 36px;
+      position: relative;
+    }
+    .editorial-panel-translucent h1, .editorial-panel-translucent h2 {
+      font-weight: 700;
+      font-size: 2.1rem;
+      letter-spacing: 0.14em;
+      color: var(--bg-yellow);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .editorial-panel-translucent p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--trans-white-grey);
+      letter-spacing: 0.04em;
+      line-height: 1.6;
+      max-width: 800px;
+    }
+
+    /* Interactive Swish Stage Container */
+    .swish-stage-container {
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+      border-radius: 4px;
+    }
+
+    .swish-form-panel {
+      width: 100%;
+      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s ease;
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .swish-form-panel.vanished {
+      transform: translateX(-110%);
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .swish-success-panel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s ease;
+      transform: translateX(110%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .swish-success-panel.active {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+      position: relative;
+    }
+
+    .swish-follow-photo {
+      width: 100%;
+      height: 480px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+    .swish-follow-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.06) brightness(0.95);
+    }
+
+    .swish-success-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    /* Tab return drawer handle button pointing right */
+    .tab-return-arrow-btn {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%) translateX(-100%);
+      background: var(--bg-yellow);
+      color: var(--deep-black);
+      border: 1.5px solid var(--deep-black);
+      border-left: none;
+      border-radius: 0 8px 8px 0;
+      padding: 18px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 4px 8px 24px rgba(0, 0, 0, 0.4);
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .tab-return-arrow-btn.visible {
+      transform: translateY(-50%) translateX(0);
+    }
+    .tab-return-arrow-btn:hover {
+      background: var(--pure-white);
+      transform: translateY(-50%) translateX(4px);
+    }
+
     /* Editorial Interior Panels */
     .editorial-panel {
       background: var(--deep-black);
@@ -1474,11 +1604,20 @@
       .meet-owners-thumb {
         height: 380px;
       }
+      .swish-success-panel {
+        grid-template-columns: 1fr;
+      }
+      .swish-follow-photo {
+        height: 300px;
+      }
       .sell-trade-fullpage {
         min-height: auto;
         padding: 40px 16px 60px;
       }
       .sell-trade-card {
+        padding: 32px 20px;
+      }
+      .editorial-panel-translucent {
         padding: 32px 20px;
       }
       .form-row {
@@ -1903,7 +2042,7 @@
     </div>
   </div>
 
-  <!-- PAGE 3: UNIFIED MARKET HUB -->
+  <!-- PAGE 3: UNIFIED MARKET HUB (CLEAN HERO + TRANSLUCENT SWISH VANISH APPLICATION & SCHEDULE) -->
   <div id="page-market-hub" class="page-view">
     <div class="landing-fullscreen-hero" style="background: var(--deep-black);">
       <img src="Inside.JPG" class="landing-bg-image active-bg" alt="Market Hub Live Gathering" />
@@ -1928,90 +2067,154 @@
     </div>
 
     <main class="container">
-      <div class="editorial-panel" id="hub-apply-anchor" style="margin-top: 48px;">
-        <h2>Vendor & Artist Showcase Application</h2>
-        <p>Reserve booth spaces for upcoming outdoor flea markets or submit your portfolio and tracks to perform live sets during our evening concert and acoustic sound sessions.</p>
+      <!-- Section 1: Translucent Swish Vanish Vendor & Artist Showcase Application -->
+      <div class="editorial-panel-translucent" id="hub-apply-anchor" style="margin-top: 48px;">
+        
+        <!-- Tab return drawer handle with right-pointing arrow -->
+        <button class="tab-return-arrow-btn interactive-click" id="hub-vendor-return-btn" onclick="restoreSwishForm('hub-vendor')" aria-label="Open New Application">
+          <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+          <span style="writing-mode: vertical-rl; text-orientation: mixed; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.16em;">NEW APP</span>
+        </button>
 
-        <form class="form-grid" onsubmit="handleVendorSubmit(event)">
-          <div class="form-row">
-            <div>
-              <label class="field-label">Contact / Artist Name</label>
-              <input type="text" class="clean-input" placeholder="Sam Taylor / Moniker" required />
-            </div>
-            <div>
-              <label class="field-label">Brand, Project or Band Name</label>
-              <input type="text" class="clean-input" placeholder="ST Vintage / The Sound Collective" required />
-            </div>
+        <div class="swish-stage-container" id="hub-vendor-stage">
+          <!-- Form Panel (Swishes Left on Submit) -->
+          <div class="swish-form-panel" id="hub-vendor-form-panel">
+            <h2>Vendor & Artist Showcase Application</h2>
+            <p>Reserve booth spaces for upcoming outdoor flea markets or submit your portfolio and tracks to perform live sets during our evening concert and acoustic sound sessions.</p>
+
+            <form class="form-grid" onsubmit="handleSwishVendorSubmit(event)">
+              <div class="form-row">
+                <div>
+                  <label class="field-label">Contact / Artist Name</label>
+                  <input type="text" class="clean-input" placeholder="Sam Taylor / Moniker" required />
+                </div>
+                <div>
+                  <label class="field-label">Brand, Project or Band Name</label>
+                  <input type="text" class="clean-input" placeholder="ST Vintage / The Sound Collective" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div>
+                  <label class="field-label">Email or Phone</label>
+                  <input type="text" class="clean-input" placeholder="sam@domain.com" required />
+                </div>
+                <div>
+                  <label class="field-label">Instagram / Portfolio / Sound Link</label>
+                  <input type="text" class="clean-input" placeholder="@yourbrand or soundcloud.com/link" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div>
+                  <label class="field-label">Application Type</label>
+                  <select class="clean-input" style="background:#0C0D10;">
+                    <option selected>Outdoor Flea Market Vendor Booth (Apparel, Jewelry, Art)</option>
+                    <option>Performing Artist / Live Musical Set (Concert Nights)</option>
+                    <option>DJ / Sound Session Curator (Weekend Sets)</option>
+                    <option>Guest In-Store Rack Curation Feature</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="field-label">Preferred Event Date</label>
+                  <input type="text" class="clean-input" placeholder="e.g. Sept 5 Sidewalk Flea or Oct 3" required />
+                </div>
+              </div>
+
+              <div>
+                <label class="field-label">Brief Description of Set, Products, or Space Needs</label>
+                <input type="text" class="clean-input" placeholder="Overview of goods, gear setup, acoustic/electric needs..." required />
+              </div>
+
+              <div>
+                <button type="submit" class="btn-submit interactive-click">Submit Application</button>
+              </div>
+            </form>
           </div>
 
-          <div class="form-row">
-            <div>
-              <label class="field-label">Email or Phone</label>
-              <input type="text" class="clean-input" placeholder="sam@domain.com" required />
+          <!-- Follow Picture & Confirmation Placement (Slides in from Right) -->
+          <div class="swish-success-panel" id="hub-vendor-success-panel">
+            <div class="swish-follow-photo">
+              <img src="TV ST.JPG" alt="Hive Sound Stage & Audio Set" />
             </div>
-            <div>
-              <label class="field-label">Instagram / Portfolio / Sound Link</label>
-              <input type="text" class="clean-input" placeholder="@yourbrand or soundcloud.com/link" required />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div>
-              <label class="field-label">Application Type</label>
-              <select class="clean-input" style="background:#0C0D10;">
-                <option selected>Outdoor Flea Market Vendor Booth (Apparel, Jewelry, Art)</option>
-                <option>Performing Artist / Live Musical Set (Concert Nights)</option>
-                <option>DJ / Sound Session Curator (Weekend Sets)</option>
-                <option>Guest In-Store Rack Curation Feature</option>
-              </select>
-            </div>
-            <div>
-              <label class="field-label">Preferred Event Date</label>
-              <input type="text" class="clean-input" placeholder="e.g. Sept 5 Sidewalk Flea or Oct 3" required />
+            <div class="swish-success-content">
+              <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.22em; color: var(--bg-yellow); text-transform: uppercase;">SUBMISSION CONFIRMED</div>
+              <h3 style="font-size: 1.8rem; font-weight: 700; color: var(--pure-white); text-transform: uppercase; line-height: 1.2;">Application In Motion</h3>
+              <p style="font-size: 0.92rem; color: var(--trans-white-grey); line-height: 1.65; font-weight: 300;">
+                Your showcase submission has vanished into our community curation vault. Our team is currently reviewing your catalog and links for upcoming weekend fleas and live sound sessions.
+              </p>
+              <div>
+                <button class="btn-submit interactive-click" style="background: transparent; color: var(--pure-white); border-color: rgba(255,255,255,0.4);" onclick="restoreSwishForm('hub-vendor')">
+                  Open Another Application →
+                </button>
+              </div>
             </div>
           </div>
-
-          <div>
-            <label class="field-label">Brief Description of Set, Products, or Space Needs</label>
-            <input type="text" class="clean-input" placeholder="Overview of goods, gear setup, acoustic/electric needs..." required />
-          </div>
-
-          <div>
-            <button type="submit" class="btn-submit interactive-click">Submit Application</button>
-          </div>
-        </form>
+        </div>
       </div>
 
-      <div class="editorial-panel" id="hub-schedule-anchor" style="margin-top: 36px;">
-        <h2>Event Schedule & Passes</h2>
-        <p>Upcoming flea markets, live floor unboxings, community popups, and evening concert sound sessions at 688 Beaumont Ave.</p>
+      <!-- Section 2: Translucent Swish Vanish Event Schedule & RSVP -->
+      <div class="editorial-panel-translucent" id="hub-schedule-anchor" style="margin-top: 36px;">
+        
+        <!-- Tab return drawer handle with right-pointing arrow -->
+        <button class="tab-return-arrow-btn interactive-click" id="hub-rsvp-return-btn" onclick="restoreSwishForm('hub-rsvp')" aria-label="View Schedule">
+          <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+          <span style="writing-mode: vertical-rl; text-orientation: mixed; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.16em;">SCHEDULE</span>
+        </button>
 
-        <div style="margin-top: 28px;">
-          <div class="event-row interactive-click" onclick="openEventModal('Beaumont Sidewalk Flea & $10 Racks', 'Saturday, Sept 5 • 12:00 PM – 6:00 PM', 'Outdoor street racks, 10+ local vendor setups, drinks, and special discount racks right outside 688 Beaumont Ave.', '688 Beaumont Ave', event)">
-            <div class="event-date">SAT, SEPT 5</div>
-            <div>
-              <div class="event-title">Beaumont Sidewalk Flea & $10 Racks</div>
-              <div class="event-desc">Outdoor street racks, 10+ local vendor setups, drinks, and vintage steals.</div>
+        <div class="swish-stage-container" id="hub-rsvp-stage">
+          <!-- Event Schedule Panel (Swishes Left on RSVP) -->
+          <div class="swish-form-panel" id="hub-rsvp-form-panel">
+            <h2>Event Schedule & Passes</h2>
+            <p>Upcoming flea markets, live floor unboxings, community popups, and evening concert sound sessions at 688 Beaumont Ave.</p>
+
+            <div style="margin-top: 28px;">
+              <div class="event-row interactive-click" onclick="openEventModal('Beaumont Sidewalk Flea & $10 Racks', 'Saturday, Sept 5 • 12:00 PM – 6:00 PM', 'Outdoor street racks, 10+ local vendor setups, drinks, and special discount racks right outside 688 Beaumont Ave.', '688 Beaumont Ave', event)">
+                <div class="event-date">SAT, SEPT 5</div>
+                <div>
+                  <div class="event-title">Beaumont Sidewalk Flea & $10 Racks</div>
+                  <div class="event-desc">Outdoor street racks, 10+ local vendor setups, drinks, and vintage steals.</div>
+                </div>
+                <div><button class="btn-submit interactive-click" style="padding: 8px 16px; font-size: 0.68rem; margin:0;" onclick="handleSwishRsvpSubmit(event, 'Beaumont Sidewalk Flea & $10 Racks')">RSVP</button></div>
+              </div>
+
+              <div class="event-row interactive-click" onclick="openEventModal('300+ Vintage Tee & Kicks Drop', 'Friday, Sept 18 • 4:00 PM – 7:00 PM', 'Fresh unboxing! 300+ vintage single-stitch tees, jackets, Doc Martens, and Dunks hitting the racks.', 'Main Store Floor', event)">
+                <div class="event-date">FRI, SEPT 18</div>
+                <div>
+                  <div class="event-title">300+ Vintage Tee & Kicks Drop</div>
+                  <div class="event-desc">Fresh unboxed vintage grails loaded straight onto the floor. First 20 visitors receive perks.</div>
+                </div>
+                <div><button class="btn-submit interactive-click" style="padding: 8px 16px; font-size: 0.68rem; margin:0;" onclick="handleSwishRsvpSubmit(event, '300+ Vintage Tee & Kicks Drop')">RSVP</button></div>
+              </div>
+
+              <div class="event-row interactive-click" onclick="openEventModal('Local Artist Pop-Up Market & Live Sound', 'Saturday, Oct 3 • 12:00 PM – 6:00 PM', 'Featuring local Inland Empire makers, reworked apparel artists, jewelry creators, and live acoustic music in the courtyard.', 'Hive Courtyard', event)">
+                <div class="event-date">SAT, OCT 3</div>
+                <div>
+                  <div class="event-title">Local Artist Pop-Up Market & Live Sound</div>
+                  <div class="event-desc">Supporting regional creatives, independent rework labels, and local musicians.</div>
+                </div>
+                <div><button class="btn-submit interactive-click" style="padding: 8px 16px; font-size: 0.68rem; margin:0;" onclick="handleSwishRsvpSubmit(event, 'Local Artist Pop-Up Market & Live Sound')">RSVP</button></div>
+              </div>
             </div>
-            <div><button class="btn-submit interactive-click" style="padding: 8px 16px; font-size: 0.68rem; margin:0;">RSVP</button></div>
           </div>
 
-          <div class="event-row interactive-click" onclick="openEventModal('300+ Vintage Tee & Kicks Drop', 'Friday, Sept 18 • 4:00 PM – 7:00 PM', 'Fresh unboxing! 300+ vintage single-stitch tees, jackets, Doc Martens, and Dunks hitting the racks.', 'Main Store Floor', event)">
-            <div class="event-date">FRI, SEPT 18</div>
-            <div>
-              <div class="event-title">300+ Vintage Tee & Kicks Drop</div>
-              <div class="event-desc">Fresh unboxed vintage grails loaded straight onto the floor. First 20 visitors receive perks.</div>
+          <!-- Follow Picture & Confirmation Placement (Slides in from Right) -->
+          <div class="swish-success-panel" id="hub-rsvp-success-panel">
+            <div class="swish-follow-photo">
+              <img src="Inside.JPG" alt="Hive Storefront Floor & Stage" />
             </div>
-            <div><button class="btn-submit interactive-click" style="padding: 8px 16px; font-size: 0.68rem; margin:0;">RSVP</button></div>
-          </div>
-
-          <div class="event-row interactive-click" onclick="openEventModal('Local Artist Pop-Up Market & Live Sound', 'Saturday, Oct 3 • 12:00 PM – 6:00 PM', 'Featuring local Inland Empire makers, reworked apparel artists, jewelry creators, and live acoustic music in the courtyard.', 'Hive Courtyard', event)">
-            <div class="event-date">SAT, OCT 3</div>
-            <div>
-              <div class="event-title">Local Artist Pop-Up Market & Live Sound</div>
-              <div class="event-desc">Supporting regional creatives, independent rework labels, and local musicians.</div>
+            <div class="swish-success-content">
+              <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.22em; color: var(--bg-yellow); text-transform: uppercase;">PASS RESERVED</div>
+              <h3 style="font-size: 1.8rem; font-weight: 700; color: var(--pure-white); text-transform: uppercase; line-height: 1.2;">You're On The Guestlist</h3>
+              <p style="font-size: 0.92rem; color: var(--trans-white-grey); line-height: 1.65; font-weight: 300;">
+                Your event pass has been claimed for 688 Beaumont Ave. Early arrival is encouraged for fresh unboxings, outdoor racks, and courtyard sound sessions.
+              </p>
+              <div>
+                <button class="btn-submit interactive-click" style="background: transparent; color: var(--pure-white); border-color: rgba(255,255,255,0.4);" onclick="restoreSwishForm('hub-rsvp')">
+                  Return To Event Schedule →
+                </button>
+              </div>
             </div>
-            <div><button class="btn-submit interactive-click" style="padding: 8px 16px; font-size: 0.68rem; margin:0;">RSVP</button></div>
           </div>
         </div>
       </div>
@@ -2314,6 +2517,56 @@
       requestAnimationFrame(animation);
     }
 
+    /* -------------------------------------------------------------
+       SWISH VANISH ANIMATION LOGIC (SLIDE LEFT / RIGHT DRAWER RESTORE)
+    ------------------------------------------------------------- */
+    function handleSwishVendorSubmit(e) {
+      e.preventDefault();
+      const formPanel = document.getElementById('hub-vendor-form-panel');
+      const successPanel = document.getElementById('hub-vendor-success-panel');
+      const returnBtn = document.getElementById('hub-vendor-return-btn');
+
+      // 1. Swish vanish form to the left
+      formPanel.classList.add('vanished');
+
+      // 2. Picture and confirmation slides in following from the right
+      setTimeout(() => {
+        successPanel.classList.add('active');
+        returnBtn.classList.add('visible');
+      }, 200);
+    }
+
+    function handleSwishRsvpSubmit(e, eventName) {
+      if (e) e.stopPropagation();
+      const formPanel = document.getElementById('hub-rsvp-form-panel');
+      const successPanel = document.getElementById('hub-rsvp-success-panel');
+      const returnBtn = document.getElementById('hub-rsvp-return-btn');
+
+      // 1. Swish vanish schedule to the left
+      formPanel.classList.add('vanished');
+
+      // 2. Picture and confirmation slides in following from the right
+      setTimeout(() => {
+        successPanel.classList.add('active');
+        returnBtn.classList.add('visible');
+      }, 200);
+    }
+
+    function restoreSwishForm(prefix) {
+      const formPanel = document.getElementById(`${prefix}-form-panel`);
+      const successPanel = document.getElementById(`${prefix}-success-panel`);
+      const returnBtn = document.getElementById(`${prefix}-return-btn`);
+
+      // 1. Pushes the picture back to the right
+      successPanel.classList.remove('active');
+      returnBtn.classList.remove('visible');
+
+      // 2. Returns form back from the left into place
+      setTimeout(() => {
+        formPanel.classList.remove('vanished');
+      }, 220);
+    }
+
     /* DeeLux Toggle Function */
     function toggleTradeSection(elementId) {
       const el = document.getElementById(elementId);
@@ -2493,12 +2746,6 @@
     function handleBooking(e) {
       e.preventDefault();
       alert(`APPOINTMENT CONFIRMED\n\nYour selling slot for ${dateInput.value} has been booked at 688 Beaumont Ave.`);
-      e.target.reset();
-    }
-
-    function handleVendorSubmit(e) {
-      e.preventDefault();
-      alert('APPLICATION RECEIVED\n\nThank you for applying to showcase/perform with Hive Market! Our community curation team will review your submission.');
       e.target.reset();
     }
 
