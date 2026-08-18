@@ -44,15 +44,17 @@
     .interactive-click {
       cursor: pointer;
       user-select: none;
-      transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+      transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                  background-color 0.4s ease, 
+                  opacity 0.4s ease;
       will-change: transform;
     }
     .interactive-click:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px) scale(1.015);
     }
-    .interactive-click:active {
-      transform: translateY(0) scale(0.98);
-      transition-duration: 0.1s;
+    .interactive-click:active, .interactive-click.jump-animate {
+      transform: scale(0.92) translateY(2px) !important;
+      transition: transform 0.14s cubic-bezier(0.25, 1, 0.5, 1) !important;
     }
 
     /* Top Strip */
@@ -117,7 +119,7 @@
       border-bottom: 2px solid var(--deep-black);
     }
 
-    /* Center HM Icon Badge */
+    /* Center HM Icon Badge with New Logo Asset */
     .brand-center {
       display: flex;
       align-items: center;
@@ -125,8 +127,8 @@
       text-decoration: none;
     }
     .header-hm-symbol {
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
       background: var(--deep-black);
       border: 2px solid var(--deep-black);
@@ -134,32 +136,34 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      padding: 6px;
+      overflow: hidden;
     }
     .header-hm-symbol:hover {
-      transform: scale(1.05);
+      transform: scale(1.08);
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
     }
-    .header-hm-symbol span {
-      font-weight: 800;
-      font-size: 1.12rem;
-      color: var(--bg-yellow);
-      letter-spacing: -0.04em;
-      user-select: none;
-      line-height: 1;
+    .header-hm-symbol img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: invert(1);
+      object-fit: contain;
     }
 
     /* Page View Transitions */
     .page-view {
       display: none;
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: translateY(22px) scale(0.985);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.85s cubic-bezier(0.34, 1.45, 0.64, 1);
     }
     .page-view.active {
       display: block;
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
 
     /* Full-Screen Landing Hero */
@@ -186,7 +190,7 @@
       object-position: center 45%;
       opacity: 0;
       filter: contrast(1.06) brightness(0.78);
-      transform: scale(1.01);
+      transform: scale(1.02);
       transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.25, 1, 0.5, 1);
       z-index: 1;
       pointer-events: none;
@@ -219,12 +223,13 @@
     
     .landing-official-logo {
       width: 100%;
-      max-width: 560px;
+      max-width: 480px;
       height: auto;
       display: block;
       filter: drop-shadow(0 6px 30px rgba(0, 0, 0, 0.95)) invert(1);
-      opacity: 0.85;
-      margin-bottom: 18px;
+      opacity: 0.95;
+      margin-bottom: 22px;
+      user-select: none;
     }
     
     .landing-hero-subtitle {
@@ -237,6 +242,7 @@
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
     }
 
+    /* Spring Jumpy Arrow Anchors */
     .down-arrow-anchor {
       position: absolute;
       bottom: 24px;
@@ -246,23 +252,27 @@
       align-items: center;
       gap: 6px;
       text-decoration: none;
-      padding: 10px 24px;
+      padding: 10px 26px;
       border-radius: 9999px;
       background: rgba(20, 22, 26, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 255, 255, 0.28);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+      animation: floatSlow 3.4s ease-in-out infinite;
+      transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background-color 0.4s ease,
+                  border-color 0.4s ease;
       cursor: pointer;
-      transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     }
     .down-arrow-anchor:hover {
       background: rgba(30, 34, 40, 0.9);
-      border-color: rgba(255, 255, 255, 0.6);
-      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.65);
+      transform: translateY(-4px) scale(1.03);
     }
-    .down-arrow-anchor:active {
-      transform: translateY(1px);
+    .down-arrow-anchor:active, .down-arrow-anchor.arrow-jump-active {
+      transform: translateY(18px) scale(0.92) !important;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     .down-arrow-text {
       font-size: 0.68rem;
@@ -274,35 +284,43 @@
     }
     .down-arrow-icon {
       color: var(--bg-yellow);
-      transition: transform 0.25s ease;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .down-arrow-anchor:hover .down-arrow-icon {
-      transform: translateY(2px);
+      transform: translateY(3px);
     }
 
     .icon-only-arrow-anchor {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: rgba(20, 22, 26, 0.7);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 255, 255, 0.32);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
       text-decoration: none;
       cursor: pointer;
-      transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+      transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background-color 0.4s ease,
+                  border-color 0.4s ease;
     }
     .icon-only-arrow-anchor:hover {
       background: rgba(30, 34, 40, 0.95);
-      border-color: rgba(255, 255, 255, 0.7);
-      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.85);
+      transform: translateY(-4px) scale(1.08);
     }
-    .icon-only-arrow-anchor:active {
-      transform: translateY(1px);
+    .icon-only-arrow-anchor:active, .icon-only-arrow-anchor.arrow-jump-active {
+      transform: translateY(18px) scale(0.9) !important;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(6px); }
     }
 
     .container {
@@ -353,7 +371,7 @@
     .conveyor-track {
       display: flex;
       gap: 24px;
-      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: transform 1.2s cubic-bezier(0.34, 1.35, 0.64, 1);
       will-change: transform;
     }
 
@@ -373,7 +391,7 @@
     .event-card-slide:hover {
       background: rgba(255, 255, 255, 0.95);
       border-color: var(--deep-black);
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
     }
     .event-card-slide.active-card {
@@ -425,24 +443,25 @@
       justify-content: center;
       align-items: center;
       gap: 12px;
-      margin-top: 16px;
+      margin-top: 20px;
     }
     .dot-circle {
-      width: 9px;
-      height: 9px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: transparent;
       border: 1.5px solid var(--deep-black);
       padding: 0;
       cursor: pointer;
-      transition: background-color 0.2s ease, transform 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .dot-circle:hover {
       background: rgba(0, 0, 0, 0.3);
+      transform: scale(1.25);
     }
     .dot-circle.active {
       background: var(--deep-black);
-      transform: scale(1.2);
+      transform: scale(1.35);
     }
 
     /* -------------------------------------------------------------
@@ -570,12 +589,13 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .cal-nav-btn:hover {
       border-color: var(--bg-yellow);
       color: var(--bg-yellow);
       background: rgba(255, 255, 0, 0.08);
+      transform: scale(1.12);
     }
 
     .cal-weekdays {
@@ -604,7 +624,7 @@
       position: relative;
       cursor: pointer;
       border: 1px solid transparent;
-      transition: background-color 0.2s ease, border-color 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .cal-day-cell.empty {
       cursor: default;
@@ -612,6 +632,7 @@
     .cal-day-cell:not(.empty):hover {
       background: rgba(255, 255, 255, 0.08);
       border-color: rgba(255, 255, 255, 0.3);
+      transform: scale(1.08);
     }
     .cal-day-cell.has-event::after {
       content: '';
@@ -712,12 +733,12 @@
       object-fit: cover;
       object-position: center;
       display: block;
-      transition: transform 0.6s ease, filter 0.4s ease;
+      transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
       filter: contrast(1.05) brightness(0.92);
       image-rendering: -webkit-optimize-contrast;
     }
     .trio-photo-item:hover img {
-      transform: scale(1.03);
+      transform: scale(1.04);
       filter: contrast(1.08) brightness(1);
     }
 
@@ -740,13 +761,6 @@
       text-align: center;
       gap: 16px;
     }
-    .newsletter-tag {
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.24em;
-      color: var(--bg-yellow);
-      text-transform: uppercase;
-    }
     .newsletter-headline {
       font-size: clamp(1.6rem, 3.5vw, 2.4rem);
       font-weight: 800;
@@ -759,7 +773,7 @@
       font-size: 0.92rem;
       color: var(--trans-white-grey);
       font-weight: 300;
-      max-width: 580px;
+      max-width: 640px;
       line-height: 1.6;
     }
     .newsletter-form-inline {
@@ -1211,44 +1225,98 @@
       max-width: 800px;
     }
 
-    /* Meet the Owners Component */
-    .meet-owners-wrap {
+    /* -------------------------------------------------------------
+       WHO WE ARE / WASTELAND STYLE EDITORIAL LAYOUT
+    ------------------------------------------------------------- */
+    .who-we-are-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 12px;
+    }
+    .who-we-are-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: var(--pure-white);
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .who-we-are-top-grid {
       display: grid;
-      grid-template-columns: 380px 1fr;
-      gap: 36px;
+      grid-template-columns: 460px 1fr;
+      gap: 48px;
       align-items: center;
-      margin-top: 24px;
+      margin-bottom: 28px;
     }
-    .meet-owners-thumb {
+
+    /* Polaroid Double Stack */
+    .polaroid-stack-container {
+      position: relative;
       width: 100%;
-      height: 480px;
-      overflow: hidden;
-      border: 1.5px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .meet-owners-thumb img {
+
+    .polaroid-card {
+      position: absolute;
+      background: #FFFFFF;
+      padding: 12px 12px 34px 12px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      border-radius: 2px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+    .polaroid-card:hover {
+      transform: scale(1.04) rotate(0deg) !important;
+      z-index: 10;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.65);
+    }
+    .polaroid-img-box {
+      width: 200px;
+      height: 220px;
+      overflow: hidden;
+      background: #1a1a1a;
+    }
+    .polaroid-img-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
       display: block;
-      filter: contrast(1.06) brightness(0.96);
+      filter: contrast(1.05) brightness(0.98);
     }
-    .meet-owners-content h3 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--pure-white);
-      margin-bottom: 4px;
-      text-transform: uppercase;
+
+    .polaroid-card.left-card {
+      left: 20px;
+      top: 30px;
+      transform: rotate(-5deg);
+      z-index: 2;
     }
-    .meet-owners-role {
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.2em;
-      color: var(--bg-yellow);
-      text-transform: uppercase;
-      margin-bottom: 18px;
+    .polaroid-card.right-card {
+      right: 40px;
+      top: 10px;
+      transform: rotate(6deg);
+      z-index: 3;
+    }
+
+    .who-we-are-narrative {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.88);
+      letter-spacing: 0.02em;
+    }
+
+    .who-we-are-body-text {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.88);
+      letter-spacing: 0.02em;
+      margin-top: 24px;
     }
 
     /* FAQ Collapsible Component */
@@ -1674,6 +1742,12 @@
       .event-collage-media {
         height: 300px;
       }
+      .who-we-are-top-grid {
+        grid-template-columns: 1fr;
+      }
+      .polaroid-stack-container {
+        height: 320px;
+      }
       .events-calendar-composite-card {
         padding: 24px 16px;
       }
@@ -1704,12 +1778,6 @@
       .home-location-grid {
         grid-template-columns: 1fr;
         gap: 28px;
-      }
-      .meet-owners-wrap {
-        grid-template-columns: 1fr;
-      }
-      .meet-owners-thumb {
-        height: 380px;
       }
       .swish-success-panel {
         grid-template-columns: 1fr;
@@ -1749,7 +1817,7 @@
 
   <!-- Top Strip -->
   <div class="top-strip">
-    688 Beaumont Ave, Beaumont CA &nbsp;|&nbsp; Mon–Fri 11–7 • Sat–Sun 12–8 &nbsp;|&nbsp; (951) 845-5669
+    688 Beaumont Ave, Beaumont CA &nbsp;|&nbsp; Mon–Fri 11–7 • Sat–Sun 12–8 &nbsp;|&nbsp; (909) 222-5719
   </div>
 
   <!-- Editorial Top Flush Header -->
@@ -1761,10 +1829,10 @@
         <li><a class="nav-link interactive-click" onclick="navigateTo('market-hub', event)">Market Hub</a></li>
       </ul>
 
-      <!-- High-Contrast Center HM Icon Badge -->
+      <!-- High-Contrast Center HM Icon Badge (Updated with hm logo new.png) -->
       <a class="brand-center interactive-click" onclick="navigateTo('home', event)" aria-label="Hive Market Home">
         <div class="header-hm-symbol">
-          <span>HM</span>
+          <img src="hm logo new.png" alt="HM Logo Badge" />
         </div>
       </a>
 
@@ -1786,7 +1854,8 @@
       <div class="hero-vignette-overlay"></div>
 
       <div class="landing-hero-content">
-        <img src="HIVE MARKET LOGO.png" class="landing-official-logo" alt="Hive Market Logo" />
+        <!-- Official Logo Updated to "hm logo new.png" -->
+        <img src="hm logo new.png" class="landing-official-logo" alt="Hive Market Logo" />
         <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
       </div>
 
@@ -1961,10 +2030,9 @@
     <!-- SECTION: KEEP IN TOUCH / NEWSLETTER SUBSCRIPTION -->
     <div class="newsletter-section-wrap">
       <div class="newsletter-inner-container">
-        <span class="newsletter-tag">COMMUNITY DISPATCH</span>
         <h2 class="newsletter-headline">Keep in Touch</h2>
         <p class="newsletter-subtext">
-          Subscribe to get early access to 300+ vintage t-shirt drops, private vault unboxings, outdoor flea market dates, and live concert announcements.
+          Subscribe to be the first to know about announcements, sales, flea markets and shows.
         </p>
 
         <form class="newsletter-form-inline" onsubmit="handleNewsletterSubmit(event)">
@@ -1978,7 +2046,7 @@
     <div class="home-location-strip">
       <div class="home-location-grid">
         <div class="home-loc-box">
-          <h3>Market Location</h3>
+          <h3>Store Location</h3>
           <p style="font-size: 1.1rem; color: var(--pure-white); font-weight: 600; margin-bottom: 4px;">688 Beaumont Ave</p>
           <p>Beaumont, California 92223</p>
           <a href="https://maps.google.com/?q=688+Beaumont+Ave,+Beaumont,+CA+92223" target="_blank">Get Directions →</a>
@@ -1988,14 +2056,13 @@
           <h3>Store Hours</h3>
           <p><strong style="color: var(--pure-white);">Monday – Friday:</strong> 11:00 AM – 7:00 PM</p>
           <p><strong style="color: var(--pure-white);">Saturday – Sunday:</strong> 12:00 PM – 8:00 PM</p>
-          <p style="color: var(--bg-yellow); font-size: 0.78rem; font-weight: 600; margin-top: 4px;">Buying Desk Open Daily</p>
         </div>
 
         <div class="home-loc-box">
-          <h3>Direct Desk Line</h3>
-          <p style="font-size: 1.1rem; color: var(--pure-white); font-weight: 600; margin-bottom: 4px;">(951) 845-5669</p>
+          <h3>Contact Us</h3>
+          <p style="font-size: 1.1rem; color: var(--pure-white); font-weight: 600; margin-bottom: 4px;">(909) 222-5719</p>
           <p>Call for trade inquiries & appointment booking</p>
-          <a href="tel:9518455669">Call Store Desk →</a>
+          <a href="tel:9092225719">Call Store →</a>
         </div>
       </div>
     </div>
@@ -2317,7 +2384,7 @@
     </main>
   </div>
 
-  <!-- PAGE 4: GALLERY (UPDATED: EVENT GALLERY COLLAGE SHOWCASE) -->
+  <!-- PAGE 4: GALLERY (EVENT GALLERY COLLAGE SHOWCASE) -->
   <div id="page-gallery" class="page-view">
     <main class="container">
       <div class="editorial-panel">
@@ -2419,34 +2486,47 @@
     </main>
   </div>
 
-  <!-- PAGE 5: ABOUT US (UPDATED: CLEAN NARRATIVE + MEET THE OWNERS ONLY) -->
+  <!-- PAGE 5: ABOUT US (WHO WE ARE - WASTELAND INSPIRED EDITORIAL LAYOUT) -->
   <div id="page-about" class="page-view">
     <main class="container">
       <div class="editorial-panel">
-        <h1>About Hive Market</h1>
-        <p style="font-size: 1.05rem; color: var(--pure-white); line-height: 1.7; margin-bottom: 20px;">
-          Founded in Beaumont, California, Hive Market was established to revive the lost art of in-person curation, subcultural discovery, and circular streetwear fashion.
-        </p>
-        <p style="margin-bottom: 24px;">
-          We operate at the intersection of vintage single-stitch archives, rugged workwear, skate culture, and regional independent creators. Rather than standard fast-fashion consumption, we champion longevity—giving iconic garments, leather boots, reworked designer pieces, and retro audio gear a second life.
-        </p>
+        <div class="who-we-are-wrap">
+          <h1 class="who-we-are-title">Who We Are</h1>
 
-        <!-- Meet the Owners Section -->
-        <div class="meet-owners-wrap">
-          <div class="meet-owners-thumb">
-            <img src="m&j.JPG" alt="Hive Market Owners Marissa & Jordan" />
+          <!-- Top Row: Double Polaroid Stack + Intro Column -->
+          <div class="who-we-are-top-grid">
+            
+            <!-- Polaroid Stack -->
+            <div class="polaroid-stack-container">
+              <!-- Polaroid 1 (Jordan) -->
+              <div class="polaroid-card left-card">
+                <div class="polaroid-img-box">
+                  <img src="m&j.JPG" alt="Jordan - Founder & Curator" style="object-position: 28% top;" />
+                </div>
+              </div>
+
+              <!-- Polaroid 2 (Marissa) -->
+              <div class="polaroid-card right-card">
+                <div class="polaroid-img-box">
+                  <img src="m&j.JPG" alt="Marissa - Founder & Curator" style="object-position: 78% top;" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Narrative Column 1 -->
+            <div class="who-we-are-narrative">
+              The Hive Market story begins in Beaumont, California, rooted in a shared passion for archive street culture, vintage preservation, and revitalizing in-person subcultural discovery. Founded by Marissa and Jordan, the space was envisioned as more than a standard vintage retail shop—it was created to be a style haven and creative sanctuary celebrating authenticity and self-expression. Offering curated single-stitch t-shirts, Carhartt workwear, rugged denim, and timeless leather boots, Hive Market inspires collectors and visitors to build one-of-a-kind looks every time they walk through the doors.
+            </div>
           </div>
-          <div class="meet-owners-content">
-            <div class="meet-owners-role">Founders & Curators</div>
-            <h3>Meet the Owners</h3>
-            <div style="font-size: 1.15rem; font-weight: 700; color: var(--bg-yellow); margin-bottom: 12px; text-transform: uppercase;">Marissa & Jordan</div>
-            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--trans-white-grey); margin-bottom: 16px;">
-              Hive Market was born out of a shared passion for archive street culture, vintage preservation, and fostering creative spaces in Beaumont. As lifelong collectors and curators, Marissa and Jordan started Hive with a single mission: to build a physical haven where independent designers, musicians, and vintage lovers can connect under one roof.
-            </p>
-            <p style="font-size: 0.88rem; line-height: 1.65; color: rgba(255, 255, 255, 0.75);">
-              From hand-picking every single garment on the racks to hosting community flea markets and in-store concert sound sessions, Marissa & Jordan continue to shape the cultural heartbeat of 688 Beaumont Ave.
-            </p>
-          </div>
+
+          <!-- Bottom Full-Width Paragraphs -->
+          <p class="who-we-are-body-text">
+            From hand-picking every single garment on the racks to hosting outdoor sidewalk fleas and intimate in-store concert sound sessions, Marissa & Jordan continue to shape the cultural heartbeat of 688 Beaumont Ave. Whether you are crate-digging through 90s band tees, finding a rare jacket, listening to analog vinyl sets, or meeting independent regional designers at our weekend pop-ups, Hive Market remains a physical home for community and sound.
+          </p>
+
+          <p class="who-we-are-body-text">
+            Every curation, concert night, and buyout is driven by circular fashion—giving iconic streetwear garments a second life while cultivating an inclusive gathering place where musicians, artists, and vintage enthusiasts can connect under one roof.
+          </p>
         </div>
       </div>
     </main>
