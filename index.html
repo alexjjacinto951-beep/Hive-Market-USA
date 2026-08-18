@@ -41,21 +41,19 @@
       letter-spacing: 0.04em;
     }
 
-    /* Spring interactive click states */
+    /* Subtle, smooth interactive micro-states (glitch-free) */
     .interactive-click {
       cursor: pointer;
       user-select: none;
-      transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                  background-color 0.4s ease, 
-                  opacity 0.4s ease;
+      transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
       will-change: transform;
     }
     .interactive-click:hover {
-      transform: translateY(-3px) scale(1.015);
+      transform: translateY(-2px);
     }
-    .interactive-click:active, .interactive-click.jump-animate {
-      transform: scale(0.92) translateY(2px) !important;
-      transition: transform 0.14s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    .interactive-click:active {
+      transform: translateY(0) scale(0.98);
+      transition-duration: 0.1s;
     }
 
     /* Top Strip */
@@ -137,10 +135,10 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     .header-hm-symbol:hover {
-      transform: scale(1.08);
+      transform: scale(1.05);
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
     }
     .header-hm-symbol span {
@@ -156,14 +154,13 @@
     .page-view {
       display: none;
       opacity: 0;
-      transform: translateY(22px) scale(0.985);
-      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
-                  transform 0.85s cubic-bezier(0.34, 1.45, 0.64, 1);
+      transform: translateY(16px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
     }
     .page-view.active {
       display: block;
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
 
     /* -------------------------------------------------------------
@@ -192,7 +189,7 @@
       object-position: center 45%;
       opacity: 0;
       filter: contrast(1.06) brightness(0.78);
-      transform: scale(1.02);
+      transform: scale(1.01);
       transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.25, 1, 0.5, 1);
       z-index: 1;
       pointer-events: none;
@@ -243,6 +240,7 @@
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
     }
 
+    /* Subtle, stable pill button */
     .down-arrow-anchor {
       position: absolute;
       bottom: 24px;
@@ -252,27 +250,23 @@
       align-items: center;
       gap: 6px;
       text-decoration: none;
-      padding: 10px 26px;
+      padding: 10px 24px;
       border-radius: 9999px;
-      background: rgba(20, 22, 26, 0.55);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1.5px solid rgba(255, 255, 255, 0.28);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
-      animation: floatSlow 3.4s ease-in-out infinite;
-      transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1),
-                  background-color 0.4s ease,
-                  border-color 0.4s ease;
+      background: rgba(20, 22, 26, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
       cursor: pointer;
+      transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     }
     .down-arrow-anchor:hover {
-      background: rgba(30, 34, 40, 0.85);
-      border-color: rgba(255, 255, 255, 0.65);
-      transform: translateY(-4px) scale(1.03);
+      background: rgba(30, 34, 40, 0.9);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: translateY(-2px);
     }
-    .down-arrow-anchor:active, .down-arrow-anchor.arrow-jump-active {
-      transform: translateY(18px) scale(0.92) !important;
-      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    .down-arrow-anchor:active {
+      transform: translateY(1px);
     }
     .down-arrow-text {
       font-size: 0.68rem;
@@ -284,44 +278,36 @@
     }
     .down-arrow-icon {
       color: var(--bg-yellow);
-      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: transform 0.25s ease;
     }
     .down-arrow-anchor:hover .down-arrow-icon {
-      transform: translateY(3px);
+      transform: translateY(2px);
     }
 
-    /* Minimal Circular Arrow Button */
+    /* Subtle circular arrow icon button (no wobble/flicker) */
     .icon-only-arrow-anchor {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      background: rgba(20, 22, 26, 0.65);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1.5px solid rgba(255, 255, 255, 0.32);
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+      background: rgba(20, 22, 26, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
       text-decoration: none;
       cursor: pointer;
-      transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1),
-                  background-color 0.4s ease,
-                  border-color 0.4s ease;
+      transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     }
     .icon-only-arrow-anchor:hover {
       background: rgba(30, 34, 40, 0.95);
-      border-color: rgba(255, 255, 255, 0.85);
-      transform: translateY(-4px) scale(1.08);
+      border-color: rgba(255, 255, 255, 0.7);
+      transform: translateY(-2px);
     }
-    .icon-only-arrow-anchor:active, .icon-only-arrow-anchor.arrow-jump-active {
-      transform: translateY(18px) scale(0.9) !important;
-      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    }
-
-    @keyframes floatSlow {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(6px); }
+    .icon-only-arrow-anchor:active {
+      transform: translateY(1px);
     }
 
     .container {
@@ -373,7 +359,7 @@
     .conveyor-track {
       display: flex;
       gap: 24px;
-      transition: transform 1.2s cubic-bezier(0.34, 1.35, 0.64, 1);
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
       will-change: transform;
     }
 
@@ -393,7 +379,7 @@
     .event-card-slide:hover {
       background: rgba(255, 255, 255, 0.95);
       border-color: var(--deep-black);
-      transform: translateY(-4px);
+      transform: translateY(-3px);
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
     }
     .event-card-slide.active-card {
@@ -454,14 +440,15 @@
       background: transparent;
       border: 1.5px solid var(--deep-black);
       padding: 0;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
     }
     .dot-circle:hover {
       background: rgba(0, 0, 0, 0.3);
-      transform: scale(1.25);
     }
     .dot-circle.active {
       background: var(--deep-black);
-      transform: scale(1.35);
+      transform: scale(1.2);
     }
 
     /* -------------------------------------------------------------
@@ -589,13 +576,12 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
     }
     .cal-nav-btn:hover {
       border-color: var(--bg-yellow);
       color: var(--bg-yellow);
       background: rgba(255, 255, 0, 0.08);
-      transform: scale(1.12);
     }
 
     .cal-weekdays {
@@ -624,7 +610,7 @@
       position: relative;
       cursor: pointer;
       border: 1px solid transparent;
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: background-color 0.2s ease, border-color 0.2s ease;
     }
     .cal-day-cell.empty {
       cursor: default;
@@ -632,7 +618,6 @@
     .cal-day-cell:not(.empty):hover {
       background: rgba(255, 255, 255, 0.08);
       border-color: rgba(255, 255, 255, 0.3);
-      transform: scale(1.08);
     }
     .cal-day-cell.has-event::after {
       content: '';
@@ -733,12 +718,12 @@
       object-fit: cover;
       object-position: center;
       display: block;
-      transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+      transition: transform 0.6s ease, filter 0.4s ease;
       filter: contrast(1.05) brightness(0.92);
       image-rendering: -webkit-optimize-contrast;
     }
     .trio-photo-item:hover img {
-      transform: scale(1.04);
+      transform: scale(1.03);
       filter: contrast(1.08) brightness(1);
     }
 
@@ -784,6 +769,7 @@
       text-transform: uppercase;
       display: inline-block;
       margin-top: 8px;
+      transition: color 0.2s ease;
     }
     .home-loc-box a:hover {
       color: var(--pure-white);
@@ -913,6 +899,7 @@
       color: var(--bg-yellow);
       font-size: 1.3rem;
       font-weight: 700;
+      transition: transform 0.25s ease;
     }
     .trade-toggle-content {
       padding: 4px 4px 18px;
@@ -999,7 +986,7 @@
     }
 
     /* -------------------------------------------------------------
-       SWISH VANISH ANIMATION & TRANSLUCENT PANELS
+       TRANSLUCENT PANELS & SUBTLE SLIDE TRANSITION
     ------------------------------------------------------------- */
     .editorial-panel-translucent {
       background: rgba(12, 13, 16, 0.72);
@@ -1029,7 +1016,6 @@
       max-width: 800px;
     }
 
-    /* Interactive Swish Stage Container */
     .swish-stage-container {
       position: relative;
       overflow: hidden;
@@ -1039,13 +1025,13 @@
 
     .swish-form-panel {
       width: 100%;
-      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s ease;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
       transform: translateX(0);
       opacity: 1;
     }
 
     .swish-form-panel.vanished {
-      transform: translateX(-110%);
+      transform: translateX(-100%);
       opacity: 0;
       pointer-events: none;
       position: absolute;
@@ -1063,8 +1049,8 @@
       grid-template-columns: 1fr 1fr;
       gap: 32px;
       align-items: center;
-      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s ease;
-      transform: translateX(110%);
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+      transform: translateX(100%);
       opacity: 0;
       pointer-events: none;
     }
@@ -1099,7 +1085,7 @@
       gap: 16px;
     }
 
-    /* Tab return drawer handle button pointing right */
+    /* Return drawer handle button */
     .tab-return-arrow-btn {
       position: absolute;
       top: 50%;
@@ -1109,23 +1095,23 @@
       color: var(--deep-black);
       border: 1.5px solid var(--deep-black);
       border-left: none;
-      border-radius: 0 8px 8px 0;
-      padding: 18px 12px;
+      border-radius: 0 6px 6px 0;
+      padding: 16px 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       cursor: pointer;
       z-index: 10;
-      box-shadow: 4px 8px 24px rgba(0, 0, 0, 0.4);
-      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, background-color 0.2s ease;
     }
     .tab-return-arrow-btn.visible {
       transform: translateY(-50%) translateX(0);
     }
     .tab-return-arrow-btn:hover {
       background: var(--pure-white);
-      transform: translateY(-50%) translateX(4px);
+      transform: translateY(-50%) translateX(2px);
     }
 
     /* Editorial Interior Panels */
@@ -1205,7 +1191,7 @@
     .faq-accordion-item {
       border: 1px solid rgba(255, 255, 255, 0.18);
       background: rgba(255, 255, 255, 0.03);
-      transition: all 0.3s ease;
+      transition: border-color 0.25s ease;
     }
     .faq-accordion-item:hover {
       border-color: var(--bg-yellow);
@@ -1231,7 +1217,7 @@
     }
     .faq-toggle-icon {
       color: var(--bg-yellow);
-      transition: transform 0.3s ease;
+      transition: transform 0.25s ease;
       font-size: 1.2rem;
       font-weight: 700;
     }
@@ -1281,7 +1267,7 @@
       font-family: 'Hanken Grotesk', sans-serif;
       font-size: 0.88rem;
       outline: none;
-      transition: border-color 0.3s, background 0.3s;
+      transition: border-color 0.25s ease, background 0.25s ease;
     }
     .clean-input:focus {
       border-color: var(--bg-yellow);
@@ -1300,6 +1286,7 @@
       text-transform: uppercase;
       margin-top: 12px;
       display: inline-block;
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
     .btn-submit:hover {
       background: var(--pure-white);
@@ -1362,11 +1349,11 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+      transition: transform 0.6s ease, opacity 0.3s ease;
       opacity: 0.95;
     }
     .home-gallery-item:hover img {
-      transform: scale(1.03);
+      transform: scale(1.02);
       opacity: 1;
     }
     .home-gallery-caption {
@@ -1533,11 +1520,11 @@
       padding: 36px;
       position: relative;
       color: var(--pure-white);
-      animation: modalSlide 0.55s cubic-bezier(0.34, 1.4, 0.64, 1);
+      animation: modalSlide 0.35s ease;
     }
     @keyframes modalSlide {
-      from { opacity: 0; transform: translateY(24px) scale(0.96); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .modal-close {
       position: absolute;
@@ -1671,10 +1658,7 @@
 
   <!-- PAGE 1: SLEEK MINIMAL LANDING PAGE -->
   <div id="page-home" class="page-view active">
-    <!-- Edge-to-Edge Rotating Storefront Hero (Clean slide show without explore button) -->
     <div class="landing-fullscreen-hero">
-      
-      <!-- Full Edge-to-Edge Background Layers -->
       <img src="Storefront 1.JPG" class="landing-bg-image active-bg" id="bg-slide-0" alt="Hive Market Storefront 1" />
       <img src="Storefront 2.JPG" class="landing-bg-image" id="bg-slide-1" alt="Hive Market Storefront 2" />
       <img src="Storefront 3.JPG" class="landing-bg-image" id="bg-slide-2" alt="Hive Market Storefront 3" />
@@ -1682,7 +1666,6 @@
       <div class="hero-vignette-overlay"></div>
 
       <div class="landing-hero-content">
-        <!-- Logo Asset -->
         <img src="HIVE MARKET LOGO.png" class="landing-official-logo" alt="Hive Market Logo" />
         <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
       </div>
@@ -1702,12 +1685,10 @@
           <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em;">688 BEAUMONT AVE</span>
         </div>
 
-        <!-- Unified Glassmorphic Carrier -->
         <div class="events-calendar-composite-card">
-          <!-- Part A: The Events Conveyor Carousel -->
+          <!-- Part A: Carousel -->
           <div class="carousel-outer" onmouseenter="pauseConveyor()" onmouseleave="resumeConveyor()">
             <div class="conveyor-track" id="conveyor-track">
-              <!-- Slide 1 -->
               <div class="event-card-slide interactive-click active-card" onclick="openEventModal('Beaumont Sidewalk Flea & $10 Racks', 'Saturday, Sept 5 • 12:00 PM – 6:00 PM', 'Outdoor street racks, 10+ local vendor setups, drinks, and special discount racks right outside 688 Beaumont Ave.', '688 Beaumont Ave', event)">
                 <div>
                   <div class="event-tag-pill">WEEKEND FLEA • SAT SEPT 5</div>
@@ -1717,7 +1698,6 @@
                 <div class="event-card-footer">View Details & RSVP →</div>
               </div>
 
-              <!-- Slide 2 -->
               <div class="event-card-slide interactive-click" onclick="openEventModal('300+ Vintage Tee & Kicks Drop', 'Friday, Sept 18 • 4:00 PM – 7:00 PM', 'Fresh unboxing! 300+ vintage single-stitch tees, jackets, Doc Martens, and Dunks hitting the racks.', 'Main Store Floor', event)">
                 <div>
                   <div class="event-tag-pill">FLOOR DROP • FRI SEPT 18</div>
@@ -1727,7 +1707,6 @@
                 <div class="event-card-footer">View Details & RSVP →</div>
               </div>
 
-              <!-- Slide 3 -->
               <div class="event-card-slide interactive-click" onclick="openEventModal('Local Artist Pop-Up Market', 'Saturday, Oct 3 • 12:00 PM – 6:00 PM', 'Featuring local Inland Empire makers, reworked apparel artists, jewelry creators, and art prints.', 'Hive Courtyard', event)">
                 <div>
                   <div class="event-tag-pill">POP-UP MARKET • SAT OCT 3</div>
@@ -1737,7 +1716,6 @@
                 <div class="event-card-footer">View Details & RSVP →</div>
               </div>
 
-              <!-- Slide 4: Deals -->
               <div class="event-card-slide interactive-click" onclick="openEventModal('Student & Trade Appreciation Thursdays', 'Every Thursday • All Day', 'Bring 10+ trade pieces on Thursday and receive an extra 20% bonus store credit on all evaluated inventory.', 'Buying Desk', event)">
                 <div>
                   <div class="event-tag-pill">WEEKLY SPECIAL • THURSDAYS</div>
@@ -1748,16 +1726,15 @@
               </div>
             </div>
 
-            <!-- Carousel Dots -->
             <div class="carousel-dots" id="carousel-dots">
-              <button class="dot-circle interactive-click active" onclick="goToSlide(0, event)" aria-label="Slide 1"></button>
-              <button class="dot-circle interactive-click" onclick="goToSlide(1, event)" aria-label="Slide 2"></button>
-              <button class="dot-circle interactive-click" onclick="goToSlide(2, event)" aria-label="Slide 3"></button>
-              <button class="dot-circle interactive-click" onclick="goToSlide(3, event)" aria-label="Slide 4"></button>
+              <button class="dot-circle active" onclick="goToSlide(0, event)" aria-label="Slide 1"></button>
+              <button class="dot-circle" onclick="goToSlide(1, event)" aria-label="Slide 2"></button>
+              <button class="dot-circle" onclick="goToSlide(2, event)" aria-label="Slide 3"></button>
+              <button class="dot-circle" onclick="goToSlide(3, event)" aria-label="Slide 4"></button>
             </div>
           </div>
 
-          <!-- Part B: Live Announcement Belt Ticker Strip -->
+          <!-- Part B: Ticker Strip -->
           <div class="cal-announcement-strip">
             <div class="cal-announcement-tag">ANNOUNCEMENTS</div>
             <div class="cal-ticker-wrap">
@@ -1791,20 +1768,20 @@
             </div>
           </div>
 
-          <!-- Part C: Updated Sub-Heading: Stay in the Loop -->
+          <!-- Part C: Sub-Heading -->
           <div class="calendar-sub-divider">
             <span class="calendar-sub-title">Stay in the loop</span>
             <span style="font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; color: rgba(0,0,0,0.6);">SELECT ANY DATE</span>
           </div>
 
-          <!-- Part D: Blended Sharp Calendar Grid -->
+          <!-- Part D: Calendar Grid -->
           <div class="calendar-integrated-grid">
             <div>
               <div class="cal-header">
                 <span class="cal-month-title" id="cal-month-name">August 2026</span>
                 <div class="cal-controls">
-                  <button class="cal-nav-btn interactive-click" onclick="changeMonth(-1)">‹</button>
-                  <button class="cal-nav-btn interactive-click" onclick="changeMonth(1)">›</button>
+                  <button class="cal-nav-btn" onclick="changeMonth(-1)">‹</button>
+                  <button class="cal-nav-btn" onclick="changeMonth(1)">›</button>
                 </div>
               </div>
 
@@ -1841,12 +1818,12 @@
       <!-- Arrow Down to Archival Section -->
       <div style="display: flex; justify-content: center; margin: 42px 0 12px;">
         <a class="icon-only-arrow-anchor" onclick="smoothScrollToTarget('home-archival-anchor', event)" aria-label="Scroll Down">
-          <i data-lucide="chevron-down" style="width: 22px; height: 22px; color: var(--bg-yellow);"></i>
+          <i data-lucide="chevron-down" style="width: 20px; height: 20px; color: var(--bg-yellow);"></i>
         </a>
       </div>
     </main>
 
-    <!-- SECTION: SEAMLESS ZERO-GAP FULL-BLEED ARCHIVAL PHOTO TRIO -->
+    <!-- SECTION: ZERO-GAP ARCHIVAL PHOTO TRIO -->
     <div id="home-archival-anchor" class="archival-trio-wrap">
       <div class="archival-trio-grid">
         <div class="trio-photo-item">
@@ -1861,7 +1838,7 @@
       </div>
     </div>
 
-    <!-- SECTION: HOMEPAGE MARKET LOCATION, HOURS & CONTACT STRIP (BELOW 3 PHOTOS) -->
+    <!-- SECTION: HOMEPAGE LOCATION STRIP -->
     <div class="home-location-strip">
       <div class="home-location-grid">
         <div class="home-loc-box">
@@ -1888,7 +1865,7 @@
     </div>
   </div>
 
-  <!-- PAGE 2: COMBINED SELL / TRADE (DEELUX INSPIRED EDITORIAL WITH 40 ITEM LIMIT & ACUITY READY) -->
+  <!-- PAGE 2: COMBINED SELL / TRADE -->
   <div id="page-sell-trade" class="page-view">
     <div class="sell-trade-fullpage">
       <img src="What we buy.JPG" class="sell-trade-bg-img" alt="What We Buy Storefront Rack" />
@@ -1900,13 +1877,12 @@
           <h1>Sell & Trade Guide</h1>
           <p>Bring in your curated archive items, vintage t-shirts, rugged workwear, and footwear for instant cash or elevated store credit.</p>
 
-          <!-- Step 1: Organize Your Clothes (40 Item Limit + DeeLux Toggle UI) -->
+          <!-- Step 1: Organize Your Clothes -->
           <div class="step-section-block">
             <div class="step-num-heading">1. Organize Your Clothes</div>
             <div class="step-sub-tagline">We have a <strong>40 item limit</strong> per appointment, so select your best pieces!</div>
 
             <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 14px;">
-              <!-- Toggle 1: What to Bring In -->
               <div class="trade-toggle-wrap open" id="toggle-bring">
                 <button class="trade-toggle-btn" onclick="toggleTradeSection('toggle-bring')">
                   <span>What to Bring In</span>
@@ -1924,7 +1900,6 @@
                 </div>
               </div>
 
-              <!-- Toggle 2: What to Leave Home -->
               <div class="trade-toggle-wrap" id="toggle-leave">
                 <button class="trade-toggle-btn" onclick="toggleTradeSection('toggle-leave')">
                   <span>What to Leave Home</span>
@@ -1945,7 +1920,6 @@
 
           <!-- Step 2 & 3 Side by Side Grid -->
           <div class="step-grid-duo">
-            <!-- Step 2: Bring ID -->
             <div class="step-card-box">
               <div>
                 <div class="step-icon-badge">
@@ -1958,7 +1932,6 @@
               </div>
             </div>
 
-            <!-- Step 3: Cash or Credit -->
             <div class="step-card-box">
               <div>
                 <div class="step-icon-badge">
@@ -1973,7 +1946,7 @@
           </div>
         </div>
 
-        <!-- Appointment Booking & Acuity Scheduler Section -->
+        <!-- Appointment Booking Section -->
         <div class="sell-trade-card" id="booking-section">
           <h2>Book Your Appointment</h2>
           <p>Read the guidelines above before reserving your slot. Walk-ins are always welcomed during open hours, but booking guarantees an expedited appraisal.</p>
@@ -1983,7 +1956,6 @@
               <strong>WHAT TO KNOW BEFORE YOU BOOK:</strong> Please ensure your maximum 40 items are freshly washed, placed neatly in bags or bins, and that you have your valid ID ready upon arrival at 688 Beaumont Ave.
             </div>
 
-            <!-- Native Integrated Scheduler Form (Acuity Ready Embed Point) -->
             <form class="form-grid" onsubmit="handleBooking(event)">
               <div class="form-row">
                 <div>
@@ -2042,7 +2014,7 @@
     </div>
   </div>
 
-  <!-- PAGE 3: UNIFIED MARKET HUB (CLEAN HERO + TRANSLUCENT SWISH VANISH APPLICATION & SCHEDULE) -->
+  <!-- PAGE 3: UNIFIED MARKET HUB -->
   <div id="page-market-hub" class="page-view">
     <div class="landing-fullscreen-hero" style="background: var(--deep-black);">
       <img src="Inside.JPG" class="landing-bg-image active-bg" alt="Market Hub Live Gathering" />
@@ -2067,17 +2039,15 @@
     </div>
 
     <main class="container">
-      <!-- Section 1: Translucent Swish Vanish Vendor & Artist Showcase Application -->
+      <!-- Section 1: Translucent Application Form -->
       <div class="editorial-panel-translucent" id="hub-apply-anchor" style="margin-top: 48px;">
         
-        <!-- Tab return drawer handle with right-pointing arrow -->
-        <button class="tab-return-arrow-btn interactive-click" id="hub-vendor-return-btn" onclick="restoreSwishForm('hub-vendor')" aria-label="Open New Application">
-          <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
-          <span style="writing-mode: vertical-rl; text-orientation: mixed; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.16em;">NEW APP</span>
+        <button class="tab-return-arrow-btn" id="hub-vendor-return-btn" onclick="restoreSwishForm('hub-vendor')" aria-label="Open New Application">
+          <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+          <span style="writing-mode: vertical-rl; text-orientation: mixed; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.16em;">NEW APP</span>
         </button>
 
         <div class="swish-stage-container" id="hub-vendor-stage">
-          <!-- Form Panel (Swishes Left on Submit) -->
           <div class="swish-form-panel" id="hub-vendor-form-panel">
             <h2>Vendor & Artist Showcase Application</h2>
             <p>Reserve booth spaces for upcoming outdoor flea markets or submit your portfolio and tracks to perform live sets during our evening concert and acoustic sound sessions.</p>
@@ -2132,7 +2102,6 @@
             </form>
           </div>
 
-          <!-- Follow Picture & Confirmation Placement (Slides in from Right) -->
           <div class="swish-success-panel" id="hub-vendor-success-panel">
             <div class="swish-follow-photo">
               <img src="TV ST.JPG" alt="Hive Sound Stage & Audio Set" />
@@ -2141,7 +2110,7 @@
               <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.22em; color: var(--bg-yellow); text-transform: uppercase;">SUBMISSION CONFIRMED</div>
               <h3 style="font-size: 1.8rem; font-weight: 700; color: var(--pure-white); text-transform: uppercase; line-height: 1.2;">Application In Motion</h3>
               <p style="font-size: 0.92rem; color: var(--trans-white-grey); line-height: 1.65; font-weight: 300;">
-                Your showcase submission has vanished into our community curation vault. Our team is currently reviewing your catalog and links for upcoming weekend fleas and live sound sessions.
+                Your showcase submission has been received. Our team is currently reviewing your catalog and links for upcoming weekend fleas and live sound sessions.
               </p>
               <div>
                 <button class="btn-submit interactive-click" style="background: transparent; color: var(--pure-white); border-color: rgba(255,255,255,0.4);" onclick="restoreSwishForm('hub-vendor')">
@@ -2153,17 +2122,15 @@
         </div>
       </div>
 
-      <!-- Section 2: Translucent Swish Vanish Event Schedule & RSVP -->
+      <!-- Section 2: Translucent Event Schedule & RSVP -->
       <div class="editorial-panel-translucent" id="hub-schedule-anchor" style="margin-top: 36px;">
         
-        <!-- Tab return drawer handle with right-pointing arrow -->
-        <button class="tab-return-arrow-btn interactive-click" id="hub-rsvp-return-btn" onclick="restoreSwishForm('hub-rsvp')" aria-label="View Schedule">
-          <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
-          <span style="writing-mode: vertical-rl; text-orientation: mixed; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.16em;">SCHEDULE</span>
+        <button class="tab-return-arrow-btn" id="hub-rsvp-return-btn" onclick="restoreSwishForm('hub-rsvp')" aria-label="View Schedule">
+          <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+          <span style="writing-mode: vertical-rl; text-orientation: mixed; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.16em;">SCHEDULE</span>
         </button>
 
         <div class="swish-stage-container" id="hub-rsvp-stage">
-          <!-- Event Schedule Panel (Swishes Left on RSVP) -->
           <div class="swish-form-panel" id="hub-rsvp-form-panel">
             <h2>Event Schedule & Passes</h2>
             <p>Upcoming flea markets, live floor unboxings, community popups, and evening concert sound sessions at 688 Beaumont Ave.</p>
@@ -2198,7 +2165,6 @@
             </div>
           </div>
 
-          <!-- Follow Picture & Confirmation Placement (Slides in from Right) -->
           <div class="swish-success-panel" id="hub-rsvp-success-panel">
             <div class="swish-follow-photo">
               <img src="Inside.JPG" alt="Hive Storefront Floor & Stage" />
@@ -2318,7 +2284,6 @@
         <p>Everything you need to know about buying, selling, trading, attending events, and booking appointments at Hive Market.</p>
 
         <div class="faq-accordion-group">
-          <!-- Item 1 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span class="q-title">How does selling and trading work at Hive Market?</span>
@@ -2329,7 +2294,6 @@
             </div>
           </div>
 
-          <!-- Item 2 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span class="q-title">Do I need an appointment to sell my items?</span>
@@ -2340,7 +2304,6 @@
             </div>
           </div>
 
-          <!-- Item 3 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span class="q-title">What is the item limit per selling appointment?</span>
@@ -2351,7 +2314,6 @@
             </div>
           </div>
 
-          <!-- Item 4 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span class="q-title">What identification is required?</span>
@@ -2362,7 +2324,6 @@
             </div>
           </div>
 
-          <!-- Item 5 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span class="q-title">How do I get a vendor booth at your outdoor markets?</span>
@@ -2393,13 +2354,12 @@
       </div>
     </div>
 
-    <!-- White Click Wheel with Black Center Button -->
     <div class="ipod-wheel">
-      <button class="wheel-btn wheel-menu interactive-click" onclick="showPlayerTip()">MENU</button>
-      <button class="wheel-btn wheel-prev interactive-click" onclick="prevTrack()">⏮</button>
-      <button class="wheel-btn wheel-next interactive-click" onclick="nextTrack()">⏭</button>
-      <button class="wheel-btn wheel-play interactive-click" onclick="togglePlay()">▶❚❚</button>
-      <div class="center-btn interactive-click" onclick="togglePlay()">HM</div>
+      <button class="wheel-btn wheel-menu" onclick="showPlayerTip()">MENU</button>
+      <button class="wheel-btn wheel-prev" onclick="prevTrack()">⏮</button>
+      <button class="wheel-btn wheel-next" onclick="nextTrack()">⏭</button>
+      <button class="wheel-btn wheel-play" onclick="togglePlay()">▶❚❚</button>
+      <div class="center-btn" onclick="togglePlay()">HM</div>
     </div>
     <div class="ipod-drag-tip">
       DRAGGABLE AUDIO
@@ -2409,7 +2369,7 @@
   <!-- Event Modal -->
   <div class="modal-overlay" id="event-modal" onclick="closeModal(event)">
     <div class="modal-card">
-      <button class="modal-close interactive-click" onclick="closeEventModal()">✕</button>
+      <button class="modal-close" onclick="closeEventModal()">✕</button>
       <div style="color:var(--bg-yellow); font-size:0.75rem; letter-spacing:0.16em; margin-bottom:8px;" id="modal-date">DATE</div>
       <h2 id="modal-title" style="font-size:1.4rem; font-weight:400; letter-spacing:0.18em; margin-bottom:12px; text-transform:uppercase;">EVENT TITLE</h2>
       <p id="modal-desc" style="color:var(--trans-white-grey); font-size:0.88rem; line-height:1.6; margin-bottom:24px;">Event details</p>
@@ -2435,28 +2395,14 @@
     }
     setInterval(rotateLandingBg, 5000);
 
-    /* -------------------------------------------------------------
-       JUMPY SPRING CLICK & SLOW PAGE ANIMATION HANDLER
-    ------------------------------------------------------------- */
-    function triggerJumpClick(element) {
-      if (!element) return;
-      element.classList.add('jump-animate');
-      setTimeout(() => {
-        element.classList.remove('jump-animate');
-      }, 180);
-    }
-
+    /* Page Switcher */
     function navigateTo(pageId, event) {
-      if (event) {
-        event.preventDefault();
-        const clickedEl = event.currentTarget || event.target;
-        triggerJumpClick(clickedEl);
-      }
+      if (event) event.preventDefault();
 
       const activePages = document.querySelectorAll('.page-view.active');
       activePages.forEach(p => {
         p.style.opacity = '0';
-        p.style.transform = 'translateY(18px) scale(0.985)';
+        p.style.transform = 'translateY(12px)';
       });
 
       setTimeout(() => {
@@ -2476,64 +2422,30 @@
         });
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 350);
+      }, 250);
     }
 
-    /* Universal Smooth Easing Glide */
+    /* Reliable native smooth scrolling */
     function smoothScrollToTarget(targetId, event) {
-      if (event) {
-        event.preventDefault();
-        const btn = event.currentTarget;
-        btn.classList.add('arrow-jump-active');
-        setTimeout(() => {
-          btn.classList.remove('arrow-jump-active');
-        }, 280);
-      }
-
+      if (event) event.preventDefault();
       const el = document.getElementById(targetId);
-      if (!el) return;
-
-      const targetPosition = el.getBoundingClientRect().top + window.pageYOffset - 20;
-      const startPosition = window.pageYOffset;
-      const distance = targetPosition - startPosition;
-      const duration = 1400;
-      let startTime = null;
-
-      function easeInOutCubic(t, b, c, d) {
-        t /= d / 2;
-        if (t < 1) return (c / 2) * t * t * t + b;
-        t -= 2;
-        return (c / 2) * (t * t * t + 2) + b;
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-
-      function animation(currentTime) {
-        if (startTime === null) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-        const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
-        window.scrollTo(0, run);
-        if (timeElapsed < duration) requestAnimationFrame(animation);
-      }
-
-      requestAnimationFrame(animation);
     }
 
-    /* -------------------------------------------------------------
-       SWISH VANISH ANIMATION LOGIC (SLIDE LEFT / RIGHT DRAWER RESTORE)
-    ------------------------------------------------------------- */
+    /* Swish Vanish & Restore */
     function handleSwishVendorSubmit(e) {
       e.preventDefault();
       const formPanel = document.getElementById('hub-vendor-form-panel');
       const successPanel = document.getElementById('hub-vendor-success-panel');
       const returnBtn = document.getElementById('hub-vendor-return-btn');
 
-      // 1. Swish vanish form to the left
       formPanel.classList.add('vanished');
-
-      // 2. Picture and confirmation slides in following from the right
       setTimeout(() => {
         successPanel.classList.add('active');
         returnBtn.classList.add('visible');
-      }, 200);
+      }, 150);
     }
 
     function handleSwishRsvpSubmit(e, eventName) {
@@ -2542,14 +2454,11 @@
       const successPanel = document.getElementById('hub-rsvp-success-panel');
       const returnBtn = document.getElementById('hub-rsvp-return-btn');
 
-      // 1. Swish vanish schedule to the left
       formPanel.classList.add('vanished');
-
-      // 2. Picture and confirmation slides in following from the right
       setTimeout(() => {
         successPanel.classList.add('active');
         returnBtn.classList.add('visible');
-      }, 200);
+      }, 150);
     }
 
     function restoreSwishForm(prefix) {
@@ -2557,29 +2466,27 @@
       const successPanel = document.getElementById(`${prefix}-success-panel`);
       const returnBtn = document.getElementById(`${prefix}-return-btn`);
 
-      // 1. Pushes the picture back to the right
       successPanel.classList.remove('active');
       returnBtn.classList.remove('visible');
 
-      // 2. Returns form back from the left into place
       setTimeout(() => {
         formPanel.classList.remove('vanished');
-      }, 220);
+      }, 150);
     }
 
-    /* DeeLux Toggle Function */
+    /* DeeLux Toggle */
     function toggleTradeSection(elementId) {
       const el = document.getElementById(elementId);
       if (el) el.classList.toggle('open');
     }
 
-    /* FAQ Accordion Toggle */
+    /* FAQ Toggle */
     function toggleFaq(btn) {
       const item = btn.parentElement;
       item.classList.toggle('open');
     }
 
-    /* Sharp Live Calendar */
+    /* Calendar Engine */
     let calDate = new Date();
     
     const calendarEventsDB = {
@@ -2640,7 +2547,7 @@
 
       for (let day = 1; day <= daysInMonth; day++) {
         const cell = document.createElement('div');
-        cell.className = 'cal-day-cell interactive-click';
+        cell.className = 'cal-day-cell';
         cell.innerText = day;
 
         const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
@@ -2669,8 +2576,6 @@
     }
 
     function displayCalendarEvent(dateKey, day, monthName, year, event) {
-      if (event) triggerJumpClick(event.currentTarget);
-
       const tagEl = document.getElementById('cal-selected-tag');
       const titleEl = document.getElementById('cal-selected-headline');
       const timeEl = document.getElementById('cal-selected-time');
@@ -2697,7 +2602,7 @@
 
     renderCalendar();
 
-    /* Conveyor Belt Carousel */
+    /* Carousel */
     let currentSlide = 0;
     const totalSlides = 4;
     const track = document.getElementById('conveyor-track');
@@ -2714,7 +2619,6 @@
     }
 
     function goToSlide(idx, event) {
-      if (event) triggerJumpClick(event.currentTarget);
       currentSlide = idx;
       updateCarousel();
     }
@@ -2725,7 +2629,7 @@
     }
 
     function startConveyor() {
-      conveyorInterval = setInterval(nextSlide, 4200);
+      conveyorInterval = setInterval(nextSlide, 4500);
     }
     function pauseConveyor() {
       clearInterval(conveyorInterval);
@@ -2750,13 +2654,10 @@
     }
 
     function openEventModal(title, date, desc, loc, event) {
-      if (event) triggerJumpClick(event.currentTarget);
-      setTimeout(() => {
-        document.getElementById('modal-title').innerText = title;
-        document.getElementById('modal-date').innerText = date;
-        document.getElementById('modal-desc').innerText = desc;
-        document.getElementById('event-modal').style.display = 'flex';
-      }, 150);
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-date').innerText = date;
+      document.getElementById('modal-desc').innerText = desc;
+      document.getElementById('event-modal').style.display = 'flex';
     }
     function closeEventModal() {
       document.getElementById('event-modal').style.display = 'none';
