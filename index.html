@@ -119,39 +119,25 @@
       border-bottom: 2px solid var(--deep-black);
     }
 
-    /* Center Middle Circular Badge with hm logo new.png */
+    /* Direct Cutout HM Header Logo (No Circle Wrapper) */
     .brand-center {
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
+      cursor: pointer;
     }
-    .header-hm-symbol {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: var(--deep-black);
-      border: 2px solid var(--deep-black);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      padding: 10px 8px;
-      overflow: hidden;
-    }
-    .header-hm-symbol:hover {
-      transform: scale(1.08);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-    }
-    .header-hm-symbol img {
-      width: 100%;
-      height: auto;
+    .header-hm-raw-logo {
+      height: 34px;
+      width: auto;
+      max-width: 90px;
       display: block;
-      /* Renders the black HM logo in crisp yellow inside the circular badge */
-      filter: invert(88%) sepia(85%) saturate(2250%) hue-rotate(358deg) brightness(104%) contrast(105%);
       object-fit: contain;
       user-select: none;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .brand-center:hover .header-hm-raw-logo {
+      transform: scale(1.08);
     }
 
     /* Page View Transitions */
@@ -223,6 +209,7 @@
       max-width: 860px;
     }
     
+    /* Original Full Wordmark Logo in Center Hero */
     .landing-official-logo {
       width: 100%;
       max-width: 560px;
@@ -1406,7 +1393,7 @@
       font-family: 'Hanken Grotesk', sans-serif;
       font-size: 0.88rem;
       outline: none;
-      transition: border-color 0.25s ease, background 0.25s ease;
+      transition: border-color 0.25s ease, background-color 0.25s ease;
     }
     .clean-input:focus {
       border-color: var(--bg-yellow);
@@ -1836,11 +1823,9 @@
         <li><a class="nav-link interactive-click" onclick="navigateTo('market-hub', event)">Market Hub</a></li>
       </ul>
 
-      <!-- Top Banner Header Logo - Uses hm logo new.png -->
+      <!-- Top Banner Middle Logo - Direct hm logo new.png cutout (No Circle) -->
       <a class="brand-center interactive-click" onclick="navigateTo('home', event)" aria-label="Hive Market Home">
-        <div class="header-hm-symbol">
-          <img src="hm logo new.png" alt="HM Logo Badge" />
-        </div>
+        <img src="hm logo new.png" class="header-hm-raw-logo" alt="HM Logo" />
       </a>
 
       <ul class="nav-right">
@@ -1861,7 +1846,7 @@
       <div class="hero-vignette-overlay"></div>
 
       <div class="landing-hero-content">
-        <!-- Original Full Logo in Center Hero -->
+        <!-- Original Full Hive Market Logo in Hero Area -->
         <img src="HIVE MARKET LOGO.png" class="landing-official-logo" alt="Hive Market Logo" />
         <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
       </div>
