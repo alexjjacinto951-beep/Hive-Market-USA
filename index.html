@@ -239,31 +239,8 @@
       letter-spacing: 0.35em;
       color: var(--trans-white-grey);
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 0;
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
-    }
-    
-    .landing-enter-action {
-      display: inline-block;
-    }
-    .btn-minimal-white {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      color: var(--trans-white-grey);
-      padding: 12px 36px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-minimal-white:hover {
-      background: rgba(255, 255, 255, 0.95);
-      color: var(--deep-black);
-      border-color: var(--pure-white);
     }
 
     .down-arrow-anchor {
@@ -372,13 +349,6 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--deep-black);
-    }
-    .section-editorial-subtitle {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      color: rgba(0, 0, 0, 0.75);
-      text-transform: uppercase;
     }
 
     /* Main Glass Carrier for Carousel & Calendar */
@@ -1447,7 +1417,7 @@
 
   <!-- PAGE 1: SLEEK MINIMAL LANDING PAGE -->
   <div id="page-home" class="page-view active">
-    <!-- Edge-to-Edge Rotating Storefront Hero -->
+    <!-- Edge-to-Edge Rotating Storefront Hero (Clean slide show without explore button) -->
     <div class="landing-fullscreen-hero">
       
       <!-- Full Edge-to-Edge Background Layers -->
@@ -1461,9 +1431,6 @@
         <!-- Logo Asset -->
         <img src="HIVE MARKET LOGO.png" class="landing-official-logo" alt="Hive Market Logo" />
         <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
-        <div class="landing-enter-action">
-          <a onclick="navigateTo('sell-trade', event)" class="btn-minimal-white interactive-click">Explore Curation</a>
-        </div>
       </div>
 
       <!-- Hero Down Arrow -->
@@ -1477,10 +1444,7 @@
       <!-- SECTION: INTEGRATED EVENTS, DAILY DEALS & LIVE CALENDAR -->
       <div id="home-events-anchor">
         <div class="section-editorial-header">
-          <div>
-            <h2 class="section-editorial-title">Upcoming Events & Daily Deals</h2>
-            <div class="section-editorial-subtitle">Curated Schedule, Floor Drops & Live Store Calendar</div>
-          </div>
+          <h2 class="section-editorial-title">Upcoming Events and Sales</h2>
           <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em;">688 BEAUMONT AVE</span>
         </div>
 
@@ -1573,9 +1537,9 @@
             </div>
           </div>
 
-          <!-- Part C: Subtle Sub-Heading Integration -->
+          <!-- Part C: Updated Sub-Heading: Stay in the Loop -->
           <div class="calendar-sub-divider">
-            <span class="calendar-sub-title">Live Vault & Drop Calendar</span>
+            <span class="calendar-sub-title">Stay in the loop</span>
             <span style="font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; color: rgba(0,0,0,0.6);">SELECT ANY DATE</span>
           </div>
 
@@ -1762,7 +1726,6 @@
 
   <!-- PAGE 3: UNIFIED MARKET HUB -->
   <div id="page-market-hub" class="page-view">
-    <!-- Market Hub Hero -->
     <div class="landing-fullscreen-hero" style="background: var(--deep-black);">
       <img src="Inside.JPG" class="landing-bg-image active-bg" alt="Market Hub Live Gathering" />
       <div class="hero-vignette-overlay" style="background: radial-gradient(circle at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.88) 100%);"></div>
@@ -1794,7 +1757,6 @@
       </a>
     </div>
 
-    <!-- Main Hub Forms & Schedule -->
     <main class="container">
       <div class="editorial-panel" id="hub-apply-anchor" style="margin-top: 48px;">
         <h2>Vendor & Artist Showcase Application</h2>
@@ -1961,7 +1923,8 @@
           </div>
           <div class="meet-owners-content">
             <div class="meet-owners-role">Founders & Curators</div>
-            <h3>Marissa & Jordan</h3>
+            <h3>Meet the Owners</h3>
+            <div style="font-size: 1.15rem; font-weight: 700; color: var(--bg-yellow); margin-bottom: 12px; text-transform: uppercase;">Marissa & Jordan</div>
             <p style="font-size: 0.95rem; line-height: 1.7; color: var(--trans-white-grey); margin-bottom: 16px;">
               Hive Market was born out of a shared passion for archive street culture, vintage preservation, and fostering creative spaces in Beaumont. As lifelong collectors and curators, Marissa and Jordan started Hive with a single mission: to build a physical haven where independent designers, musicians, and vintage lovers can connect under one roof.
             </p>
@@ -2181,17 +2144,13 @@
       requestAnimationFrame(animation);
     }
 
-    /* -------------------------------------------------------------
-       FAQ ACCORDION TOGGLE
-    ------------------------------------------------------------- */
+    /* FAQ Accordion Toggle */
     function toggleFaq(btn) {
       const item = btn.parentElement;
       item.classList.toggle('open');
     }
 
-    /* -------------------------------------------------------------
-       SHARP LIVE CALENDAR (UP-TO-DATE)
-    ------------------------------------------------------------- */
+    /* Sharp Live Calendar */
     let calDate = new Date();
     
     const calendarEventsDB = {
@@ -2309,7 +2268,7 @@
 
     renderCalendar();
 
-    /* Conveyor Belt / Carousel */
+    /* Conveyor Belt Carousel */
     let currentSlide = 0;
     const totalSlides = 4;
     const track = document.getElementById('conveyor-track');
