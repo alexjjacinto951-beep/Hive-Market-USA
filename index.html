@@ -9,6 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
 
+  <!-- Official Instagram Embed Script Engine -->
+  <script async src="//www.instagram.com/embed.js"></script>
+
   <style>
     :root {
       --bg-yellow: #FFFF00;
@@ -313,7 +316,7 @@
     }
 
     /* -------------------------------------------------------------
-       SECTION: WHAT'S NEW (GOPRO-STYLE INSTAGRAM EMBED STRIP)
+       SECTION: WHAT'S NEW (NATIVE INSTAGRAM REELS SHOWCASE)
     ------------------------------------------------------------- */
     .section-editorial-header {
       border-top: var(--border-thin);
@@ -332,232 +335,94 @@
       color: var(--deep-black);
     }
 
-    .ig-embed-conveyor-card {
+    /* Centered Glass Carrier for Native Reels Embeds */
+    .reels-showcase-carrier {
       background: rgba(255, 255, 255, 0.35);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border: 1.5px solid rgba(0, 0, 0, 0.85);
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-      padding: 24px 18px;
+      padding: 32px 24px;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* Conveyor arrow navigation buttons */
-    .ig-conveyor-nav-arrow {
+    .reels-conveyor-controls {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
+      width: calc(100% - 24px);
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .reels-nav-arrow {
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
-      background: rgba(20, 22, 26, 0.85);
+      background: rgba(12, 13, 16, 0.88);
       border: 1px solid rgba(255, 255, 255, 0.35);
       color: var(--pure-white);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      z-index: 10;
+      pointer-events: auto;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-      transition: background-color 0.2s ease, transform 0.2s ease;
+      transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
     }
-    .ig-conveyor-nav-arrow:hover {
+    .reels-nav-arrow:hover {
       background: var(--bg-yellow);
       color: var(--deep-black);
-      transform: translateY(-50%) scale(1.06);
+      transform: scale(1.08);
     }
-    .ig-conveyor-left { left: 8px; }
-    .ig-conveyor-right { right: 8px; }
 
-    .ig-conveyor-viewport {
+    .reels-viewport-box {
       width: 100%;
+      max-width: 1200px;
       overflow: hidden;
-      padding: 4px 0;
+      padding: 6px 0;
     }
 
-    .ig-conveyor-track {
+    .reels-grid-track {
       display: flex;
-      gap: 18px;
-      transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      gap: 24px;
+      transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
       will-change: transform;
+      align-items: flex-start;
+      justify-content: flex-start;
     }
 
-    /* Individual GoPro-style Card */
-    .ig-embed-card {
-      flex: 0 0 calc(25% - 13.5px);
-      min-width: 250px;
-      background: var(--pure-white);
-      border: 1px solid rgba(0, 0, 0, 0.15);
+    /* Individual Native Reel Wrapper (Styled to match Instagram iframe standards) */
+    .reel-native-item {
+      flex: 0 0 calc(33.333% - 16px);
+      min-width: 320px;
+      max-width: 380px;
+      background: #FFFFFF;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
       display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .ig-embed-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
-    }
-
-    .ig-embed-thumb-wrap {
-      width: 100%;
-      height: 250px;
-      position: relative;
-      overflow: hidden;
-      background: #000;
-    }
-    .ig-embed-thumb-wrap img, .ig-embed-thumb-wrap video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Central Play Button Overlay for Videos */
-    .ig-play-circle-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 48px;
-      height: 48px;
-      background: rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(4px);
-      border: 2px solid rgba(255, 255, 255, 0.9);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
       justify-content: center;
-      color: var(--pure-white);
-      transition: transform 0.2s ease, background-color 0.2s ease;
-    }
-    .ig-embed-card:hover .ig-play-circle-overlay {
-      transform: translate(-50%, -50%) scale(1.1);
-      background: rgba(255, 255, 0, 0.85);
-      color: var(--deep-black);
-      border-color: var(--deep-black);
+      margin: 0 auto;
     }
 
-    /* GoPro-style Profile Footer */
-    .ig-embed-card-footer {
-      padding: 12px 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--pure-white);
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
-    }
-    .ig-embed-footer-user {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .ig-embed-avatar {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: var(--deep-black);
-      color: var(--bg-yellow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.65rem;
-      font-weight: 800;
-    }
-    .ig-embed-name-box {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
-    .ig-embed-displayname {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--deep-black);
-    }
-    .ig-embed-handle {
-      font-size: 0.65rem;
-      color: #666;
-    }
-    .ig-gradient-logo {
-      color: #E1306C;
-      display: flex;
-      align-items: center;
-    }
-
-    /* -------------------------------------------------------------
-       INSTAGRAM INTERACTIVE VIDEO MODAL (POPUP PLAYER)
-    ------------------------------------------------------------- */
-    .ig-modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.88);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 10000;
-      padding: 24px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    .ig-modal-container {
-      background: #000;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      max-width: 960px;
-      width: 100%;
-      height: 520px;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
-      animation: igModalIn 0.3s ease;
-    }
-    @keyframes igModalIn {
-      from { opacity: 0; transform: scale(0.96); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .ig-modal-close-btn {
-      position: absolute;
-      top: 14px;
-      right: 16px;
-      background: transparent;
-      border: none;
-      color: var(--pure-white);
-      font-size: 1.2rem;
-      cursor: pointer;
-      z-index: 20;
-    }
-
-    .ig-modal-media-area {
-      position: relative;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      overflow: hidden;
-    }
-    .ig-modal-media-area video, .ig-modal-media-area img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .ig-modal-sidebar-area {
-      background: #0C0D10;
-      color: var(--pure-white);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-left: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 24px;
-      height: 100%;
+    /* Instagram Native Media Override for Crisp Centering */
+    .reel-native-item blockquote.instagram-media {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 100% !important;
+      border: 0 !important;
+      border-radius: 12px !important;
+      background: #FFF !important;
+      box-shadow: none !important;
     }
 
     /* -------------------------------------------------------------
@@ -1857,17 +1722,9 @@
       .landing-fullscreen-hero {
         height: calc(100vh - 120px);
       }
-      .ig-embed-card {
-        flex: 0 0 78%;
-      }
-      .ig-modal-container {
-        grid-template-columns: 1fr;
-        height: auto;
-        max-height: 90vh;
-        overflow-y: auto;
-      }
-      .ig-modal-media-area {
-        height: 280px;
+      .reel-native-item {
+        flex: 0 0 85%;
+        min-width: 280px;
       }
       .events-calendar-composite-card {
         padding: 24px 16px;
@@ -1993,7 +1850,7 @@
     </div>
 
     <main class="container">
-      <!-- SECTION: WHAT'S NEW (GOPRO-STYLE EMBED STRIP WITH DIRECT MODAL AUTOPLAY) -->
+      <!-- SECTION: WHAT'S NEW (NATIVE INSTAGRAM REELS SHOWCASE) -->
       <div id="home-whats-new-anchor">
         <div class="section-editorial-header">
           <h2 class="section-editorial-title">What's New</h2>
@@ -2003,108 +1860,63 @@
           </a>
         </div>
 
-        <div class="ig-embed-conveyor-card">
-          <!-- Left/Right Scroll Arrows -->
-          <button class="ig-conveyor-nav-arrow ig-conveyor-left" onclick="slideIgConveyor(-1)" aria-label="Previous">
-            <i data-lucide="chevron-left" style="width: 20px; height: 20px;"></i>
-          </button>
-          <button class="ig-conveyor-nav-arrow ig-conveyor-right" onclick="slideIgConveyor(1)" aria-label="Next">
-            <i data-lucide="chevron-right" style="width: 20px; height: 20px;"></i>
-          </button>
+        <div class="reels-showcase-carrier">
+          <!-- Conveyor Arrows -->
+          <div class="reels-conveyor-controls">
+            <button class="reels-nav-arrow" onclick="slideReelsConveyor(-1)" aria-label="Previous Reels">
+              <i data-lucide="chevron-left" style="width: 22px; height: 22px;"></i>
+            </button>
+            <button class="reels-nav-arrow" onclick="slideReelsConveyor(1)" aria-label="Next Reels">
+              <i data-lucide="chevron-right" style="width: 22px; height: 22px;"></i>
+            </button>
+          </div>
 
-          <!-- 4-Card Strip Conveyor -->
-          <div class="ig-conveyor-viewport">
-            <div class="ig-conveyor-track" id="ig-conveyor-track">
+          <!-- Centered Reels Carousel Viewport -->
+          <div class="reels-viewport-box">
+            <div class="reels-grid-track" id="reels-grid-track">
               
-              <!-- Item 1: Photo Post (Owners) -->
-              <div class="ig-embed-card" onclick="openIgInteractiveModal(0)">
-                <div class="ig-embed-thumb-wrap">
-                  <img src="m&j.JPG" alt="Hive Market Owners" />
-                </div>
-                <div class="ig-embed-card-footer">
-                  <div class="ig-embed-footer-user">
-                    <div class="ig-embed-avatar">HM</div>
-                    <div class="ig-embed-name-box">
-                      <span class="ig-embed-displayname">Hive Market</span>
-                      <span class="ig-embed-handle">@hivemarketusa</span>
-                    </div>
+              <!-- Native Instagram Reel 1 -->
+              <div class="reel-native-item">
+                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C8q8q0_J3sE/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+                  <div style="padding:16px; text-align:center;">
+                    <a href="https://www.instagram.com/hivemarketusa/" target="_blank" style="color:#000; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:600; text-decoration:none;">
+                      Watch Reel on @hivemarketusa
+                    </a>
                   </div>
-                  <div class="ig-gradient-logo"><i data-lucide="instagram" style="width: 18px; height: 18px;"></i></div>
-                </div>
+                </blockquote>
               </div>
 
-              <!-- Item 2: Video Reel (Audio Setup with Centered Play Button) -->
-              <div class="ig-embed-card" onclick="openIgInteractiveModal(1)">
-                <div class="ig-embed-thumb-wrap">
-                  <img src="TV ST.JPG" alt="DJ Sessions Video" />
-                  <div class="ig-play-circle-overlay">
-                    <i data-lucide="play" style="width: 20px; height: 20px; fill: currentColor;"></i>
+              <!-- Native Instagram Reel 2 -->
+              <div class="reel-native-item">
+                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C7b1X2mJ0vR/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+                  <div style="padding:16px; text-align:center;">
+                    <a href="https://www.instagram.com/hivemarketusa/" target="_blank" style="color:#000; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:600; text-decoration:none;">
+                      Watch Reel on @hivemarketusa
+                    </a>
                   </div>
-                </div>
-                <div class="ig-embed-card-footer">
-                  <div class="ig-embed-footer-user">
-                    <div class="ig-embed-avatar">HM</div>
-                    <div class="ig-embed-name-box">
-                      <span class="ig-embed-displayname">Hive Market</span>
-                      <span class="ig-embed-handle">@hivemarketusa</span>
-                    </div>
-                  </div>
-                  <div class="ig-gradient-logo"><i data-lucide="instagram" style="width: 18px; height: 18px;"></i></div>
-                </div>
+                </blockquote>
               </div>
 
-              <!-- Item 3: Photo Post (Storefront & Racks) -->
-              <div class="ig-embed-card" onclick="openIgInteractiveModal(2)">
-                <div class="ig-embed-thumb-wrap">
-                  <img src="Storefront 2.JPG" alt="Sidewalk Flea Racks" />
-                </div>
-                <div class="ig-embed-card-footer">
-                  <div class="ig-embed-footer-user">
-                    <div class="ig-embed-avatar">HM</div>
-                    <div class="ig-embed-name-box">
-                      <span class="ig-embed-displayname">Hive Market</span>
-                      <span class="ig-embed-handle">@hivemarketusa</span>
-                    </div>
+              <!-- Native Instagram Reel 3 -->
+              <div class="reel-native-item">
+                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C6m7Y4xL8zQ/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+                  <div style="padding:16px; text-align:center;">
+                    <a href="https://www.instagram.com/hivemarketusa/" target="_blank" style="color:#000; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:600; text-decoration:none;">
+                      Watch Reel on @hivemarketusa
+                    </a>
                   </div>
-                  <div class="ig-gradient-logo"><i data-lucide="instagram" style="width: 18px; height: 18px;"></i></div>
-                </div>
+                </blockquote>
               </div>
 
-              <!-- Item 4: Video Reel (Unboxing live on floor) -->
-              <div class="ig-embed-card" onclick="openIgInteractiveModal(3)">
-                <div class="ig-embed-thumb-wrap">
-                  <img src="What we buy.JPG" alt="Floor Drop Video" />
-                  <div class="ig-play-circle-overlay">
-                    <i data-lucide="play" style="width: 20px; height: 20px; fill: currentColor;"></i>
+              <!-- Native Instagram Reel 4 -->
+              <div class="reel-native-item">
+                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C5k9P1wL5rT/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+                  <div style="padding:16px; text-align:center;">
+                    <a href="https://www.instagram.com/hivemarketusa/" target="_blank" style="color:#000; font-family:'Hanken Grotesk',sans-serif; font-size:14px; font-weight:600; text-decoration:none;">
+                      Watch Reel on @hivemarketusa
+                    </a>
                   </div>
-                </div>
-                <div class="ig-embed-card-footer">
-                  <div class="ig-embed-footer-user">
-                    <div class="ig-embed-avatar">HM</div>
-                    <div class="ig-embed-name-box">
-                      <span class="ig-embed-displayname">Hive Market</span>
-                      <span class="ig-embed-handle">@hivemarketusa</span>
-                    </div>
-                  </div>
-                  <div class="ig-gradient-logo"><i data-lucide="instagram" style="width: 18px; height: 18px;"></i></div>
-                </div>
-              </div>
-
-              <!-- Item 5: Photo Post (Interior Vault) -->
-              <div class="ig-embed-card" onclick="openIgInteractiveModal(4)">
-                <div class="ig-embed-thumb-wrap">
-                  <img src="Inside.JPG" alt="Interior Archive Vault" />
-                </div>
-                <div class="ig-embed-card-footer">
-                  <div class="ig-embed-footer-user">
-                    <div class="ig-embed-avatar">HM</div>
-                    <div class="ig-embed-name-box">
-                      <span class="ig-embed-displayname">Hive Market</span>
-                      <span class="ig-embed-handle">@hivemarketusa</span>
-                    </div>
-                  </div>
-                  <div class="ig-gradient-logo"><i data-lucide="instagram" style="width: 18px; height: 18px;"></i></div>
-                </div>
+                </blockquote>
               </div>
 
             </div>
@@ -2697,7 +2509,6 @@
           </div>
         </div>
 
-        <!-- Meet the Owners Section -->
         <div class="meet-owners-wrap">
           <div class="meet-owners-thumb">
             <img src="m&j.JPG" alt="Hive Market Owners Marissa & Jordan" />
@@ -2808,60 +2619,6 @@
     </div>
   </div>
 
-  <!-- INSTAGRAM DIRECT INTERACTIVE POPUP MODAL -->
-  <div class="ig-modal-overlay" id="ig-interactive-modal" onclick="closeIgModalOverlay(event)">
-    <div class="ig-modal-container">
-      <button class="ig-modal-close-btn" onclick="closeIgInteractiveModal()">✕</button>
-
-      <!-- Left Media Area: Plays video automatically or displays photo -->
-      <div class="ig-modal-media-area" id="ig-modal-media">
-        <!-- Injected via JavaScript -->
-      </div>
-
-      <!-- Right Sidebar Area: Post details without comments -->
-      <div class="ig-modal-sidebar-area">
-        <div>
-          <div class="ig-sidebar-header">
-            <a href="https://instagram.com/hivemarketusa" target="_blank" class="ig-user-profile">
-              <div class="ig-avatar-badge">HM</div>
-              <div class="ig-user-details">
-                <div class="ig-username-line">
-                  <span>hivemarketusa</span>
-                  <i data-lucide="badge-check" style="width: 13px; height: 13px; fill: var(--bg-yellow); color: #000;"></i>
-                </div>
-                <span class="ig-location-line">Beaumont, California</span>
-              </div>
-            </a>
-            <div style="color: #E1306C;"><i data-lucide="instagram" style="width: 20px; height: 20px;"></i></div>
-          </div>
-
-          <div class="ig-caption-scroll" style="margin-top: 14px;">
-            <div id="ig-modal-caption">
-              <!-- Injected Caption -->
-            </div>
-            <div class="ig-timestamp" id="ig-modal-time">RECENT POST</div>
-          </div>
-        </div>
-
-        <div class="ig-sidebar-footer">
-          <div class="ig-actions-row">
-            <div class="ig-icons-left">
-              <button class="ig-action-btn"><i data-lucide="heart" style="width: 20px; height: 20px;"></i></button>
-              <button class="ig-action-btn"><i data-lucide="message-circle" style="width: 20px; height: 20px;"></i></button>
-              <button class="ig-action-btn"><i data-lucide="send" style="width: 20px; height: 20px;"></i></button>
-            </div>
-            <button class="ig-action-btn"><i data-lucide="bookmark" style="width: 20px; height: 20px;"></i></button>
-          </div>
-          <div class="ig-likes-count" id="ig-modal-likes">Liked by marissa.sabrina and 211 others</div>
-          <a href="https://instagram.com/hivemarketusa" target="_blank" class="ig-view-link" style="margin-top: 4px;">
-            <span>Open post on Instagram</span>
-            <i data-lucide="arrow-up-right" style="width: 12px; height: 12px;"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Event Modal -->
   <div class="modal-overlay" id="event-modal" onclick="closeModal(event)">
     <div class="modal-card">
@@ -2891,7 +2648,7 @@
     }
     setInterval(rotateLandingBg, 5000);
 
-    /* Page Switcher */
+    /* Page Switcher with Instagram Engine Processing */
     function navigateTo(pageId, event) {
       if (event) event.preventDefault();
 
@@ -2917,6 +2674,11 @@
           link.classList.toggle('active', link.getAttribute('onclick')?.includes(pageId));
         });
 
+        // Trigger official Instagram Embeds parser on return
+        if (window.instgrm && window.instgrm.Embeds) {
+          window.instgrm.Embeds.process();
+        }
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }, 250);
     }
@@ -2931,93 +2693,27 @@
     }
 
     /* -------------------------------------------------------------
-       GOPRO-STYLE CONVEYOR SLIDER & DIRECT MODAL AUTOPLAY
+       NATIVE INSTAGRAM REELS CAROUSEL ENGINE
     ------------------------------------------------------------- */
-    let igConveyorIndex = 0;
-    const igPostsDatabase = [
-      {
-        type: 'image',
-        src: 'm&j.JPG',
-        caption: `<span class="ig-caption-author">dvveys</span> and <span class="ig-caption-author">hivemarketusa</span><span class="ig-caption-text">Some stores sell clothes. Others build culture. Welcome to <a href="https://instagram.com/hivemarketusa" target="_blank" class="ig-caption-tag">@hivemarketusa</a>. 🍯✨</span>`,
-        time: '2 WEEKS AGO',
-        likes: 'Liked by marissa.sabrina and 211 others'
-      },
-      {
-        type: 'video',
-        src: 'https://assets.mixkit.co/videos/preview/mixkit-analog-audio-mixer-knobs-being-turned-41227-large.mp4',
-        poster: 'TV ST.JPG',
-        caption: `<span class="ig-caption-author">hivemarketusa</span><span class="ig-caption-text">Live sound in the building tonight! Dropping fresh vinyl beats while you dig through the racks. Come vibe with us at 688 Beaumont Ave. 🎶🔊</span>`,
-        time: '4 DAYS AGO',
-        likes: 'Liked by 184 others'
-      },
-      {
-        type: 'image',
-        src: 'Storefront 2.JPG',
-        caption: `<span class="ig-caption-author">hivemarketusa</span><span class="ig-caption-text">Sidewalk racks fully loaded for the weekend flea! Grab $10 steals, single-stitch tees, and workwear. ☀️👕</span>`,
-        time: '6 DAYS AGO',
-        likes: 'Liked by 195 others'
-      },
-      {
-        type: 'video',
-        src: 'https://assets.mixkit.co/videos/preview/mixkit-clothes-hanging-on-a-rack-in-a-store-42525-large.mp4',
-        poster: 'What we buy.JPG',
-        caption: `<span class="ig-caption-author">hivemarketusa</span><span class="ig-caption-text">Unboxing 300+ fresh vintage tees and footwear live onto the floor. First come, first served at 688 Beaumont Ave! 📦⚡️</span>`,
-        time: '1 WEEK AGO',
-        likes: 'Liked by 267 others'
-      },
-      {
-        type: 'image',
-        src: 'Inside.JPG',
-        caption: `<span class="ig-caption-author">hivemarketusa</span><span class="ig-caption-text">Inside the archive vault. Bringing you curated vintage, retro audio, and street culture in Beaumont. 🍯✨</span>`,
-        time: '2 WEEKS AGO',
-        likes: 'Liked by 312 others'
-      }
-    ];
+    let reelConveyorIndex = 0;
+    const totalReels = 4;
 
-    function slideIgConveyor(direction) {
-      const track = document.getElementById('ig-conveyor-track');
-      if (!track) return;
-      const cardWidth = track.children[0].offsetWidth + 18;
-      const maxIndex = igPostsDatabase.length - 3;
+    function slideReelsConveyor(direction) {
+      const track = document.getElementById('reels-grid-track');
+      if (!track || !track.children.length) return;
       
-      igConveyorIndex = Math.max(0, Math.min(maxIndex, igConveyorIndex + direction));
-      track.style.transform = `translateX(-${igConveyorIndex * cardWidth}px)`;
+      const itemWidth = track.children[0].offsetWidth + 24;
+      const maxIndex = Math.max(0, totalReels - 1);
+      
+      reelConveyorIndex = Math.max(0, Math.min(maxIndex, reelConveyorIndex + direction));
+      track.style.transform = `translateX(-${reelConveyorIndex * itemWidth}px)`;
     }
 
-    function openIgInteractiveModal(index) {
-      const post = igPostsDatabase[index];
-      const modal = document.getElementById('ig-interactive-modal');
-      const mediaArea = document.getElementById('ig-modal-media');
-      const captionArea = document.getElementById('ig-modal-caption');
-      const timeArea = document.getElementById('ig-modal-time');
-      const likesArea = document.getElementById('ig-modal-likes');
-
-      if (post.type === 'video') {
-        mediaArea.innerHTML = `<video src="${post.src}" autoplay loop playsinline controls style="width:100%; height:100%; object-fit:cover;"></video>`;
-      } else {
-        mediaArea.innerHTML = `<img src="${post.src}" alt="Hive Market Post" />`;
+    window.addEventListener('load', () => {
+      if (window.instgrm && window.instgrm.Embeds) {
+        window.instgrm.Embeds.process();
       }
-
-      captionArea.innerHTML = post.caption;
-      timeArea.innerText = post.time;
-      likesArea.innerText = post.likes;
-
-      modal.style.display = 'flex';
-      lucide.createIcons();
-    }
-
-    function closeIgInteractiveModal() {
-      const modal = document.getElementById('ig-interactive-modal');
-      const mediaArea = document.getElementById('ig-modal-media');
-      mediaArea.innerHTML = '';
-      modal.style.display = 'none';
-    }
-
-    function closeIgModalOverlay(e) {
-      if (e.target.id === 'ig-interactive-modal') {
-        closeIgInteractiveModal();
-      }
-    }
+    });
 
     /* Newsletter Handler */
     function handleNewsletterSubmit(e) {
