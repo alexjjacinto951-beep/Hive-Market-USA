@@ -167,7 +167,7 @@
     }
 
     /* -------------------------------------------------------------
-       FULL-SCREEN BLEED HERO TEMPLATES (HOME & MARKET HUB)
+       FULL-SCREEN BLEED LANDING HERO
     ------------------------------------------------------------- */
     .landing-fullscreen-hero {
       width: 100vw;
@@ -773,6 +773,53 @@
     }
 
     /* -------------------------------------------------------------
+       HOMEPAGE LOCATION, HOURS & CONTACT STRIP (BELOW 3 PHOTOS)
+    ------------------------------------------------------------- */
+    .home-location-strip {
+      background: var(--deep-black);
+      color: var(--pure-white);
+      border-top: var(--border-thin);
+      border-bottom: var(--border-thin);
+      padding: 56px 36px;
+      margin-top: 0;
+    }
+    .home-location-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .home-loc-box h3 {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--bg-yellow);
+      margin-bottom: 12px;
+    }
+    .home-loc-box p {
+      font-size: 0.92rem;
+      color: var(--trans-white-grey);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+    .home-loc-box a {
+      color: var(--bg-yellow);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .home-loc-box a:hover {
+      color: var(--pure-white);
+    }
+
+    /* -------------------------------------------------------------
        COMBINED SELL / TRADE FULL-SCREEN BACKDROP SECTION
     ------------------------------------------------------------- */
     .sell-trade-fullpage {
@@ -869,6 +916,63 @@
       letter-spacing: 0.04em;
       line-height: 1.6;
       max-width: 800px;
+    }
+
+    /* FAQ Collapsible Component */
+    .faq-accordion-group {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .faq-accordion-item {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.03);
+      transition: all 0.3s ease;
+    }
+    .faq-accordion-item:hover {
+      border-color: var(--bg-yellow);
+    }
+    .faq-question-btn {
+      width: 100%;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      border: none;
+      color: var(--pure-white);
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-align: left;
+      cursor: pointer;
+    }
+    .faq-question-btn span.q-title {
+      color: var(--pure-white);
+    }
+    .faq-toggle-icon {
+      color: var(--bg-yellow);
+      transition: transform 0.3s ease;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .faq-answer-body {
+      padding: 0 24px 22px;
+      font-size: 0.88rem;
+      color: var(--trans-white-grey);
+      line-height: 1.65;
+      font-weight: 300;
+      display: none;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      padding-top: 14px;
+    }
+    .faq-accordion-item.open .faq-answer-body {
+      display: block;
+    }
+    .faq-accordion-item.open .faq-toggle-icon {
+      transform: rotate(45deg);
     }
 
     /* Form Fields */
@@ -976,34 +1080,6 @@
       font-size: 0.8rem;
       color: var(--trans-white-grey);
       margin-top: 4px;
-    }
-
-    /* Reviews Grid */
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 28px;
-    }
-    .review-card {
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 24px;
-    }
-    .review-card:hover {
-      border-color: var(--bg-yellow);
-    }
-    .review-quote {
-      font-size: 0.92rem;
-      font-weight: 300;
-      color: var(--trans-white-grey);
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-    .review-author {
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      color: var(--bg-yellow);
-      font-weight: 500;
     }
 
     /* Gallery Grid in Gallery View */
@@ -1261,6 +1337,10 @@
       .trio-photo-item {
         height: 60vh;
       }
+      .home-location-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
       .sell-trade-fullpage {
         min-height: auto;
         padding: 40px 16px 60px;
@@ -1274,7 +1354,7 @@
       .event-card-slide {
         flex: 0 0 85%;
       }
-      .home-gallery-grid, .reviews-grid, .event-row {
+      .home-gallery-grid, .event-row {
         grid-template-columns: 1fr;
       }
       .editorial-panel {
@@ -1293,7 +1373,7 @@
     688 Beaumont Ave, Beaumont CA &nbsp;|&nbsp; Mon–Fri 11–7 • Sat–Sun 12–8 &nbsp;|&nbsp; (951) 845-5669
   </div>
 
-  <!-- Editorial Top Flush Header (Market Hub Navigation) -->
+  <!-- Editorial Header -->
   <header>
     <div class="header-inner">
       <ul class="nav-left">
@@ -1302,7 +1382,7 @@
         <li><a class="nav-link interactive-click" onclick="navigateTo('market-hub', event)">Market Hub</a></li>
       </ul>
 
-      <!-- High-Contrast Center HM Icon Badge -->
+      <!-- Center HM Icon Badge -->
       <a class="brand-center interactive-click" onclick="navigateTo('home', event)" aria-label="Hive Market Home">
         <div class="header-hm-symbol">
           <span>HM</span>
@@ -1311,15 +1391,15 @@
 
       <ul class="nav-right">
         <li><a class="nav-link interactive-click" onclick="navigateTo('gallery', event)">Gallery</a></li>
-        <li><a class="nav-link interactive-click" onclick="navigateTo('reviews', event)">Reviews</a></li>
-        <li><a class="nav-link interactive-click" onclick="navigateTo('info', event)">Info</a></li>
+        <li><a class="nav-link interactive-click" onclick="navigateTo('about', event)">About Us</a></li>
+        <li><a class="nav-link interactive-click" onclick="navigateTo('faq', event)">FAQ</a></li>
       </ul>
     </div>
   </header>
 
   <!-- PAGE 1: SLEEK MINIMAL LANDING PAGE -->
   <div id="page-home" class="page-view active">
-    <!-- Edge-to-Edge 100% Screen Bleed Rotating Storefront Hero -->
+    <!-- Edge-to-Edge Rotating Storefront Hero -->
     <div class="landing-fullscreen-hero">
       
       <!-- Full Edge-to-Edge Background Layers -->
@@ -1514,6 +1594,32 @@
         </div>
       </div>
     </div>
+
+    <!-- SECTION: HOMEPAGE LOCATION, HOURS & CONTACT STRIP (DIRECTLY BELOW 3 PHOTOS) -->
+    <div class="home-location-strip">
+      <div class="home-location-grid">
+        <div class="home-loc-box">
+          <h3>Flagship Space</h3>
+          <p style="font-size: 1.1rem; color: var(--pure-white); font-weight: 600; margin-bottom: 4px;">688 Beaumont Ave</p>
+          <p>Beaumont, California 92223</p>
+          <a href="https://maps.google.com/?q=688+Beaumont+Ave,+Beaumont,+CA+92223" target="_blank">Get Directions →</a>
+        </div>
+
+        <div class="home-loc-box">
+          <h3>Store Hours</h3>
+          <p><strong style="color: var(--pure-white);">Monday – Friday:</strong> 11:00 AM – 7:00 PM</p>
+          <p><strong style="color: var(--pure-white);">Saturday – Sunday:</strong> 12:00 PM – 8:00 PM</p>
+          <p style="color: var(--bg-yellow); font-size: 0.78rem; font-weight: 600; margin-top: 4px;">Buying Desk Open Daily</p>
+        </div>
+
+        <div class="home-loc-box">
+          <h3>Direct Desk Line</h3>
+          <p style="font-size: 1.1rem; color: var(--pure-white); font-weight: 600; margin-bottom: 4px;">(951) 845-5669</p>
+          <p>Call for trade inquiries & appraisal slots</p>
+          <a href="tel:9518455669">Call Store Desk →</a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- PAGE 2: COMBINED SELL / TRADE -->
@@ -1606,9 +1712,9 @@
     </div>
   </div>
 
-  <!-- PAGE 3: UNIFIED MARKET HUB WITH FULL-BLEED HERO & INTEGRATED APPLICATION + SCHEDULE -->
+  <!-- PAGE 3: UNIFIED MARKET HUB -->
   <div id="page-market-hub" class="page-view">
-    <!-- Market Hub Edge-to-Edge Hero Section -->
+    <!-- Market Hub Hero -->
     <div class="landing-fullscreen-hero" style="background: var(--deep-black);">
       <img src="Inside.JPG" class="landing-bg-image active-bg" alt="Market Hub Live Gathering" />
       <div class="hero-vignette-overlay" style="background: radial-gradient(circle at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.88) 100%);"></div>
@@ -1634,16 +1740,14 @@
         </div>
       </div>
 
-      <!-- Down Arrow Transition Cue -->
       <a class="down-arrow-anchor" onclick="smoothScrollToTarget('hub-apply-anchor', event)">
         <span class="down-arrow-text">Applications & Schedule</span>
         <i data-lucide="chevron-down" class="down-arrow-icon" style="width: 16px; height: 16px;"></i>
       </a>
     </div>
 
-    <!-- Market Hub Main Body Content -->
+    <!-- Main Hub Forms & Schedule -->
     <main class="container">
-      <!-- Section 1: Vendor & Artist Showcase Application Form -->
       <div class="editorial-panel" id="hub-apply-anchor" style="margin-top: 48px;">
         <h2>Vendor & Artist Showcase Application</h2>
         <p>Reserve booth spaces for upcoming outdoor flea markets or submit your portfolio and tracks to perform live sets during our evening concert and acoustic sound sessions.</p>
@@ -1698,7 +1802,6 @@
         </form>
       </div>
 
-      <!-- Section 2: Upcoming Event Schedule & RSVP -->
       <div class="editorial-panel" id="hub-schedule-anchor" style="margin-top: 36px;">
         <h2>Event Schedule & Passes</h2>
         <p>Upcoming flea markets, live floor unboxings, community popups, and evening concert sound sessions at 688 Beaumont Ave.</p>
@@ -1771,81 +1874,104 @@
     </main>
   </div>
 
-  <!-- PAGE 5: REVIEWS -->
-  <div id="page-reviews" class="page-view">
+  <!-- PAGE 5: ABOUT US (REPLACED REVIEWS) -->
+  <div id="page-about" class="page-view">
     <main class="container">
       <div class="editorial-panel">
-        <h1>Community Reviews</h1>
-        <p>Verified feedback from Beaumont and Inland Empire shoppers.</p>
+        <h1>About Hive Market</h1>
+        <p style="font-size: 1.05rem; color: var(--pure-white); line-height: 1.7; margin-bottom: 20px;">
+          Founded in Beaumont, California, Hive Market was established to revive the lost art of in-person curation, subcultural discovery, and circular streetwear fashion.
+        </p>
+        <p style="margin-bottom: 24px;">
+          We operate at the intersection of vintage single-stitch archives, rugged workwear, skate culture, and regional independent creators. Rather than standard fast-fashion consumption, we champion longevity—giving iconic garments, leather boots, reworked designer pieces, and retro audio gear a second life.
+        </p>
 
-        <div class="reviews-grid" id="reviews-container">
-          <div class="review-card interactive-click">
-            <div class="review-quote">"Good environment, great service."</div>
-            <div class="review-author">— Google Reviewer</div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px;">
+          <div style="border: 1px solid rgba(255, 255, 255, 0.15); padding: 24px; background: rgba(255, 255, 255, 0.02);">
+            <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.18em; color: var(--bg-yellow); margin-bottom: 8px;">OUR ETHOS</div>
+            <h3 style="font-size: 1.1rem; color: var(--pure-white); margin-bottom: 8px;">Circular Fashion</h3>
+            <p style="font-size: 0.84rem; color: var(--trans-white-grey); line-height: 1.6;">Curating pieces that stand the test of time, reducing landfill waste through instant buyout & trade credit programs.</p>
           </div>
 
-          <div class="review-card interactive-click">
-            <div class="review-quote">"Place has a nice aesthetic too, would check out again."</div>
-            <div class="review-author">— Google Reviewer</div>
+          <div style="border: 1px solid rgba(255, 255, 255, 0.15); padding: 24px; background: rgba(255, 255, 255, 0.02);">
+            <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.18em; color: var(--bg-yellow); margin-bottom: 8px;">COMMUNITY</div>
+            <h3 style="font-size: 1.1rem; color: var(--pure-white); margin-bottom: 8px;">Creator Incubator</h3>
+            <p style="font-size: 0.84rem; color: var(--trans-white-grey); line-height: 1.6;">Providing physical street pop-up spaces, booth setups, and performance stages for local musicians and artists.</p>
           </div>
 
-          <div class="review-card interactive-click">
-            <div class="review-quote">"Sold two bins of 90s shirts and boots today. Super fair payout on the spot and great tunes playing."</div>
-            <div class="review-author">— Marcus R. (Seller)</div>
+          <div style="border: 1px solid rgba(255, 255, 255, 0.15); padding: 24px; background: rgba(255, 255, 255, 0.02);">
+            <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.18em; color: var(--bg-yellow); margin-bottom: 8px;">IN-STORE</div>
+            <h3 style="font-size: 1.1rem; color: var(--pure-white); margin-bottom: 8px;">Audio & Culture</h3>
+            <p style="font-size: 0.84rem; color: var(--trans-white-grey); line-height: 1.6;">More than retail—a lounge to listen to vinyl, play retro video games, explore collectibles, and talk fashion.</p>
           </div>
-        </div>
-
-        <div style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px;">
-          <h2 style="font-size:1.1rem; font-weight:400; color:var(--bg-yellow); margin-bottom:12px; text-transform:uppercase; letter-spacing:0.18em;">Submit Feedback</h2>
-          <form class="form-grid" onsubmit="handleReviewSubmit(event)">
-            <div class="form-row">
-              <div>
-                <label class="field-label">Your Name</label>
-                <input type="text" id="review-name" class="clean-input" placeholder="Alex M." required />
-              </div>
-              <div>
-                <label class="field-label">Experience Feedback</label>
-                <input type="text" id="review-text" class="clean-input" placeholder="Thoughts on the space and curation..." required />
-              </div>
-            </div>
-            <button type="submit" class="btn-submit interactive-click" style="width: auto;">Post Review</button>
-          </form>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- PAGE 6: INFO -->
-  <div id="page-info" class="page-view">
+  <!-- PAGE 6: FAQ (REPLACED INFO IN NAVBAR) -->
+  <div id="page-faq" class="page-view">
     <main class="container">
       <div class="editorial-panel">
-        <h1>Location & Hours</h1>
-        <p>Visit our brick-and-mortar space in Beaumont, California.</p>
+        <h1>Frequently Asked Questions</h1>
+        <p>Everything you need to know about buying, selling, trading, attending events, and booking slots at Hive Market.</p>
 
-        <table class="spec-table" style="margin-top: 24px;">
-          <tbody>
-            <tr>
-              <td><strong>Address</strong></td>
-              <td>688 Beaumont Ave, Beaumont, CA 92223</td>
-              <td><a href="https://maps.google.com/?q=688+Beaumont+Ave,+Beaumont,+CA+92223" target="_blank" style="color: var(--bg-yellow); text-decoration:none;">Open Maps →</a></td>
-            </tr>
-            <tr>
-              <td><strong>Monday – Friday</strong></td>
-              <td>11:00 AM – 7:00 PM</td>
-              <td style="color: var(--bg-yellow);">Open Daily</td>
-            </tr>
-            <tr>
-              <td><strong>Saturday & Sunday</strong></td>
-              <td>12:00 PM – 8:00 PM</td>
-              <td style="color: var(--bg-yellow);">Open Weekends</td>
-            </tr>
-            <tr>
-              <td><strong>Phone Line</strong></td>
-              <td>(951) 845-5669</td>
-              <td>Store Desk Direct</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="faq-accordion-group">
+          <!-- Item 1 -->
+          <div class="faq-accordion-item">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span class="q-title">How does selling and trading work at Hive Market?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer-body">
+              Bring your freshly laundered vintage tees, denim, Carhartt jackets, or clean footwear into the store during regular hours. Our appraisal team evaluates items on the spot. You can choose instant cash payout, Venmo/Zelle, or receive 1.5x store trade credit to shop anything in the building.
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="faq-accordion-item">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span class="q-title">Do I need an appointment to sell my items?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer-body">
+              Walk-ins are welcomed during all standard hours (Mon–Fri 11–7, Sat–Sun 12–8). However, if you are bringing multiple bins, bulk vault collections, or footwear collections, scheduling an appraisal on our Sell/Trade page guarantees prioritized, expedited review.
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="faq-accordion-item">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span class="q-title">How do I get a vendor booth at your outdoor markets?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer-body">
+              Head over to our <strong>Market Hub</strong> page and submit the Vendor & Artist Showcase form. Select your preferred market date and describe your brand or curation. Our curation team will review your application and send over setup confirmation.
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="faq-accordion-item">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span class="q-title">Can musicians, DJs, or bands perform at Hive Market?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer-body">
+              Yes! We regularly host evening sound sessions, acoustic courtyard performances, and weekend DJ sets. Submit your sound links (Soundcloud, Spotify, Instagram) via our <strong>Market Hub</strong> application form.
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="faq-accordion-item">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span class="q-title">What brands and styles do you decline?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer-body">
+              We do not purchase fast-fashion brands (Shein, Temu, Forever 21, Zara basics), heavily stained or damaged garments (unless intentional vintage distress), or unwashed clothing.
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </div>
@@ -1988,6 +2114,14 @@
       }
 
       requestAnimationFrame(animation);
+    }
+
+    /* -------------------------------------------------------------
+       FAQ ACCORDION TOGGLE
+    ------------------------------------------------------------- */
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('open');
     }
 
     /* -------------------------------------------------------------
@@ -2165,23 +2299,6 @@
     function handleVendorSubmit(e) {
       e.preventDefault();
       alert('APPLICATION RECEIVED\n\nThank you for applying to showcase/perform with Hive Market! Our community curation team will review your submission.');
-      e.target.reset();
-    }
-
-    function handleReviewSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('review-name').value;
-      const text = document.getElementById('review-text').value;
-
-      const container = document.getElementById('reviews-container');
-      const box = document.createElement('div');
-      box.className = 'review-card interactive-click';
-      box.innerHTML = `
-        <div class="review-quote">"${text}"</div>
-        <div class="review-author">— ${name} (Verified)</div>
-      `;
-      container.prepend(box);
-      alert('FEEDBACK RECORDED');
       e.target.reset();
     }
 
