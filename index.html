@@ -209,7 +209,6 @@
       max-width: 860px;
     }
     
-    /* Original Full Wordmark Logo in Center Hero */
     .landing-official-logo {
       width: 100%;
       max-width: 560px;
@@ -1214,7 +1213,7 @@
     }
 
     /* -------------------------------------------------------------
-       WHO WE ARE / SINGLE LARGER POLAROID EDITORIAL LAYOUT
+       ABOUT US / WHO WE ARE SECTION
     ------------------------------------------------------------- */
     .who-we-are-wrap {
       max-width: 1100px;
@@ -1233,13 +1232,13 @@
 
     .who-we-are-top-grid {
       display: grid;
-      grid-template-columns: 380px 1fr;
-      gap: 44px;
+      grid-template-columns: 420px 1fr;
+      gap: 48px;
       align-items: center;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
-    /* Single Bigger Polaroid Frame */
+    /* Single Larger Polaroid Frame */
     .polaroid-single-container {
       width: 100%;
       display: flex;
@@ -1249,22 +1248,22 @@
 
     .polaroid-single-card {
       background: #FFFFFF;
-      padding: 14px 14px 38px 14px;
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
+      padding: 14px 14px 42px 14px;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
       border-radius: 2px;
       transform: rotate(-2.5deg);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       cursor: pointer;
       width: 100%;
-      max-width: 350px;
+      max-width: 390px;
     }
     .polaroid-single-card:hover {
       transform: scale(1.03) rotate(0deg) !important;
-      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.75);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.8);
     }
     .polaroid-single-img-box {
       width: 100%;
-      height: 320px;
+      height: 360px;
       overflow: hidden;
       background: #1a1a1a;
     }
@@ -1277,7 +1276,22 @@
       filter: contrast(1.05) brightness(0.98);
     }
 
-    .who-we-are-narrative {
+    .about-story-block {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .about-section-heading {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      color: var(--bg-yellow);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .about-body-text {
       font-size: 0.95rem;
       font-weight: 300;
       line-height: 1.8;
@@ -1285,13 +1299,18 @@
       letter-spacing: 0.02em;
     }
 
-    .who-we-are-body-text {
+    .about-bullet-quote {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 10px 0;
       font-size: 0.95rem;
-      font-weight: 300;
-      line-height: 1.8;
-      color: rgba(255, 255, 255, 0.88);
-      letter-spacing: 0.02em;
-      margin-top: 24px;
+      font-weight: 400;
+      color: var(--pure-white);
+      border-left: 2px solid var(--bg-yellow);
+      padding-left: 18px;
     }
 
     /* FAQ Collapsible Component */
@@ -2395,7 +2414,7 @@
             </div>
           </div>
 
-          <!-- Item 3: dj jordan.JPG (Updated Description) -->
+          <!-- Item 3: dj jordan.JPG -->
           <div class="event-collage-card interactive-click">
             <div class="event-collage-media">
               <img src="dj jordan.JPG" alt="Live Mixing at the Decks" />
@@ -2429,17 +2448,16 @@
     </main>
   </div>
 
-  <!-- PAGE 5: ABOUT US (WHO WE ARE - SINGLE LARGER POLAROID EDITORIAL LAYOUT) -->
+  <!-- PAGE 5: ABOUT US (UPDATED WITH OFFICIAL CLIENT TEXT & BIGGER POLAROID) -->
   <div id="page-about" class="page-view">
     <main class="container">
       <div class="editorial-panel">
         <div class="who-we-are-wrap">
-          <h1 class="who-we-are-title">Who We Are</h1>
+          <h1 class="who-we-are-title">About Hive Market</h1>
 
-          <!-- Top Row: Single Larger Polaroid Frame + Intro Column -->
+          <!-- Top Section: Single Larger Polaroid + Origin Story -->
           <div class="who-we-are-top-grid">
             
-            <!-- Single Larger Polaroid Card -->
             <div class="polaroid-single-container">
               <div class="polaroid-single-card">
                 <div class="polaroid-single-img-box">
@@ -2448,80 +2466,112 @@
               </div>
             </div>
 
-            <!-- Narrative Column 1 -->
-            <div class="who-we-are-narrative">
-              The Hive Market story begins in Beaumont, California, rooted in a shared passion for archive street culture, vintage preservation, and revitalizing in-person subcultural discovery. Founded by Marissa and Jordan, the space was envisioned as more than a standard vintage retail shop—it was created to be a style haven and creative sanctuary celebrating authenticity and self-expression. Offering curated single-stitch t-shirts, Carhartt workwear, rugged denim, and timeless leather boots, Hive Market inspires collectors and visitors to build one-of-a-kind looks every time they walk through the doors.
+            <div class="about-body-text">
+              <p style="font-size: 1.05rem; font-weight: 500; color: var(--pure-white); margin-bottom: 12px;">
+                A place for clothes, creativity, and community.
+              </p>
+              <p style="margin-bottom: 12px;">
+                What started as selling clothes out of a garage became something much bigger than we ever imagined. In the early days, our goal was simple: collect clothes we loved, share them with people who appreciated them, and create a community around them. Building that community felt almost impossible during COVID, but the idea never went away.
+              </p>
+              <p>
+                In January 2026, we stumbled across a space in Beaumont, California that felt like the perfect place to bring that vision to life. What followed was five months of remodeling, building, designing, and figuring things out along the way. On June 11, 2026, Hive Market officially opened its doors at 688 Beaumont Ave.
+              </p>
             </div>
           </div>
 
-          <!-- Bottom Full-Width Paragraphs -->
-          <p class="who-we-are-body-text">
-            From hand-picking every single garment on the racks to hosting outdoor sidewalk fleas and intimate in-store concert sound sessions, Marissa & Jordan continue to shape the cultural heartbeat of 688 Beaumont Ave. Whether you are crate-digging through 90s band tees, finding a rare jacket, listening to analog vinyl sets, or meeting independent regional designers at our weekend pop-ups, Hive Market remains a physical home for community and sound.
-          </p>
+          <!-- Structured Narrative Sections -->
+          <div class="about-story-block">
+            <div>
+              <h3 class="about-section-heading">What We Do</h3>
+              <p class="about-body-text">
+                We operate at the intersection of vintage clothing, rugged workwear, skate culture, and independent creators from our region and beyond.
+              </p>
+              <p class="about-body-text" style="margin-top: 10px;">
+                Instead of treating clothing as something disposable, we believe in giving things a second life. Everything we bring into Hive is carefully selected because it has a story, a character, or a place within the culture we love. Every garment on our racks is hand-picked and curated by us. Nothing is here simply to fill a rack.
+              </p>
+            </div>
 
-          <p class="who-we-are-body-text">
-            Every curation, concert night, and buyout is driven by circular fashion—giving iconic streetwear garments a second life while cultivating an inclusive gathering place where musicians, artists, and vintage enthusiasts can connect under one roof.
-          </p>
+            <div>
+              <h3 class="about-section-heading">More Than a Store</h3>
+              <p class="about-body-text">
+                As long-time collectors and curators, Marissa and Jordan started Hive with the mission to build a physical haven where independent designers, musicians, vintage lovers, and creatives could connect under one roof, and create something meaningful in Beaumont.
+              </p>
+              <p class="about-body-text" style="margin-top: 10px;">
+                That mission continues through everything we do. From community flea markets and pop-ups to in-store concerts, DJ events, creative collaborations, and sound sessions, we’re constantly looking for new ways to bring people together.
+              </p>
+              <ul class="about-bullet-quote" style="margin-top: 16px;">
+                <li>We believe a great space can do more than sell things.</li>
+                <li>It can inspire you.</li>
+                <li>It can introduce you to people.</li>
+                <li>It can give you a place to belong.</li>
+                <li>It can make you want to create something of your own.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="about-section-heading">Our Vision</h3>
+              <p class="about-body-text">
+                Our goal is to create a community that welcomes everyone and an environment where creativity can blossom. Whether you’re digging through the racks, discovering a new artist, listening to music, selling your own work, meeting friends, or simply hanging out, we want Hive to feel like a place you can make your own. We’re building more than a vintage shop, we’re building a home for culture, creativity, and community in Beaumont.
+              </p>
+              <p style="font-size: 1.1rem; font-weight: 700; color: var(--bg-yellow); margin-top: 18px; text-transform: uppercase; letter-spacing: 0.1em;">
+                Welcome to Hive Market.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- PAGE 6: FAQ -->
+  <!-- PAGE 6: FAQ (UPDATED TO EXACT CLIENT SPECIFICATIONS) -->
   <div id="page-faq" class="page-view">
     <main class="container">
       <div class="editorial-panel">
         <h1>Frequently Asked Questions</h1>
-        <p>Everything you need to know about buying, selling, trading, attending events, and booking appointments at Hive Market.</p>
+        <p>Everything you need to know about buying, selling, and trading at Hive Market.</p>
 
         <div class="faq-accordion-group">
+          <!-- FAQ 1 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
-              <span class="q-title">How does selling and trading work at Hive Market?</span>
+              <span class="q-title">How does the buy/ trade process work?</span>
               <span class="faq-toggle-icon">+</span>
             </button>
             <div class="faq-answer-body">
-              Bring up to 40 clean, odor-free items into the store during regular hours or via a booked appointment. Our appraisal team evaluates items on the spot. You can choose 30% cash/Venmo/Zelle payout, or take 50% in store trade credit to shop anything in the building.
+              We will select items brought in based on quality, condition, current trends, timeless trends, and needs of the store. Buyers will then set a price for any/ each item chosen. You will have the option to choose between 30% cash, or 50% store credit based on that total price.
             </div>
           </div>
 
+          <!-- FAQ 2 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
-              <span class="q-title">Do I need an appointment to sell my items?</span>
+              <span class="q-title">Do I need an appointment to sell my clothes?</span>
               <span class="faq-toggle-icon">+</span>
             </button>
             <div class="faq-answer-body">
-              Walk-ins are welcomed during all standard hours (Mon–Fri 11–7, Sat–Sun 12–8). However, booking an appointment on our Sell/Trade page guarantees an expedited, dedicated evaluation slot.
+              Yes! Due to high demand, we are making our selling process appointment based only. To schedule an appointment to sell with us <a href="#" onclick="navigateTo('sell-trade', event)" style="color: var(--bg-yellow); font-weight: 700; text-decoration: underline;">click here</a>.
             </div>
           </div>
 
+          <!-- FAQ 3 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span class="q-title">What is the item limit per selling appointment?</span>
               <span class="faq-toggle-icon">+</span>
             </button>
             <div class="faq-answer-body">
-              We have a strict <strong>40 item limit</strong> per appointment so our buyers can thoroughly inspect each piece. Please bring your best, cleanest garments and shoes.
+              Although there is no item limit, it is prohibited to make more than one appointment in a day. So we encourage you to pre-sort through your items, remove any damaged, or unwashed items, and bring your best picks!
             </div>
           </div>
 
+          <!-- FAQ 4 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span class="q-title">What identification is required?</span>
               <span class="faq-toggle-icon">+</span>
             </button>
             <div class="faq-answer-body">
-              A valid government-issued ID, Driver’s License, or Passport is required by California law for all buyouts and trade drop-offs. Sellers must be at least 18 years of age.
-            </div>
-          </div>
-
-          <div class="faq-accordion-item">
-            <button class="faq-question-btn" onclick="toggleFaq(this)">
-              <span class="q-title">How do I get a vendor booth at your outdoor markets?</span>
-              <span class="faq-toggle-icon">+</span>
-            </button>
-            <div class="faq-answer-body">
-              Head over to our <strong>Market Hub</strong> page and submit the Vendor & Artist Showcase form. Select your preferred market date and describe your brand or curation. Our team will review your application and send over setup confirmation.
+              You must be 18 or older with a valid ID or passport. Anyone under the age of 18 that would like to sell must be accompanied by a guardian.
             </div>
           </div>
         </div>
@@ -2733,7 +2783,7 @@
         tag: "WEEKLY SPECIAL",
         title: "Trade Appreciation Thursday",
         time: "All Day • 11:00 AM – 7:00 PM",
-        desc: "Bring 10+ trade pieces today and receive a 20% bonus store credit evaluated upfront."
+        desc: "Bring trade pieces today and receive a 20% bonus store credit evaluated upfront."
       },
       "2026-08-27": {
         tag: "WEEKLY SPECIAL",
@@ -2836,7 +2886,7 @@
         tagEl.innerText = `${dayOfWeek.toUpperCase()} • ${monthName.toUpperCase()} ${day}`;
         titleEl.innerText = "Open Curation & Appraisal Desk";
         timeEl.innerHTML = `<i data-lucide="clock" style="width: 14px; height: 14px;"></i><span>Standard Store Hours (Open Daily)</span>`;
-        descEl.innerText = `688 Beaumont Ave is open for buying, selling, and trading. Book an appointment for up to 40 items or drop by to shop.`;
+        descEl.innerText = `688 Beaumont Ave is open for buying, selling, and trading. Book an appointment to have your items evaluated.`;
       }
       lucide.createIcons();
     }
