@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>HIVE MARKET USA | Buy • Sell • Trade</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -39,6 +39,12 @@
       padding: 0;
       border: none;
       outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
     }
 
     body {
@@ -46,7 +52,6 @@
       color: var(--active-text);
       font-family: 'Hanken Grotesk', sans-serif;
       font-weight: 400;
-      overflow-x: hidden;
       line-height: 1.5;
       min-height: 100vh;
       display: flex;
@@ -55,17 +60,19 @@
       transition: background-color 0.6s cubic-bezier(0.25, 1, 0.5, 1), color 0.6s ease;
     }
 
+    /* Floating Levitation Effects */
     .floating-card {
       border-radius: 28px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08), 0 4px 14px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08), 0 6px 16px rgba(0, 0, 0, 0.04);
       transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease;
       will-change: transform, box-shadow;
     }
     .floating-card:hover {
       transform: translateY(-6px) scale(1.01);
-      box-shadow: 0 26px 55px rgba(0, 0, 0, 0.14), 0 8px 24px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.15), 0 10px 24px rgba(0, 0, 0, 0.06);
     }
 
+    /* Spring Jumpy Interactive Buttons */
     .interactive-click {
       cursor: pointer;
       user-select: none;
@@ -83,6 +90,7 @@
       transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1) !important;
     }
 
+    /* Top Strip */
     .top-strip {
       background: var(--hm-black);
       color: rgba(255, 255, 255, 0.88);
@@ -90,15 +98,17 @@
       padding: 8px 16px;
       font-size: 0.7rem;
       font-weight: 500;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      height: 34px;
+      min-height: 34px;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 1001;
+      width: 100%;
     }
 
+    /* Dynamic Top Banner Header */
     header {
       position: sticky;
       top: 0;
@@ -108,6 +118,7 @@
       height: 68px;
       transition: background-color 0.6s cubic-bezier(0.25, 1, 0.5, 1);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      width: 100%;
     }
     .header-inner {
       max-width: 1500px;
@@ -140,6 +151,7 @@
       padding: 8px 14px;
       border-radius: 9999px;
       transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+      white-space: nowrap;
     }
     .nav-link:hover {
       background: rgba(0, 0, 0, 0.08);
@@ -177,6 +189,7 @@
       transform: translateY(20px) scale(0.99);
       transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                   transform 0.45s cubic-bezier(0.34, 1.45, 0.64, 1);
+      width: 100%;
     }
     .page-view.active {
       display: block !important;
@@ -187,7 +200,7 @@
     .landing-fullscreen-hero {
       width: 100vw;
       height: calc(100vh - 102px);
-      min-height: 560px;
+      min-height: 520px;
       position: relative;
       background: var(--hm-black);
       overflow: hidden;
@@ -233,11 +246,12 @@
       text-align: center;
       padding: 20px;
       max-width: 860px;
+      width: 100%;
     }
     
     .landing-official-logo {
       width: 100%;
-      max-width: 560px;
+      max-width: 540px;
       height: auto;
       display: block;
       filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.95)) invert(1);
@@ -255,7 +269,6 @@
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
     }
 
-    /* Spring Jumpy Arrow Anchors */
     .down-arrow-anchor {
       position: absolute;
       bottom: 24px;
@@ -367,16 +380,17 @@
       color: var(--hm-black);
     }
 
+    /* Completely Borderless Composite Floating Card */
     .events-calendar-composite-card {
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
-      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      border-radius: 36px;
       padding: 40px 36px;
       display: flex;
       flex-direction: column;
-      gap: 32px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      gap: 36px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08), 0 8px 20px rgba(0, 0, 0, 0.03);
     }
 
     .carousel-outer {
@@ -393,19 +407,19 @@
 
     .event-card-slide {
       flex: 0 0 calc(33.333% - 16px);
-      min-width: 310px;
+      min-width: 300px;
       background: var(--hm-white);
-      border-radius: 24px;
+      border-radius: 26px;
       padding: 30px 26px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
       transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease;
     }
     .event-card-slide:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.12);
     }
     .event-tag-pill {
       font-size: 0.64rem;
@@ -466,15 +480,16 @@
       transform: scale(1.4);
     }
 
+    /* Completely Borderless Floating Calendar Grid */
     .calendar-integrated-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 32px;
       background: var(--hm-black);
-      border-radius: 28px;
+      border-radius: 30px;
       padding: 36px 32px;
       color: var(--hm-white);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
     }
     .cal-header {
       display: flex;
@@ -566,7 +581,7 @@
 
     .cal-details-panel {
       background: rgba(255, 255, 255, 0.04);
-      border-radius: 20px;
+      border-radius: 22px;
       padding: 28px;
       display: flex;
       flex-direction: column;
@@ -621,7 +636,7 @@
       gap: 0;
       width: 100%;
       height: 75vh;
-      min-height: 560px;
+      min-height: 520px;
     }
     .trio-photo-item {
       width: 100%;
@@ -709,17 +724,18 @@
       transform: translateY(-2px);
     }
 
+    /* 4-Column Location, Hours, Contact, & Socials Strip */
     .home-location-strip {
       background: var(--hm-black);
       color: var(--hm-white);
-      padding: 60px 36px;
+      padding: 60px 36px 70px;
     }
     .home-location-grid {
       max-width: 1400px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: 1.1fr 1fr 1fr 1fr;
+      gap: 36px;
     }
     .home-loc-box h3 {
       font-size: 0.75rem;
@@ -744,9 +760,17 @@
       display: inline-block;
       margin-top: 10px;
     }
+    .social-tag-link {
+      font-size: 1.15rem !important;
+      color: var(--hm-yellow) !important;
+      font-weight: 800 !important;
+      text-transform: none !important;
+      letter-spacing: 0.04em !important;
+      margin-top: 4px !important;
+    }
 
     /* -------------------------------------------------------------
-       PAGE 2: BUY / SELL / TRADE (FOREST GREEN THEME)
+       PAGE 2: BUY / SELL / TRADE (FOREST GREEN FLOATING LOOK)
     ------------------------------------------------------------- */
     .artsy-trade-page {
       background-color: var(--hm-forest);
@@ -759,7 +783,7 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 64px;
+      gap: 52px;
     }
 
     .artsy-step-row {
@@ -768,9 +792,9 @@
       gap: 48px;
       align-items: center;
       background: var(--hm-forest-dark);
-      border-radius: 32px;
+      border-radius: 36px;
       padding: 44px 48px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.28), 0 8px 20px rgba(0, 0, 0, 0.12);
     }
     .artsy-step-row.reverse {
       grid-template-columns: 0.85fr 1.15fr;
@@ -846,14 +870,14 @@
     .artsy-booking-cta-card {
       background: var(--hm-forest-dark);
       color: var(--hm-white);
-      border-radius: 32px;
+      border-radius: 36px;
       padding: 48px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 18px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
     }
     .artsy-booking-cta-card h2 {
       font-size: 2.2rem;
@@ -875,7 +899,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 3: MARKET HUB (SWISH TRANSITIONS & DROPDOWN)
+       PAGE 3: MARKET HUB (OCEAN BLUE #3a6894 THEME)
     ------------------------------------------------------------- */
     .market-hub-page {
       background-color: var(--hm-blue);
@@ -1046,7 +1070,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 4: EVENT GALLERY (BERRY RED THEME)
+       PAGE 4: EVENT GALLERY (BERRY RED #9e1f63 THEME)
     ------------------------------------------------------------- */
     .gallery-page-wrap {
       background-color: var(--hm-berry);
@@ -1179,7 +1203,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 5: ABOUT US (YELLOW TITLE ACCENTS)
+       PAGE 5: ABOUT US (DEEP BLACK THEME #000000 - YELLOW TITLE)
     ------------------------------------------------------------- */
     .about-page-wrap {
       background-color: var(--hm-black);
@@ -1258,7 +1282,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 6: FAQ
+       PAGE 6: FAQ (WARM TAUPE THEME #726658)
     ------------------------------------------------------------- */
     .faq-page-wrap {
       background-color: var(--hm-taupe);
@@ -1320,7 +1344,7 @@
     }
 
     /* -------------------------------------------------------------
-       DRAGGABLE IPOD AUDIO WIDGET (CONSISTENT YELLOW THEME + HIDE/UNHIDE)
+       DRAGGABLE IPOD AUDIO WIDGET (UNIFIED YELLOW + HIDE/SHOW)
     ------------------------------------------------------------- */
     #ipod-widget {
       position: fixed;
@@ -1430,7 +1454,6 @@
       color: var(--hm-yellow);
     }
 
-    /* Floating Unhide Pill Button */
     #ipod-unhide-trigger {
       position: fixed;
       bottom: 24px;
@@ -1451,23 +1474,6 @@
       gap: 6px;
     }
     #ipod-unhide-trigger.visible { display: flex; }
-
-    @media (max-width: 960px) {
-      header { padding: 10px 16px; height: auto; }
-      .header-inner { display: flex; flex-direction: column; gap: 10px; }
-      .nav-left, .nav-right { gap: 12px; flex-wrap: wrap; justify-content: center; }
-      .landing-fullscreen-hero { height: calc(100vh - 120px); }
-      .artsy-step-row, .artsy-step-row.reverse { grid-template-columns: 1fr; padding: 30px 24px; }
-      .event-cover-item-1x1 { height: 380px; }
-      .who-we-are-top-grid { grid-template-columns: 1fr; }
-      .calendar-integrated-grid { grid-template-columns: 1fr; padding: 24px; }
-      .home-location-grid { grid-template-columns: 1fr; gap: 28px; }
-      .event-card-slide { flex: 0 0 85%; }
-      .hub-event-pass-card { grid-template-columns: 1fr; }
-      .swish-success-panel { grid-template-columns: 1fr; }
-      .swish-follow-photo { height: 300px; }
-      .container { padding: 28px 16px; }
-    }
   </style>
 </head>
 <body>
@@ -1486,7 +1492,7 @@
         <li><a class="nav-link interactive-click" onclick="navigateTo('market-hub', event)">Market Hub</a></li>
       </ul>
 
-      <!-- Direct Cutout HM Logo (Dynamically shifts to white on black pages) -->
+      <!-- Direct Cutout HM Logo (Stays Black everywhere except About Us which is White) -->
       <a class="brand-center interactive-click" onclick="navigateTo('home', event)" aria-label="Hive Market Home">
         <img src="hm logo new.png" id="main-header-logo" class="header-hm-raw-logo" alt="HM Logo" />
       </a>
@@ -1541,6 +1547,7 @@
           <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em;">688 BEAUMONT AVE</span>
         </div>
 
+        <!-- Completely Borderless Floating Card -->
         <div class="events-calendar-composite-card floating-card">
           <!-- Conveyor Carousel -->
           <div class="carousel-outer" onmouseenter="pauseConveyor()" onmouseleave="resumeConveyor()">
@@ -1656,7 +1663,7 @@
       </div>
     </div>
 
-    <!-- Store Location Strip -->
+    <!-- 4-Column Location, Hours, Contact, & Socials Strip -->
     <div class="home-location-strip">
       <div class="home-location-grid">
         <div class="home-loc-box">
@@ -1665,29 +1672,37 @@
           <p>Beaumont, California 92223</p>
           <a href="https://maps.google.com/?q=688+Beaumont+Ave,+Beaumont,+CA+92223" target="_blank">Get Directions →</a>
         </div>
+
         <div class="home-loc-box">
           <h3>Store Hours</h3>
           <p><strong style="color: var(--hm-white);">Monday – Friday:</strong> 11:00 AM – 7:00 PM</p>
           <p><strong style="color: var(--pure-white);">Saturday – Sunday:</strong> 12:00 PM – 8:00 PM</p>
         </div>
+
         <div class="home-loc-box">
           <h3>Contact Us</h3>
           <p style="font-size: 1.15rem; color: var(--hm-white); font-weight: 700; margin-bottom: 4px;">(909) 222-5719</p>
           <p>Direct line for trade inquiries & booking</p>
           <a href="tel:9092225719">Call Store →</a>
         </div>
+
+        <div class="home-loc-box">
+          <h3>Follow Our Community</h3>
+          <p>Stay updated on drops, sound sessions & fleas:</p>
+          <a href="https://instagram.com/hivemarketusa" target="_blank" class="social-tag-link">@hivemarketusa →</a>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- =============================================================
-       PAGE 2: BUY / SELL / TRADE (FOREST GREEN THEME #105113)
+       PAGE 2: BUY / SELL / TRADE (FOREST GREEN FLOATING LOOK)
   ============================================================= -->
   <div id="page-sell-trade" class="page-view">
     <div class="artsy-trade-page">
       <div class="artsy-trade-inner">
         
-        <!-- Step 1 -->
+        <!-- Step 1 (Completely Borderless) -->
         <div class="artsy-step-row floating-card">
           <div>
             <h2 class="artsy-step-title">1. Organize Your Clothes</h2>
@@ -2203,14 +2218,14 @@
   <script>
     lucide.createIcons();
 
-    /* Distinct Dynamic Tab Theme Palette Map */
+    /* Distinct Dynamic Tab Theme Palette Map (Black Logo everywhere except White on About Us) */
     const tabThemeMap = {
       'home': { bg: '#fbdb00', banner: '#fbdb00', text: '#000000', navColor: '#000000', logoFilter: 'none' },
-      'sell-trade': { bg: '#105113', banner: '#105113', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
-      'market-hub': { bg: '#3a6894', banner: '#3a6894', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
-      'gallery': { bg: '#9e1f63', banner: '#9e1f63', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
+      'sell-trade': { bg: '#105113', banner: '#105113', text: '#ffffff', navColor: '#ffffff', logoFilter: 'none' },
+      'market-hub': { bg: '#3a6894', banner: '#3a6894', text: '#ffffff', navColor: '#ffffff', logoFilter: 'none' },
+      'gallery': { bg: '#9e1f63', banner: '#9e1f63', text: '#ffffff', navColor: '#ffffff', logoFilter: 'none' },
       'about': { bg: '#000000', banner: '#000000', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
-      'faq': { bg: '#726658', banner: '#726658', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' }
+      'faq': { bg: '#726658', banner: '#726658', text: '#ffffff', navColor: '#ffffff', logoFilter: 'none' }
     };
 
     function triggerJumpClick(element) {
@@ -2227,7 +2242,6 @@
         triggerJumpClick(clickedEl);
       }
 
-      // Hide all current views completely
       const allPages = document.querySelectorAll('.page-view');
       allPages.forEach(p => {
         p.classList.remove('active');
@@ -2236,7 +2250,6 @@
         p.style.transform = 'translateY(20px) scale(0.99)';
       });
 
-      // Apply distinct color theme and dynamic logo inversion for black backgrounds
       const theme = tabThemeMap[pageId] || tabThemeMap['home'];
       document.documentElement.style.setProperty('--active-bg', theme.bg);
       document.documentElement.style.setProperty('--active-banner', theme.banner);
@@ -2248,7 +2261,6 @@
         headerLogo.style.filter = theme.logoFilter;
       }
 
-      // Activate target page immediately
       const target = document.getElementById(`page-${pageId}`);
       if (target) {
         target.style.display = 'block';
