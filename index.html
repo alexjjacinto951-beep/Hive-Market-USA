@@ -23,8 +23,8 @@
       --hm-hotpink: #ee2a7b;
       --hm-softpink: #ef559f;
       --hm-berry: #9e1f63;
-      --hm-plum: #722f3e;
-      --hm-plum-dark: #521e2a;
+      --hm-sage: #6b705c;
+      --hm-sage-dark: #535846;
       --hm-forest: #105113;
       --hm-blue: #3a6894;
       --hm-taupe: #726658;
@@ -762,6 +762,7 @@
       display: inline-block;
       margin-top: 10px;
     }
+    /* Hot Pink Social Link */
     .social-tag-link {
       font-size: 1.15rem !important;
       color: var(--hm-hotpink) !important;
@@ -775,10 +776,10 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 2: BUY / SELL / TRADE (#722f3e PLUM WITH FLOATING CARDS)
+       PAGE 2: BUY / SELL / TRADE (#6b705c SAGE THEME WITH SHADOW BACKDROPS & ACCENTS)
     ------------------------------------------------------------- */
     .artsy-trade-page {
-      background-color: var(--hm-plum);
+      background-color: var(--hm-sage);
       color: var(--hm-white);
       min-height: calc(100vh - 102px);
       padding: 60px 36px 90px;
@@ -791,22 +792,28 @@
       gap: 48px;
     }
 
+    /* Floating Step Cards with Rich Backdrop Shadow */
     .artsy-step-row {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 48px;
       align-items: center;
-      background: var(--hm-plum-dark);
+      background: var(--hm-sage-dark);
       border-radius: 36px;
       padding: 44px 48px;
-      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.35), 0 8px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.32), 0 8px 24px rgba(0, 0, 0, 0.16);
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease;
+    }
+    .artsy-step-row:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 32px 65px rgba(0, 0, 0, 0.42), 0 12px 28px rgba(0, 0, 0, 0.2);
     }
     .artsy-step-row.reverse {
       grid-template-columns: 0.85fr 1.15fr;
     }
 
     .artsy-step-title {
-      font-size: 1.9rem;
+      font-size: 2rem;
       font-weight: 700 !important;
       letter-spacing: 0.04em;
       color: var(--hm-yellow);
@@ -818,9 +825,12 @@
       color: rgba(255, 255, 255, 0.95);
       margin-bottom: 24px;
     }
+    .artsy-step-subtitle strong {
+      color: var(--hm-hotpink);
+    }
 
     .artsy-accordion-item {
-      padding: 16px 0;
+      padding: 14px 0;
     }
     .artsy-accordion-btn {
       width: 100%;
@@ -831,34 +841,41 @@
       font-family: 'Futura Bold Custom', 'Futura', sans-serif !important;
       font-size: 1.15rem;
       font-weight: 700 !important;
-      color: var(--hm-hotpink);
+      color: var(--hm-yellow);
       cursor: pointer;
       text-align: left;
     }
     .artsy-accordion-body {
       display: none;
       padding-top: 12px;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       color: rgba(255, 255, 255, 0.9);
-      line-height: 1.6;
+      line-height: 1.65;
     }
     .artsy-accordion-item.open .artsy-accordion-body {
       display: block;
     }
     .artsy-accordion-item.open .toggle-symbol {
       transform: rotate(45deg);
+      color: var(--hm-hotpink);
     }
 
+    /* Floating Image Display with Asset Inversion */
     .artsy-visual-badge {
       width: 100%;
-      height: 240px;
-      background: rgba(255, 255, 255, 0.05);
+      height: 260px;
       border-radius: 28px;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
+      background: rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);
+      padding: 20px;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .artsy-visual-badge:hover {
+      transform: scale(1.04);
     }
     .artsy-duotone-graphic {
       width: 100%;
@@ -869,7 +886,7 @@
     }
 
     .artsy-booking-cta-card {
-      background: var(--hm-plum-dark);
+      background: var(--hm-sage-dark);
       color: var(--hm-white);
       border-radius: 36px;
       padding: 48px;
@@ -878,7 +895,8 @@
       flex-direction: column;
       align-items: center;
       gap: 18px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+      margin-top: 12px;
     }
     .artsy-booking-cta-card h2 {
       font-size: 2.3rem;
@@ -889,14 +907,20 @@
     .btn-artsy-book {
       background: var(--hm-hotpink);
       color: var(--hm-white);
-      padding: 16px 40px;
+      padding: 16px 42px;
       border-radius: 9999px;
       font-weight: 700 !important;
       font-size: 0.92rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       text-decoration: none;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 24px rgba(238, 42, 123, 0.35);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    .btn-artsy-book:hover {
+      background: var(--hm-yellow);
+      color: var(--hm-black);
+      transform: translateY(-2px);
     }
 
     /* -------------------------------------------------------------
@@ -1560,7 +1584,8 @@
       }
       .artsy-step-row, .artsy-step-row.reverse {
         grid-template-columns: 1fr;
-        padding: 20px 0;
+        padding: 28px 20px;
+        border-radius: 24px;
         gap: 20px;
       }
       .artsy-step-title {
@@ -1874,13 +1899,13 @@
   </div>
 
   <!-- =============================================================
-       PAGE 2: BUY / SELL / TRADE (#722f3e PLUM WITH SEAMLESS FLOATING STEPS)
+       PAGE 2: BUY / SELL / TRADE (#6b705c SAGE THEME - NO SHADOW BACKDROPS ON STEPS)
   ============================================================= -->
   <div id="page-sell-trade" class="page-view">
     <div class="artsy-trade-page">
       <div class="artsy-trade-inner">
         
-        <!-- Step 1 (Seamless Floating Row with clothing asset.png) -->
+        <!-- Step 1 (Seamless Floating Row - Background Removed) -->
         <div class="artsy-step-row">
           <div>
             <h2 class="artsy-step-title">1. Organize Your Clothes</h2>
@@ -1914,7 +1939,7 @@
           </div>
         </div>
 
-        <!-- Step 2 (Seamless Floating Row with passport asset.png) -->
+        <!-- Step 2 (Seamless Floating Row - Background Removed) -->
         <div class="artsy-step-row reverse">
           <div class="artsy-visual-badge">
             <img src="passport asset.png" class="artsy-duotone-graphic" alt="ID Passport Graphic" />
@@ -1931,7 +1956,7 @@
           </div>
         </div>
 
-        <!-- Step 3 (Seamless Floating Row with money asset.png) -->
+        <!-- Step 3 (Seamless Floating Row - Background Removed) -->
         <div class="artsy-step-row">
           <div>
             <h2 class="artsy-step-title">3. Claim Your Cash or Credit</h2>
@@ -1948,7 +1973,7 @@
         <!-- Booking Callout -->
         <div class="artsy-booking-cta-card floating-card">
           <h2>Schedule Your Selling Appointment</h2>
-          <p style="max-width: 650px; font-size: 1rem; line-height: 1.6;">
+          <p style="max-width: 650px; font-size: 1.05rem; line-height: 1.6;">
             Due to high demand, our buying desk is appointment-based only. Select a date to reserve your expedited evaluation slot at 688 Beaumont Ave.
           </p>
           <a href="#" class="btn-artsy-book interactive-click" onclick="alert('APPOINTMENT LINK: Acuity Scheduling ready to be connected.'); return false;">
@@ -2401,7 +2426,7 @@
     */
     const tabThemeMap = {
       'home': { bg: '#fbdb00', banner: '#fbdb00', text: '#000000', navColor: '#000000', logoFilter: 'none' },
-      'sell-trade': { bg: '#722f3e', banner: '#722f3e', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
+      'sell-trade': { bg: '#6b705c', banner: '#535846', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
       'market-hub': { bg: '#3a6894', banner: '#3a6894', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
       'gallery': { bg: '#9e1f63', banner: '#9e1f63', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
       'about': { bg: '#000000', banner: '#000000', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
