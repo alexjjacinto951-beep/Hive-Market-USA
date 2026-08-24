@@ -37,8 +37,8 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      border: none;
-      outline: none;
+      border: none !important;
+      outline: none !important;
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -380,17 +380,11 @@
       color: var(--hm-black);
     }
 
-    /* Completely Borderless Composite Floating Card */
-    .events-calendar-composite-card {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(32px);
-      -webkit-backdrop-filter: blur(32px);
-      border-radius: 36px;
-      padding: 40px 36px;
+    /* Seamless Floating Layout on Home */
+    .home-floating-events-section {
       display: flex;
       flex-direction: column;
       gap: 36px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08), 0 8px 20px rgba(0, 0, 0, 0.03);
     }
 
     .carousel-outer {
@@ -414,12 +408,12 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
       transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease;
     }
     .event-card-slide:hover {
       transform: translateY(-6px);
-      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.12);
     }
     .event-tag-pill {
       font-size: 0.64rem;
@@ -480,7 +474,7 @@
       transform: scale(1.4);
     }
 
-    /* Completely Borderless Floating Calendar Grid */
+    /* Floating Calendar Grid */
     .calendar-integrated-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
@@ -815,11 +809,7 @@
     }
 
     .artsy-accordion-item {
-      border-top: 1.5px solid rgba(251, 219, 0, 0.25);
       padding: 16px 0;
-    }
-    .artsy-accordion-item:last-child {
-      border-bottom: 1.5px solid rgba(251, 219, 0, 0.25);
     }
     .artsy-accordion-btn {
       width: 100%;
@@ -1277,7 +1267,7 @@
       font-size: 0.95rem;
       font-weight: 500;
       color: var(--hm-white);
-      border-left: 3px solid var(--hm-hotpink);
+      border-left: 3px solid var(--hm-hotpink) !important;
       padding-left: 18px;
     }
 
@@ -1474,6 +1464,189 @@
       gap: 6px;
     }
     #ipod-unhide-trigger.visible { display: flex; }
+
+    /* =============================================================
+       MOBILE RESPONSIVENESS & CUTOFF PREVENTION FIXES
+    ============================================================= */
+    @media (max-width: 960px) {
+      header {
+        padding: 12px 16px;
+        height: auto;
+      }
+      .header-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+      .nav-left, .nav-right {
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+      }
+      .nav-link {
+        font-size: 0.7rem;
+        padding: 6px 10px;
+      }
+
+      .landing-fullscreen-hero {
+        height: calc(100vh - 140px);
+        min-height: 460px;
+      }
+      .landing-official-logo {
+        max-width: 320px;
+      }
+
+      .container {
+        padding: 24px 16px 40px;
+      }
+
+      .event-card-slide {
+        flex: 0 0 90%;
+        min-width: 260px;
+        padding: 24px 18px;
+      }
+
+      .calendar-integrated-grid {
+        grid-template-columns: 1fr;
+        padding: 24px 16px;
+        border-radius: 22px;
+        gap: 24px;
+      }
+      .cal-days-grid {
+        gap: 4px;
+      }
+      .cal-day-cell {
+        height: 38px;
+        font-size: 0.8rem;
+      }
+
+      .archival-trio-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .trio-photo-item {
+        height: 300px;
+      }
+
+      .newsletter-section-wrap {
+        padding: 48px 20px;
+      }
+      .newsletter-form-inline {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .home-location-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        text-align: center;
+      }
+
+      /* Sell / Trade Mobile Fixes */
+      .artsy-trade-page {
+        padding: 36px 16px 60px;
+      }
+      .artsy-step-row, .artsy-step-row.reverse {
+        grid-template-columns: 1fr;
+        padding: 28px 20px;
+        border-radius: 24px;
+        gap: 24px;
+      }
+      .artsy-step-title {
+        font-size: 1.4rem;
+      }
+      .artsy-visual-badge {
+        height: 180px;
+      }
+      .artsy-booking-cta-card {
+        padding: 32px 20px;
+        border-radius: 24px;
+      }
+
+      /* Market Hub Mobile Fixes */
+      .hub-event-pass-card {
+        grid-template-columns: 1fr;
+        padding: 22px 18px;
+        gap: 16px;
+        text-align: center;
+      }
+      .hub-card-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+      .btn-rsvp-event, .btn-apply-event-pill {
+        width: 100%;
+        text-align: center;
+      }
+      .swish-stage-container {
+        padding: 24px 16px !important;
+        border-radius: 24px !important;
+      }
+      .swish-success-panel {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .swish-follow-photo {
+        height: 240px;
+      }
+      .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+
+      /* Event Gallery 1x1 Mobile Fixes */
+      .gallery-page-wrap {
+        padding: 36px 16px 60px;
+      }
+      .event-cover-grid-1x1 {
+        gap: 24px;
+      }
+      .event-cover-item-1x1 {
+        height: 380px;
+        border-radius: 24px;
+      }
+      .event-hover-name {
+        font-size: 1.5rem;
+      }
+      .album-modal-overlay {
+        padding: 20px 14px;
+      }
+
+      /* About Us Mobile Fixes */
+      .about-page-wrap {
+        padding: 36px 16px 60px;
+      }
+      .who-we-are-title {
+        font-size: 1.8rem;
+        margin-bottom: 28px;
+      }
+      .who-we-are-top-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .polaroid-single-card {
+        max-width: 290px;
+        padding: 12px 12px 34px 12px;
+      }
+      .polaroid-single-img-box {
+        height: 260px;
+      }
+
+      /* FAQ Mobile Fixes */
+      .faq-page-wrap {
+        padding: 36px 16px 60px;
+      }
+      .faq-question-btn {
+        padding: 18px 20px;
+        font-size: 0.98rem;
+      }
+      .faq-answer-body {
+        padding: 0 20px 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1492,7 +1665,7 @@
         <li><a class="nav-link interactive-click" onclick="navigateTo('market-hub', event)">Market Hub</a></li>
       </ul>
 
-      <!-- Direct Cutout HM Logo (Stays Black everywhere except About Us which is White) -->
+      <!-- Direct Cutout HM Logo (White on all pages except Home which is Black) -->
       <a class="brand-center interactive-click" onclick="navigateTo('home', event)" aria-label="Hive Market Home">
         <img src="hm logo new.png" id="main-header-logo" class="header-hm-raw-logo" alt="HM Logo" />
       </a>
@@ -1547,8 +1720,8 @@
           <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em;">688 BEAUMONT AVE</span>
         </div>
 
-        <!-- Completely Borderless Floating Card -->
-        <div class="events-calendar-composite-card floating-card">
+        <!-- Completely Borderless Floating Container for Events & Calendar -->
+        <div class="home-floating-events-section">
           <!-- Conveyor Carousel -->
           <div class="carousel-outer" onmouseenter="pauseConveyor()" onmouseleave="resumeConveyor()">
             <div class="conveyor-track" id="conveyor-track">
@@ -1599,8 +1772,8 @@
             </div>
           </div>
 
-          <!-- Calendar Block -->
-          <div class="calendar-integrated-grid">
+          <!-- Calendar Block (Completely Borderless Floating Card) -->
+          <div class="calendar-integrated-grid floating-card">
             <div>
               <div class="cal-header">
                 <span class="cal-month-title" id="cal-month-name">August 2026</span>
@@ -1702,7 +1875,7 @@
     <div class="artsy-trade-page">
       <div class="artsy-trade-inner">
         
-        <!-- Step 1 (Completely Borderless) -->
+        <!-- Step 1 (Completely Borderless Floating Card) -->
         <div class="artsy-step-row floating-card">
           <div>
             <h2 class="artsy-step-title">1. Organize Your Clothes</h2>
@@ -2218,14 +2391,16 @@
   <script>
     lucide.createIcons();
 
-    /* Distinct Dynamic Tab Theme Palette Map (Black Logo everywhere except White on About Us) */
+    /* Distinct Dynamic Tab Theme Palette Map:
+       - Header logo is pure white on all other pages, black ONLY on Home
+    */
     const tabThemeMap = {
       'home': { bg: '#fbdb00', banner: '#fbdb00', text: '#000000', navColor: '#000000', logoFilter: 'none' },
-      'sell-trade': { bg: '#105113', banner: '#105113', text: '#ffffff', navColor: '#ffffff', logoFilter: 'none' },
-      'market-hub': { bg: '#3a6894', banner: '#3a6894', text: '#ffffff', navColor: '#ffffff', logoFilter: 'none' },
-      'gallery': { bg: '#9e1f63', banner: '#9e1f63', text: '#ffffff', navColor: '#ffffff', logoFilter: 'none' },
+      'sell-trade': { bg: '#105113', banner: '#105113', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
+      'market-hub': { bg: '#3a6894', banner: '#3a6894', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
+      'gallery': { bg: '#9e1f63', banner: '#9e1f63', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
       'about': { bg: '#000000', banner: '#000000', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
-      'faq': { bg: '#726658', banner: '#726658', text: '#ffffff', navColor: '#ffffff', logoFilter: 'none' }
+      'faq': { bg: '#726658', banner: '#726658', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' }
     };
 
     function triggerJumpClick(element) {
@@ -2242,6 +2417,7 @@
         triggerJumpClick(clickedEl);
       }
 
+      // Hide all current views completely
       const allPages = document.querySelectorAll('.page-view');
       allPages.forEach(p => {
         p.classList.remove('active');
@@ -2256,11 +2432,13 @@
       document.documentElement.style.setProperty('--active-text', theme.text);
       document.documentElement.style.setProperty('--active-nav-color', theme.navColor);
 
+      // Logo filter: Inverted white on colored/dark headers, crisp black on home
       const headerLogo = document.getElementById('main-header-logo');
       if (headerLogo) {
         headerLogo.style.filter = theme.logoFilter;
       }
 
+      // Activate target page immediately
       const target = document.getElementById(`page-${pageId}`);
       if (target) {
         target.style.display = 'block';
