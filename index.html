@@ -1104,7 +1104,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 4: EVENT GALLERY (COLLECTION VOL. 1 INTEGRATION)
+       PAGE 4: EVENT GALLERY (2 COVERS ONLY: VOL. 1 & LIVE SOUND)
     ------------------------------------------------------------- */
     .gallery-page-wrap {
       background-color: var(--hm-berry);
@@ -1128,7 +1128,7 @@
     .event-cover-grid-1x1 {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 48px;
       max-width: 1080px;
       margin: 0 auto;
     }
@@ -1137,7 +1137,7 @@
       position: relative;
       border-radius: 32px;
       overflow: hidden;
-      height: 540px;
+      height: 560px;
       background: #000;
       cursor: pointer;
       box-shadow: 0 20px 50px rgba(0,0,0,0.55);
@@ -1146,13 +1146,14 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 25%; /* Ensures the person's face/body is centered and clearly visible */
       display: block;
       transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
-      filter: contrast(1.05) brightness(0.9);
+      filter: contrast(1.05) brightness(0.92);
     }
     .event-cover-item-1x1:hover img {
-      transform: scale(1.04);
-      filter: contrast(1.1) brightness(0.72);
+      transform: scale(1.03);
+      filter: contrast(1.08) brightness(0.72);
     }
 
     .event-hover-overlay {
@@ -1165,7 +1166,7 @@
       text-align: center;
       padding: 40px;
       opacity: 0;
-      background: rgba(0, 0, 0, 0.48);
+      background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(5px);
       transition: opacity 0.4s ease;
     }
@@ -1643,10 +1644,10 @@
         padding: 36px 16px 60px;
       }
       .event-cover-grid-1x1 {
-        gap: 24px;
+        gap: 28px;
       }
       .event-cover-item-1x1 {
-        height: 380px;
+        height: 400px;
         border-radius: 24px;
       }
       .event-hover-name {
@@ -2174,23 +2175,23 @@
   </div>
 
   <!-- =============================================================
-       PAGE 4: EVENT GALLERY (1x1 SEPARATE ARCHIVES)
+       PAGE 4: EVENT GALLERY (EXACTLY 2 SEPARATE EVENT COVERS)
   ============================================================= -->
   <div id="page-gallery" class="page-view">
     <div class="gallery-page-wrap">
       <div class="gallery-editorial-header">
         <h1>Event Gallery</h1>
         <p style="font-size: 0.95rem; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto;">
-          Click any event below to open the complete photo album and save high-res community shots.
+          Click an event below to open its complete photo archive.
         </p>
       </div>
 
-      <!-- 1x1 Single-Column Vertical Stack Layout -->
+      <!-- Exactly 2 Dedicated Event Collections -->
       <div class="event-cover-grid-1x1">
         
-        <!-- Collection 1: Hive Market Collection Vol. 1 -->
+        <!-- Collection 1: Hive Market Collection Vol. 1 (Cover photo centered on the person) -->
         <div class="event-cover-item-1x1 floating-card" onclick="openVol1Album()">
-          <img src="Hive Market Collection Vol.1/1-DSC06348.jpg" alt="Hive Market Collection Vol. 1" onerror="this.src='Hive Market Collection Vol.1/1.jpg';" />
+          <img src="Hive Market Collection Vol.1/1-DSC06348.jpg" alt="Hive Market Collection Vol. 1" onerror="this.src='Hive Market Collection Vol.1/2-DSC06353.jpg';" />
           <div class="event-hover-overlay">
             <span class="event-hover-tag">ARCHIVAL COLLECTION</span>
             <h3 class="event-hover-name">Hive Market Collection Vol. 1</h3>
@@ -2198,43 +2199,13 @@
           </div>
         </div>
 
-        <!-- Item 2: Summer Sound Showcase (Vocal Session Only) -->
-        <div class="event-cover-item-1x1 floating-card" onclick="openSingleEventAlbum('Live Vocal Session: Summer Sound Showcase', ['singing.JPG', 'singing 2.JPG'])">
-          <img src="singing.JPG" alt="Live Vocal Showcase" />
+        <!-- Collection 2: Live In-Store Sound & Showcase (Bundles all live performance photos) -->
+        <div class="event-cover-item-1x1 floating-card" onclick="openPerformanceAlbum()">
+          <img src="singing.JPG" alt="Live Performance Showcase" style="object-position: center 20%;" />
           <div class="event-hover-overlay">
-            <span class="event-hover-tag">CONCERT NIGHTS</span>
-            <h3 class="event-hover-name">Live Vocal Session</h3>
-            <span class="event-hover-cta">Click to View Full Album →</span>
-          </div>
-        </div>
-
-        <!-- Item 3: Flashlight Acoustic Showcase (Acoustic Session Only) -->
-        <div class="event-cover-item-1x1 floating-card" onclick="openSingleEventAlbum('Flashlight Acoustic Showcase', ['singing 2.JPG', 'night hive.JPG'])">
-          <img src="singing 2.JPG" alt="Flashlight Acoustic Showcase" />
-          <div class="event-hover-overlay">
-            <span class="event-hover-tag">AFTER HOURS</span>
-            <h3 class="event-hover-name">Flashlight Sound Session</h3>
-            <span class="event-hover-cta">Click to View Full Album →</span>
-          </div>
-        </div>
-
-        <!-- Item 4: Live DJ Mixing & Analog Session (DJ Only) -->
-        <div class="event-cover-item-1x1 floating-card" onclick="openSingleEventAlbum('Live DJ Mixing & Analog Session', ['dj jordan.JPG', 'TV ST.JPG'])">
-          <img src="dj jordan.JPG" alt="Live DJ Session" />
-          <div class="event-hover-overlay">
-            <span class="event-hover-tag">ANALOG CULTURE</span>
-            <h3 class="event-hover-name">Mixing at the Decks</h3>
-            <span class="event-hover-cta">Click to View Full Album →</span>
-          </div>
-        </div>
-
-        <!-- Item 5: The Local Crowd & Community Night (Crowd Only) -->
-        <div class="event-cover-item-1x1 floating-card" onclick="openSingleEventAlbum('The Local Crowd & Community Night', ['ppl.JPG', 'audience.JPG'])">
-          <img src="ppl.JPG" alt="The Local Crowd" />
-          <div class="event-hover-overlay">
-            <span class="event-hover-tag">COMMUNITY VIBES</span>
-            <h3 class="event-hover-name">The Local Crowd</h3>
-            <span class="event-hover-cta">Click to View Full Album →</span>
+            <span class="event-hover-tag">LIVE PERFORMANCES</span>
+            <h3 class="event-hover-name">In-Store Concerts & Sound Sessions</h3>
+            <span class="event-hover-cta">Click to View Full Album (8 Photos) →</span>
           </div>
         </div>
 
@@ -2457,7 +2428,6 @@
         triggerJumpClick(clickedEl);
       }
 
-      // Hide all current views completely
       const allPages = document.querySelectorAll('.page-view');
       allPages.forEach(p => {
         p.classList.remove('active');
@@ -2683,27 +2653,41 @@
     function changeMonth(delta) { calDate.setMonth(calDate.getMonth() + delta); renderCalendar(); }
     renderCalendar();
 
-    /* Specific Single Event Album Viewer */
-    function openSingleEventAlbum(albumName, photoList) {
-      document.getElementById('album-modal-title').innerText = albumName;
+    /* Event 2: Bundled Live In-Store Sound & Performances */
+    function openPerformanceAlbum() {
+      document.getElementById('album-modal-title').innerText = "In-Store Concerts & Sound Sessions";
       const grid = document.getElementById('album-modal-grid');
       grid.innerHTML = '';
-      photoList.forEach(photoSrc => {
+      
+      const performancePhotos = [
+        'singing.JPG',
+        'singing 2.JPG',
+        'dj jordan.JPG',
+        'live event.JPG',
+        'night hive.JPG',
+        'TV ST.JPG',
+        'audience.JPG',
+        'ppl.JPG'
+      ];
+
+      performancePhotos.forEach(photoSrc => {
         const card = document.createElement('div');
         card.className = 'album-photo-card';
-        card.innerHTML = `<img src="${photoSrc}" alt="${albumName}" />`;
+        card.innerHTML = `<img src="${photoSrc}" alt="Live Performance" />`;
         grid.appendChild(card);
       });
+      
       document.getElementById('album-viewer-modal').style.display = 'flex';
     }
 
-    /* Dynamic Vol. 1 Album: explicitly loads DSC photos from Hive Market Collection Vol.1 */
+    /* Event 1: Dynamic Vol. 1 Album with Accurate DSC File Mapping */
     function openVol1Album() {
       document.getElementById('album-modal-title').innerText = "Hive Market Collection Vol. 1";
       const grid = document.getElementById('album-modal-grid');
       grid.innerHTML = ''; 
 
-      const vol1Photos = [
+      // 10 Explicit high-res photos from the photoshoot
+      const explicitVol1 = [
         '1-DSC06348.jpg',
         '2-DSC06353.jpg',
         '3-DSC06355.jpg',
@@ -2716,7 +2700,7 @@
         '10-DSC06390.jpg'
       ];
 
-      vol1Photos.forEach(filename => {
+      explicitVol1.forEach(filename => {
         const card = document.createElement('div');
         card.className = 'album-photo-card';
         card.innerHTML = `
@@ -2728,7 +2712,7 @@
         grid.appendChild(card);
       });
 
-      // Iterates sequentially for remaining photos in the set
+      // Automatically parses any additional numbered images up to 125
       for (let i = 11; i <= 125; i++) {
         const card = document.createElement('div');
         card.className = 'album-photo-card';
