@@ -11,6 +11,7 @@
 
   <style>
     :root {
+      /* Curated Client Palette */
       --hm-yellow: #fbdb00;
       --hm-lime: #d7df23;
       --hm-hotpink: #ee2a7b;
@@ -18,11 +19,13 @@
       --hm-berry: #9e1f63;
       --hm-forest: #105113;
       --hm-blue: #3a6894;
+      --hm-taupe: #726658;
       --hm-black: #000000;
       --hm-charcoal: #121316;
       --hm-cream: #f7f4ea;
       --hm-white: #ffffff;
       
+      /* Active Dynamic Theme Variables */
       --active-bg: var(--hm-yellow);
       --active-banner: var(--hm-yellow);
       --active-text: var(--hm-black);
@@ -48,7 +51,7 @@
       display: flex;
       flex-direction: column;
       letter-spacing: 0.03em;
-      transition: background-color 0.8s cubic-bezier(0.25, 1, 0.5, 1), color 0.8s ease;
+      transition: background-color 0.6s cubic-bezier(0.25, 1, 0.5, 1), color 0.6s ease;
     }
 
     .floating-card {
@@ -102,7 +105,7 @@
       z-index: 1000;
       padding: 0 40px;
       height: 68px;
-      transition: background-color 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: background-color 0.6s cubic-bezier(0.25, 1, 0.5, 1);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
     }
     .header-inner {
@@ -166,17 +169,18 @@
       transform: scale(1.1);
     }
 
+    /* Reliable View Transitions */
     .page-view {
       display: none;
       opacity: 0;
-      transform: translateY(24px) scale(0.985);
-      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
-                  transform 0.85s cubic-bezier(0.34, 1.45, 0.64, 1);
+      transform: translateY(20px) scale(0.99);
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.45s cubic-bezier(0.34, 1.45, 0.64, 1);
     }
     .page-view.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0) scale(1);
+      display: block !important;
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) !important;
     }
 
     .landing-fullscreen-hero {
@@ -869,10 +873,10 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 3: MARKET HUB (SWISH VANISH & RESTORE TRANSITIONS)
+       PAGE 3: MARKET HUB (SWISH TRANSITIONS & DROPDOWN)
     ------------------------------------------------------------- */
     .market-hub-page {
-      background-color: var(--hm-black);
+      background-color: var(--hm-blue);
       color: var(--hm-white);
       min-height: calc(100vh - 102px);
     }
@@ -1023,11 +1027,27 @@
       box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     }
 
+    .custom-select-dark {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 16px 22px;
+      color: var(--hm-white);
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 0.9rem;
+      border-radius: 14px;
+      appearance: none;
+      cursor: pointer;
+    }
+    .custom-select-dark option {
+      background: #181a20;
+      color: #fff;
+    }
+
     /* -------------------------------------------------------------
-       PAGE 4: EVENT GALLERY (1x1x1x1 VERTICAL FULL BLEED STACK)
+       PAGE 4: EVENT GALLERY (1x1x1x1 VERTICAL STACK)
     ------------------------------------------------------------- */
     .gallery-page-wrap {
-      background-color: var(--hm-black);
+      background-color: var(--hm-berry);
       color: var(--hm-white);
       min-height: calc(100vh - 102px);
       padding: 48px 36px 90px;
@@ -1045,7 +1065,6 @@
       margin-bottom: 8px;
     }
 
-    /* 1x1x1x1 Single-Column Vertical Collage Stack */
     .event-cover-grid-1x1 {
       display: grid;
       grid-template-columns: 1fr;
@@ -1240,7 +1259,7 @@
        PAGE 6: FAQ
     ------------------------------------------------------------- */
     .faq-page-wrap {
-      background-color: var(--hm-charcoal);
+      background-color: var(--hm-taupe);
       color: var(--hm-white);
       min-height: calc(100vh - 102px);
       padding: 60px 36px 90px;
@@ -1256,13 +1275,13 @@
       gap: 16px;
     }
     .faq-accordion-item {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(0, 0, 0, 0.25);
       border-radius: 24px;
       overflow: hidden;
       transition: background-color 0.25s ease;
     }
     .faq-accordion-item:hover {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.38);
     }
     .faq-question-btn {
       width: 100%;
@@ -1287,7 +1306,7 @@
     .faq-answer-body {
       padding: 0 28px 24px;
       font-size: 0.92rem;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.88);
       line-height: 1.7;
       display: none;
     }
@@ -1606,7 +1625,7 @@
         <div class="home-loc-box">
           <h3>Store Hours</h3>
           <p><strong style="color: var(--hm-white);">Monday – Friday:</strong> 11:00 AM – 7:00 PM</p>
-          <p><strong style="color: var(--pure-white);">Saturday – Sunday:</strong> 12:00 PM – 8:00 PM</p>
+          <p><strong style="color: var(--hm-white);">Saturday – Sunday:</strong> 12:00 PM – 8:00 PM</p>
         </div>
         <div class="home-loc-box">
           <h3>Contact Us</h3>
@@ -1619,7 +1638,7 @@
   </div>
 
   <!-- =============================================================
-       PAGE 2: BUY / SELL / TRADE (ARTSY RETRO EDITORIAL AESTHETIC)
+       PAGE 2: BUY / SELL / TRADE (FOREST GREEN #105113 BANNER THEME)
   ============================================================= -->
   <div id="page-sell-trade" class="page-view">
     <div class="artsy-trade-page">
@@ -1706,7 +1725,7 @@
   </div>
 
   <!-- =============================================================
-       PAGE 3: MARKET HUB (PASSES AS PRIMARY + SWISH VANISH RESTORE)
+       PAGE 3: MARKET HUB (OCEAN BLUE #3a6894 THEME WITH APPLICATION DROPDOWN)
   ============================================================= -->
   <div id="page-market-hub" class="page-view">
     <div class="landing-fullscreen-hero">
@@ -1718,7 +1737,7 @@
           BEAUMONT CULTURAL COLLECTIVE
         </div>
         <h1 style="font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hm-white); line-height: 1.15; margin-bottom: 18px;">
-          Market Hub & Community
+          Market Hub & Passes
         </h1>
         <p style="font-size: 1rem; line-height: 1.65; color: rgba(255, 255, 255, 0.85); max-width: 760px; font-weight: 300;">
           Select an upcoming flea market, pop-up, or sound session below to claim your event pass or apply directly to vend/perform at 688 Beaumont Ave.
@@ -1750,7 +1769,7 @@
               </div>
               <div class="hub-card-actions">
                 <button class="btn-rsvp-event interactive-click" onclick="handleSwishRsvpSubmit('Beaumont Sidewalk Flea & $10 Racks')">RSVP Pass →</button>
-                <button class="btn-apply-event-pill interactive-click" onclick="selectEventForApplication('Beaumont Sidewalk Flea & $10 Racks', 'Sept 5')">Apply to Vend</button>
+                <button class="btn-apply-event-pill interactive-click" onclick="selectEventForApplication('Beaumont Sidewalk Flea & $10 Racks')">Apply to Vend</button>
               </div>
             </div>
 
@@ -1762,7 +1781,7 @@
               </div>
               <div class="hub-card-actions">
                 <button class="btn-rsvp-event interactive-click" onclick="handleSwishRsvpSubmit('300+ Vintage Tee & Kicks Drop')">RSVP Pass →</button>
-                <button class="btn-apply-event-pill interactive-click" onclick="selectEventForApplication('300+ Vintage Tee & Kicks Drop', 'Sept 18')">Apply to Perform</button>
+                <button class="btn-apply-event-pill interactive-click" onclick="selectEventForApplication('300+ Vintage Tee & Kicks Drop')">Apply to Perform</button>
               </div>
             </div>
 
@@ -1774,7 +1793,7 @@
               </div>
               <div class="hub-card-actions">
                 <button class="btn-rsvp-event interactive-click" onclick="handleSwishRsvpSubmit('Local Artist Pop-Up Market & Live Sound')">RSVP Pass →</button>
-                <button class="btn-apply-event-pill interactive-click" onclick="selectEventForApplication('Local Artist Pop-Up Market & Live Sound', 'Oct 3')">Apply to Vend / Perform</button>
+                <button class="btn-apply-event-pill interactive-click" onclick="selectEventForApplication('Local Artist Pop-Up Market & Live Sound')">Apply to Vend / Perform</button>
               </div>
             </div>
           </div>
@@ -1803,7 +1822,7 @@
         </div>
       </div>
 
-      <!-- Section 2: Application Stage with Swish Animation -->
+      <!-- Section 2: Application Stage with Swish Animation + Dynamic Dropdown -->
       <div class="swish-stage-container floating-card" id="hub-apply-section" style="background: var(--hm-charcoal); padding: 44px;">
         
         <div class="swish-form-panel" id="hub-vendor-form-panel">
@@ -1811,10 +1830,24 @@
             Vendor & Artist Showcase Application
           </h2>
           <p style="font-size: 0.95rem; color: rgba(255,255,255,0.75); margin-bottom: 24px;">
-            Selected Event: <strong id="selected-event-display" style="color: var(--hm-hotpink);">General Showcase</strong>
+            Fill out your details below to perform, host a DJ set, or vend at upcoming outdoor fleas and community popups.
           </p>
 
           <form class="form-grid" onsubmit="handleSwishVendorSubmit(event)">
+            
+            <!-- Application Selection Dropdown Menu -->
+            <div style="margin-bottom: 18px;">
+              <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Select Upcoming Event or General Showcase</label>
+              <select id="hub-event-select-dropdown" class="custom-select-dark" required>
+                <option value="General Showcase / Future Unlisted Event">General Booking: Future Event / Concert Showcase (Not Listed)</option>
+                <option value="Beaumont Sidewalk Flea & $10 Racks">Sat, Sept 5: Beaumont Sidewalk Flea & $10 Racks (Vendor Booth)</option>
+                <option value="300+ Vintage Tee & Kicks Drop">Fri, Sept 18: 300+ Vintage Tee & Kicks Drop (Guest DJ / Live Sound)</option>
+                <option value="Local Artist Pop-Up Market & Live Sound">Sat, Oct 3: Local Artist Pop-Up Market & Live Sound (Maker / Acoustic Set)</option>
+                <option value="In-Store Evening Concert Residency">Future Evening Concert Residency / Acoustic Session</option>
+                <option value="Guest In-Store Rack Curation Feature">Guest In-Store Vintage Curation Feature</option>
+              </select>
+            </div>
+
             <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
               <div>
                 <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Contact / Artist Name</label>
@@ -1832,14 +1865,14 @@
                 <input type="text" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="(909) 000-0000" required />
               </div>
               <div>
-                <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Instagram / Track Portfolio</label>
-                <input type="text" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="@yourhandle or link" required />
+                <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Instagram / Track Portfolio Link</label>
+                <input type="text" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="@yourhandle or soundcloud.com/link" required />
               </div>
             </div>
 
             <div style="margin-top:16px;">
-              <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Selected Event / Set Description</label>
-              <input type="text" id="app-event-input" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="Overview of goods, gear setup, acoustic/electric needs..." required />
+              <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Overview of Goods, Gear Setup, or Sound Needs</label>
+              <input type="text" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="Brief summary of inventory, acoustic/electric needs, table setup..." required />
             </div>
 
             <div style="margin-top:24px;">
@@ -1857,7 +1890,7 @@
             <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.22em; color: var(--hm-yellow); text-transform: uppercase;">SUBMISSION CONFIRMED</div>
             <h3 style="font-size: 2rem; font-weight: 900; color: var(--hm-white); text-transform: uppercase; line-height: 1.2;">Application in Motion</h3>
             <p style="font-size: 0.95rem; color: rgba(255,255,255,0.78); line-height: 1.65; font-weight: 300;">
-              Your showcase submission has been received. Our curation team is reviewing your details and links for upcoming weekend fleas and sound sessions.
+              Your showcase submission for <strong id="app-confirmed-event-name" style="color: var(--hm-hotpink);">Hive Market</strong> has been received! Our curation team is reviewing your links and details for upcoming live sound sessions and market fleas.
             </p>
             <div>
               <button class="btn-apply-event-pill interactive-click" onclick="restoreSwishForm('hub-vendor')">
@@ -1871,13 +1904,13 @@
   </div>
 
   <!-- =============================================================
-       PAGE 4: EVENT GALLERY (1x1x1x1 VERTICAL FULL BLEED STACK)
+       PAGE 4: EVENT GALLERY (BERRY RED #9e1f63 THEME - 1x1x1x1 STACK)
   ============================================================= -->
   <div id="page-gallery" class="page-view">
     <div class="gallery-page-wrap">
       <div class="gallery-editorial-header">
         <h1>Event Gallery</h1>
-        <p style="font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto;">
+        <p style="font-size: 0.95rem; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto;">
           Click any event below to open the complete photo album and save high-res community shots.
         </p>
       </div>
@@ -1952,7 +1985,7 @@
   </div>
 
   <!-- =============================================================
-       PAGE 5: ABOUT US (WHO WE ARE - CLIENT APPROVED TEXT)
+       PAGE 5: ABOUT US (DEEP BLACK THEME #000000)
   ============================================================= -->
   <div id="page-about" class="page-view">
     <div class="about-page-wrap">
@@ -2024,7 +2057,7 @@
   </div>
 
   <!-- =============================================================
-       PAGE 6: FAQ (EXACT CLIENT COPY & ACCORDIONS)
+       PAGE 6: FAQ (TAUPE CHARCOAL THEME #726658)
   ============================================================= -->
   <div id="page-faq" class="page-view">
     <div class="faq-page-wrap">
@@ -2121,14 +2154,14 @@
   <script>
     lucide.createIcons();
 
-    /* Dynamic Tab-Specific Theme Color Engine */
+    /* Distinct Dynamic Tab Theme Palette Map */
     const tabThemeMap = {
       'home': { bg: '#fbdb00', banner: '#fbdb00', text: '#000000', navColor: '#000000' },
       'sell-trade': { bg: '#f7f4ea', banner: '#105113', text: '#000000', navColor: '#ffffff' },
-      'market-hub': { bg: '#000000', banner: '#000000', text: '#ffffff', navColor: '#ffffff' },
-      'gallery': { bg: '#000000', banner: '#000000', text: '#ffffff', navColor: '#ffffff' },
+      'market-hub': { bg: '#3a6894', banner: '#3a6894', text: '#ffffff', navColor: '#ffffff' },
+      'gallery': { bg: '#9e1f63', banner: '#9e1f63', text: '#ffffff', navColor: '#ffffff' },
       'about': { bg: '#000000', banner: '#000000', text: '#ffffff', navColor: '#ffffff' },
-      'faq': { bg: '#121316', banner: '#121316', text: '#ffffff', navColor: '#ffffff' }
+      'faq': { bg: '#726658', banner: '#726658', text: '#ffffff', navColor: '#ffffff' }
     };
 
     function triggerJumpClick(element) {
@@ -2137,6 +2170,7 @@
       setTimeout(() => element.classList.remove('jump-animate'), 180);
     }
 
+    /* Reliable Page Navigation - Bug Fixed for Repeated Tab Switching */
     function navigateTo(pageId, event) {
       if (event) {
         event.preventDefault();
@@ -2144,29 +2178,39 @@
         triggerJumpClick(clickedEl);
       }
 
-      const activePages = document.querySelectorAll('.page-view.active');
-      activePages.forEach(p => {
+      // Hide all current views completely
+      const allPages = document.querySelectorAll('.page-view');
+      allPages.forEach(p => {
+        p.classList.remove('active');
+        p.style.display = 'none';
         p.style.opacity = '0';
-        p.style.transform = 'translateY(18px) scale(0.985)';
+        p.style.transform = 'translateY(20px) scale(0.99)';
       });
 
+      // Apply distinct color theme
       const theme = tabThemeMap[pageId] || tabThemeMap['home'];
       document.documentElement.style.setProperty('--active-bg', theme.bg);
       document.documentElement.style.setProperty('--active-banner', theme.banner);
       document.documentElement.style.setProperty('--active-text', theme.text);
       document.documentElement.style.setProperty('--active-nav-color', theme.navColor);
 
-      setTimeout(() => {
-        document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
-        const target = document.getElementById(`page-${pageId}`);
-        if (target) target.classList.add('active');
-
-        document.querySelectorAll('.nav-link').forEach(link => {
-          link.classList.toggle('active', link.getAttribute('onclick')?.includes(pageId));
+      // Activate target page immediately without getting stuck in blank timeout
+      const target = document.getElementById(`page-${pageId}`);
+      if (target) {
+        target.style.display = 'block';
+        requestAnimationFrame(() => {
+          target.classList.add('active');
+          target.style.opacity = '1';
+          target.style.transform = 'translateY(0) scale(1)';
         });
+      }
 
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 350);
+      // Update Nav active pill state
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('onclick')?.includes(pageId));
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function smoothScrollToTarget(targetId, event) {
@@ -2218,6 +2262,10 @@
 
     function handleSwishVendorSubmit(e) {
       e.preventDefault();
+      const dropdown = document.getElementById('hub-event-select-dropdown');
+      const selectedText = dropdown ? dropdown.value : "Hive Market";
+      document.getElementById('app-confirmed-event-name').innerText = selectedText;
+
       const formPanel = document.getElementById('hub-vendor-form-panel');
       const successPanel = document.getElementById('hub-vendor-success-panel');
 
@@ -2237,10 +2285,18 @@
       }, 150);
     }
 
-    /* Market Hub: Event Application Routing */
-    function selectEventForApplication(eventName, date) {
-      document.getElementById('selected-event-display').innerText = `${eventName} (${date})`;
-      document.getElementById('app-event-input').value = `Showcase / Booth Set for ${eventName}`;
+    /* Market Hub: Event Application Routing & Pre-Select Dropdown */
+    function selectEventForApplication(eventName) {
+      const dropdown = document.getElementById('hub-event-select-dropdown');
+      if (dropdown) {
+        for (let i = 0; i < dropdown.options.length; i++) {
+          if (dropdown.options[i].text.includes(eventName) || dropdown.options[i].value.includes(eventName)) {
+            dropdown.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      document.getElementById('selected-event-display').innerText = eventName;
       smoothScrollToTarget('hub-apply-section');
     }
 
