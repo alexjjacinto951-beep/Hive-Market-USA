@@ -18,6 +18,7 @@
       --hm-softpink: #ef559f;
       --hm-berry: #9e1f63;
       --hm-forest: #105113;
+      --hm-forest-dark: #0a350c;
       --hm-blue: #3a6894;
       --hm-taupe: #726658;
       --hm-black: #000000;
@@ -163,7 +164,7 @@
       display: block;
       object-fit: contain;
       user-select: none;
-      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease;
     }
     .brand-center:hover .header-hm-raw-logo {
       transform: scale(1.1);
@@ -254,6 +255,7 @@
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
     }
 
+    /* Spring Jumpy Arrow Anchors */
     .down-arrow-anchor {
       position: absolute;
       bottom: 24px;
@@ -744,11 +746,11 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 2: BUY / SELL / TRADE (ARTSY EDITORIAL LOOK)
+       PAGE 2: BUY / SELL / TRADE (FOREST GREEN THEME)
     ------------------------------------------------------------- */
     .artsy-trade-page {
-      background-color: var(--hm-cream);
-      color: var(--hm-black);
+      background-color: var(--hm-forest);
+      color: var(--hm-white);
       min-height: calc(100vh - 102px);
       padding: 60px 36px 90px;
     }
@@ -765,10 +767,10 @@
       grid-template-columns: 1.15fr 0.85fr;
       gap: 48px;
       align-items: center;
-      background: var(--hm-white);
+      background: var(--hm-forest-dark);
       border-radius: 32px;
       padding: 44px 48px;
-      box-shadow: 0 16px 40px rgba(16, 81, 19, 0.06);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
     }
     .artsy-step-row.reverse {
       grid-template-columns: 0.85fr 1.15fr;
@@ -778,22 +780,22 @@
       font-size: 1.8rem;
       font-weight: 900;
       letter-spacing: 0.04em;
-      color: var(--hm-forest);
+      color: var(--hm-yellow);
       text-transform: uppercase;
       margin-bottom: 8px;
     }
     .artsy-step-subtitle {
       font-size: 1.05rem;
-      color: #2b332b;
+      color: rgba(255, 255, 255, 0.9);
       margin-bottom: 24px;
     }
 
     .artsy-accordion-item {
-      border-top: 1.5px solid rgba(16, 81, 19, 0.15);
+      border-top: 1.5px solid rgba(251, 219, 0, 0.25);
       padding: 16px 0;
     }
     .artsy-accordion-item:last-child {
-      border-bottom: 1.5px solid rgba(16, 81, 19, 0.15);
+      border-bottom: 1.5px solid rgba(251, 219, 0, 0.25);
     }
     .artsy-accordion-btn {
       width: 100%;
@@ -804,7 +806,7 @@
       font-family: 'Hanken Grotesk', sans-serif;
       font-size: 1.1rem;
       font-weight: 800;
-      color: var(--hm-forest);
+      color: var(--hm-yellow);
       cursor: pointer;
       text-align: left;
     }
@@ -812,7 +814,7 @@
       display: none;
       padding-top: 12px;
       font-size: 0.92rem;
-      color: #3f473f;
+      color: rgba(255, 255, 255, 0.85);
       line-height: 1.6;
     }
     .artsy-accordion-item.open .artsy-accordion-body {
@@ -825,7 +827,7 @@
     .artsy-visual-badge {
       width: 100%;
       height: 240px;
-      background: rgba(16, 81, 19, 0.05);
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 28px;
       display: flex;
       align-items: center;
@@ -842,7 +844,7 @@
     }
 
     .artsy-booking-cta-card {
-      background: var(--hm-forest);
+      background: var(--hm-forest-dark);
       color: var(--hm-white);
       border-radius: 32px;
       padding: 48px;
@@ -851,7 +853,7 @@
       flex-direction: column;
       align-items: center;
       gap: 18px;
-      box-shadow: 0 20px 50px rgba(16, 81, 19, 0.25);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
     }
     .artsy-booking-cta-card h2 {
       font-size: 2.2rem;
@@ -1044,7 +1046,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 4: EVENT GALLERY (1x1x1x1 VERTICAL STACK)
+       PAGE 4: EVENT GALLERY (BERRY RED THEME)
     ------------------------------------------------------------- */
     .gallery-page-wrap {
       background-color: var(--hm-berry);
@@ -1177,7 +1179,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 5: ABOUT US
+       PAGE 5: ABOUT US (YELLOW TITLE ACCENTS)
     ------------------------------------------------------------- */
     .about-page-wrap {
       background-color: var(--hm-black);
@@ -1194,7 +1196,7 @@
       font-size: 2.5rem;
       font-weight: 900;
       letter-spacing: 0.12em;
-      color: var(--hm-white);
+      color: var(--hm-yellow);
       text-transform: uppercase;
       margin-bottom: 48px;
     }
@@ -1318,21 +1320,28 @@
     }
 
     /* -------------------------------------------------------------
-       DRAGGABLE IPOD AUDIO WIDGET
+       DRAGGABLE IPOD AUDIO WIDGET (CONSISTENT YELLOW THEME + HIDE/UNHIDE)
     ------------------------------------------------------------- */
     #ipod-widget {
       position: fixed;
       bottom: 24px;
       right: 24px;
       width: 212px;
-      background: var(--ipod-yellow);
+      background: var(--hm-yellow) !important;
       border-radius: 32px;
       padding: 14px 12px 18px;
       z-index: 9999;
       cursor: grab;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    }
+    #ipod-widget.ipod-hidden {
+      transform: translateY(180%) scale(0.8) !important;
+      opacity: 0;
+      pointer-events: none;
     }
     #ipod-widget:active { cursor: grabbing; }
+
     .ipod-screen {
       background: var(--hm-black);
       border-radius: 14px;
@@ -1342,14 +1351,26 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      position: relative;
     }
     .ipod-header-bar {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       font-size: 0.58rem;
       font-weight: 700;
-      color: var(--ipod-yellow);
+      color: var(--hm-yellow);
     }
+    .ipod-hide-btn {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.52rem;
+      cursor: pointer;
+    }
+    .ipod-hide-btn:hover { background: var(--hm-hotpink); }
+
     .ipod-track-artist {
       font-size: 0.55rem;
       color: rgba(255, 255, 255, 0.7);
@@ -1369,7 +1390,7 @@
     .ipod-progress-fill {
       width: 30%;
       height: 100%;
-      background: var(--ipod-yellow);
+      background: var(--hm-yellow);
     }
     .ipod-wheel {
       width: 106px;
@@ -1406,8 +1427,30 @@
       justify-content: center;
       font-size: 0.62rem;
       font-weight: 800;
-      color: var(--ipod-yellow);
+      color: var(--hm-yellow);
     }
+
+    /* Floating Unhide Pill Button */
+    #ipod-unhide-trigger {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--hm-yellow);
+      color: var(--hm-black);
+      padding: 10px 18px;
+      border-radius: 9999px;
+      font-weight: 800;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      z-index: 9998;
+      display: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      cursor: pointer;
+      align-items: center;
+      gap: 6px;
+    }
+    #ipod-unhide-trigger.visible { display: flex; }
 
     @media (max-width: 960px) {
       header { padding: 10px 16px; height: auto; }
@@ -1443,9 +1486,9 @@
         <li><a class="nav-link interactive-click" onclick="navigateTo('market-hub', event)">Market Hub</a></li>
       </ul>
 
-      <!-- Direct Cutout HM Logo (No Box/Circle) -->
+      <!-- Direct Cutout HM Logo (Dynamically shifts to white on black pages) -->
       <a class="brand-center interactive-click" onclick="navigateTo('home', event)" aria-label="Hive Market Home">
-        <img src="hm logo new.png" class="header-hm-raw-logo" alt="HM Logo" />
+        <img src="hm logo new.png" id="main-header-logo" class="header-hm-raw-logo" alt="HM Logo" />
       </a>
 
       <ul class="nav-right">
@@ -1625,7 +1668,7 @@
         <div class="home-loc-box">
           <h3>Store Hours</h3>
           <p><strong style="color: var(--hm-white);">Monday – Friday:</strong> 11:00 AM – 7:00 PM</p>
-          <p><strong style="color: var(--hm-white);">Saturday – Sunday:</strong> 12:00 PM – 8:00 PM</p>
+          <p><strong style="color: var(--pure-white);">Saturday – Sunday:</strong> 12:00 PM – 8:00 PM</p>
         </div>
         <div class="home-loc-box">
           <h3>Contact Us</h3>
@@ -1638,7 +1681,7 @@
   </div>
 
   <!-- =============================================================
-       PAGE 2: BUY / SELL / TRADE (FOREST GREEN #105113 BANNER THEME)
+       PAGE 2: BUY / SELL / TRADE (FOREST GREEN THEME #105113)
   ============================================================= -->
   <div id="page-sell-trade" class="page-view">
     <div class="artsy-trade-page">
@@ -1689,7 +1732,7 @@
             <p class="artsy-step-subtitle" style="margin-bottom: 8px;">
               <strong>Valid identification is required</strong> for all appointments and drop offs.
             </p>
-            <p style="font-size: 1rem; color: var(--hm-forest); font-weight: 700;">
+            <p style="font-size: 1rem; color: var(--hm-yellow); font-weight: 700;">
               You must be <strong>18 or older</strong> to sell.
             </p>
           </div>
@@ -1725,7 +1768,7 @@
   </div>
 
   <!-- =============================================================
-       PAGE 3: MARKET HUB (OCEAN BLUE #3a6894 THEME WITH APPLICATION DROPDOWN)
+       PAGE 3: MARKET HUB (OCEAN BLUE #3a6894 THEME)
   ============================================================= -->
   <div id="page-market-hub" class="page-view">
     <div class="landing-fullscreen-hero">
@@ -1904,7 +1947,7 @@
   </div>
 
   <!-- =============================================================
-       PAGE 4: EVENT GALLERY (BERRY RED #9e1f63 THEME - 1x1x1x1 STACK)
+       PAGE 4: EVENT GALLERY (BERRY RED #9e1f63 THEME)
   ============================================================= -->
   <div id="page-gallery" class="page-view">
     <div class="gallery-page-wrap">
@@ -1985,7 +2028,7 @@
   </div>
 
   <!-- =============================================================
-       PAGE 5: ABOUT US (DEEP BLACK THEME #000000)
+       PAGE 5: ABOUT US (DEEP BLACK THEME #000000 - YELLOW TITLE)
   ============================================================= -->
   <div id="page-about" class="page-view">
     <div class="about-page-wrap">
@@ -2057,7 +2100,7 @@
   </div>
 
   <!-- =============================================================
-       PAGE 6: FAQ (TAUPE CHARCOAL THEME #726658)
+       PAGE 6: FAQ (WARM TAUPE THEME #726658)
   ============================================================= -->
   <div id="page-faq" class="page-view">
     <div class="faq-page-wrap">
@@ -2115,12 +2158,12 @@
     </div>
   </div>
 
-  <!-- Draggable iPod -->
+  <!-- Draggable iPod Audio Widget with Hide/Unhide Support -->
   <div id="ipod-widget">
     <div class="ipod-screen">
       <div class="ipod-header-bar">
         <span>HIVE POD</span>
-        <span id="ipod-status">PAUSED</span>
+        <button class="ipod-hide-btn" onclick="toggleIpodVisibility(true)">HIDE</button>
       </div>
       <div>
         <div class="ipod-track-artist" id="ipod-artist">HIVE RADIO</div>
@@ -2140,6 +2183,12 @@
     </div>
   </div>
 
+  <!-- Floating Trigger to Unhide iPod -->
+  <button id="ipod-unhide-trigger" class="interactive-click" onclick="toggleIpodVisibility(false)">
+    <i data-lucide="music" style="width: 14px; height: 14px;"></i>
+    <span>SHOW HIVE POD</span>
+  </button>
+
   <!-- Event Modal -->
   <div class="album-modal-overlay" id="event-modal" onclick="closeModal(event)">
     <div style="background: var(--hm-black); border-radius: 28px; max-width: 520px; width: 100%; padding: 40px; margin: auto; color: #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.8); position: relative;">
@@ -2156,12 +2205,12 @@
 
     /* Distinct Dynamic Tab Theme Palette Map */
     const tabThemeMap = {
-      'home': { bg: '#fbdb00', banner: '#fbdb00', text: '#000000', navColor: '#000000' },
-      'sell-trade': { bg: '#f7f4ea', banner: '#105113', text: '#000000', navColor: '#ffffff' },
-      'market-hub': { bg: '#3a6894', banner: '#3a6894', text: '#ffffff', navColor: '#ffffff' },
-      'gallery': { bg: '#9e1f63', banner: '#9e1f63', text: '#ffffff', navColor: '#ffffff' },
-      'about': { bg: '#000000', banner: '#000000', text: '#ffffff', navColor: '#ffffff' },
-      'faq': { bg: '#726658', banner: '#726658', text: '#ffffff', navColor: '#ffffff' }
+      'home': { bg: '#fbdb00', banner: '#fbdb00', text: '#000000', navColor: '#000000', logoFilter: 'none' },
+      'sell-trade': { bg: '#105113', banner: '#105113', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
+      'market-hub': { bg: '#3a6894', banner: '#3a6894', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
+      'gallery': { bg: '#9e1f63', banner: '#9e1f63', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
+      'about': { bg: '#000000', banner: '#000000', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
+      'faq': { bg: '#726658', banner: '#726658', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' }
     };
 
     function triggerJumpClick(element) {
@@ -2170,7 +2219,7 @@
       setTimeout(() => element.classList.remove('jump-animate'), 180);
     }
 
-    /* Reliable Page Navigation - Bug Fixed for Repeated Tab Switching */
+    /* Bug-Proof Page Navigation */
     function navigateTo(pageId, event) {
       if (event) {
         event.preventDefault();
@@ -2187,14 +2236,19 @@
         p.style.transform = 'translateY(20px) scale(0.99)';
       });
 
-      // Apply distinct color theme
+      // Apply distinct color theme and dynamic logo inversion for black backgrounds
       const theme = tabThemeMap[pageId] || tabThemeMap['home'];
       document.documentElement.style.setProperty('--active-bg', theme.bg);
       document.documentElement.style.setProperty('--active-banner', theme.banner);
       document.documentElement.style.setProperty('--active-text', theme.text);
       document.documentElement.style.setProperty('--active-nav-color', theme.navColor);
 
-      // Activate target page immediately without getting stuck in blank timeout
+      const headerLogo = document.getElementById('main-header-logo');
+      if (headerLogo) {
+        headerLogo.style.filter = theme.logoFilter;
+      }
+
+      // Activate target page immediately
       const target = document.getElementById(`page-${pageId}`);
       if (target) {
         target.style.display = 'block';
@@ -2205,7 +2259,6 @@
         });
       }
 
-      // Update Nav active pill state
       document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.toggle('active', link.getAttribute('onclick')?.includes(pageId));
       });
@@ -2422,9 +2475,22 @@
     function closeModal(e) { if (e.target.id === 'event-modal') closeEventModal(); }
     function rsvpSuccess() { alert('EVENT PASS CONFIRMED'); closeEventModal(); }
 
-    /* Draggable iPod Synthesizer */
+    /* Draggable iPod Synthesizer & Hide/Unhide Functionality */
     const ipod = document.getElementById("ipod-widget");
+    const unhideBtn = document.getElementById("ipod-unhide-trigger");
     let isDragging = false, offset = { x: 0, y: 0 };
+
+    function toggleIpodVisibility(hide) {
+      if (hide) {
+        ipod.classList.add('ipod-hidden');
+        unhideBtn.classList.add('visible');
+      } else {
+        ipod.classList.remove('ipod-hidden');
+        unhideBtn.classList.remove('visible');
+      }
+      lucide.createIcons();
+    }
+
     ipod.addEventListener("mousedown", (e) => {
       if (e.target.tagName.toLowerCase() === 'button' || e.target.classList.contains('center-btn')) return;
       isDragging = true;
