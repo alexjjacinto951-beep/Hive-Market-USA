@@ -762,7 +762,6 @@
       display: inline-block;
       margin-top: 10px;
     }
-    /* Hot Pink Social Link */
     .social-tag-link {
       font-size: 1.15rem !important;
       color: var(--hm-hotpink) !important;
@@ -776,7 +775,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 2: BUY / SELL / TRADE (#6b705c SAGE THEME - BLACK FLOATING ASSETS)
+       PAGE 2: BUY / SELL / TRADE (#6b705c SAGE THEME)
     ------------------------------------------------------------- */
     .artsy-trade-page {
       background-color: var(--hm-sage);
@@ -792,7 +791,6 @@
       gap: 40px;
     }
 
-    /* Floating Step Rows with Backdrop Cards */
     .artsy-step-row {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
@@ -829,7 +827,6 @@
       color: var(--hm-hotpink);
     }
 
-    /* FAQ Style Accordion Component with Animated Plus Sign */
     .artsy-accordion-item {
       background: rgba(0, 0, 0, 0.22);
       border-radius: 20px;
@@ -875,7 +872,6 @@
       color: var(--hm-hotpink);
     }
 
-    /* Floating Image Display - Transparent & Crisp Black Artwork */
     .artsy-visual-badge {
       width: 100%;
       height: 280px;
@@ -895,7 +891,7 @@
       height: 100%;
       object-fit: contain;
       display: block;
-      filter: contrast(1.1) brightness(0.2) drop-shadow(0 14px 28px rgba(0, 0, 0, 0.4));
+      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.45));
     }
 
     .artsy-booking-cta-card {
@@ -1108,7 +1104,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 4: EVENT GALLERY
+       PAGE 4: EVENT GALLERY (COLLECTION VOL. 1 INTEGRATION)
     ------------------------------------------------------------- */
     .gallery-page-wrap {
       background-color: var(--hm-berry);
@@ -2178,7 +2174,7 @@
   </div>
 
   <!-- =============================================================
-       PAGE 4: EVENT GALLERY (BERRY RED #9e1f63 THEME)
+       PAGE 4: EVENT GALLERY (COLLECTION VOL. 1 INTEGRATION)
   ============================================================= -->
   <div id="page-gallery" class="page-view">
     <div class="gallery-page-wrap">
@@ -2192,7 +2188,17 @@
       <!-- 1x1x1x1 Single-Column Vertical Stack Layout -->
       <div class="event-cover-grid-1x1">
         
-        <!-- Item 1: singing.JPG -->
+        <!-- Collection 1: Hive Market Collection Vol.1 (125 Photo Archive) -->
+        <div class="event-cover-item-1x1 floating-card" onclick="openVol1Album()">
+          <img src="live event.JPG" alt="Hive Market Collection Vol. 1" />
+          <div class="event-hover-overlay">
+            <span class="event-hover-tag">ARCHIVAL COLLECTION</span>
+            <h3 class="event-hover-name">Hive Market Collection Vol. 1</h3>
+            <span class="event-hover-cta">Click to View Full Album (125 Photos) →</span>
+          </div>
+        </div>
+
+        <!-- Item 2: singing.JPG -->
         <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Live Vocal Session: Summer Sound Showcase')">
           <img src="singing.JPG" alt="Live Vocal Showcase" />
           <div class="event-hover-overlay">
@@ -2202,7 +2208,7 @@
           </div>
         </div>
 
-        <!-- Item 2: singing 2.JPG -->
+        <!-- Item 3: singing 2.JPG -->
         <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Flashlight Acoustic Showcase')">
           <img src="singing 2.JPG" alt="Flashlight Acoustic Showcase" />
           <div class="event-hover-overlay">
@@ -2212,7 +2218,7 @@
           </div>
         </div>
 
-        <!-- Item 3: dj jordan.JPG -->
+        <!-- Item 4: dj jordan.JPG -->
         <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Live DJ Mixing & Analog Session')">
           <img src="dj jordan.JPG" alt="Live DJ Session" />
           <div class="event-hover-overlay">
@@ -2222,7 +2228,7 @@
           </div>
         </div>
 
-        <!-- Item 4: ppl.JPG -->
+        <!-- Item 5: ppl.JPG -->
         <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('The Local Crowd & Community Night')">
           <img src="ppl.JPG" alt="The Local Crowd" />
           <div class="event-hover-overlay">
@@ -2246,15 +2252,8 @@
       <button class="interactive-click" onclick="closeAlbumViewer()" style="background: rgba(255,255,255,0.15); color: #fff; width: 44px; height: 44px; border-radius: 50%; font-size: 1.2rem; cursor: pointer;">✕</button>
     </div>
 
-    <div class="album-modal-grid">
-      <div class="album-photo-card"><img src="singing.JPG" alt="Photo" /></div>
-      <div class="album-photo-card"><img src="singing 2.JPG" alt="Photo" /></div>
-      <div class="album-photo-card"><img src="dj jordan.JPG" alt="Photo" /></div>
-      <div class="album-photo-card"><img src="ppl.JPG" alt="Photo" /></div>
-      <div class="album-photo-card"><img src="live event.JPG" alt="Photo" /></div>
-      <div class="album-photo-card"><img src="audience.JPG" alt="Photo" /></div>
-      <div class="album-photo-card"><img src="night hive.JPG" alt="Photo" /></div>
-      <div class="album-photo-card"><img src="TV ST.JPG" alt="Photo" /></div>
+    <div class="album-modal-grid" id="album-modal-grid">
+      <!-- Dynamically Populated by JavaScript -->
     </div>
   </div>
 
@@ -2434,9 +2433,7 @@
   <script>
     lucide.createIcons();
 
-    /* Distinct Dynamic Tab Theme Palette Map:
-       - Header logo is Inverted White on all colored/dark headers, Crisp Black ONLY on Home
-    */
+    /* Distinct Dynamic Tab Theme Palette Map */
     const tabThemeMap = {
       'home': { bg: '#fbdb00', banner: '#fbdb00', text: '#000000', navColor: '#000000', logoFilter: 'none' },
       'sell-trade': { bg: '#6b705c', banner: '#535846', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
@@ -2460,7 +2457,6 @@
         triggerJumpClick(clickedEl);
       }
 
-      // Hide all current views completely
       const allPages = document.querySelectorAll('.page-view');
       allPages.forEach(p => {
         p.classList.remove('active');
@@ -2475,13 +2471,11 @@
       document.documentElement.style.setProperty('--active-text', theme.text);
       document.documentElement.style.setProperty('--active-nav-color', theme.navColor);
 
-      // Logo filter: Inverted white on all pages except home (black)
       const headerLogo = document.getElementById('main-header-logo');
       if (headerLogo) {
         headerLogo.style.filter = theme.logoFilter;
       }
 
-      // Activate target page immediately
       const target = document.getElementById(`page-${pageId}`);
       if (target) {
         target.style.display = 'block';
@@ -2534,7 +2528,7 @@
       requestAnimationFrame(animation);
     }
 
-    /* Accordion Toggle for Sell/Trade & FAQ */
+    /* Accordion Toggle for Sell/Trade with FAQ Rotate Animation */
     function toggleArtsyAccordion(id) {
       const el = document.getElementById(id);
       if (el) el.classList.toggle('open');
@@ -2688,11 +2682,45 @@
     function changeMonth(delta) { calDate.setMonth(calDate.getMonth() + delta); renderCalendar(); }
     renderCalendar();
 
-    /* Album Modal Viewer */
+    /* Standard Single Photo Event Album Viewer */
     function openAlbumViewer(albumName) {
       document.getElementById('album-modal-title').innerText = albumName;
+      const grid = document.getElementById('album-modal-grid');
+      grid.innerHTML = `
+        <div class="album-photo-card"><img src="singing.JPG" alt="Photo" /></div>
+        <div class="album-photo-card"><img src="singing 2.JPG" alt="Photo" /></div>
+        <div class="album-photo-card"><img src="dj jordan.JPG" alt="Photo" /></div>
+        <div class="album-photo-card"><img src="ppl.JPG" alt="Photo" /></div>
+        <div class="album-photo-card"><img src="live event.JPG" alt="Photo" /></div>
+        <div class="album-photo-card"><img src="audience.JPG" alt="Photo" /></div>
+        <div class="album-photo-card"><img src="night hive.JPG" alt="Photo" /></div>
+        <div class="album-photo-card"><img src="TV ST.JPG" alt="Photo" /></div>
+      `;
       document.getElementById('album-viewer-modal').style.display = 'flex';
     }
+
+    /* Dynamic 125-Photo Hive Market Collection Vol. 1 Album Viewer */
+    function openVol1Album() {
+      document.getElementById('album-modal-title').innerText = "Hive Market Collection Vol. 1";
+      const grid = document.getElementById('album-modal-grid');
+      grid.innerHTML = ''; 
+
+      // Loads images sequentially from your 'Hive Market Collection Vol.1' folder
+      for (let i = 1; i <= 125; i++) {
+        const card = document.createElement('div');
+        card.className = 'album-photo-card';
+        card.innerHTML = `
+          <img src="Hive Market Collection Vol.1/${i}.jpg" 
+               loading="lazy" 
+               alt="Hive Market Collection Shot ${i}" 
+               onerror="this.src='Hive Market Collection Vol.1/${i}.png'; this.onerror=function(){this.parentElement.style.display='none';};" />
+        `;
+        grid.appendChild(card);
+      }
+
+      document.getElementById('album-viewer-modal').style.display = 'flex';
+    }
+
     function closeAlbumViewer() {
       document.getElementById('album-viewer-modal').style.display = 'none';
     }
