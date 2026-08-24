@@ -776,7 +776,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 2: BUY / SELL / TRADE (#6b705c SAGE THEME - FAQ ANIMATED ACCORDIONS)
+       PAGE 2: BUY / SELL / TRADE (#6b705c SAGE THEME - BLACK FLOATING ASSETS)
     ------------------------------------------------------------- */
     .artsy-trade-page {
       background-color: var(--hm-sage);
@@ -875,7 +875,7 @@
       color: var(--hm-hotpink);
     }
 
-    /* Floating Image Display - Seamless Transparent & Screen Blended */
+    /* Floating Image Display - Transparent & Crisp Black Artwork */
     .artsy-visual-badge {
       width: 100%;
       height: 280px;
@@ -895,8 +895,7 @@
       height: 100%;
       object-fit: contain;
       display: block;
-      mix-blend-mode: screen; /* Seamlessly knocks out black photo backgrounds */
-      filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.45));
+      filter: contrast(1.1) brightness(0.2) drop-shadow(0 14px 28px rgba(0, 0, 0, 0.4));
     }
 
     .artsy-booking-cta-card {
@@ -1913,7 +1912,7 @@
   </div>
 
   <!-- =============================================================
-       PAGE 2: BUY / SELL / TRADE (#6b705c SAGE THEME - FAQ ANIMATED ACCORDIONS)
+       PAGE 2: BUY / SELL / TRADE (#6b705c SAGE THEME - ORIGINAL ASSETS)
   ============================================================= -->
   <div id="page-sell-trade" class="page-view">
     <div class="artsy-trade-page">
@@ -1949,14 +1948,14 @@
           </div>
 
           <div class="artsy-visual-badge">
-            <img src="clothing asset white.png" class="artsy-duotone-graphic" alt="Organize Clothes Illustration" />
+            <img src="clothing asset.png" class="artsy-duotone-graphic" alt="Organize Clothes Illustration" />
           </div>
         </div>
 
         <!-- Step 2 (Seamless Floating Row with Backdrop Card) -->
         <div class="artsy-step-row reverse floating-card">
           <div class="artsy-visual-badge">
-            <img src="passport asset white.png" class="artsy-duotone-graphic" alt="ID Passport Graphic" />
+            <img src="passport asset.png" class="artsy-duotone-graphic" alt="ID Passport Graphic" />
           </div>
 
           <div>
@@ -1980,7 +1979,7 @@
           </div>
 
           <div class="artsy-visual-badge">
-            <img src="money asset white.png" class="artsy-duotone-graphic" alt="Cash or Credit Card" />
+            <img src="money asset.png" class="artsy-duotone-graphic" alt="Cash or Credit Card" />
           </div>
         </div>
 
@@ -2435,7 +2434,9 @@
   <script>
     lucide.createIcons();
 
-    /* Distinct Dynamic Tab Theme Palette Map */
+    /* Distinct Dynamic Tab Theme Palette Map:
+       - Header logo is Inverted White on all colored/dark headers, Crisp Black ONLY on Home
+    */
     const tabThemeMap = {
       'home': { bg: '#fbdb00', banner: '#fbdb00', text: '#000000', navColor: '#000000', logoFilter: 'none' },
       'sell-trade': { bg: '#6b705c', banner: '#535846', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
@@ -2474,6 +2475,7 @@
       document.documentElement.style.setProperty('--active-text', theme.text);
       document.documentElement.style.setProperty('--active-nav-color', theme.navColor);
 
+      // Logo filter: Inverted white on all pages except home (black)
       const headerLogo = document.getElementById('main-header-logo');
       if (headerLogo) {
         headerLogo.style.filter = theme.logoFilter;
