@@ -776,7 +776,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 2: BUY / SELL / TRADE (SAGE THEME WITH ROTATING PLUS/CROSS)
+       PAGE 2: BUY / SELL / TRADE (#6b705c SAGE THEME - BORDERLESS FLOATING LOOK)
     ------------------------------------------------------------- */
     .artsy-trade-page {
       background-color: var(--hm-sage);
@@ -789,28 +789,31 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 60px;
+      gap: 40px;
     }
 
-    /* Seamless Floating Step Rows */
+    /* Floating Step Rows with Direct Backdrop Cards */
     .artsy-step-row {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 48px;
       align-items: center;
-      background: transparent;
-      padding: 10px 0;
-      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      background: var(--hm-sage-dark);
+      border-radius: 36px;
+      padding: 44px 48px;
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.32), 0 8px 24px rgba(0, 0, 0, 0.16);
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease;
     }
     .artsy-step-row:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      box-shadow: 0 32px 65px rgba(0, 0, 0, 0.42), 0 12px 28px rgba(0, 0, 0, 0.2);
     }
     .artsy-step-row.reverse {
       grid-template-columns: 0.85fr 1.15fr;
     }
 
     .artsy-step-title {
-      font-size: 2.1rem;
+      font-size: 2rem;
       font-weight: 700 !important;
       letter-spacing: 0.04em;
       color: var(--hm-yellow);
@@ -818,7 +821,7 @@
       margin-bottom: 8px;
     }
     .artsy-step-subtitle {
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       color: rgba(255, 255, 255, 0.95);
       margin-bottom: 24px;
     }
@@ -826,67 +829,67 @@
       color: var(--hm-hotpink);
     }
 
+    /* FAQ Style Accordion Component for Sell/Trade */
     .artsy-accordion-item {
-      padding: 14px 0;
+      background: rgba(0, 0, 0, 0.22);
+      border-radius: 20px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: background-color 0.25s ease;
+    }
+    .artsy-accordion-item:hover {
+      background: rgba(0, 0, 0, 0.34);
     }
     .artsy-accordion-btn {
       width: 100%;
+      padding: 18px 24px;
       background: transparent;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-family: 'Futura Bold Custom', 'Futura', sans-serif !important;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 700 !important;
       color: var(--hm-yellow);
       cursor: pointer;
       text-align: left;
     }
-    
-    /* Plus Icon Rotation Animation Matching FAQ */
-    .artsy-toggle-icon {
-      color: var(--hm-yellow);
-      font-size: 1.3rem;
-      font-weight: 700 !important;
-      transition: transform 0.3s ease, color 0.3s ease;
-      display: inline-block;
-    }
-    .artsy-accordion-item.open .artsy-toggle-icon {
-      transform: rotate(45deg);
-      color: var(--hm-hotpink);
-    }
-
     .artsy-accordion-body {
       display: none;
-      padding-top: 12px;
-      font-size: 0.98rem;
+      padding: 0 24px 20px;
+      font-size: 0.95rem;
       color: rgba(255, 255, 255, 0.9);
       line-height: 1.65;
     }
     .artsy-accordion-item.open .artsy-accordion-body {
       display: block;
     }
+    .artsy-accordion-item.open .toggle-symbol {
+      transform: rotate(45deg);
+      color: var(--hm-hotpink);
+    }
 
-    /* Floating Image Display with Asset Inversion */
+    /* Floating Image Display Without Containers */
     .artsy-visual-badge {
       width: 100%;
       height: 280px;
-      border-radius: 32px;
-      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease;
+      background: transparent !important;
+      box-shadow: none !important;
+      padding: 0;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .artsy-visual-badge:hover {
-      transform: scale(1.03) translateY(-4px);
+      transform: scale(1.05) translateY(-4px);
     }
     .artsy-duotone-graphic {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      filter: invert(1);
       display: block;
+      filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.45));
     }
 
     .artsy-booking-cta-card {
@@ -900,7 +903,7 @@
       align-items: center;
       gap: 18px;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
-      margin-top: 20px;
+      margin-top: 12px;
     }
     .artsy-booking-cta-card h2 {
       font-size: 2.3rem;
@@ -1902,13 +1905,13 @@
   </div>
 
   <!-- =============================================================
-       PAGE 2: BUY / SELL / TRADE (#6b705c SAGE THEME - ROTATING ACCORDION PLUS)
+       PAGE 2: BUY / SELL / TRADE (#6b705c SAGE THEME - BORDERLESS FLOATING LOOK)
   ============================================================= -->
   <div id="page-sell-trade" class="page-view">
     <div class="artsy-trade-page">
       <div class="artsy-trade-inner">
         
-        <!-- Step 1 (Seamless Floating Row) -->
+        <!-- Step 1 (Seamless Floating Row - Background Removed) -->
         <div class="artsy-step-row">
           <div>
             <h2 class="artsy-step-title">1. Organize Your Clothes</h2>
@@ -1918,7 +1921,7 @@
               <div class="artsy-accordion-item open" id="artsy-acc-bring">
                 <button class="artsy-accordion-btn" onclick="toggleArtsyAccordion('artsy-acc-bring')">
                   <span>What to Bring In</span>
-                  <span class="artsy-toggle-icon">+</span>
+                  <span class="toggle-symbol">+</span>
                 </button>
                 <div class="artsy-accordion-body">
                   Clothing, footwear, and accessories that are clean, odor-free, in great condition, and in-season (single-stitch vintage, Carhartt jackets, rugged denim, Doc Martens, and archive streetwear).
@@ -1928,7 +1931,7 @@
               <div class="artsy-accordion-item" id="artsy-acc-leave">
                 <button class="artsy-accordion-btn" onclick="toggleArtsyAccordion('artsy-acc-leave')">
                   <span>What to Leave Home</span>
-                  <span class="artsy-toggle-icon">+</span>
+                  <span class="toggle-symbol">+</span>
                 </button>
                 <div class="artsy-accordion-body">
                   Fast fashion (Shein, Temu, Forever 21), children's clothes, formal evening gowns, swimwear, and damaged or unwashed garments.
@@ -1938,14 +1941,14 @@
           </div>
 
           <div class="artsy-visual-badge">
-            <img src="clothing asset.png" class="artsy-duotone-graphic" alt="Organize Clothes Illustration" />
+            <img src="clothing asset white.jpg" class="artsy-duotone-graphic" alt="Organize Clothes Illustration" />
           </div>
         </div>
 
-        <!-- Step 2 (Seamless Floating Row) -->
+        <!-- Step 2 (Seamless Floating Row - Background Removed) -->
         <div class="artsy-step-row reverse">
           <div class="artsy-visual-badge">
-            <img src="passport asset.png" class="artsy-duotone-graphic" alt="ID Passport Graphic" />
+            <img src="passport asset white.jpg" class="artsy-duotone-graphic" alt="ID Passport Graphic" />
           </div>
 
           <div>
@@ -1959,7 +1962,7 @@
           </div>
         </div>
 
-        <!-- Step 3 (Seamless Floating Row) -->
+        <!-- Step 3 (Seamless Floating Row - Background Removed) -->
         <div class="artsy-step-row">
           <div>
             <h2 class="artsy-step-title">3. Claim Your Cash or Credit</h2>
@@ -1969,7 +1972,7 @@
           </div>
 
           <div class="artsy-visual-badge">
-            <img src="money asset.png" class="artsy-duotone-graphic" alt="Cash or Credit Card" />
+            <img src="money asset white.jpg" class="artsy-duotone-graphic" alt="Cash or Credit Card" />
           </div>
         </div>
 
@@ -2524,6 +2527,16 @@
       requestAnimationFrame(animation);
     }
 
+    /* Accordion Toggle for Sell/Trade & FAQ */
+    function toggleArtsyAccordion(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle('open');
+    }
+
+    function toggleFaq(btn) {
+      btn.parentElement.classList.toggle('open');
+    }
+
     /* Swish Vanish & Restore Animations for Market Hub */
     function handleSwishRsvpSubmit(eventName) {
       document.getElementById('rsvp-confirmed-name').innerText = eventName;
@@ -2574,15 +2587,6 @@
       }
       document.getElementById('selected-event-display').innerText = eventName;
       smoothScrollToTarget('hub-apply-section');
-    }
-
-    /* Accordions with Animated + Icon */
-    function toggleArtsyAccordion(id) { 
-      document.getElementById(id).classList.toggle('open'); 
-    }
-    
-    function toggleFaq(btn) { 
-      btn.parentElement.classList.toggle('open'); 
     }
 
     /* Carousel Slideshow */
