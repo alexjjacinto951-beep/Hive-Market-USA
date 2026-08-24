@@ -6,10 +6,16 @@
   <title>HIVE MARKET USA | Buy • Sell • Trade</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@700;800;900&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
+    @font-face {
+      font-family: 'Futura Bold Custom';
+      src: local('Futura Bold'), local('Futura-Bold'), local('Futura');
+      font-weight: 700;
+    }
+
     :root {
       /* Curated Client Palette */
       --hm-yellow: #fbdb00;
@@ -40,6 +46,8 @@
       border: none !important;
       outline: none !important;
       -webkit-tap-highlight-color: transparent;
+      font-family: 'Futura Bold Custom', 'Futura', 'Hanken Grotesk', sans-serif !important;
+      font-weight: 700 !important;
     }
 
     html, body {
@@ -50,8 +58,8 @@
     body {
       background-color: var(--active-bg);
       color: var(--active-text);
-      font-family: 'Hanken Grotesk', sans-serif;
-      font-weight: 400;
+      font-family: 'Futura Bold Custom', 'Futura', sans-serif !important;
+      font-weight: 700 !important;
       line-height: 1.5;
       min-height: 100vh;
       display: flex;
@@ -96,8 +104,8 @@
       color: rgba(255, 255, 255, 0.88);
       text-align: center;
       padding: 8px 16px;
-      font-size: 0.7rem;
-      font-weight: 500;
+      font-size: 0.72rem;
+      font-weight: 700 !important;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       min-height: 34px;
@@ -141,8 +149,8 @@
     }
 
     .nav-link {
-      font-size: 0.78rem;
-      font-weight: 700;
+      font-size: 0.82rem;
+      font-weight: 700 !important;
       color: var(--active-nav-color);
       text-decoration: none;
       cursor: pointer;
@@ -260,8 +268,8 @@
     }
     
     .landing-hero-subtitle {
-      font-size: 1rem;
-      font-weight: 300;
+      font-size: 1.05rem;
+      font-weight: 700 !important;
       letter-spacing: 0.35em;
       color: rgba(255, 255, 255, 0.85);
       text-transform: uppercase;
@@ -297,11 +305,11 @@
       transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     .down-arrow-text {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--hm-white);
-      font-weight: 600;
+      font-weight: 700 !important;
     }
     .down-arrow-icon {
       color: var(--hm-yellow);
@@ -343,8 +351,8 @@
       white-space: nowrap;
     }
     .ticker-phrase {
-      font-size: 0.78rem;
-      font-weight: 800;
+      font-size: 0.8rem;
+      font-weight: 700 !important;
       letter-spacing: 0.22em;
       color: var(--hm-yellow);
       text-transform: uppercase;
@@ -373,14 +381,13 @@
       align-items: center;
     }
     .section-editorial-title {
-      font-size: 1.15rem;
-      font-weight: 800;
+      font-size: 1.25rem;
+      font-weight: 700 !important;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--hm-black);
     }
 
-    /* Seamless Floating Layout on Home */
     .home-floating-events-section {
       display: flex;
       flex-direction: column;
@@ -416,8 +423,8 @@
       box-shadow: 0 24px 50px rgba(0, 0, 0, 0.12);
     }
     .event-tag-pill {
-      font-size: 0.64rem;
-      font-weight: 800;
+      font-size: 0.68rem;
+      font-weight: 700 !important;
       letter-spacing: 0.16em;
       color: var(--hm-white);
       background: var(--hm-hotpink);
@@ -428,8 +435,8 @@
       margin-bottom: 14px;
     }
     .event-card-title {
-      font-size: 1.15rem;
-      font-weight: 800;
+      font-size: 1.2rem;
+      font-weight: 700 !important;
       color: var(--hm-black);
       letter-spacing: 0.02em;
       text-transform: uppercase;
@@ -437,15 +444,15 @@
       line-height: 1.25;
     }
     .event-card-desc {
-      font-size: 0.88rem;
-      font-weight: 400;
+      font-size: 0.9rem;
+      font-weight: 700 !important;
       color: #333333;
       line-height: 1.55;
       margin-bottom: 22px;
     }
     .event-card-footer {
-      font-size: 0.75rem;
-      font-weight: 800;
+      font-size: 0.78rem;
+      font-weight: 700 !important;
       letter-spacing: 0.12em;
       color: var(--hm-hotpink);
       text-transform: uppercase;
@@ -474,7 +481,6 @@
       transform: scale(1.4);
     }
 
-    /* Floating Calendar Grid */
     .calendar-integrated-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
@@ -492,8 +498,8 @@
       margin-bottom: 20px;
     }
     .cal-month-title {
-      font-size: 1.25rem;
-      font-weight: 800;
+      font-size: 1.3rem;
+      font-weight: 700 !important;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--hm-yellow);
@@ -523,8 +529,8 @@
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       text-align: center;
-      font-size: 0.68rem;
-      font-weight: 700;
+      font-size: 0.72rem;
+      font-weight: 700 !important;
       letter-spacing: 0.16em;
       color: rgba(255, 255, 255, 0.45);
       margin-bottom: 12px;
@@ -541,8 +547,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 0.88rem;
-      font-weight: 600;
+      font-size: 0.9rem;
+      font-weight: 700 !important;
       position: relative;
       cursor: pointer;
       transition: all 0.25s ease;
@@ -570,7 +576,7 @@
     .cal-day-cell.selected {
       background: var(--hm-hotpink) !important;
       color: var(--hm-white) !important;
-      font-weight: 800;
+      font-weight: 700 !important;
     }
 
     .cal-details-panel {
@@ -582,16 +588,16 @@
       justify-content: space-between;
     }
     .cal-event-tag {
-      font-size: 0.68rem;
-      font-weight: 800;
+      font-size: 0.72rem;
+      font-weight: 700 !important;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--hm-hotpink);
       margin-bottom: 8px;
     }
     .cal-event-headline {
-      font-size: 1.3rem;
-      font-weight: 800;
+      font-size: 1.35rem;
+      font-weight: 700 !important;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       line-height: 1.25;
@@ -599,7 +605,7 @@
       color: var(--hm-white);
     }
     .cal-event-time {
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       color: rgba(255, 255, 255, 0.7);
       margin-bottom: 16px;
       display: flex;
@@ -607,9 +613,9 @@
       gap: 6px;
     }
     .cal-event-narrative {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       line-height: 1.6;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.85);
       margin-bottom: 24px;
     }
 
@@ -671,15 +677,15 @@
     }
     .newsletter-headline {
       font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 900;
+      font-weight: 700 !important;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--hm-white);
     }
     .newsletter-subtext {
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.75);
-      font-weight: 300;
+      font-size: 0.98rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 700 !important;
       max-width: 620px;
       line-height: 1.6;
     }
@@ -695,17 +701,17 @@
       background: rgba(255, 255, 255, 0.08);
       padding: 16px 22px;
       color: var(--hm-white);
-      font-family: 'Hanken Grotesk', sans-serif;
-      font-size: 0.9rem;
+      font-family: 'Futura Bold Custom', 'Futura', sans-serif !important;
+      font-size: 0.92rem;
       border-radius: 9999px;
     }
     .newsletter-btn-submit {
-      font-family: 'Hanken Grotesk', sans-serif;
+      font-family: 'Futura Bold Custom', 'Futura', sans-serif !important;
       background: var(--hm-hotpink);
       color: var(--hm-white);
       padding: 16px 32px;
-      font-weight: 800;
-      font-size: 0.8rem;
+      font-weight: 700 !important;
+      font-size: 0.82rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       cursor: pointer;
@@ -718,7 +724,6 @@
       transform: translateY(-2px);
     }
 
-    /* 4-Column Location, Hours, Contact, & Socials Strip */
     .home-location-strip {
       background: var(--hm-black);
       color: var(--hm-white);
@@ -732,33 +737,32 @@
       gap: 36px;
     }
     .home-loc-box h3 {
-      font-size: 0.75rem;
-      font-weight: 800;
+      font-size: 0.78rem;
+      font-weight: 700 !important;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--hm-yellow);
       margin-bottom: 12px;
     }
     .home-loc-box p {
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.98rem;
+      color: rgba(255, 255, 255, 0.85);
       line-height: 1.6;
     }
     .home-loc-box a {
       color: var(--hm-hotpink);
       text-decoration: none;
-      font-weight: 700;
-      font-size: 0.85rem;
+      font-weight: 700 !important;
+      font-size: 0.88rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       display: inline-block;
       margin-top: 10px;
     }
-    /* Updated IG link to Hot Pink */
     .social-tag-link {
       font-size: 1.15rem !important;
       color: var(--hm-hotpink) !important;
-      font-weight: 800 !important;
+      font-weight: 700 !important;
       text-transform: none !important;
       letter-spacing: 0.04em !important;
       margin-top: 4px !important;
@@ -768,7 +772,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 2: BUY / SELL / TRADE (FOREST GREEN FLOATING LOOK - NO BORDERS)
+       PAGE 2: BUY / SELL / TRADE (COMPLETELY BORDERLESS & FLOATING)
     ------------------------------------------------------------- */
     .artsy-trade-page {
       background-color: var(--hm-forest);
@@ -781,39 +785,42 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 52px;
+      gap: 60px;
     }
 
+    /* Perfectly Seamless Floating Step Rows */
     .artsy-step-row {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 48px;
       align-items: center;
-      background: var(--hm-forest-dark);
-      border-radius: 36px;
-      padding: 44px 48px;
-      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.28), 0 8px 20px rgba(0, 0, 0, 0.12);
+      background: transparent;
+      padding: 10px 0;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .artsy-step-row:hover {
+      transform: translateY(-5px);
     }
     .artsy-step-row.reverse {
       grid-template-columns: 0.85fr 1.15fr;
     }
 
     .artsy-step-title {
-      font-size: 1.8rem;
-      font-weight: 900;
+      font-size: 2.1rem;
+      font-weight: 700 !important;
       letter-spacing: 0.04em;
       color: var(--hm-yellow);
       text-transform: uppercase;
       margin-bottom: 8px;
     }
     .artsy-step-subtitle {
-      font-size: 1.05rem;
-      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.95);
       margin-bottom: 24px;
     }
 
     .artsy-accordion-item {
-      padding: 16px 0;
+      padding: 14px 0;
     }
     .artsy-accordion-btn {
       width: 100%;
@@ -821,9 +828,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: 'Hanken Grotesk', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 800;
+      font-family: 'Futura Bold Custom', 'Futura', sans-serif !important;
+      font-size: 1.15rem;
+      font-weight: 700 !important;
       color: var(--hm-yellow);
       cursor: pointer;
       text-align: left;
@@ -831,9 +838,9 @@
     .artsy-accordion-body {
       display: none;
       padding-top: 12px;
-      font-size: 0.92rem;
-      color: rgba(255, 255, 255, 0.85);
-      line-height: 1.6;
+      font-size: 0.98rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.65;
     }
     .artsy-accordion-item.open .artsy-accordion-body {
       display: block;
@@ -842,23 +849,25 @@
       transform: rotate(45deg);
     }
 
+    /* Floating Image Display */
     .artsy-visual-badge {
       width: 100%;
-      height: 240px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+      height: 280px;
+      border-radius: 32px;
       overflow: hidden;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease;
+    }
+    .artsy-visual-badge:hover {
+      transform: scale(1.03) translateY(-4px);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
     }
     .artsy-duotone-graphic {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: contrast(1.1) brightness(0.95);
-      border-radius: 24px;
+      filter: contrast(1.08) brightness(0.98);
+      display: block;
     }
 
     .artsy-booking-cta-card {
@@ -872,10 +881,11 @@
       align-items: center;
       gap: 18px;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      margin-top: 20px;
     }
     .artsy-booking-cta-card h2 {
-      font-size: 2.2rem;
-      font-weight: 900;
+      font-size: 2.3rem;
+      font-weight: 700 !important;
       text-transform: uppercase;
       color: var(--hm-yellow);
     }
@@ -884,8 +894,8 @@
       color: var(--hm-black);
       padding: 16px 40px;
       border-radius: 9999px;
-      font-weight: 800;
-      font-size: 0.9rem;
+      font-weight: 700 !important;
+      font-size: 0.92rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       text-decoration: none;
@@ -893,7 +903,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 3: MARKET HUB (OCEAN BLUE #3a6894 THEME)
+       PAGE 3: MARKET HUB
     ------------------------------------------------------------- */
     .market-hub-page {
       background-color: var(--hm-blue);
@@ -990,21 +1000,21 @@
       box-shadow: 0 16px 40px rgba(238, 42, 123, 0.15);
     }
     .hub-pass-date {
-      font-size: 1.1rem;
-      font-weight: 900;
+      font-size: 1.15rem;
+      font-weight: 700 !important;
       color: var(--hm-yellow);
       letter-spacing: 0.08em;
     }
     .hub-pass-title {
-      font-size: 1.2rem;
-      font-weight: 800;
+      font-size: 1.25rem;
+      font-weight: 700 !important;
       color: var(--hm-white);
       text-transform: uppercase;
       margin-bottom: 6px;
     }
     .hub-pass-desc {
-      font-size: 0.88rem;
-      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.78);
     }
 
     .hub-card-actions {
@@ -1017,8 +1027,8 @@
       color: var(--hm-white);
       padding: 12px 22px;
       border-radius: 9999px;
-      font-weight: 800;
-      font-size: 0.75rem;
+      font-weight: 700 !important;
+      font-size: 0.78rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       white-space: nowrap;
@@ -1028,8 +1038,8 @@
       color: var(--hm-yellow);
       padding: 12px 20px;
       border-radius: 9999px;
-      font-weight: 800;
-      font-size: 0.75rem;
+      font-weight: 700 !important;
+      font-size: 0.78rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       white-space: nowrap;
@@ -1052,8 +1062,8 @@
       background: rgba(255, 255, 255, 0.08);
       padding: 16px 22px;
       color: var(--hm-white);
-      font-family: 'Hanken Grotesk', sans-serif;
-      font-size: 0.9rem;
+      font-family: 'Futura Bold Custom', 'Futura', sans-serif !important;
+      font-size: 0.92rem;
       border-radius: 14px;
       appearance: none;
       cursor: pointer;
@@ -1064,7 +1074,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 4: EVENT GALLERY (BERRY RED #9e1f63 THEME)
+       PAGE 4: EVENT GALLERY
     ------------------------------------------------------------- */
     .gallery-page-wrap {
       background-color: var(--hm-berry);
@@ -1077,8 +1087,8 @@
       margin-bottom: 48px;
     }
     .gallery-editorial-header h1 {
-      font-size: 2.5rem;
-      font-weight: 900;
+      font-size: 2.6rem;
+      font-weight: 700 !important;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--hm-white);
@@ -1133,16 +1143,16 @@
       opacity: 1;
     }
     .event-hover-tag {
-      font-size: 0.75rem;
-      font-weight: 800;
+      font-size: 0.78rem;
+      font-weight: 700 !important;
       letter-spacing: 0.24em;
       color: var(--hm-yellow);
       text-transform: uppercase;
       margin-bottom: 10px;
     }
     .event-hover-name {
-      font-size: 2.2rem;
-      font-weight: 900;
+      font-size: 2.3rem;
+      font-weight: 700 !important;
       letter-spacing: 0.08em;
       color: var(--hm-white);
       text-transform: uppercase;
@@ -1150,8 +1160,8 @@
       margin-bottom: 14px;
     }
     .event-hover-cta {
-      font-size: 0.82rem;
-      font-weight: 800;
+      font-size: 0.85rem;
+      font-weight: 700 !important;
       color: var(--hm-hotpink);
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -1197,7 +1207,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 5: ABOUT US (DEEP BLACK THEME #000000 - YELLOW TITLE)
+       PAGE 5: ABOUT US
     ------------------------------------------------------------- */
     .about-page-wrap {
       background-color: var(--hm-black);
@@ -1211,8 +1221,8 @@
     }
     .who-we-are-title {
       text-align: center;
-      font-size: 2.5rem;
-      font-weight: 900;
+      font-size: 2.6rem;
+      font-weight: 700 !important;
       letter-spacing: 0.12em;
       color: var(--hm-yellow);
       text-transform: uppercase;
@@ -1249,18 +1259,18 @@
       object-fit: cover;
     }
     .about-section-heading {
-      font-size: 1.25rem;
-      font-weight: 900;
+      font-size: 1.3rem;
+      font-weight: 700 !important;
       letter-spacing: 0.14em;
       color: var(--hm-yellow);
       text-transform: uppercase;
       margin-bottom: 8px;
     }
     .about-body-text {
-      font-size: 0.95rem;
-      font-weight: 300;
+      font-size: 0.98rem;
+      font-weight: 700 !important;
       line-height: 1.8;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.88);
     }
     .about-bullet-quote {
       list-style: none;
@@ -1268,15 +1278,15 @@
       flex-direction: column;
       gap: 6px;
       margin: 14px 0;
-      font-size: 0.95rem;
-      font-weight: 500;
+      font-size: 0.98rem;
+      font-weight: 700 !important;
       color: var(--hm-white);
       border-left: 3px solid var(--hm-hotpink) !important;
       padding-left: 18px;
     }
 
     /* -------------------------------------------------------------
-       PAGE 6: FAQ (WARM TAUPE THEME #726658)
+       PAGE 6: FAQ
     ------------------------------------------------------------- */
     .faq-page-wrap {
       background-color: var(--hm-taupe);
@@ -1311,22 +1321,22 @@
       align-items: center;
       background: transparent;
       color: var(--hm-white);
-      font-family: 'Hanken Grotesk', sans-serif;
-      font-size: 1.08rem;
-      font-weight: 700;
+      font-family: 'Futura Bold Custom', 'Futura', sans-serif !important;
+      font-size: 1.12rem;
+      font-weight: 700 !important;
       text-align: left;
       cursor: pointer;
     }
     .faq-toggle-icon {
       color: var(--hm-yellow);
       font-size: 1.3rem;
-      font-weight: 700;
+      font-weight: 700 !important;
       transition: transform 0.3s ease;
     }
     .faq-answer-body {
       padding: 0 28px 24px;
-      font-size: 0.92rem;
-      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.9);
       line-height: 1.7;
       display: none;
     }
@@ -1338,7 +1348,7 @@
     }
 
     /* -------------------------------------------------------------
-       DRAGGABLE IPOD AUDIO WIDGET (UNIFIED YELLOW + HIDE/SHOW)
+       DRAGGABLE IPOD AUDIO WIDGET
     ------------------------------------------------------------- */
     #ipod-widget {
       position: fixed;
@@ -1375,8 +1385,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.58rem;
-      font-weight: 700;
+      font-size: 0.6rem;
+      font-weight: 700 !important;
       color: var(--hm-yellow);
     }
     .ipod-hide-btn {
@@ -1384,19 +1394,19 @@
       color: #fff;
       padding: 1px 6px;
       border-radius: 4px;
-      font-size: 0.52rem;
+      font-size: 0.54rem;
       cursor: pointer;
     }
     .ipod-hide-btn:hover { background: var(--hm-hotpink); }
 
     .ipod-track-artist {
-      font-size: 0.55rem;
+      font-size: 0.58rem;
       color: rgba(255, 255, 255, 0.7);
       text-transform: uppercase;
     }
     .ipod-track-title {
-      font-size: 0.72rem;
-      font-weight: 700;
+      font-size: 0.75rem;
+      font-weight: 700 !important;
       color: var(--pure-white);
     }
     .ipod-progress-track {
@@ -1420,8 +1430,8 @@
     }
     .wheel-btn {
       position: absolute;
-      font-size: 0.58rem;
-      font-weight: 800;
+      font-size: 0.6rem;
+      font-weight: 700 !important;
       color: var(--deep-black);
       cursor: pointer;
       background: none;
@@ -1443,8 +1453,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.62rem;
-      font-weight: 800;
+      font-size: 0.65rem;
+      font-weight: 700 !important;
       color: var(--hm-yellow);
     }
 
@@ -1456,8 +1466,8 @@
       color: var(--hm-black);
       padding: 10px 18px;
       border-radius: 9999px;
-      font-weight: 800;
-      font-size: 0.72rem;
+      font-weight: 700 !important;
+      font-size: 0.75rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       z-index: 9998;
@@ -1470,7 +1480,7 @@
     #ipod-unhide-trigger.visible { display: flex; }
 
     /* =============================================================
-       MOBILE RESPONSIVENESS & CUTOFF PREVENTION FIXES
+       MOBILE RESPONSIVENESS
     ============================================================= */
     @media (max-width: 960px) {
       header {
@@ -1490,7 +1500,7 @@
         width: 100%;
       }
       .nav-link {
-        font-size: 0.7rem;
+        font-size: 0.72rem;
         padding: 6px 10px;
       }
 
@@ -1523,7 +1533,7 @@
       }
       .cal-day-cell {
         height: 38px;
-        font-size: 0.8rem;
+        font-size: 0.82rem;
       }
 
       .archival-trio-grid {
@@ -1548,28 +1558,25 @@
         text-align: center;
       }
 
-      /* Sell / Trade Mobile Fixes */
       .artsy-trade-page {
         padding: 36px 16px 60px;
       }
       .artsy-step-row, .artsy-step-row.reverse {
         grid-template-columns: 1fr;
-        padding: 28px 20px;
-        border-radius: 24px;
-        gap: 24px;
+        padding: 20px 0;
+        gap: 20px;
       }
       .artsy-step-title {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
       }
       .artsy-visual-badge {
-        height: 180px;
+        height: 220px;
       }
       .artsy-booking-cta-card {
         padding: 32px 20px;
         border-radius: 24px;
       }
 
-      /* Market Hub Mobile Fixes */
       .hub-event-pass-card {
         grid-template-columns: 1fr;
         padding: 22px 18px;
@@ -1601,7 +1608,6 @@
         gap: 14px !important;
       }
 
-      /* Event Gallery 1x1 Mobile Fixes */
       .gallery-page-wrap {
         padding: 36px 16px 60px;
       }
@@ -1619,7 +1625,6 @@
         padding: 20px 14px;
       }
 
-      /* About Us Mobile Fixes */
       .about-page-wrap {
         padding: 36px 16px 60px;
       }
@@ -1639,13 +1644,12 @@
         height: 260px;
       }
 
-      /* FAQ Mobile Fixes */
       .faq-page-wrap {
         padding: 36px 16px 60px;
       }
       .faq-question-btn {
         padding: 18px 20px;
-        font-size: 0.98rem;
+        font-size: 1rem;
       }
       .faq-answer-body {
         padding: 0 20px 20px;
@@ -1669,7 +1673,7 @@
         <li><a class="nav-link interactive-click" onclick="navigateTo('market-hub', event)">Market Hub</a></li>
       </ul>
 
-      <!-- Direct Cutout HM Logo (White everywhere except Black on Home) -->
+      <!-- Direct Cutout HM Logo (White on all pages except Home which is Black) -->
       <a class="brand-center interactive-click" onclick="navigateTo('home', event)" aria-label="Hive Market Home">
         <img src="hm logo new.png" id="main-header-logo" class="header-hm-raw-logo" alt="HM Logo" />
       </a>
@@ -1879,8 +1883,8 @@
     <div class="artsy-trade-page">
       <div class="artsy-trade-inner">
         
-        <!-- Step 1 (Completely Borderless Floating Card) -->
-        <div class="artsy-step-row floating-card">
+        <!-- Step 1 (Completely Seamless Floating Row) -->
+        <div class="artsy-step-row">
           <div>
             <h2 class="artsy-step-title">1. Organize Your Clothes</h2>
             <p class="artsy-step-subtitle">We have a <strong>40 item limit</strong>, so select your best pieces!</p>
@@ -1913,8 +1917,8 @@
           </div>
         </div>
 
-        <!-- Step 2 -->
-        <div class="artsy-step-row reverse floating-card">
+        <!-- Step 2 (Completely Seamless Floating Row) -->
+        <div class="artsy-step-row reverse">
           <div class="artsy-visual-badge">
             <img src="Storefront 3.JPG" class="artsy-duotone-graphic" alt="ID Passport Graphic" />
           </div>
@@ -1930,8 +1934,8 @@
           </div>
         </div>
 
-        <!-- Step 3 -->
-        <div class="artsy-step-row floating-card">
+        <!-- Step 3 (Completely Seamless Floating Row) -->
+        <div class="artsy-step-row">
           <div>
             <h2 class="artsy-step-title">3. Claim Your Cash or Credit</h2>
             <p class="artsy-step-subtitle">
