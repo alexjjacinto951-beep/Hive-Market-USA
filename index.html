@@ -23,8 +23,8 @@
       --hm-hotpink: #ee2a7b;
       --hm-softpink: #ef559f;
       --hm-berry: #9e1f63;
-      --hm-forest: #105113;
-      --hm-forest-dark: #0a350c;
+      --hm-teal: #287c7a;
+      --hm-teal-dark: #195856;
       --hm-blue: #3a6894;
       --hm-taupe: #726658;
       --hm-black: #000000;
@@ -725,6 +725,7 @@
       transform: translateY(-2px);
     }
 
+    /* 4-Column Location, Hours, Contact, & Socials Strip */
     .home-location-strip {
       background: var(--hm-black);
       color: var(--hm-white);
@@ -773,10 +774,10 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 2: BUY / SELL / TRADE (COMPLETELY BORDERLESS & FLOATING)
+       PAGE 2: BUY / SELL / TRADE (TEAL THEME #287c7a WITH FLOATING BORDERLESS ROWS)
     ------------------------------------------------------------- */
     .artsy-trade-page {
-      background-color: var(--hm-forest);
+      background-color: var(--hm-teal);
       color: var(--hm-white);
       min-height: calc(100vh - 102px);
       padding: 60px 36px 90px;
@@ -789,17 +790,21 @@
       gap: 60px;
     }
 
+    /* Floating Step Rows with Backdrop Shadow Border Box */
     .artsy-step-row {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 48px;
       align-items: center;
-      background: transparent;
-      padding: 10px 0;
-      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      background: var(--hm-teal-dark);
+      border-radius: 36px;
+      padding: 44px 48px;
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.28), 0 8px 20px rgba(0, 0, 0, 0.12);
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease;
     }
     .artsy-step-row:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      box-shadow: 0 30px 65px rgba(0, 0, 0, 0.35);
     }
     .artsy-step-row.reverse {
       grid-template-columns: 0.85fr 1.15fr;
@@ -872,7 +877,7 @@
     }
 
     .artsy-booking-cta-card {
-      background: var(--hm-forest-dark);
+      background: var(--hm-teal-dark);
       color: var(--hm-white);
       border-radius: 36px;
       padding: 48px;
@@ -1564,7 +1569,7 @@
       }
       .artsy-step-row, .artsy-step-row.reverse {
         grid-template-columns: 1fr;
-        padding: 20px 0;
+        padding: 28px 20px;
         gap: 20px;
       }
       .artsy-step-title {
@@ -1878,13 +1883,13 @@
   </div>
 
   <!-- =============================================================
-       PAGE 2: BUY / SELL / TRADE (FOREST GREEN FLOATING LOOK - NO BORDERS)
+       PAGE 2: BUY / SELL / TRADE (TEAL THEME #287c7a WITH BORDERLESS STEPS)
   ============================================================= -->
   <div id="page-sell-trade" class="page-view">
     <div class="artsy-trade-page">
       <div class="artsy-trade-inner">
         
-        <!-- Step 1 (Completely Seamless Floating Row) -->
+        <!-- Step 1 (Seamless Floating Row with Zero Borders) -->
         <div class="artsy-step-row">
           <div>
             <h2 class="artsy-step-title">1. Organize Your Clothes</h2>
@@ -1918,7 +1923,7 @@
           </div>
         </div>
 
-        <!-- Step 2 (Completely Seamless Floating Row) -->
+        <!-- Step 2 (Seamless Floating Row with Zero Borders) -->
         <div class="artsy-step-row reverse">
           <div class="artsy-visual-badge">
             <img src="passport asset.png" class="artsy-duotone-graphic" alt="ID Passport Graphic" />
@@ -1935,7 +1940,7 @@
           </div>
         </div>
 
-        <!-- Step 3 (Completely Seamless Floating Row) -->
+        <!-- Step 3 (Seamless Floating Row with Zero Borders) -->
         <div class="artsy-step-row">
           <div>
             <h2 class="artsy-step-title">3. Claim Your Cash or Credit</h2>
@@ -2405,7 +2410,7 @@
     */
     const tabThemeMap = {
       'home': { bg: '#fbdb00', banner: '#fbdb00', text: '#000000', navColor: '#000000', logoFilter: 'none' },
-      'sell-trade': { bg: '#105113', banner: '#105113', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
+      'sell-trade': { bg: '#287c7a', banner: '#287c7a', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
       'market-hub': { bg: '#3a6894', banner: '#3a6894', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
       'gallery': { bg: '#9e1f63', banner: '#9e1f63', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
       'about': { bg: '#000000', banner: '#000000', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
