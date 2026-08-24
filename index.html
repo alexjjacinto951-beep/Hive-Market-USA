@@ -6,10 +6,16 @@
   <title>HIVE MARKET USA | Buy • Sell • Trade</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Futura:wght@700;800;900&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
+    @font-face {
+      font-family: 'Futura Bold Custom';
+      src: local('Futura Bold'), local('Futura-Bold'), local('Futura');
+      font-weight: 700;
+    }
+
     :root {
       /* Curated Client Palette */
       --hm-yellow: #fbdb00;
@@ -40,6 +46,8 @@
       border: none !important;
       outline: none !important;
       -webkit-tap-highlight-color: transparent;
+      font-family: 'Futura Bold Custom', 'Futura', 'Hanken Grotesk', sans-serif !important;
+      font-weight: 700 !important;
     }
 
     html, body {
@@ -50,8 +58,8 @@
     body {
       background-color: var(--active-bg);
       color: var(--active-text);
-      font-family: 'Hanken Grotesk', sans-serif;
-      font-weight: 400;
+      font-family: 'Futura Bold Custom', 'Futura', sans-serif !important;
+      font-weight: 700 !important;
       line-height: 1.5;
       min-height: 100vh;
       display: flex;
@@ -96,8 +104,8 @@
       color: rgba(255, 255, 255, 0.88);
       text-align: center;
       padding: 8px 16px;
-      font-size: 0.7rem;
-      font-weight: 500;
+      font-size: 0.72rem;
+      font-weight: 700 !important;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       min-height: 34px;
@@ -141,8 +149,8 @@
     }
 
     .nav-link {
-      font-size: 0.78rem;
-      font-weight: 700;
+      font-size: 0.82rem;
+      font-weight: 700 !important;
       color: var(--active-nav-color);
       text-decoration: none;
       cursor: pointer;
@@ -260,8 +268,8 @@
     }
     
     .landing-hero-subtitle {
-      font-size: 1rem;
-      font-weight: 300;
+      font-size: 1.05rem;
+      font-weight: 700 !important;
       letter-spacing: 0.35em;
       color: rgba(255, 255, 255, 0.85);
       text-transform: uppercase;
@@ -297,11 +305,11 @@
       transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     .down-arrow-text {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--hm-white);
-      font-weight: 600;
+      font-weight: 700 !important;
     }
     .down-arrow-icon {
       color: var(--hm-yellow);
@@ -343,8 +351,8 @@
       white-space: nowrap;
     }
     .ticker-phrase {
-      font-size: 0.78rem;
-      font-weight: 800;
+      font-size: 0.8rem;
+      font-weight: 700 !important;
       letter-spacing: 0.22em;
       color: var(--hm-yellow);
       text-transform: uppercase;
@@ -373,14 +381,13 @@
       align-items: center;
     }
     .section-editorial-title {
-      font-size: 1.15rem;
-      font-weight: 800;
+      font-size: 1.25rem;
+      font-weight: 700 !important;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--hm-black);
     }
 
-    /* Seamless Floating Layout on Home */
     .home-floating-events-section {
       display: flex;
       flex-direction: column;
@@ -416,8 +423,8 @@
       box-shadow: 0 24px 50px rgba(0, 0, 0, 0.12);
     }
     .event-tag-pill {
-      font-size: 0.64rem;
-      font-weight: 800;
+      font-size: 0.68rem;
+      font-weight: 700 !important;
       letter-spacing: 0.16em;
       color: var(--hm-white);
       background: var(--hm-hotpink);
@@ -428,8 +435,8 @@
       margin-bottom: 14px;
     }
     .event-card-title {
-      font-size: 1.15rem;
-      font-weight: 800;
+      font-size: 1.2rem;
+      font-weight: 700 !important;
       color: var(--hm-black);
       letter-spacing: 0.02em;
       text-transform: uppercase;
@@ -437,15 +444,15 @@
       line-height: 1.25;
     }
     .event-card-desc {
-      font-size: 0.88rem;
-      font-weight: 400;
+      font-size: 0.9rem;
+      font-weight: 700 !important;
       color: #333333;
       line-height: 1.55;
       margin-bottom: 22px;
     }
     .event-card-footer {
-      font-size: 0.75rem;
-      font-weight: 800;
+      font-size: 0.78rem;
+      font-weight: 700 !important;
       letter-spacing: 0.12em;
       color: var(--hm-hotpink);
       text-transform: uppercase;
@@ -474,7 +481,6 @@
       transform: scale(1.4);
     }
 
-    /* Floating Calendar Grid */
     .calendar-integrated-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
@@ -492,8 +498,8 @@
       margin-bottom: 20px;
     }
     .cal-month-title {
-      font-size: 1.25rem;
-      font-weight: 800;
+      font-size: 1.3rem;
+      font-weight: 700 !important;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--hm-yellow);
@@ -523,8 +529,8 @@
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       text-align: center;
-      font-size: 0.68rem;
-      font-weight: 700;
+      font-size: 0.72rem;
+      font-weight: 700 !important;
       letter-spacing: 0.16em;
       color: rgba(255, 255, 255, 0.45);
       margin-bottom: 12px;
@@ -541,8 +547,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 0.88rem;
-      font-weight: 600;
+      font-size: 0.9rem;
+      font-weight: 700 !important;
       position: relative;
       cursor: pointer;
       transition: all 0.25s ease;
@@ -570,7 +576,7 @@
     .cal-day-cell.selected {
       background: var(--hm-hotpink) !important;
       color: var(--hm-white) !important;
-      font-weight: 800;
+      font-weight: 700 !important;
     }
 
     .cal-details-panel {
@@ -582,16 +588,16 @@
       justify-content: space-between;
     }
     .cal-event-tag {
-      font-size: 0.68rem;
-      font-weight: 800;
+      font-size: 0.72rem;
+      font-weight: 700 !important;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--hm-hotpink);
       margin-bottom: 8px;
     }
     .cal-event-headline {
-      font-size: 1.3rem;
-      font-weight: 800;
+      font-size: 1.35rem;
+      font-weight: 700 !important;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       line-height: 1.25;
@@ -599,7 +605,7 @@
       color: var(--hm-white);
     }
     .cal-event-time {
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       color: rgba(255, 255, 255, 0.7);
       margin-bottom: 16px;
       display: flex;
@@ -607,9 +613,9 @@
       gap: 6px;
     }
     .cal-event-narrative {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       line-height: 1.6;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.85);
       margin-bottom: 24px;
     }
 
@@ -671,15 +677,15 @@
     }
     .newsletter-headline {
       font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 900;
+      font-weight: 700 !important;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--hm-white);
     }
     .newsletter-subtext {
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.75);
-      font-weight: 300;
+      font-size: 0.98rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 700 !important;
       max-width: 620px;
       line-height: 1.6;
     }
@@ -695,17 +701,17 @@
       background: rgba(255, 255, 255, 0.08);
       padding: 16px 22px;
       color: var(--hm-white);
-      font-family: 'Hanken Grotesk', sans-serif;
-      font-size: 0.9rem;
+      font-family: 'Futura Bold Custom', 'Futura', sans-serif !important;
+      font-size: 0.92rem;
       border-radius: 9999px;
     }
     .newsletter-btn-submit {
-      font-family: 'Hanken Grotesk', sans-serif;
+      font-family: 'Futura Bold Custom', 'Futura', sans-serif !important;
       background: var(--hm-hotpink);
       color: var(--hm-white);
       padding: 16px 32px;
-      font-weight: 800;
-      font-size: 0.8rem;
+      font-weight: 700 !important;
+      font-size: 0.82rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       cursor: pointer;
@@ -718,7 +724,6 @@
       transform: translateY(-2px);
     }
 
-    /* 4-Column Location, Hours, Contact, & Socials Strip */
     .home-location-strip {
       background: var(--hm-black);
       color: var(--hm-white);
@@ -732,23 +737,23 @@
       gap: 36px;
     }
     .home-loc-box h3 {
-      font-size: 0.75rem;
-      font-weight: 800;
+      font-size: 0.78rem;
+      font-weight: 700 !important;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--hm-yellow);
       margin-bottom: 12px;
     }
     .home-loc-box p {
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.98rem;
+      color: rgba(255, 255, 255, 0.85);
       line-height: 1.6;
     }
     .home-loc-box a {
       color: var(--hm-hotpink);
       text-decoration: none;
-      font-weight: 700;
-      font-size: 0.85rem;
+      font-weight: 700 !important;
+      font-size: 0.88rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       display: inline-block;
@@ -756,15 +761,18 @@
     }
     .social-tag-link {
       font-size: 1.15rem !important;
-      color: var(--hm-yellow) !important;
-      font-weight: 800 !important;
+      color: var(--hm-hotpink) !important;
+      font-weight: 700 !important;
       text-transform: none !important;
       letter-spacing: 0.04em !important;
       margin-top: 4px !important;
     }
+    .social-tag-link:hover {
+      color: var(--hm-yellow) !important;
+    }
 
     /* -------------------------------------------------------------
-       PAGE 2: BUY / SELL / TRADE (FOREST GREEN FLOATING LOOK)
+       PAGE 2: BUY / SELL / TRADE
     ------------------------------------------------------------- */
     .artsy-trade-page {
       background-color: var(--hm-forest);
@@ -795,16 +803,16 @@
     }
 
     .artsy-step-title {
-      font-size: 1.8rem;
-      font-weight: 900;
+      font-size: 1.9rem;
+      font-weight: 700 !important;
       letter-spacing: 0.04em;
       color: var(--hm-yellow);
       text-transform: uppercase;
       margin-bottom: 8px;
     }
     .artsy-step-subtitle {
-      font-size: 1.05rem;
-      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.08rem;
+      color: rgba(255, 255, 255, 0.95);
       margin-bottom: 24px;
     }
 
@@ -817,9 +825,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: 'Hanken Grotesk', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 800;
+      font-family: 'Futura Bold Custom', 'Futura', sans-serif !important;
+      font-size: 1.15rem;
+      font-weight: 700 !important;
       color: var(--hm-yellow);
       cursor: pointer;
       text-align: left;
@@ -827,8 +835,8 @@
     .artsy-accordion-body {
       display: none;
       padding-top: 12px;
-      font-size: 0.92rem;
-      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.9);
       line-height: 1.6;
     }
     .artsy-accordion-item.open .artsy-accordion-body {
@@ -870,8 +878,8 @@
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
     }
     .artsy-booking-cta-card h2 {
-      font-size: 2.2rem;
-      font-weight: 900;
+      font-size: 2.3rem;
+      font-weight: 700 !important;
       text-transform: uppercase;
       color: var(--hm-yellow);
     }
@@ -880,8 +888,8 @@
       color: var(--hm-black);
       padding: 16px 40px;
       border-radius: 9999px;
-      font-weight: 800;
-      font-size: 0.9rem;
+      font-weight: 700 !important;
+      font-size: 0.92rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       text-decoration: none;
@@ -889,7 +897,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 3: MARKET HUB (OCEAN BLUE #3a6894 THEME)
+       PAGE 3: MARKET HUB
     ------------------------------------------------------------- */
     .market-hub-page {
       background-color: var(--hm-blue);
@@ -986,21 +994,21 @@
       box-shadow: 0 16px 40px rgba(238, 42, 123, 0.15);
     }
     .hub-pass-date {
-      font-size: 1.1rem;
-      font-weight: 900;
+      font-size: 1.15rem;
+      font-weight: 700 !important;
       color: var(--hm-yellow);
       letter-spacing: 0.08em;
     }
     .hub-pass-title {
-      font-size: 1.2rem;
-      font-weight: 800;
+      font-size: 1.25rem;
+      font-weight: 700 !important;
       color: var(--hm-white);
       text-transform: uppercase;
       margin-bottom: 6px;
     }
     .hub-pass-desc {
-      font-size: 0.88rem;
-      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.78);
     }
 
     .hub-card-actions {
@@ -1013,8 +1021,8 @@
       color: var(--hm-white);
       padding: 12px 22px;
       border-radius: 9999px;
-      font-weight: 800;
-      font-size: 0.75rem;
+      font-weight: 700 !important;
+      font-size: 0.78rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       white-space: nowrap;
@@ -1024,8 +1032,8 @@
       color: var(--hm-yellow);
       padding: 12px 20px;
       border-radius: 9999px;
-      font-weight: 800;
-      font-size: 0.75rem;
+      font-weight: 700 !important;
+      font-size: 0.78rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       white-space: nowrap;
@@ -1048,8 +1056,8 @@
       background: rgba(255, 255, 255, 0.08);
       padding: 16px 22px;
       color: var(--hm-white);
-      font-family: 'Hanken Grotesk', sans-serif;
-      font-size: 0.9rem;
+      font-family: 'Futura Bold Custom', 'Futura', sans-serif !important;
+      font-size: 0.92rem;
       border-radius: 14px;
       appearance: none;
       cursor: pointer;
@@ -1060,7 +1068,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 4: EVENT GALLERY (BERRY RED #9e1f63 THEME)
+       PAGE 4: EVENT GALLERY
     ------------------------------------------------------------- */
     .gallery-page-wrap {
       background-color: var(--hm-berry);
@@ -1073,8 +1081,8 @@
       margin-bottom: 48px;
     }
     .gallery-editorial-header h1 {
-      font-size: 2.5rem;
-      font-weight: 900;
+      font-size: 2.6rem;
+      font-weight: 700 !important;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--hm-white);
@@ -1129,16 +1137,16 @@
       opacity: 1;
     }
     .event-hover-tag {
-      font-size: 0.75rem;
-      font-weight: 800;
+      font-size: 0.78rem;
+      font-weight: 700 !important;
       letter-spacing: 0.24em;
       color: var(--hm-yellow);
       text-transform: uppercase;
       margin-bottom: 10px;
     }
     .event-hover-name {
-      font-size: 2.2rem;
-      font-weight: 900;
+      font-size: 2.3rem;
+      font-weight: 700 !important;
       letter-spacing: 0.08em;
       color: var(--hm-white);
       text-transform: uppercase;
@@ -1146,8 +1154,8 @@
       margin-bottom: 14px;
     }
     .event-hover-cta {
-      font-size: 0.82rem;
-      font-weight: 800;
+      font-size: 0.85rem;
+      font-weight: 700 !important;
       color: var(--hm-hotpink);
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -1193,7 +1201,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 5: ABOUT US (DEEP BLACK THEME #000000 - YELLOW TITLE)
+       PAGE 5: ABOUT US
     ------------------------------------------------------------- */
     .about-page-wrap {
       background-color: var(--hm-black);
@@ -1207,8 +1215,8 @@
     }
     .who-we-are-title {
       text-align: center;
-      font-size: 2.5rem;
-      font-weight: 900;
+      font-size: 2.6rem;
+      font-weight: 700 !important;
       letter-spacing: 0.12em;
       color: var(--hm-yellow);
       text-transform: uppercase;
@@ -1245,18 +1253,18 @@
       object-fit: cover;
     }
     .about-section-heading {
-      font-size: 1.25rem;
-      font-weight: 900;
+      font-size: 1.3rem;
+      font-weight: 700 !important;
       letter-spacing: 0.14em;
       color: var(--hm-yellow);
       text-transform: uppercase;
       margin-bottom: 8px;
     }
     .about-body-text {
-      font-size: 0.95rem;
-      font-weight: 300;
+      font-size: 0.98rem;
+      font-weight: 700 !important;
       line-height: 1.8;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.88);
     }
     .about-bullet-quote {
       list-style: none;
@@ -1264,15 +1272,15 @@
       flex-direction: column;
       gap: 6px;
       margin: 14px 0;
-      font-size: 0.95rem;
-      font-weight: 500;
+      font-size: 0.98rem;
+      font-weight: 700 !important;
       color: var(--hm-white);
       border-left: 3px solid var(--hm-hotpink) !important;
       padding-left: 18px;
     }
 
     /* -------------------------------------------------------------
-       PAGE 6: FAQ (WARM TAUPE THEME #726658)
+       PAGE 6: FAQ
     ------------------------------------------------------------- */
     .faq-page-wrap {
       background-color: var(--hm-taupe);
@@ -1307,22 +1315,22 @@
       align-items: center;
       background: transparent;
       color: var(--hm-white);
-      font-family: 'Hanken Grotesk', sans-serif;
-      font-size: 1.08rem;
-      font-weight: 700;
+      font-family: 'Futura Bold Custom', 'Futura', sans-serif !important;
+      font-size: 1.12rem;
+      font-weight: 700 !important;
       text-align: left;
       cursor: pointer;
     }
     .faq-toggle-icon {
       color: var(--hm-yellow);
       font-size: 1.3rem;
-      font-weight: 700;
+      font-weight: 700 !important;
       transition: transform 0.3s ease;
     }
     .faq-answer-body {
       padding: 0 28px 24px;
-      font-size: 0.92rem;
-      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.9);
       line-height: 1.7;
       display: none;
     }
@@ -1334,7 +1342,7 @@
     }
 
     /* -------------------------------------------------------------
-       DRAGGABLE IPOD AUDIO WIDGET (UNIFIED YELLOW + HIDE/SHOW)
+       DRAGGABLE IPOD AUDIO WIDGET
     ------------------------------------------------------------- */
     #ipod-widget {
       position: fixed;
@@ -1371,8 +1379,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.58rem;
-      font-weight: 700;
+      font-size: 0.6rem;
+      font-weight: 700 !important;
       color: var(--hm-yellow);
     }
     .ipod-hide-btn {
@@ -1380,19 +1388,19 @@
       color: #fff;
       padding: 1px 6px;
       border-radius: 4px;
-      font-size: 0.52rem;
+      font-size: 0.54rem;
       cursor: pointer;
     }
     .ipod-hide-btn:hover { background: var(--hm-hotpink); }
 
     .ipod-track-artist {
-      font-size: 0.55rem;
+      font-size: 0.58rem;
       color: rgba(255, 255, 255, 0.7);
       text-transform: uppercase;
     }
     .ipod-track-title {
-      font-size: 0.72rem;
-      font-weight: 700;
+      font-size: 0.75rem;
+      font-weight: 700 !important;
       color: var(--pure-white);
     }
     .ipod-progress-track {
@@ -1416,8 +1424,8 @@
     }
     .wheel-btn {
       position: absolute;
-      font-size: 0.58rem;
-      font-weight: 800;
+      font-size: 0.6rem;
+      font-weight: 700 !important;
       color: var(--deep-black);
       cursor: pointer;
       background: none;
@@ -1439,8 +1447,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.62rem;
-      font-weight: 800;
+      font-size: 0.65rem;
+      font-weight: 700 !important;
       color: var(--hm-yellow);
     }
 
@@ -1452,8 +1460,8 @@
       color: var(--hm-black);
       padding: 10px 18px;
       border-radius: 9999px;
-      font-weight: 800;
-      font-size: 0.72rem;
+      font-weight: 700 !important;
+      font-size: 0.75rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       z-index: 9998;
@@ -1466,7 +1474,7 @@
     #ipod-unhide-trigger.visible { display: flex; }
 
     /* =============================================================
-       MOBILE RESPONSIVENESS & CUTOFF PREVENTION FIXES
+       MOBILE RESPONSIVENESS
     ============================================================= */
     @media (max-width: 960px) {
       header {
@@ -1486,7 +1494,7 @@
         width: 100%;
       }
       .nav-link {
-        font-size: 0.7rem;
+        font-size: 0.72rem;
         padding: 6px 10px;
       }
 
@@ -1519,7 +1527,7 @@
       }
       .cal-day-cell {
         height: 38px;
-        font-size: 0.8rem;
+        font-size: 0.82rem;
       }
 
       .archival-trio-grid {
@@ -1544,7 +1552,6 @@
         text-align: center;
       }
 
-      /* Sell / Trade Mobile Fixes */
       .artsy-trade-page {
         padding: 36px 16px 60px;
       }
@@ -1565,7 +1572,6 @@
         border-radius: 24px;
       }
 
-      /* Market Hub Mobile Fixes */
       .hub-event-pass-card {
         grid-template-columns: 1fr;
         padding: 22px 18px;
@@ -1597,7 +1603,6 @@
         gap: 14px !important;
       }
 
-      /* Event Gallery 1x1 Mobile Fixes */
       .gallery-page-wrap {
         padding: 36px 16px 60px;
       }
@@ -1615,7 +1620,6 @@
         padding: 20px 14px;
       }
 
-      /* About Us Mobile Fixes */
       .about-page-wrap {
         padding: 36px 16px 60px;
       }
@@ -1635,13 +1639,12 @@
         height: 260px;
       }
 
-      /* FAQ Mobile Fixes */
       .faq-page-wrap {
         padding: 36px 16px 60px;
       }
       .faq-question-btn {
         padding: 18px 20px;
-        font-size: 0.98rem;
+        font-size: 1rem;
       }
       .faq-answer-body {
         padding: 0 20px 20px;
@@ -1651,12 +1654,10 @@
 </head>
 <body>
 
-  <!-- Top Strip -->
   <div class="top-strip">
-    688 Beaumont Ave, Beaumont CA &nbsp;|&nbsp; Mon–Fri 11–7 • Sat–Sun 12–8 &nbsp;|&nbsp; (909) 222-5719
+    688 Beaumont Ave, Beaumont CA  |  Mon–Fri 11–7 • Sat–Sun 12–8  |  (909) 222-5719
   </div>
 
-  <!-- Dynamic Banner Header with Direct Logo Cutout -->
   <header id="site-header">
     <div class="header-inner">
       <ul class="nav-left">
@@ -1665,7 +1666,6 @@
         <li><a class="nav-link interactive-click" onclick="navigateTo('market-hub', event)">Market Hub</a></li>
       </ul>
 
-      <!-- Direct Cutout HM Logo (White on all pages except Home which is Black) -->
       <a class="brand-center interactive-click" onclick="navigateTo('home', event)" aria-label="Hive Market Home">
         <img src="hm logo new.png" id="main-header-logo" class="header-hm-raw-logo" alt="HM Logo" />
       </a>
@@ -1678,9 +1678,6 @@
     </div>
   </header>
 
-  <!-- =============================================================
-       PAGE 1: HOME (YELLOW THEME #fbdb00 + HOT PINK #ee2a7b ACCENTS)
-  ============================================================= -->
   <div id="page-home" class="page-view active">
     <div class="landing-fullscreen-hero">
       <img src="Storefront 1.JPG" class="landing-bg-image active-bg" id="bg-slide-0" alt="Hive Market Storefront" />
@@ -1694,7 +1691,6 @@
         <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
       </div>
 
-      <!-- Spring Floating Down Arrow -->
       <a class="down-arrow-anchor" onclick="smoothScrollToTarget('home-events-anchor', event)">
         <span class="down-arrow-text">Upcoming Events & Deals</span>
         <i data-lucide="chevron-down" class="down-arrow-icon" style="width: 16px; height: 16px;"></i>
@@ -1702,7 +1698,6 @@
     </div>
 
     <main class="container">
-      <!-- Announcement Ticker Belt -->
       <div class="announcement-ticker-wrap">
         <div class="announcement-ticker-track">
           <div class="ticker-phrase">HIVE MARKET <span class="accent-pink">BUY • SELL • TRADE</span> <span class="ticker-dot">●</span></div>
@@ -1717,12 +1712,10 @@
       <div id="home-events-anchor">
         <div class="section-editorial-header">
           <h2 class="section-editorial-title">Upcoming Events and Sales</h2>
-          <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em;">688 BEAUMONT AVE</span>
+          <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em;">688 BEAUMONT AVE</span>
         </div>
 
-        <!-- Completely Borderless Floating Container for Events & Calendar -->
         <div class="home-floating-events-section">
-          <!-- Conveyor Carousel -->
           <div class="carousel-outer" onmouseenter="pauseConveyor()" onmouseleave="resumeConveyor()">
             <div class="conveyor-track" id="conveyor-track">
               
@@ -1772,7 +1765,6 @@
             </div>
           </div>
 
-          <!-- Calendar Block (Completely Borderless Floating Card) -->
           <div class="calendar-integrated-grid floating-card">
             <div>
               <div class="cal-header">
@@ -1813,7 +1805,6 @@
       </div>
     </main>
 
-    <!-- Photo Trio Section -->
     <div class="archival-trio-wrap">
       <div class="archival-trio-grid">
         <div class="trio-photo-item"><img src="Inside.JPG" alt="Hive Market Interior" /></div>
@@ -1822,7 +1813,6 @@
       </div>
     </div>
 
-    <!-- Keep In Touch Strip -->
     <div class="newsletter-section-wrap">
       <div class="newsletter-inner-container">
         <h2 class="newsletter-headline">Keep in Touch</h2>
@@ -1836,7 +1826,6 @@
       </div>
     </div>
 
-    <!-- 4-Column Location, Hours, Contact, & Socials Strip -->
     <div class="home-location-strip">
       <div class="home-location-grid">
         <div class="home-loc-box">
@@ -1868,14 +1857,10 @@
     </div>
   </div>
 
-  <!-- =============================================================
-       PAGE 2: BUY / SELL / TRADE (FOREST GREEN FLOATING LOOK)
-  ============================================================= -->
   <div id="page-sell-trade" class="page-view">
     <div class="artsy-trade-page">
       <div class="artsy-trade-inner">
         
-        <!-- Step 1 (Completely Borderless Floating Card) -->
         <div class="artsy-step-row floating-card">
           <div>
             <h2 class="artsy-step-title">1. Organize Your Clothes</h2>
@@ -1909,7 +1894,6 @@
           </div>
         </div>
 
-        <!-- Step 2 -->
         <div class="artsy-step-row reverse floating-card">
           <div class="artsy-visual-badge">
             <img src="Storefront 3.JPG" class="artsy-duotone-graphic" alt="ID Passport Graphic" />
@@ -1926,7 +1910,6 @@
           </div>
         </div>
 
-        <!-- Step 3 -->
         <div class="artsy-step-row floating-card">
           <div>
             <h2 class="artsy-step-title">3. Claim Your Cash or Credit</h2>
@@ -1940,7 +1923,6 @@
           </div>
         </div>
 
-        <!-- Booking Callout -->
         <div class="artsy-booking-cta-card floating-card">
           <h2>Schedule Your Selling Appointment</h2>
           <p style="max-width: 650px; font-size: 1rem; line-height: 1.6;">
@@ -1955,9 +1937,6 @@
     </div>
   </div>
 
-  <!-- =============================================================
-       PAGE 3: MARKET HUB (OCEAN BLUE #3a6894 THEME)
-  ============================================================= -->
   <div id="page-market-hub" class="page-view">
     <div class="landing-fullscreen-hero">
       <img src="live event.JPG" class="landing-bg-image active-bg" alt="Market Hub Live Event" />
@@ -1982,7 +1961,6 @@
     </div>
 
     <main class="container" id="hub-schedule-anchor">
-      <!-- Section 1: Event Passes & Schedule with Swish Animation -->
       <div class="swish-stage-container floating-card" style="background: var(--hm-charcoal); padding: 40px; margin-bottom: 48px;">
         
         <div class="swish-form-panel" id="hub-rsvp-form-panel">
@@ -2030,7 +2008,6 @@
           </div>
         </div>
 
-        <!-- RSVP Success Transition Panel (Slides in from Right) -->
         <div class="swish-success-panel" id="hub-rsvp-success-panel">
           <div class="swish-follow-photo">
             <img src="audience.JPG" alt="Hive Storefront Audience & Community Concert" />
@@ -2053,7 +2030,6 @@
         </div>
       </div>
 
-      <!-- Section 2: Application Stage with Swish Animation + Dynamic Dropdown -->
       <div class="swish-stage-container floating-card" id="hub-apply-section" style="background: var(--hm-charcoal); padding: 44px;">
         
         <div class="swish-form-panel" id="hub-vendor-form-panel">
@@ -2066,7 +2042,6 @@
 
           <form class="form-grid" onsubmit="handleSwishVendorSubmit(event)">
             
-            <!-- Application Selection Dropdown Menu -->
             <div style="margin-bottom: 18px;">
               <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Select Upcoming Event or General Showcase</label>
               <select id="hub-event-select-dropdown" class="custom-select-dark" required>
@@ -2112,7 +2087,6 @@
           </form>
         </div>
 
-        <!-- Application Success Transition Panel (Slides in from Right) -->
         <div class="swish-success-panel" id="hub-vendor-success-panel">
           <div class="swish-follow-photo">
             <img src="night hive.JPG" alt="Hive Market Night Gathering & Sound Stage" />
@@ -2134,9 +2108,6 @@
     </main>
   </div>
 
-  <!-- =============================================================
-       PAGE 4: EVENT GALLERY (BERRY RED #9e1f63 THEME)
-  ============================================================= -->
   <div id="page-gallery" class="page-view">
     <div class="gallery-page-wrap">
       <div class="gallery-editorial-header">
@@ -2146,10 +2117,8 @@
         </p>
       </div>
 
-      <!-- 1x1x1x1 Single-Column Vertical Stack Layout -->
       <div class="event-cover-grid-1x1">
         
-        <!-- Item 1: singing.JPG -->
         <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Live Vocal Session: Summer Sound Showcase')">
           <img src="singing.JPG" alt="Live Vocal Showcase" />
           <div class="event-hover-overlay">
@@ -2159,7 +2128,6 @@
           </div>
         </div>
 
-        <!-- Item 2: singing 2.JPG -->
         <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Flashlight Acoustic Showcase')">
           <img src="singing 2.JPG" alt="Flashlight Acoustic Showcase" />
           <div class="event-hover-overlay">
@@ -2169,7 +2137,6 @@
           </div>
         </div>
 
-        <!-- Item 3: dj jordan.JPG -->
         <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Live DJ Mixing & Analog Session')">
           <img src="dj jordan.JPG" alt="Live DJ Session" />
           <div class="event-hover-overlay">
@@ -2179,7 +2146,6 @@
           </div>
         </div>
 
-        <!-- Item 4: ppl.JPG -->
         <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('The Local Crowd & Community Night')">
           <img src="ppl.JPG" alt="The Local Crowd" />
           <div class="event-hover-overlay">
@@ -2193,7 +2159,6 @@
     </div>
   </div>
 
-  <!-- Full Album Viewer Modal -->
   <div class="album-modal-overlay" id="album-viewer-modal">
     <div class="album-modal-header">
       <div>
@@ -2215,9 +2180,6 @@
     </div>
   </div>
 
-  <!-- =============================================================
-       PAGE 5: ABOUT US (DEEP BLACK THEME #000000 - YELLOW TITLE)
-  ============================================================= -->
   <div id="page-about" class="page-view">
     <div class="about-page-wrap">
       <div class="who-we-are-wrap">
@@ -2287,9 +2249,6 @@
     </div>
   </div>
 
-  <!-- =============================================================
-       PAGE 6: FAQ (WARM TAUPE THEME #726658)
-  ============================================================= -->
   <div id="page-faq" class="page-view">
     <div class="faq-page-wrap">
       <div class="faq-inner-container">
@@ -2298,7 +2257,6 @@
         </h1>
 
         <div class="faq-accordion-group">
-          <!-- FAQ 1 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>How does the buy/ trade process work?</span>
@@ -2309,7 +2267,6 @@
             </div>
           </div>
 
-          <!-- FAQ 2 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>Do I need an appointment to sell my clothes?</span>
@@ -2320,7 +2277,6 @@
             </div>
           </div>
 
-          <!-- FAQ 3 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>What is the item limit per selling appointment?</span>
@@ -2331,7 +2287,6 @@
             </div>
           </div>
 
-          <!-- FAQ 4 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>What identification is required?</span>
@@ -2346,7 +2301,6 @@
     </div>
   </div>
 
-  <!-- Draggable iPod Audio Widget with Hide/Unhide Support -->
   <div id="ipod-widget">
     <div class="ipod-screen">
       <div class="ipod-header-bar">
@@ -2371,13 +2325,11 @@
     </div>
   </div>
 
-  <!-- Floating Trigger to Unhide iPod -->
   <button id="ipod-unhide-trigger" class="interactive-click" onclick="toggleIpodVisibility(false)">
     <i data-lucide="music" style="width: 14px; height: 14px;"></i>
     <span>SHOW HIVE POD</span>
   </button>
 
-  <!-- Event Modal -->
   <div class="album-modal-overlay" id="event-modal" onclick="closeModal(event)">
     <div style="background: var(--hm-black); border-radius: 28px; max-width: 520px; width: 100%; padding: 40px; margin: auto; color: #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.8); position: relative;">
       <button onclick="closeEventModal()" style="position: absolute; top: 20px; right: 20px; background: transparent; color: #fff; font-size: 1.2rem; cursor: pointer;">✕</button>
@@ -2392,7 +2344,7 @@
     lucide.createIcons();
 
     /* Distinct Dynamic Tab Theme Palette Map:
-       - Header logo is pure white on all other pages, black ONLY on Home
+       - Header logo is Inverted White on all colored/dark headers, Crisp Black ONLY on Home
     */
     const tabThemeMap = {
       'home': { bg: '#fbdb00', banner: '#fbdb00', text: '#000000', navColor: '#000000', logoFilter: 'none' },
@@ -2432,7 +2384,7 @@
       document.documentElement.style.setProperty('--active-text', theme.text);
       document.documentElement.style.setProperty('--active-nav-color', theme.navColor);
 
-      // Logo filter: Inverted white on colored/dark headers, crisp black on home
+      // Logo filter: Inverted white on all pages except home (black)
       const headerLogo = document.getElementById('main-header-logo');
       if (headerLogo) {
         headerLogo.style.filter = theme.logoFilter;
