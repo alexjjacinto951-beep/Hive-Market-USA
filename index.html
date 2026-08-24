@@ -23,8 +23,9 @@
       --hm-hotpink: #ee2a7b;
       --hm-softpink: #ef559f;
       --hm-berry: #9e1f63;
-      --hm-mint: #81e69f;
-      --hm-mint-dark: #3fb564;
+      --hm-mint-green: #81e69f;
+      --hm-forest: #105113;
+      --hm-forest-dark: #0a350c;
       --hm-blue: #3a6894;
       --hm-taupe: #726658;
       --hm-black: #000000;
@@ -725,6 +726,7 @@
       transform: translateY(-2px);
     }
 
+    /* 4-Column Location, Hours, Contact, & Socials Strip */
     .home-location-strip {
       background: var(--hm-black);
       color: var(--hm-white);
@@ -773,10 +775,10 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 2: BUY / SELL / TRADE (MINT GREEN #81e69f THEME)
+       PAGE 2: BUY / SELL / TRADE (#81e69f MINT GREEN FLOATING CARDS)
     ------------------------------------------------------------- */
     .artsy-trade-page {
-      background-color: var(--hm-mint);
+      background-color: var(--hm-mint-green);
       color: var(--hm-black);
       min-height: calc(100vh - 102px);
       padding: 60px 36px 90px;
@@ -786,21 +788,24 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 60px;
+      gap: 52px;
     }
 
-    /* Perfectly Seamless Floating Step Rows */
+    /* Floating Card Rows with Soft Drop Shadows and Crisp Black Typography */
     .artsy-step-row {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 48px;
       align-items: center;
-      background: transparent;
-      padding: 10px 0;
-      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      background: var(--hm-white);
+      border-radius: 36px;
+      padding: 44px 48px;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1), 0 6px 16px rgba(0, 0, 0, 0.05);
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease;
     }
     .artsy-step-row:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.16), 0 10px 24px rgba(0, 0, 0, 0.08);
     }
     .artsy-step-row.reverse {
       grid-template-columns: 0.85fr 1.15fr;
@@ -816,7 +821,7 @@
     }
     .artsy-step-subtitle {
       font-size: 1.1rem;
-      color: #1a2e23;
+      color: #333333;
       margin-bottom: 24px;
     }
 
@@ -840,7 +845,7 @@
       display: none;
       padding-top: 12px;
       font-size: 0.98rem;
-      color: #1a2e23;
+      color: #444444;
       line-height: 1.65;
     }
     .artsy-accordion-item.open .artsy-accordion-body {
@@ -850,16 +855,17 @@
       transform: rotate(45deg);
     }
 
-    /* Floating Image Display with Asset Processing */
+    /* Floating Image Display */
     .artsy-visual-badge {
       width: 100%;
       height: 280px;
-      border-radius: 32px;
+      border-radius: 28px;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease;
+      background: rgba(0, 0, 0, 0.03);
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .artsy-visual-badge:hover {
       transform: scale(1.03) translateY(-4px);
@@ -881,17 +887,17 @@
       flex-direction: column;
       align-items: center;
       gap: 18px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
       margin-top: 20px;
     }
     .artsy-booking-cta-card h2 {
       font-size: 2.3rem;
       font-weight: 700 !important;
       text-transform: uppercase;
-      color: var(--hm-yellow);
+      color: var(--hm-mint-green);
     }
     .btn-artsy-book {
-      background: var(--hm-yellow);
+      background: var(--hm-mint-green);
       color: var(--hm-black);
       padding: 16px 40px;
       border-radius: 9999px;
@@ -1337,7 +1343,7 @@
     .faq-answer-body {
       padding: 0 28px 24px;
       font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.88);
+      color: rgba(255, 255, 255, 0.9);
       line-height: 1.7;
       display: none;
     }
@@ -1660,10 +1666,12 @@
 </head>
 <body>
 
+  <!-- Top Strip -->
   <div class="top-strip">
-    688 Beaumont Ave, Beaumont CA  |  Mon–Fri 11–7 • Sat–Sun 12–8  |  (909) 222-5719
+    688 Beaumont Ave, Beaumont CA &nbsp;|&nbsp; Mon–Fri 11–7 • Sat–Sun 12–8 &nbsp;|&nbsp; (909) 222-5719
   </div>
 
+  <!-- Dynamic Banner Header with Direct Logo Cutout -->
   <header id="site-header">
     <div class="header-inner">
       <ul class="nav-left">
@@ -1672,6 +1680,7 @@
         <li><a class="nav-link interactive-click" onclick="navigateTo('market-hub', event)">Market Hub</a></li>
       </ul>
 
+      <!-- Direct Cutout HM Logo (White on all pages except Home which is Black) -->
       <a class="brand-center interactive-click" onclick="navigateTo('home', event)" aria-label="Hive Market Home">
         <img src="hm logo new.png" id="main-header-logo" class="header-hm-raw-logo" alt="HM Logo" />
       </a>
@@ -1684,6 +1693,9 @@
     </div>
   </header>
 
+  <!-- =============================================================
+       PAGE 1: HOME (YELLOW THEME #fbdb00 + HOT PINK #ee2a7b ACCENTS)
+  ============================================================= -->
   <div id="page-home" class="page-view active">
     <div class="landing-fullscreen-hero">
       <img src="Storefront 1.JPG" class="landing-bg-image active-bg" id="bg-slide-0" alt="Hive Market Storefront" />
@@ -1697,6 +1709,7 @@
         <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
       </div>
 
+      <!-- Spring Floating Down Arrow -->
       <a class="down-arrow-anchor" onclick="smoothScrollToTarget('home-events-anchor', event)">
         <span class="down-arrow-text">Upcoming Events & Deals</span>
         <i data-lucide="chevron-down" class="down-arrow-icon" style="width: 16px; height: 16px;"></i>
@@ -1704,6 +1717,7 @@
     </div>
 
     <main class="container">
+      <!-- Announcement Ticker Belt -->
       <div class="announcement-ticker-wrap">
         <div class="announcement-ticker-track">
           <div class="ticker-phrase">HIVE MARKET <span class="accent-pink">BUY • SELL • TRADE</span> <span class="ticker-dot">●</span></div>
@@ -1721,7 +1735,9 @@
           <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em;">688 BEAUMONT AVE</span>
         </div>
 
+        <!-- Completely Borderless Floating Container for Events & Calendar -->
         <div class="home-floating-events-section">
+          <!-- Conveyor Carousel -->
           <div class="carousel-outer" onmouseenter="pauseConveyor()" onmouseleave="resumeConveyor()">
             <div class="conveyor-track" id="conveyor-track">
               
@@ -1771,6 +1787,7 @@
             </div>
           </div>
 
+          <!-- Calendar Block (Completely Borderless Floating Card) -->
           <div class="calendar-integrated-grid floating-card">
             <div>
               <div class="cal-header">
@@ -1811,6 +1828,7 @@
       </div>
     </main>
 
+    <!-- Photo Trio Section -->
     <div class="archival-trio-wrap">
       <div class="archival-trio-grid">
         <div class="trio-photo-item"><img src="Inside.JPG" alt="Hive Market Interior" /></div>
@@ -1819,6 +1837,7 @@
       </div>
     </div>
 
+    <!-- Keep In Touch Strip -->
     <div class="newsletter-section-wrap">
       <div class="newsletter-inner-container">
         <h2 class="newsletter-headline">Keep in Touch</h2>
@@ -1832,6 +1851,7 @@
       </div>
     </div>
 
+    <!-- 4-Column Location, Hours, Contact, & Socials Strip -->
     <div class="home-location-strip">
       <div class="home-location-grid">
         <div class="home-loc-box">
@@ -1863,10 +1883,14 @@
     </div>
   </div>
 
+  <!-- =============================================================
+       PAGE 2: BUY / SELL / TRADE (FOREST GREEN FLOATING LOOK - NO BORDERS)
+  ============================================================= -->
   <div id="page-sell-trade" class="page-view">
     <div class="artsy-trade-page">
       <div class="artsy-trade-inner">
         
+        <!-- Step 1 (Completely Seamless Floating Row) -->
         <div class="artsy-step-row">
           <div>
             <h2 class="artsy-step-title">1. Organize Your Clothes</h2>
@@ -1900,6 +1924,7 @@
           </div>
         </div>
 
+        <!-- Step 2 (Completely Seamless Floating Row) -->
         <div class="artsy-step-row reverse">
           <div class="artsy-visual-badge">
             <img src="passport asset.png" class="artsy-duotone-graphic" alt="ID Passport Graphic" />
@@ -1916,6 +1941,7 @@
           </div>
         </div>
 
+        <!-- Step 3 (Completely Seamless Floating Row) -->
         <div class="artsy-step-row">
           <div>
             <h2 class="artsy-step-title">3. Claim Your Cash or Credit</h2>
@@ -1929,6 +1955,7 @@
           </div>
         </div>
 
+        <!-- Booking Callout -->
         <div class="artsy-booking-cta-card floating-card">
           <h2>Schedule Your Selling Appointment</h2>
           <p style="max-width: 650px; font-size: 1rem; line-height: 1.6;">
@@ -1943,6 +1970,9 @@
     </div>
   </div>
 
+  <!-- =============================================================
+       PAGE 3: MARKET HUB (OCEAN BLUE #3a6894 THEME)
+  ============================================================= -->
   <div id="page-market-hub" class="page-view">
     <div class="landing-fullscreen-hero">
       <img src="live event.JPG" class="landing-bg-image active-bg" alt="Market Hub Live Event" />
@@ -1967,6 +1997,7 @@
     </div>
 
     <main class="container" id="hub-schedule-anchor">
+      <!-- Section 1: Event Passes & Schedule with Swish Animation -->
       <div class="swish-stage-container floating-card" style="background: var(--hm-charcoal); padding: 40px; margin-bottom: 48px;">
         
         <div class="swish-form-panel" id="hub-rsvp-form-panel">
@@ -2014,6 +2045,7 @@
           </div>
         </div>
 
+        <!-- RSVP Success Transition Panel (Slides in from Right) -->
         <div class="swish-success-panel" id="hub-rsvp-success-panel">
           <div class="swish-follow-photo">
             <img src="audience.JPG" alt="Hive Storefront Audience & Community Concert" />
@@ -2036,6 +2068,7 @@
         </div>
       </div>
 
+      <!-- Section 2: Application Stage with Swish Animation + Dynamic Dropdown -->
       <div class="swish-stage-container floating-card" id="hub-apply-section" style="background: var(--hm-charcoal); padding: 44px;">
         
         <div class="swish-form-panel" id="hub-vendor-form-panel">
@@ -2048,6 +2081,7 @@
 
           <form class="form-grid" onsubmit="handleSwishVendorSubmit(event)">
             
+            <!-- Application Selection Dropdown Menu -->
             <div style="margin-bottom: 18px;">
               <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Select Upcoming Event or General Showcase</label>
               <select id="hub-event-select-dropdown" class="custom-select-dark" required>
@@ -2093,6 +2127,7 @@
           </form>
         </div>
 
+        <!-- Application Success Transition Panel (Slides in from Right) -->
         <div class="swish-success-panel" id="hub-vendor-success-panel">
           <div class="swish-follow-photo">
             <img src="night hive.JPG" alt="Hive Market Night Gathering & Sound Stage" />
@@ -2114,6 +2149,9 @@
     </main>
   </div>
 
+  <!-- =============================================================
+       PAGE 4: EVENT GALLERY (BERRY RED #9e1f63 THEME)
+  ============================================================= -->
   <div id="page-gallery" class="page-view">
     <div class="gallery-page-wrap">
       <div class="gallery-editorial-header">
@@ -2123,8 +2161,10 @@
         </p>
       </div>
 
+      <!-- 1x1x1x1 Single-Column Vertical Stack Layout -->
       <div class="event-cover-grid-1x1">
         
+        <!-- Item 1: singing.JPG -->
         <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Live Vocal Session: Summer Sound Showcase')">
           <img src="singing.JPG" alt="Live Vocal Showcase" />
           <div class="event-hover-overlay">
@@ -2134,6 +2174,7 @@
           </div>
         </div>
 
+        <!-- Item 2: singing 2.JPG -->
         <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Flashlight Acoustic Showcase')">
           <img src="singing 2.JPG" alt="Flashlight Acoustic Showcase" />
           <div class="event-hover-overlay">
@@ -2143,6 +2184,7 @@
           </div>
         </div>
 
+        <!-- Item 3: dj jordan.JPG -->
         <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Live DJ Mixing & Analog Session')">
           <img src="dj jordan.JPG" alt="Live DJ Session" />
           <div class="event-hover-overlay">
@@ -2152,6 +2194,7 @@
           </div>
         </div>
 
+        <!-- Item 4: ppl.JPG -->
         <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('The Local Crowd & Community Night')">
           <img src="ppl.JPG" alt="The Local Crowd" />
           <div class="event-hover-overlay">
@@ -2165,6 +2208,7 @@
     </div>
   </div>
 
+  <!-- Full Album Viewer Modal -->
   <div class="album-modal-overlay" id="album-viewer-modal">
     <div class="album-modal-header">
       <div>
@@ -2186,6 +2230,9 @@
     </div>
   </div>
 
+  <!-- =============================================================
+       PAGE 5: ABOUT US (DEEP BLACK THEME #000000 - YELLOW TITLE)
+  ============================================================= -->
   <div id="page-about" class="page-view">
     <div class="about-page-wrap">
       <div class="who-we-are-wrap">
@@ -2255,6 +2302,9 @@
     </div>
   </div>
 
+  <!-- =============================================================
+       PAGE 6: FAQ (WARM TAUPE THEME #726658)
+  ============================================================= -->
   <div id="page-faq" class="page-view">
     <div class="faq-page-wrap">
       <div class="faq-inner-container">
@@ -2263,6 +2313,7 @@
         </h1>
 
         <div class="faq-accordion-group">
+          <!-- FAQ 1 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>How does the buy/ trade process work?</span>
@@ -2273,6 +2324,7 @@
             </div>
           </div>
 
+          <!-- FAQ 2 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>Do I need an appointment to sell my clothes?</span>
@@ -2283,6 +2335,7 @@
             </div>
           </div>
 
+          <!-- FAQ 3 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>What is the item limit per selling appointment?</span>
@@ -2293,6 +2346,7 @@
             </div>
           </div>
 
+          <!-- FAQ 4 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>What identification is required?</span>
@@ -2307,6 +2361,7 @@
     </div>
   </div>
 
+  <!-- Draggable iPod Audio Widget with Hide/Unhide Support -->
   <div id="ipod-widget">
     <div class="ipod-screen">
       <div class="ipod-header-bar">
@@ -2331,11 +2386,13 @@
     </div>
   </div>
 
+  <!-- Floating Trigger to Unhide iPod -->
   <button id="ipod-unhide-trigger" class="interactive-click" onclick="toggleIpodVisibility(false)">
     <i data-lucide="music" style="width: 14px; height: 14px;"></i>
     <span>SHOW HIVE POD</span>
   </button>
 
+  <!-- Event Modal -->
   <div class="album-modal-overlay" id="event-modal" onclick="closeModal(event)">
     <div style="background: var(--hm-black); border-radius: 28px; max-width: 520px; width: 100%; padding: 40px; margin: auto; color: #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.8); position: relative;">
       <button onclick="closeEventModal()" style="position: absolute; top: 20px; right: 20px; background: transparent; color: #fff; font-size: 1.2rem; cursor: pointer;">✕</button>
@@ -2354,7 +2411,7 @@
     */
     const tabThemeMap = {
       'home': { bg: '#fbdb00', banner: '#fbdb00', text: '#000000', navColor: '#000000', logoFilter: 'none' },
-      'sell-trade': { bg: '#287c7a', banner: '#287c7a', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
+      'sell-trade': { bg: '#81e69f', banner: '#81e69f', text: '#000000', navColor: '#000000', logoFilter: 'none' },
       'market-hub': { bg: '#3a6894', banner: '#3a6894', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
       'gallery': { bg: '#9e1f63', banner: '#9e1f63', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
       'about': { bg: '#000000', banner: '#000000', text: '#ffffff', navColor: '#ffffff', logoFilter: 'invert(1)' },
@@ -2390,7 +2447,7 @@
       document.documentElement.style.setProperty('--active-text', theme.text);
       document.documentElement.style.setProperty('--active-nav-color', theme.navColor);
 
-      // Logo filter: Inverted white on all pages except home (black)
+      // Logo filter: Inverted white on dark headers, black on light headers
       const headerLogo = document.getElementById('main-header-logo');
       if (headerLogo) {
         headerLogo.style.filter = theme.logoFilter;
