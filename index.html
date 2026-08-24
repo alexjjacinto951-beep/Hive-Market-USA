@@ -11,7 +11,6 @@
 
   <style>
     :root {
-      /* Curated Palette */
       --hm-yellow: #fbdb00;
       --hm-lime: #d7df23;
       --hm-hotpink: #ee2a7b;
@@ -24,7 +23,6 @@
       --hm-cream: #f7f4ea;
       --hm-white: #ffffff;
       
-      /* Active Dynamic Theme Variables */
       --active-bg: var(--hm-yellow);
       --active-banner: var(--hm-yellow);
       --active-text: var(--hm-black);
@@ -53,7 +51,6 @@
       transition: background-color 0.8s cubic-bezier(0.25, 1, 0.5, 1), color 0.8s ease;
     }
 
-    /* Floating Levitation Effects (No Harsh Borders) */
     .floating-card {
       border-radius: 28px;
       box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08), 0 4px 14px rgba(0, 0, 0, 0.04);
@@ -65,7 +62,6 @@
       box-shadow: 0 26px 55px rgba(0, 0, 0, 0.14), 0 8px 24px rgba(0, 0, 0, 0.06);
     }
 
-    /* Spring Jumpy Interactive Buttons */
     .interactive-click {
       cursor: pointer;
       user-select: none;
@@ -83,7 +79,6 @@
       transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1) !important;
     }
 
-    /* Top Strip */
     .top-strip {
       background: var(--hm-black);
       color: rgba(255, 255, 255, 0.88);
@@ -100,7 +95,6 @@
       z-index: 1001;
     }
 
-    /* Dynamic Top Banner Header */
     header {
       position: sticky;
       top: 0;
@@ -152,7 +146,6 @@
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
     }
 
-    /* Direct Cutout Header Logo (No Circle Border) */
     .brand-center {
       display: flex;
       align-items: center;
@@ -173,7 +166,6 @@
       transform: scale(1.1);
     }
 
-    /* Page View Transitions */
     .page-view {
       display: none;
       opacity: 0;
@@ -187,7 +179,6 @@
       transform: translateY(0) scale(1);
     }
 
-    /* Full-Screen Landing Hero */
     .landing-fullscreen-hero {
       width: 100vw;
       height: calc(100vh - 102px);
@@ -259,7 +250,6 @@
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
     }
 
-    /* Spring Jumpy Arrow Anchors */
     .down-arrow-anchor {
       position: absolute;
       bottom: 24px;
@@ -314,9 +304,6 @@
       padding: 48px 36px 64px;
     }
 
-    /* -------------------------------------------------------------
-       HOMEPAGE: ANNOUNCEMENT TICKER BELT
-    ------------------------------------------------------------- */
     .announcement-ticker-wrap {
       width: 100%;
       background: var(--hm-black);
@@ -359,9 +346,6 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* -------------------------------------------------------------
-       HOMEPAGE: EVENTS & CALENDAR COMPOSITE
-    ------------------------------------------------------------- */
     .section-editorial-header {
       padding: 18px 0;
       margin: 28px 0 20px;
@@ -401,7 +385,6 @@
       will-change: transform;
     }
 
-    /* White Floating Event Card with Hot Pink Title Accent */
     .event-card-slide {
       flex: 0 0 calc(33.333% - 16px);
       min-width: 310px;
@@ -477,7 +460,6 @@
       transform: scale(1.4);
     }
 
-    /* Floating Rounded Calendar Grid */
     .calendar-integrated-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
@@ -616,9 +598,6 @@
       margin-bottom: 24px;
     }
 
-    /* -------------------------------------------------------------
-       SECTION: ZERO-GAP ARCHIVAL PHOTO TRIO
-    ------------------------------------------------------------- */
     .archival-trio-wrap {
       width: 100vw;
       margin-top: 48px;
@@ -657,9 +636,6 @@
       filter: contrast(1.08) brightness(1);
     }
 
-    /* -------------------------------------------------------------
-       HOMEPAGE: KEEP IN TOUCH & LOCATION FOOTER
-    ------------------------------------------------------------- */
     .newsletter-section-wrap {
       background: var(--hm-charcoal);
       color: var(--hm-white);
@@ -893,7 +869,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 3: MARKET HUB (PASSES & DIRECT APPLICATION INTEGRATION)
+       PAGE 3: MARKET HUB (SWISH VANISH & RESTORE TRANSITIONS)
     ------------------------------------------------------------- */
     .market-hub-page {
       background-color: var(--hm-black);
@@ -901,22 +877,89 @@
       min-height: calc(100vh - 102px);
     }
 
+    .swish-stage-container {
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+      border-radius: 32px;
+    }
+
+    .swish-form-panel {
+      width: 100%;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .swish-form-panel.vanished {
+      transform: translateX(-100%);
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .swish-success-panel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: center;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+      transform: translateX(100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .swish-success-panel.active {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+      position: relative;
+    }
+
+    .swish-follow-photo {
+      width: 100%;
+      height: 440px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+    .swish-follow-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.06) brightness(0.95);
+    }
+
+    .swish-success-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
     .hub-primary-schedule {
       display: flex;
       flex-direction: column;
       gap: 20px;
-      margin-top: 32px;
+      margin-top: 24px;
     }
     .hub-event-pass-card {
       background: var(--hm-charcoal);
-      border-radius: 28px;
-      padding: 32px;
+      border-radius: 24px;
+      padding: 28px 32px;
       display: grid;
       grid-template-columns: 160px 1fr auto;
       align-items: center;
-      gap: 28px;
+      gap: 24px;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
-      cursor: pointer;
     }
     .hub-event-pass-card:hover {
       transform: translateY(-4px);
@@ -929,7 +972,7 @@
       letter-spacing: 0.08em;
     }
     .hub-pass-title {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 800;
       color: var(--hm-white);
       text-transform: uppercase;
@@ -939,29 +982,49 @@
       font-size: 0.88rem;
       color: rgba(255, 255, 255, 0.7);
     }
-    .btn-apply-event {
+
+    .hub-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-rsvp-event {
       background: var(--hm-hotpink);
       color: var(--hm-white);
-      padding: 12px 24px;
+      padding: 12px 22px;
       border-radius: 9999px;
       font-weight: 800;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       white-space: nowrap;
     }
+    .btn-apply-event-pill {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--hm-yellow);
+      padding: 12px 20px;
+      border-radius: 9999px;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .btn-apply-event-pill:hover {
+      background: var(--hm-yellow);
+      color: var(--hm-black);
+    }
 
-    /* Embedded Application Container */
     .hub-application-stage {
       background: var(--hm-charcoal);
       border-radius: 32px;
-      padding: 48px;
-      margin-top: 48px;
+      padding: 44px;
+      margin-top: 40px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     }
 
     /* -------------------------------------------------------------
-       PAGE 4: EVENT GALLERY (1 PIC PER EVENT + ON-HOVER NAME)
+       PAGE 4: EVENT GALLERY (1x1x1x1 VERTICAL FULL BLEED STACK)
     ------------------------------------------------------------- */
     .gallery-page-wrap {
       background-color: var(--hm-black);
@@ -982,24 +1045,25 @@
       margin-bottom: 8px;
     }
 
-    .event-cover-grid {
+    /* 1x1x1x1 Single-Column Vertical Collage Stack */
+    .event-cover-grid-1x1 {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-      max-width: 1300px;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      max-width: 1080px;
       margin: 0 auto;
     }
 
-    .event-cover-item {
+    .event-cover-item-1x1 {
       position: relative;
-      border-radius: 28px;
+      border-radius: 32px;
       overflow: hidden;
-      height: 480px;
+      height: 540px;
       background: #000;
       cursor: pointer;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
     }
-    .event-cover-item img {
+    .event-cover-item-1x1 img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -1007,12 +1071,11 @@
       transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
       filter: contrast(1.05) brightness(0.9);
     }
-    .event-cover-item:hover img {
-      transform: scale(1.06);
-      filter: contrast(1.1) brightness(0.75);
+    .event-cover-item-1x1:hover img {
+      transform: scale(1.04);
+      filter: contrast(1.1) brightness(0.72);
     }
 
-    /* On-Hover Golf Style Event Name Overlay */
     .event-hover-overlay {
       position: absolute;
       inset: 0;
@@ -1021,45 +1084,44 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 30px;
+      padding: 40px;
       opacity: 0;
-      background: rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(4px);
+      background: rgba(0, 0, 0, 0.48);
+      backdrop-filter: blur(5px);
       transition: opacity 0.4s ease;
     }
-    .event-cover-item:hover .event-hover-overlay {
+    .event-cover-item-1x1:hover .event-hover-overlay {
       opacity: 1;
     }
     .event-hover-tag {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 800;
       letter-spacing: 0.24em;
       color: var(--hm-yellow);
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     .event-hover-name {
-      font-size: 1.6rem;
+      font-size: 2.2rem;
       font-weight: 900;
       letter-spacing: 0.08em;
       color: var(--hm-white);
       text-transform: uppercase;
       line-height: 1.2;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .event-hover-cta {
-      font-size: 0.75rem;
+      font-size: 0.82rem;
       font-weight: 800;
       color: var(--hm-hotpink);
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
-    /* Full Album Modal Viewer */
     .album-modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.92);
+      background: rgba(0, 0, 0, 0.94);
       backdrop-filter: blur(16px);
       z-index: 10000;
       display: none;
@@ -1096,7 +1158,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 5: ABOUT US (WHO WE ARE - SINGLE POLAROID EDITORIAL)
+       PAGE 5: ABOUT US
     ------------------------------------------------------------- */
     .about-page-wrap {
       background-color: var(--hm-black);
@@ -1175,7 +1237,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 6: FAQ (ROUNDED ACCORDIONS)
+       PAGE 6: FAQ
     ------------------------------------------------------------- */
     .faq-page-wrap {
       background-color: var(--hm-charcoal);
@@ -1334,23 +1396,26 @@
       .nav-left, .nav-right { gap: 12px; flex-wrap: wrap; justify-content: center; }
       .landing-fullscreen-hero { height: calc(100vh - 120px); }
       .artsy-step-row, .artsy-step-row.reverse { grid-template-columns: 1fr; padding: 30px 24px; }
-      .event-cover-grid { grid-template-columns: 1fr; }
-      .event-cover-item { height: 340px; }
+      .event-cover-item-1x1 { height: 380px; }
       .who-we-are-top-grid { grid-template-columns: 1fr; }
       .calendar-integrated-grid { grid-template-columns: 1fr; padding: 24px; }
       .home-location-grid { grid-template-columns: 1fr; gap: 28px; }
       .event-card-slide { flex: 0 0 85%; }
       .hub-event-pass-card { grid-template-columns: 1fr; }
+      .swish-success-panel { grid-template-columns: 1fr; }
+      .swish-follow-photo { height: 300px; }
       .container { padding: 28px 16px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Top Strip -->
   <div class="top-strip">
-    688 Beaumont Ave, Beaumont CA  |  Mon–Fri 11–7 • Sat–Sun 12–8  |  (909) 222-5719
+    688 Beaumont Ave, Beaumont CA &nbsp;|&nbsp; Mon–Fri 11–7 • Sat–Sun 12–8 &nbsp;|&nbsp; (909) 222-5719
   </div>
 
+  <!-- Dynamic Banner Header with Direct Logo Cutout -->
   <header id="site-header">
     <div class="header-inner">
       <ul class="nav-left">
@@ -1359,6 +1424,7 @@
         <li><a class="nav-link interactive-click" onclick="navigateTo('market-hub', event)">Market Hub</a></li>
       </ul>
 
+      <!-- Direct Cutout HM Logo (No Box/Circle) -->
       <a class="brand-center interactive-click" onclick="navigateTo('home', event)" aria-label="Hive Market Home">
         <img src="hm logo new.png" class="header-hm-raw-logo" alt="HM Logo" />
       </a>
@@ -1371,6 +1437,9 @@
     </div>
   </header>
 
+  <!-- =============================================================
+       PAGE 1: HOME (YELLOW THEME #fbdb00 + HOT PINK #ee2a7b ACCENTS)
+  ============================================================= -->
   <div id="page-home" class="page-view active">
     <div class="landing-fullscreen-hero">
       <img src="Storefront 1.JPG" class="landing-bg-image active-bg" id="bg-slide-0" alt="Hive Market Storefront" />
@@ -1384,6 +1453,7 @@
         <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
       </div>
 
+      <!-- Spring Floating Down Arrow -->
       <a class="down-arrow-anchor" onclick="smoothScrollToTarget('home-events-anchor', event)">
         <span class="down-arrow-text">Upcoming Events & Deals</span>
         <i data-lucide="chevron-down" class="down-arrow-icon" style="width: 16px; height: 16px;"></i>
@@ -1391,6 +1461,7 @@
     </div>
 
     <main class="container">
+      <!-- Announcement Ticker Belt -->
       <div class="announcement-ticker-wrap">
         <div class="announcement-ticker-track">
           <div class="ticker-phrase">HIVE MARKET <span class="accent-pink">BUY • SELL • TRADE</span> <span class="ticker-dot">●</span></div>
@@ -1409,6 +1480,7 @@
         </div>
 
         <div class="events-calendar-composite-card floating-card">
+          <!-- Conveyor Carousel -->
           <div class="carousel-outer" onmouseenter="pauseConveyor()" onmouseleave="resumeConveyor()">
             <div class="conveyor-track" id="conveyor-track">
               
@@ -1458,6 +1530,7 @@
             </div>
           </div>
 
+          <!-- Calendar Block -->
           <div class="calendar-integrated-grid">
             <div>
               <div class="cal-header">
@@ -1498,6 +1571,7 @@
       </div>
     </main>
 
+    <!-- Photo Trio Section -->
     <div class="archival-trio-wrap">
       <div class="archival-trio-grid">
         <div class="trio-photo-item"><img src="Inside.JPG" alt="Hive Market Interior" /></div>
@@ -1506,6 +1580,7 @@
       </div>
     </div>
 
+    <!-- Keep In Touch Strip -->
     <div class="newsletter-section-wrap">
       <div class="newsletter-inner-container">
         <h2 class="newsletter-headline">Keep in Touch</h2>
@@ -1519,6 +1594,7 @@
       </div>
     </div>
 
+    <!-- Store Location Strip -->
     <div class="home-location-strip">
       <div class="home-location-grid">
         <div class="home-loc-box">
@@ -1530,7 +1606,7 @@
         <div class="home-loc-box">
           <h3>Store Hours</h3>
           <p><strong style="color: var(--hm-white);">Monday – Friday:</strong> 11:00 AM – 7:00 PM</p>
-          <p><strong style="color: var(--hm-white);">Saturday – Sunday:</strong> 12:00 PM – 8:00 PM</p>
+          <p><strong style="color: var(--pure-white);">Saturday – Sunday:</strong> 12:00 PM – 8:00 PM</p>
         </div>
         <div class="home-loc-box">
           <h3>Contact Us</h3>
@@ -1542,10 +1618,14 @@
     </div>
   </div>
 
+  <!-- =============================================================
+       PAGE 2: BUY / SELL / TRADE (ARTSY RETRO EDITORIAL AESTHETIC)
+  ============================================================= -->
   <div id="page-sell-trade" class="page-view">
     <div class="artsy-trade-page">
       <div class="artsy-trade-inner">
         
+        <!-- Step 1 -->
         <div class="artsy-step-row floating-card">
           <div>
             <h2 class="artsy-step-title">1. Organize Your Clothes</h2>
@@ -1579,6 +1659,7 @@
           </div>
         </div>
 
+        <!-- Step 2 -->
         <div class="artsy-step-row reverse floating-card">
           <div class="artsy-visual-badge">
             <img src="Storefront 3.JPG" class="artsy-duotone-graphic" alt="ID Passport Graphic" />
@@ -1595,6 +1676,7 @@
           </div>
         </div>
 
+        <!-- Step 3 -->
         <div class="artsy-step-row floating-card">
           <div>
             <h2 class="artsy-step-title">3. Claim Your Cash or Credit</h2>
@@ -1608,6 +1690,7 @@
           </div>
         </div>
 
+        <!-- Booking Callout -->
         <div class="artsy-booking-cta-card floating-card">
           <h2>Schedule Your Selling Appointment</h2>
           <p style="max-width: 650px; font-size: 1rem; line-height: 1.6;">
@@ -1622,6 +1705,9 @@
     </div>
   </div>
 
+  <!-- =============================================================
+       PAGE 3: MARKET HUB (PASSES AS PRIMARY + SWISH VANISH RESTORE)
+  ============================================================= -->
   <div id="page-market-hub" class="page-view">
     <div class="landing-fullscreen-hero">
       <img src="live event.JPG" class="landing-bg-image active-bg" alt="Market Hub Live Event" />
@@ -1632,10 +1718,10 @@
           BEAUMONT CULTURAL COLLECTIVE
         </div>
         <h1 style="font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hm-white); line-height: 1.15; margin-bottom: 18px;">
-          Market Hub & Passes
+          Market Hub & Community
         </h1>
         <p style="font-size: 1rem; line-height: 1.65; color: rgba(255, 255, 255, 0.85); max-width: 760px; font-weight: 300;">
-          Select an upcoming flea market, pop-up, or sound session below to claim your event pass or jump straight into the artist/vendor showcase application.
+          Select an upcoming flea market, pop-up, or sound session below to claim your event pass or apply directly to vend/perform at 688 Beaumont Ave.
         </p>
       </div>
 
@@ -1646,86 +1732,147 @@
     </div>
 
     <main class="container" id="hub-schedule-anchor">
-      <div class="section-editorial-header">
-        <h2 class="section-editorial-title" style="color: var(--hm-white);">Event Passes & Schedule</h2>
-        <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em; color: var(--hm-yellow);">SELECT EVENT TO VEND OR PERFORM</span>
-      </div>
-
-      <div class="hub-primary-schedule">
+      <!-- Section 1: Event Passes & Schedule with Swish Animation -->
+      <div class="swish-stage-container floating-card" style="background: var(--hm-charcoal); padding: 40px; margin-bottom: 48px;">
         
-        <div class="hub-event-pass-card floating-card" onclick="selectEventForApplication('Beaumont Sidewalk Flea & $10 Racks', 'Sept 5')">
-          <div class="hub-pass-date">SAT, SEPT 5</div>
-          <div>
-            <h3 class="hub-pass-title">Beaumont Sidewalk Flea & $10 Racks</h3>
-            <p class="hub-pass-desc">Outdoor street racks, 10+ local vendor setups, drinks, and vintage steals.</p>
+        <div class="swish-form-panel" id="hub-rsvp-form-panel">
+          <div class="section-editorial-header" style="margin: 0 0 20px 0; padding: 0;">
+            <h2 class="section-editorial-title" style="color: var(--hm-white);">Event Passes & Schedule</h2>
+            <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em; color: var(--hm-yellow);">CLAIM PASS OR APPLY</span>
           </div>
-          <button class="btn-apply-event interactive-click">Apply to Vend / RSVP →</button>
+
+          <div class="hub-primary-schedule">
+            <div class="hub-event-pass-card floating-card">
+              <div class="hub-pass-date">SAT, SEPT 5</div>
+              <div>
+                <h3 class="hub-pass-title">Beaumont Sidewalk Flea & $10 Racks</h3>
+                <p class="hub-pass-desc">Outdoor street racks, 10+ local vendor setups, drinks, and vintage steals.</p>
+              </div>
+              <div class="hub-card-actions">
+                <button class="btn-rsvp-event interactive-click" onclick="handleSwishRsvpSubmit('Beaumont Sidewalk Flea & $10 Racks')">RSVP Pass →</button>
+                <button class="btn-apply-event-pill interactive-click" onclick="selectEventForApplication('Beaumont Sidewalk Flea & $10 Racks', 'Sept 5')">Apply to Vend</button>
+              </div>
+            </div>
+
+            <div class="hub-event-pass-card floating-card">
+              <div class="hub-pass-date">FRI, SEPT 18</div>
+              <div>
+                <h3 class="hub-pass-title">300+ Vintage Tee & Kicks Drop</h3>
+                <p class="hub-pass-desc">Live floor unboxing & guest DJ set in the shop. First 20 visitors receive perks.</p>
+              </div>
+              <div class="hub-card-actions">
+                <button class="btn-rsvp-event interactive-click" onclick="handleSwishRsvpSubmit('300+ Vintage Tee & Kicks Drop')">RSVP Pass →</button>
+                <button class="btn-apply-event-pill interactive-click" onclick="selectEventForApplication('300+ Vintage Tee & Kicks Drop', 'Sept 18')">Apply to Perform</button>
+              </div>
+            </div>
+
+            <div class="hub-event-pass-card floating-card">
+              <div class="hub-pass-date">SAT, OCT 3</div>
+              <div>
+                <h3 class="hub-pass-title">Local Artist Pop-Up Market & Live Sound</h3>
+                <p class="hub-pass-desc">Showcase for handmade jewelry, custom reworked garments, and courtyard musicians.</p>
+              </div>
+              <div class="hub-card-actions">
+                <button class="btn-rsvp-event interactive-click" onclick="handleSwishRsvpSubmit('Local Artist Pop-Up Market & Live Sound')">RSVP Pass →</button>
+                <button class="btn-apply-event-pill interactive-click" onclick="selectEventForApplication('Local Artist Pop-Up Market & Live Sound', 'Oct 3')">Apply to Vend / Perform</button>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="hub-event-pass-card floating-card" onclick="selectEventForApplication('300+ Vintage Tee & Kicks Drop', 'Sept 18')">
-          <div class="hub-pass-date">FRI, SEPT 18</div>
-          <div>
-            <h3 class="hub-pass-title">300+ Vintage Tee & Kicks Drop</h3>
-            <p class="hub-pass-desc">Live floor unboxing & guest DJ set in the shop. First 20 visitors receive perks.</p>
+        <!-- RSVP Success Transition Panel (Slides in from Right) -->
+        <div class="swish-success-panel" id="hub-rsvp-success-panel">
+          <div class="swish-follow-photo">
+            <img src="audience.JPG" alt="Hive Storefront Audience & Community Concert" />
           </div>
-          <button class="btn-apply-event interactive-click">Apply / Claim Pass →</button>
-        </div>
-
-        <div class="hub-event-pass-card floating-card" onclick="selectEventForApplication('Local Artist Pop-Up Market & Live Sound', 'Oct 3')">
-          <div class="hub-pass-date">SAT, OCT 3</div>
-          <div>
-            <h3 class="hub-pass-title">Local Artist Pop-Up Market & Live Sound</h3>
-            <p class="hub-pass-desc">Showcase for handmade jewelry, custom reworked garments, and courtyard musicians.</p>
+          <div class="swish-success-content">
+            <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.22em; color: var(--hm-yellow); text-transform: uppercase;">PASS CONFIRMED</div>
+            <h3 style="font-size: 2rem; font-weight: 900; color: var(--hm-white); text-transform: uppercase; line-height: 1.2;">You're On The Guestlist</h3>
+            <p style="font-size: 0.95rem; color: rgba(255,255,255,0.78); line-height: 1.65; font-weight: 300;">
+              Your event pass for <strong id="rsvp-confirmed-name" style="color: var(--hm-hotpink);">Hive Market</strong> is confirmed! Early arrival is recommended for live floor drops and courtyard music.
+            </p>
+            <div style="display: flex; gap: 14px; margin-top: 10px;">
+              <button class="newsletter-btn-submit interactive-click" onclick="alert('PARTIFUL INTEGRATION: Direct Partiful RSVP link will be connected here.');">
+                View on Partiful →
+              </button>
+              <button class="btn-apply-event-pill interactive-click" onclick="restoreSwishForm('hub-rsvp')">
+                Back to Schedule
+              </button>
+            </div>
           </div>
-          <button class="btn-apply-event interactive-click">Apply to Perform / Vend →</button>
         </div>
-
       </div>
 
-      <div class="hub-application-stage floating-card" id="hub-apply-section">
-        <h2 style="font-size: 1.8rem; font-weight: 900; text-transform: uppercase; color: var(--hm-yellow); margin-bottom: 8px;">
-          Vendor & Artist Showcase Application
-        </h2>
-        <p style="font-size: 0.95rem; color: rgba(255,255,255,0.75); margin-bottom: 24px;">
-          Applying for: <strong id="selected-event-display" style="color: var(--hm-hotpink);">General Showcase</strong>
-        </p>
+      <!-- Section 2: Application Stage with Swish Animation -->
+      <div class="swish-stage-container floating-card" id="hub-apply-section" style="background: var(--hm-charcoal); padding: 44px;">
+        
+        <div class="swish-form-panel" id="hub-vendor-form-panel">
+          <h2 style="font-size: 1.8rem; font-weight: 900; text-transform: uppercase; color: var(--hm-yellow); margin-bottom: 8px;">
+            Vendor & Artist Showcase Application
+          </h2>
+          <p style="font-size: 0.95rem; color: rgba(255,255,255,0.75); margin-bottom: 24px;">
+            Selected Event: <strong id="selected-event-display" style="color: var(--hm-hotpink);">General Showcase</strong>
+          </p>
 
-        <form class="form-grid" onsubmit="handleShowcaseSubmit(event)">
-          <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div>
-              <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Contact / Artist Name</label>
-              <input type="text" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="Sam Taylor" required />
+          <form class="form-grid" onsubmit="handleSwishVendorSubmit(event)">
+            <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <div>
+                <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Contact / Artist Name</label>
+                <input type="text" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="Sam Taylor" required />
+              </div>
+              <div>
+                <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Brand or Band Name</label>
+                <input type="text" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="ST Vintage / Sound Set" required />
+              </div>
             </div>
+
+            <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top:16px;">
+              <div>
+                <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Email or Phone</label>
+                <input type="text" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="(909) 000-0000" required />
+              </div>
+              <div>
+                <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Instagram / Track Portfolio</label>
+                <input type="text" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="@yourhandle or link" required />
+              </div>
+            </div>
+
+            <div style="margin-top:16px;">
+              <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Selected Event / Set Description</label>
+              <input type="text" id="app-event-input" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="Overview of goods, gear setup, acoustic/electric needs..." required />
+            </div>
+
+            <div style="margin-top:24px;">
+              <button type="submit" class="newsletter-btn-submit interactive-click" style="width: 100%;">Submit Showcase Application</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Application Success Transition Panel (Slides in from Right) -->
+        <div class="swish-success-panel" id="hub-vendor-success-panel">
+          <div class="swish-follow-photo">
+            <img src="night hive.JPG" alt="Hive Market Night Gathering & Sound Stage" />
+          </div>
+          <div class="swish-success-content">
+            <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.22em; color: var(--hm-yellow); text-transform: uppercase;">SUBMISSION CONFIRMED</div>
+            <h3 style="font-size: 2rem; font-weight: 900; color: var(--hm-white); text-transform: uppercase; line-height: 1.2;">Application in Motion</h3>
+            <p style="font-size: 0.95rem; color: rgba(255,255,255,0.78); line-height: 1.65; font-weight: 300;">
+              Your showcase submission has been received. Our curation team is reviewing your details and links for upcoming weekend fleas and sound sessions.
+            </p>
             <div>
-              <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Brand or Band Name</label>
-              <input type="text" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="ST Vintage / Sound Set" required />
+              <button class="btn-apply-event-pill interactive-click" onclick="restoreSwishForm('hub-vendor')">
+                Open Another Application →
+              </button>
             </div>
           </div>
-
-          <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top:16px;">
-            <div>
-              <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Email or Phone</label>
-              <input type="text" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="(909) 000-0000" required />
-            </div>
-            <div>
-              <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Instagram / Track Portfolio</label>
-              <input type="text" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="@yourhandle or link" required />
-            </div>
-          </div>
-
-          <div style="margin-top:16px;">
-            <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Selected Event / Set Description</label>
-            <input type="text" id="app-event-input" class="newsletter-input" style="width:100%; border-radius:12px;" placeholder="Overview of goods, gear setup, acoustic/electric needs..." required />
-          </div>
-
-          <div style="margin-top:20px;">
-            <button type="submit" class="newsletter-btn-submit interactive-click" style="width: 100%;">Submit Showcase Application</button>
-          </div>
-        </form>
+        </div>
       </div>
     </main>
   </div>
 
+  <!-- =============================================================
+       PAGE 4: EVENT GALLERY (1x1x1x1 VERTICAL FULL BLEED STACK)
+  ============================================================= -->
   <div id="page-gallery" class="page-view">
     <div class="gallery-page-wrap">
       <div class="gallery-editorial-header">
@@ -1735,9 +1882,11 @@
         </p>
       </div>
 
-      <div class="event-cover-grid">
+      <!-- 1x1x1x1 Single-Column Vertical Stack Layout -->
+      <div class="event-cover-grid-1x1">
         
-        <div class="event-cover-item floating-card" onclick="openAlbumViewer('Live Vocal Session: Summer Sound Showcase')">
+        <!-- Item 1: singing.JPG -->
+        <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Live Vocal Session: Summer Sound Showcase')">
           <img src="singing.JPG" alt="Live Vocal Showcase" />
           <div class="event-hover-overlay">
             <span class="event-hover-tag">CONCERT NIGHTS</span>
@@ -1746,7 +1895,8 @@
           </div>
         </div>
 
-        <div class="event-cover-item floating-card" onclick="openAlbumViewer('Flashlight Acoustic Showcase')">
+        <!-- Item 2: singing 2.JPG -->
+        <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Flashlight Acoustic Showcase')">
           <img src="singing 2.JPG" alt="Flashlight Acoustic Showcase" />
           <div class="event-hover-overlay">
             <span class="event-hover-tag">AFTER HOURS</span>
@@ -1755,7 +1905,8 @@
           </div>
         </div>
 
-        <div class="event-cover-item floating-card" onclick="openAlbumViewer('Live DJ Mixing & Analog Session')">
+        <!-- Item 3: dj jordan.JPG -->
+        <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Live DJ Mixing & Analog Session')">
           <img src="dj jordan.JPG" alt="Live DJ Session" />
           <div class="event-hover-overlay">
             <span class="event-hover-tag">ANALOG CULTURE</span>
@@ -1764,7 +1915,8 @@
           </div>
         </div>
 
-        <div class="event-cover-item floating-card" onclick="openAlbumViewer('The Local Crowd & Community Night')">
+        <!-- Item 4: ppl.JPG -->
+        <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('The Local Crowd & Community Night')">
           <img src="ppl.JPG" alt="The Local Crowd" />
           <div class="event-hover-overlay">
             <span class="event-hover-tag">COMMUNITY VIBES</span>
@@ -1777,6 +1929,7 @@
     </div>
   </div>
 
+  <!-- Full Album Viewer Modal -->
   <div class="album-modal-overlay" id="album-viewer-modal">
     <div class="album-modal-header">
       <div>
@@ -1798,6 +1951,9 @@
     </div>
   </div>
 
+  <!-- =============================================================
+       PAGE 5: ABOUT US (WHO WE ARE - CLIENT APPROVED TEXT)
+  ============================================================= -->
   <div id="page-about" class="page-view">
     <div class="about-page-wrap">
       <div class="who-we-are-wrap">
@@ -1867,6 +2023,9 @@
     </div>
   </div>
 
+  <!-- =============================================================
+       PAGE 6: FAQ (EXACT CLIENT COPY & ACCORDIONS)
+  ============================================================= -->
   <div id="page-faq" class="page-view">
     <div class="faq-page-wrap">
       <div class="faq-inner-container">
@@ -1875,6 +2034,7 @@
         </h1>
 
         <div class="faq-accordion-group">
+          <!-- FAQ 1 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>How does the buy/ trade process work?</span>
@@ -1885,6 +2045,7 @@
             </div>
           </div>
 
+          <!-- FAQ 2 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>Do I need an appointment to sell my clothes?</span>
@@ -1895,6 +2056,7 @@
             </div>
           </div>
 
+          <!-- FAQ 3 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>What is the item limit per selling appointment?</span>
@@ -1905,6 +2067,7 @@
             </div>
           </div>
 
+          <!-- FAQ 4 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>What identification is required?</span>
@@ -1919,6 +2082,7 @@
     </div>
   </div>
 
+  <!-- Draggable iPod -->
   <div id="ipod-widget">
     <div class="ipod-screen">
       <div class="ipod-header-bar">
@@ -1943,6 +2107,7 @@
     </div>
   </div>
 
+  <!-- Event Modal -->
   <div class="album-modal-overlay" id="event-modal" onclick="closeModal(event)">
     <div style="background: var(--hm-black); border-radius: 28px; max-width: 520px; width: 100%; padding: 40px; margin: auto; color: #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.8); position: relative;">
       <button onclick="closeEventModal()" style="position: absolute; top: 20px; right: 20px; background: transparent; color: #fff; font-size: 1.2rem; cursor: pointer;">✕</button>
@@ -1985,7 +2150,6 @@
         p.style.transform = 'translateY(18px) scale(0.985)';
       });
 
-      /* Apply Color Transitions Across Theme Variables */
       const theme = tabThemeMap[pageId] || tabThemeMap['home'];
       document.documentElement.style.setProperty('--active-bg', theme.bg);
       document.documentElement.style.setProperty('--active-banner', theme.banner);
@@ -2005,7 +2169,6 @@
       }, 350);
     }
 
-    /* Spring Jumpy Glide Scroll Animation for Down Arrows */
     function smoothScrollToTarget(targetId, event) {
       if (event) {
         event.preventDefault();
@@ -2039,6 +2202,46 @@
       }
 
       requestAnimationFrame(animation);
+    }
+
+    /* Swish Vanish & Restore Animations for Market Hub */
+    function handleSwishRsvpSubmit(eventName) {
+      document.getElementById('rsvp-confirmed-name').innerText = eventName;
+      const formPanel = document.getElementById('hub-rsvp-form-panel');
+      const successPanel = document.getElementById('hub-rsvp-success-panel');
+
+      formPanel.classList.add('vanished');
+      setTimeout(() => {
+        successPanel.classList.add('active');
+      }, 150);
+    }
+
+    function handleSwishVendorSubmit(e) {
+      e.preventDefault();
+      const formPanel = document.getElementById('hub-vendor-form-panel');
+      const successPanel = document.getElementById('hub-vendor-success-panel');
+
+      formPanel.classList.add('vanished');
+      setTimeout(() => {
+        successPanel.classList.add('active');
+      }, 150);
+    }
+
+    function restoreSwishForm(prefix) {
+      const formPanel = document.getElementById(`${prefix}-form-panel`);
+      const successPanel = document.getElementById(`${prefix}-success-panel`);
+
+      successPanel.classList.remove('active');
+      setTimeout(() => {
+        formPanel.classList.remove('vanished');
+      }, 150);
+    }
+
+    /* Market Hub: Event Application Routing */
+    function selectEventForApplication(eventName, date) {
+      document.getElementById('selected-event-display').innerText = `${eventName} (${date})`;
+      document.getElementById('app-event-input').value = `Showcase / Booth Set for ${eventName}`;
+      smoothScrollToTarget('hub-apply-section');
     }
 
     /* Carousel Slideshow */
@@ -2133,18 +2336,6 @@
     function changeMonth(delta) { calDate.setMonth(calDate.getMonth() + delta); renderCalendar(); }
     renderCalendar();
 
-    /* Market Hub Application Jump */
-    function selectEventForApplication(eventName, date) {
-      document.getElementById('selected-event-display').innerText = `${eventName} (${date})`;
-      document.getElementById('app-event-input').value = `Booth / Performer Set for ${eventName}`;
-      smoothScrollToTarget('hub-apply-section');
-    }
-    function handleShowcaseSubmit(e) {
-      e.preventDefault();
-      alert("APPLICATION RECEIVED\n\nThank you! Our creative team will review your portfolio and details for the selected event.");
-      e.target.reset();
-    }
-
     /* Album Modal Viewer */
     function openAlbumViewer(albumName) {
       document.getElementById('album-modal-title').innerText = albumName;
@@ -2154,7 +2345,7 @@
       document.getElementById('album-viewer-modal').style.display = 'none';
     }
 
-    /* Accordions */
+    /* Accordions & Newsletter */
     function toggleArtsyAccordion(id) { document.getElementById(id).classList.toggle('open'); }
     function toggleFaq(btn) { btn.parentElement.classList.toggle('open'); }
     function handleNewsletterSubmit(e) {
