@@ -2174,7 +2174,7 @@
   </div>
 
   <!-- =============================================================
-       PAGE 4: EVENT GALLERY (COLLECTION VOL. 1 INTEGRATION)
+       PAGE 4: EVENT GALLERY (1x1 SEPARATE ARCHIVES)
   ============================================================= -->
   <div id="page-gallery" class="page-view">
     <div class="gallery-page-wrap">
@@ -2185,12 +2185,12 @@
         </p>
       </div>
 
-      <!-- 1x1x1x1 Single-Column Vertical Stack Layout -->
+      <!-- 1x1 Single-Column Vertical Stack Layout -->
       <div class="event-cover-grid-1x1">
         
-        <!-- Collection 1: Hive Market Collection Vol.1 (125 Photo Archive) -->
+        <!-- Collection 1: Hive Market Collection Vol. 1 -->
         <div class="event-cover-item-1x1 floating-card" onclick="openVol1Album()">
-          <img src="live event.JPG" alt="Hive Market Collection Vol. 1" />
+          <img src="Hive Market Collection Vol.1/1-DSC06348.jpg" alt="Hive Market Collection Vol. 1" onerror="this.src='Hive Market Collection Vol.1/1.jpg';" />
           <div class="event-hover-overlay">
             <span class="event-hover-tag">ARCHIVAL COLLECTION</span>
             <h3 class="event-hover-name">Hive Market Collection Vol. 1</h3>
@@ -2198,43 +2198,43 @@
           </div>
         </div>
 
-        <!-- Item 2: singing.JPG -->
-        <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Live Vocal Session: Summer Sound Showcase')">
+        <!-- Item 2: Summer Sound Showcase (Vocal Session Only) -->
+        <div class="event-cover-item-1x1 floating-card" onclick="openSingleEventAlbum('Live Vocal Session: Summer Sound Showcase', ['singing.JPG', 'singing 2.JPG'])">
           <img src="singing.JPG" alt="Live Vocal Showcase" />
           <div class="event-hover-overlay">
             <span class="event-hover-tag">CONCERT NIGHTS</span>
             <h3 class="event-hover-name">Live Vocal Session</h3>
-            <span class="event-hover-cta">Click to View Full Album (8 Photos) →</span>
+            <span class="event-hover-cta">Click to View Full Album →</span>
           </div>
         </div>
 
-        <!-- Item 3: singing 2.JPG -->
-        <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Flashlight Acoustic Showcase')">
+        <!-- Item 3: Flashlight Acoustic Showcase (Acoustic Session Only) -->
+        <div class="event-cover-item-1x1 floating-card" onclick="openSingleEventAlbum('Flashlight Acoustic Showcase', ['singing 2.JPG', 'night hive.JPG'])">
           <img src="singing 2.JPG" alt="Flashlight Acoustic Showcase" />
           <div class="event-hover-overlay">
             <span class="event-hover-tag">AFTER HOURS</span>
             <h3 class="event-hover-name">Flashlight Sound Session</h3>
-            <span class="event-hover-cta">Click to View Full Album (6 Photos) →</span>
+            <span class="event-hover-cta">Click to View Full Album →</span>
           </div>
         </div>
 
-        <!-- Item 4: dj jordan.JPG -->
-        <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('Live DJ Mixing & Analog Session')">
+        <!-- Item 4: Live DJ Mixing & Analog Session (DJ Only) -->
+        <div class="event-cover-item-1x1 floating-card" onclick="openSingleEventAlbum('Live DJ Mixing & Analog Session', ['dj jordan.JPG', 'TV ST.JPG'])">
           <img src="dj jordan.JPG" alt="Live DJ Session" />
           <div class="event-hover-overlay">
             <span class="event-hover-tag">ANALOG CULTURE</span>
             <h3 class="event-hover-name">Mixing at the Decks</h3>
-            <span class="event-hover-cta">Click to View Full Album (12 Photos) →</span>
+            <span class="event-hover-cta">Click to View Full Album →</span>
           </div>
         </div>
 
-        <!-- Item 5: ppl.JPG -->
-        <div class="event-cover-item-1x1 floating-card" onclick="openAlbumViewer('The Local Crowd & Community Night')">
+        <!-- Item 5: The Local Crowd & Community Night (Crowd Only) -->
+        <div class="event-cover-item-1x1 floating-card" onclick="openSingleEventAlbum('The Local Crowd & Community Night', ['ppl.JPG', 'audience.JPG'])">
           <img src="ppl.JPG" alt="The Local Crowd" />
           <div class="event-hover-overlay">
             <span class="event-hover-tag">COMMUNITY VIBES</span>
             <h3 class="event-hover-name">The Local Crowd</h3>
-            <span class="event-hover-cta">Click to View Full Album (10 Photos) →</span>
+            <span class="event-hover-cta">Click to View Full Album →</span>
           </div>
         </div>
 
@@ -2457,6 +2457,7 @@
         triggerJumpClick(clickedEl);
       }
 
+      // Hide all current views completely
       const allPages = document.querySelectorAll('.page-view');
       allPages.forEach(p => {
         p.classList.remove('active');
@@ -2682,38 +2683,60 @@
     function changeMonth(delta) { calDate.setMonth(calDate.getMonth() + delta); renderCalendar(); }
     renderCalendar();
 
-    /* Standard Single Photo Event Album Viewer */
-    function openAlbumViewer(albumName) {
+    /* Specific Single Event Album Viewer */
+    function openSingleEventAlbum(albumName, photoList) {
       document.getElementById('album-modal-title').innerText = albumName;
       const grid = document.getElementById('album-modal-grid');
-      grid.innerHTML = `
-        <div class="album-photo-card"><img src="singing.JPG" alt="Photo" /></div>
-        <div class="album-photo-card"><img src="singing 2.JPG" alt="Photo" /></div>
-        <div class="album-photo-card"><img src="dj jordan.JPG" alt="Photo" /></div>
-        <div class="album-photo-card"><img src="ppl.JPG" alt="Photo" /></div>
-        <div class="album-photo-card"><img src="live event.JPG" alt="Photo" /></div>
-        <div class="album-photo-card"><img src="audience.JPG" alt="Photo" /></div>
-        <div class="album-photo-card"><img src="night hive.JPG" alt="Photo" /></div>
-        <div class="album-photo-card"><img src="TV ST.JPG" alt="Photo" /></div>
-      `;
+      grid.innerHTML = '';
+      photoList.forEach(photoSrc => {
+        const card = document.createElement('div');
+        card.className = 'album-photo-card';
+        card.innerHTML = `<img src="${photoSrc}" alt="${albumName}" />`;
+        grid.appendChild(card);
+      });
       document.getElementById('album-viewer-modal').style.display = 'flex';
     }
 
-    /* Dynamic 125-Photo Hive Market Collection Vol. 1 Album Viewer */
+    /* Dynamic Vol. 1 Album: explicitly loads DSC photos from Hive Market Collection Vol.1 */
     function openVol1Album() {
       document.getElementById('album-modal-title').innerText = "Hive Market Collection Vol. 1";
       const grid = document.getElementById('album-modal-grid');
       grid.innerHTML = ''; 
 
-      // Loads images sequentially from your 'Hive Market Collection Vol.1' folder
-      for (let i = 1; i <= 125; i++) {
+      const vol1Photos = [
+        '1-DSC06348.jpg',
+        '2-DSC06353.jpg',
+        '3-DSC06355.jpg',
+        '4-DSC06357.jpg',
+        '5-DSC06359-Edit.jpg',
+        '6-DSC06367.jpg',
+        '7-DSC06368.jpg',
+        '8-DSC06371.jpg',
+        '9-DSC06384.jpg',
+        '10-DSC06390.jpg'
+      ];
+
+      vol1Photos.forEach(filename => {
+        const card = document.createElement('div');
+        card.className = 'album-photo-card';
+        card.innerHTML = `
+          <img src="Hive Market Collection Vol.1/${filename}" 
+               loading="lazy" 
+               alt="Hive Market Collection Vol. 1" 
+               onerror="this.parentElement.style.display='none';" />
+        `;
+        grid.appendChild(card);
+      });
+
+      // Iterates sequentially for remaining photos in the set
+      for (let i = 11; i <= 125; i++) {
         const card = document.createElement('div');
         card.className = 'album-photo-card';
         card.innerHTML = `
           <img src="Hive Market Collection Vol.1/${i}.jpg" 
                loading="lazy" 
-               alt="Hive Market Collection Shot ${i}" 
-               onerror="this.src='Hive Market Collection Vol.1/${i}.png'; this.onerror=function(){this.parentElement.style.display='none';};" />
+               alt="Collection Shot ${i}" 
+               onerror="this.parentElement.style.display='none';" />
         `;
         grid.appendChild(card);
       }
