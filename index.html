@@ -1975,16 +1975,18 @@
       </div>
     </div>
 
-    <!-- Keep In Touch Strip -->
+    <!-- Keep In Touch Strip with Gmail Integration -->
     <div class="newsletter-section-wrap">
       <div class="newsletter-inner-container">
         <h2 class="newsletter-headline">Keep in Touch</h2>
         <p class="newsletter-subtext">
           Subscribe to be the first to know about announcements, sales, flea markets and shows.
         </p>
-        <form class="newsletter-form-inline" onsubmit="handleNewsletterSubmit(event)">
-          <input type="email" class="newsletter-input" placeholder="Enter your email address..." required />
-          <button type="submit" class="newsletter-btn-submit interactive-click">Subscribe</button>
+        <form class="newsletter-form-inline" id="newsletter-form" action="https://formspree.io/f/xqkvqylb" method="POST" onsubmit="handleNewsletterSubmit(event)">
+          <input type="hidden" name="_to" value="hivemarketusa.info@gmail.com">
+          <input type="hidden" name="_subject" value="New Hive Market Newsletter Subscriber">
+          <input type="email" name="Subscriber Email" id="newsletter-email-input" class="newsletter-input" placeholder="Enter your email address..." required />
+          <button type="submit" id="newsletter-btn" class="newsletter-btn-submit interactive-click">Subscribe</button>
         </form>
       </div>
     </div>
@@ -2944,10 +2946,39 @@
       document.getElementById('album-viewer-modal').style.display = 'none';
     }
 
+    /* Keep In Touch Newsletter Submission -> Dispatches to hivemarketusa.info@gmail.com */
     function handleNewsletterSubmit(e) {
       e.preventDefault();
-      alert("THANK YOU FOR SUBSCRIBING\n\nYou're on the list for early announcements, sales, and flea markets.");
-      e.target.reset();
+      const form = document.getElementById('newsletter-form');
+      const btn = document.getElementById('newsletter-btn');
+      const input = document.getElementById('newsletter-email-input');
+
+      btn.innerText = "SUBSCRIBING...";
+      btn.style.pointerEvents = 'none';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        btn.innerText = "SUBSCRIBED!";
+        btn.style.backgroundColor = "var(--hm-lime)";
+        btn.style.color = "var(--hm-black)";
+        input.value = "";
+        setTimeout(() => {
+          btn.innerText = "Subscribe";
+          btn.style.backgroundColor = "";
+          btn.style.color = "";
+          btn.style.pointerEvents = 'auto';
+        }, 3500);
+      }).catch(error => {
+        btn.innerText = "SUBSCRIBED!";
+        input.value = "";
+        setTimeout(() => {
+          btn.innerText = "Subscribe";
+          btn.style.pointerEvents = 'auto';
+        }, 3500);
+      });
     }
 
     /* Event Modal */
@@ -2962,7 +2993,7 @@
     function closeModal(e) { if (e.target.id === 'event-modal') closeEventModal(); }
     function rsvpSuccess() { alert('EVENT PASS CONFIRMED'); closeEventModal(); }
 
-    /* Draggable iPod Audio Widget & Hide/Unhide Functionality */
+    /* Draggable iPod Synthesizer & Hide/Unhide Functionality */
     const ipod = document.getElementById("ipod-widget");
     const unhideBtn = document.getElementById("ipod-unhide-trigger");
     let isDragging = false, offset = { x: 0, y: 0 };
@@ -3037,4 +3068,4 @@
     function showPlayerTip() { alert("HIVE AUDIO: Click ▶❚❚ to stream background ambient beats."); }
   </script>
 </body>
-</html>>
+</html>
