@@ -775,7 +775,7 @@
     }
 
     /* -------------------------------------------------------------
-       PAGE 2: BUY / SELL / TRADE (#6b705c SAGE THEME - IN-PAGE ACUITY EMBED)
+       PAGE 2: BUY / SELL / TRADE (#6b705c SAGE THEME)
     ------------------------------------------------------------- */
     .artsy-trade-page {
       background-color: var(--hm-sage);
@@ -893,34 +893,124 @@
       filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.45));
     }
 
-    /* Embedded In-Page Acuity Calendar Container */
-    .artsy-acuity-embed-wrap {
+    /* Clean Card with "Click Here to Book" Button */
+    .artsy-booking-trigger-card {
       background: var(--hm-sage-dark);
       color: var(--hm-white);
       border-radius: 36px;
-      padding: 44px 32px;
+      padding: 50px 36px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
       margin-top: 12px;
+      gap: 18px;
     }
-    .artsy-acuity-embed-wrap h2 {
-      font-size: 2.2rem;
+    .artsy-booking-trigger-card h2 {
+      font-size: 2.3rem;
       font-weight: 700 !important;
       text-transform: uppercase;
       color: var(--hm-yellow);
-      margin-bottom: 8px;
     }
-    .acuity-iframe-container {
+    .btn-open-acuity-modal {
+      background: var(--hm-hotpink);
+      color: var(--hm-white);
+      padding: 18px 48px;
+      border-radius: 9999px;
+      font-weight: 700 !important;
+      font-size: 0.95rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(238, 42, 123, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s ease, box-shadow 0.3s ease;
+    }
+    .btn-open-acuity-modal:hover {
+      background: var(--hm-yellow);
+      color: var(--hm-black);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 14px 35px rgba(251, 219, 0, 0.45);
+    }
+
+    /* Sleek In-Page Acuity Modal Overlay */
+    .acuity-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .acuity-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .acuity-modal-window {
+      background: var(--hm-charcoal);
+      border-radius: 32px;
       width: 100%;
-      max-width: 960px;
-      border-radius: 24px;
+      max-width: 980px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
-      background: var(--hm-white);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-      margin-top: 20px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.85);
+      transform: scale(0.92) translateY(24px);
+      transition: transform 0.45s cubic-bezier(0.34, 1.45, 0.64, 1);
+    }
+    .acuity-modal-overlay.active .acuity-modal-window {
+      transform: scale(1) translateY(0);
+    }
+    .acuity-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 28px;
+      background: var(--hm-black);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+    .acuity-modal-title {
+      font-size: 1.15rem;
+      font-weight: 700 !important;
+      color: var(--hm-yellow);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .acuity-close-btn {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--hm-white);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    .acuity-close-btn:hover {
+      background: var(--hm-hotpink);
+      transform: scale(1.1);
+    }
+    .acuity-iframe-wrap {
+      width: 100%;
+      height: 720px;
+      max-height: calc(90vh - 80px);
+      background: #ffffff;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     /* -------------------------------------------------------------
@@ -1371,7 +1461,7 @@
     }
 
     /* -------------------------------------------------------------
-       DRAGGABLE IPOD AUDIO WIDGET (SOFT CREAM #F5EFD6 + VISIBLE SCREEN)
+       DRAGGABLE IPOD AUDIO WIDGET
     ------------------------------------------------------------- */
     #ipod-widget {
       position: fixed;
@@ -1614,12 +1704,22 @@
       .artsy-visual-badge {
         height: 220px;
       }
-      .artsy-acuity-embed-wrap {
-        padding: 28px 16px;
+      .artsy-booking-trigger-card {
+        padding: 36px 20px;
         border-radius: 24px;
       }
-      .acuity-iframe-container {
-        border-radius: 16px;
+      .btn-open-acuity-modal {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 24px;
+        font-size: 0.85rem;
+      }
+      .acuity-modal-window {
+        max-height: 94vh;
+        border-radius: 24px;
+      }
+      .acuity-iframe-wrap {
+        height: 560px;
       }
 
       .hub-event-pass-card {
@@ -1704,10 +1804,12 @@
 </head>
 <body>
 
+  <!-- Top Strip -->
   <div class="top-strip">
-    688 Beaumont Ave, Beaumont CA  |  Mon–Fri 11–7 • Sat–Sun 12–8  |  (909) 222-5719
+    688 Beaumont Ave, Beaumont CA &nbsp;|&nbsp; Mon–Fri 11–7 • Sat–Sun 12–8 &nbsp;|&nbsp; (909) 222-5719
   </div>
 
+  <!-- Dynamic Banner Header with Direct Logo Cutout -->
   <header id="site-header">
     <div class="header-inner">
       <ul class="nav-left">
@@ -1716,6 +1818,7 @@
         <li><a class="nav-link interactive-click" onclick="navigateTo('market-hub', event)">Market Hub</a></li>
       </ul>
 
+      <!-- Direct Cutout HM Logo (White on all pages except Home which is Black) -->
       <a class="brand-center interactive-click" onclick="navigateTo('home', event)" aria-label="Hive Market Home">
         <img src="hm logo new.png" id="main-header-logo" class="header-hm-raw-logo" alt="HM Logo" />
       </a>
@@ -1728,6 +1831,9 @@
     </div>
   </header>
 
+  <!-- =============================================================
+       PAGE 1: HOME (YELLOW THEME #fbdb00 + HOT PINK #ee2a7b ACCENTS)
+  ============================================================= -->
   <div id="page-home" class="page-view active">
     <div class="landing-fullscreen-hero">
       <img src="Storefront 1.JPG" class="landing-bg-image active-bg" id="bg-slide-0" alt="Hive Market Storefront" />
@@ -1741,6 +1847,7 @@
         <p class="landing-hero-subtitle">Buy • Sell • Trade</p>
       </div>
 
+      <!-- Spring Floating Down Arrow -->
       <a class="down-arrow-anchor" onclick="smoothScrollToTarget('home-events-anchor', event)">
         <span class="down-arrow-text">Upcoming Events & Deals</span>
         <i data-lucide="chevron-down" class="down-arrow-icon" style="width: 16px; height: 16px;"></i>
@@ -1748,6 +1855,7 @@
     </div>
 
     <main class="container">
+      <!-- Announcement Ticker Belt -->
       <div class="announcement-ticker-wrap">
         <div class="announcement-ticker-track">
           <div class="ticker-phrase">HIVE MARKET <span class="accent-pink">BUY • SELL • TRADE</span> <span class="ticker-dot">●</span></div>
@@ -1765,7 +1873,9 @@
           <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em;">688 BEAUMONT AVE</span>
         </div>
 
+        <!-- Completely Borderless Floating Container for Events & Calendar -->
         <div class="home-floating-events-section">
+          <!-- Conveyor Carousel -->
           <div class="carousel-outer" onmouseenter="pauseConveyor()" onmouseleave="resumeConveyor()">
             <div class="conveyor-track" id="conveyor-track">
               
@@ -1815,6 +1925,7 @@
             </div>
           </div>
 
+          <!-- Calendar Block (Completely Borderless Floating Card) -->
           <div class="calendar-integrated-grid floating-card">
             <div>
               <div class="cal-header">
@@ -1855,6 +1966,7 @@
       </div>
     </main>
 
+    <!-- Photo Trio Section -->
     <div class="archival-trio-wrap">
       <div class="archival-trio-grid">
         <div class="trio-photo-item"><img src="Inside.JPG" alt="Hive Market Interior" /></div>
@@ -1863,6 +1975,7 @@
       </div>
     </div>
 
+    <!-- Keep In Touch Strip -->
     <div class="newsletter-section-wrap">
       <div class="newsletter-inner-container">
         <h2 class="newsletter-headline">Keep in Touch</h2>
@@ -1876,6 +1989,7 @@
       </div>
     </div>
 
+    <!-- 4-Column Location, Hours, Contact, & Socials Strip -->
     <div class="home-location-strip">
       <div class="home-location-grid">
         <div class="home-loc-box">
@@ -1907,10 +2021,14 @@
     </div>
   </div>
 
+  <!-- =============================================================
+       PAGE 2: BUY / SELL / TRADE (#6b705c SAGE THEME)
+  ============================================================= -->
   <div id="page-sell-trade" class="page-view">
     <div class="artsy-trade-page">
       <div class="artsy-trade-inner">
         
+        <!-- Step 1 -->
         <div class="artsy-step-row floating-card">
           <div>
             <h2 class="artsy-step-title">1. Organize Your Clothes</h2>
@@ -1946,6 +2064,7 @@
           </div>
         </div>
 
+        <!-- Step 2 -->
         <div class="artsy-step-row reverse floating-card">
           <div class="artsy-visual-badge">
             <img src="passport asset white.png" class="artsy-duotone-graphic" alt="ID Passport Graphic" />
@@ -1962,6 +2081,7 @@
           </div>
         </div>
 
+        <!-- Step 3 -->
         <div class="artsy-step-row floating-card">
           <div>
             <h2 class="artsy-step-title">3. Claim Your Cash or Credit</h2>
@@ -1975,29 +2095,50 @@
           </div>
         </div>
 
-        <div class="artsy-acuity-embed-wrap floating-card" id="booking-section">
+        <!-- Clean Card with "Click Here to Book" Button (No Ugly White Box) -->
+        <div class="artsy-booking-trigger-card floating-card">
           <h2>Schedule Your Selling Appointment</h2>
           <p style="max-width: 650px; font-size: 1.05rem; line-height: 1.6; color: rgba(255, 255, 255, 0.9);">
-            Select an available date and time slot below to reserve your evaluation slot at 688 Beaumont Ave.
+            Appointments are required for clothing appraisals. Click below to view live availability and secure your expedited evaluation slot at 688 Beaumont Ave.
           </p>
-
-          <div class="acuity-iframe-container">
-            <iframe 
-              src="https://app.acuityscheduling.com/schedule.php?owner=40137020" 
-              title="Schedule Appointment" 
-              width="100%" 
-              height="750" 
-              frameborder="0" 
-              style="border:0; width:100%;">
-            </iframe>
-            <script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
-          </div>
+          <button class="btn-open-acuity-modal interactive-click" onclick="openAcuityModal(event)">
+            <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+            <span>Click Here to Book Appointment</span>
+          </button>
         </div>
 
       </div>
     </div>
   </div>
 
+  <!-- Sleek In-Page Acuity Booking Popup Modal -->
+  <div class="acuity-modal-overlay" id="acuity-modal-overlay" onclick="handleAcuityBackdropClick(event)">
+    <div class="acuity-modal-window">
+      <div class="acuity-modal-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <i data-lucide="calendar-check" style="width: 20px; height: 20px; color: var(--hm-yellow);"></i>
+          <span class="acuity-modal-title">Hive Market Appraisals</span>
+        </div>
+        <button class="acuity-close-btn" onclick="closeAcuityModal()" aria-label="Close scheduler">✕</button>
+      </div>
+      <div class="acuity-iframe-wrap">
+        <iframe 
+          id="acuity-booking-iframe"
+          src="" 
+          data-src="https://app.acuityscheduling.com/schedule.php?owner=40137020"
+          title="Schedule Selling Appointment" 
+          width="100%" 
+          height="100%" 
+          frameborder="0" 
+          style="border:0; width:100%; height:100%; display:block;">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================================
+       PAGE 3: MARKET HUB (GMAIL INTEGRATION DISPATCH)
+  ============================================================= -->
   <div id="page-market-hub" class="page-view">
     <div class="landing-fullscreen-hero">
       <img src="live event.JPG" class="landing-bg-image active-bg" alt="Market Hub Live Event" />
@@ -2022,6 +2163,7 @@
     </div>
 
     <main class="container" id="hub-schedule-anchor">
+      <!-- Section 1: Event Passes & Schedule with Swish Animation -->
       <div class="swish-stage-container floating-card" style="background: var(--hm-charcoal); padding: 40px; margin-bottom: 48px;">
         
         <div class="swish-form-panel" id="hub-rsvp-form-panel">
@@ -2069,6 +2211,7 @@
           </div>
         </div>
 
+        <!-- RSVP Success Transition Panel (Slides in from Right) -->
         <div class="swish-success-panel" id="hub-rsvp-success-panel">
           <div class="swish-follow-photo">
             <img src="audience.JPG" alt="Hive Storefront Audience & Community Concert" />
@@ -2088,6 +2231,7 @@
         </div>
       </div>
 
+      <!-- Section 2: Application Stage with Gmail Inbox Dispatch -->
       <div class="swish-stage-container floating-card" id="hub-apply-section" style="background: var(--hm-charcoal); padding: 44px;">
         
         <div class="swish-form-panel" id="hub-vendor-form-panel">
@@ -2103,6 +2247,7 @@
             <input type="hidden" name="_to" value="hivemarketusa.info@gmail.com">
             <input type="hidden" name="_subject" id="form-email-subject" value="New Hive Market Showcase Application">
 
+            <!-- Application Selection Dropdown Menu -->
             <div style="margin-bottom: 18px;">
               <label class="field-label" style="display:block; font-size:0.68rem; font-weight:700; color:var(--hm-yellow); margin-bottom:8px; text-transform:uppercase;">Select Upcoming Event or General Showcase</label>
               <select id="hub-event-select-dropdown" name="Selected Event" class="custom-select-dark" required>
@@ -2148,15 +2293,16 @@
           </form>
         </div>
 
+        <!-- Application Success Transition Panel -->
         <div class="swish-success-panel" id="hub-vendor-success-panel">
           <div class="swish-follow-photo">
             <img src="night hive.JPG" alt="Hive Market Night Gathering & Sound Stage" />
           </div>
           <div class="swish-success-content">
             <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.22em; color: var(--hm-yellow); text-transform: uppercase;">SUBMISSION CONFIRMED</div>
-            <h3 style="font-size: 2rem; font-weight: 900; color: var(--hm-white); text-transform: uppercase; line-height: 1.2;">Application Sent to Gmail</h3>
+            <h3 style="font-size: 2rem; font-weight: 900; color: var(--hm-white); text-transform: uppercase; line-height: 1.2;">Application sent!</h3>
             <p style="font-size: 0.95rem; color: rgba(255,255,255,0.78); line-height: 1.65; font-weight: 300;">
-              Your showcase submission for <strong id="app-confirmed-event-name" style="color: var(--hm-hotpink);">Hive Market</strong> has been dispatched to <strong>hivemarketusa.info@gmail.com</strong>! Our curation team will review your links and reply to you directly.
+              Your showcase submission for <strong id="app-confirmed-event-name" style="color: var(--hm-hotpink);">Hive Market</strong> has been dispatched! Our curation team will review your details and reply to you directly.
             </p>
             <div>
               <button class="btn-apply-event-pill interactive-click" onclick="restoreSwishForm('hub-vendor')">
@@ -2169,6 +2315,9 @@
     </main>
   </div>
 
+  <!-- =============================================================
+       PAGE 4: EVENT GALLERY (NEWEST VOL. 1 -> LIVE SOUND -> SHOP ARCHIVE)
+  ============================================================= -->
   <div id="page-gallery" class="page-view">
     <div class="gallery-page-wrap">
       <div class="gallery-editorial-header">
@@ -2180,6 +2329,7 @@
 
       <div class="event-cover-grid-1x1">
         
+        <!-- Collection 1 (NEWEST): Hive Market Collection Vol. 1 -->
         <div class="event-cover-item-1x1 floating-card" onclick="openVol1Album()">
           <img src="Hive Market Collection Vol.1/1.jpg" alt="Hive Market Collection Vol. 1" onerror="this.src='Hive Market Collection Vol.1/1.JPG';" />
           <div class="event-hover-overlay">
@@ -2189,6 +2339,7 @@
           </div>
         </div>
 
+        <!-- Collection 2: Live In-Store Sound & Performances -->
         <div class="event-cover-item-1x1 floating-card" onclick="openPerformanceAlbum()">
           <img src="singing.JPG" alt="Live Performance Showcase" style="object-position: center 20%;" />
           <div class="event-hover-overlay">
@@ -2198,6 +2349,7 @@
           </div>
         </div>
 
+        <!-- Collection 3 (BOTTOM): Storefront & In-Shop Archive -->
         <div class="event-cover-item-1x1 floating-card" onclick="openShopArchiveAlbum()">
           <img src="Inside.JPG" alt="Hive Market Shop Interior" />
           <div class="event-hover-overlay">
@@ -2211,6 +2363,7 @@
     </div>
   </div>
 
+  <!-- Full Album Viewer Modal -->
   <div class="album-modal-overlay" id="album-viewer-modal">
     <div class="album-modal-header">
       <div>
@@ -2221,9 +2374,13 @@
     </div>
 
     <div class="album-modal-grid" id="album-modal-grid">
-      </div>
+      <!-- Dynamically Populated by JavaScript -->
+    </div>
   </div>
 
+  <!-- =============================================================
+       PAGE 5: ABOUT US
+  ============================================================= -->
   <div id="page-about" class="page-view">
     <div class="about-page-wrap">
       <div class="who-we-are-wrap">
@@ -2293,6 +2450,9 @@
     </div>
   </div>
 
+  <!-- =============================================================
+       PAGE 6: FAQ
+  ============================================================= -->
   <div id="page-faq" class="page-view">
     <div class="faq-page-wrap">
       <div class="faq-inner-container">
@@ -2301,6 +2461,7 @@
         </h1>
 
         <div class="faq-accordion-group">
+          <!-- FAQ 1 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>How does the buy/ trade process work?</span>
@@ -2311,6 +2472,7 @@
             </div>
           </div>
 
+          <!-- FAQ 2 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>Do I need an appointment to sell my clothes?</span>
@@ -2321,6 +2483,7 @@
             </div>
           </div>
 
+          <!-- FAQ 3 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>What is the item limit per selling appointment?</span>
@@ -2331,6 +2494,7 @@
             </div>
           </div>
 
+          <!-- FAQ 4 -->
           <div class="faq-accordion-item">
             <button class="faq-question-btn" onclick="toggleFaq(this)">
               <span>What identification is required?</span>
@@ -2345,6 +2509,7 @@
     </div>
   </div>
 
+  <!-- Draggable iPod Audio Widget -->
   <div id="ipod-widget">
     <div class="ipod-screen">
       <div class="ipod-header-bar">
@@ -2369,11 +2534,13 @@
     </div>
   </div>
 
+  <!-- Floating Trigger to Unhide iPod -->
   <button id="ipod-unhide-trigger" class="interactive-click" onclick="toggleIpodVisibility(false)">
     <i data-lucide="music" style="width: 14px; height: 14px;"></i>
     <span>SHOW HIVE POD</span>
   </button>
 
+  <!-- Event Modal -->
   <div class="album-modal-overlay" id="event-modal" onclick="closeModal(event)">
     <div style="background: var(--hm-black); border-radius: 28px; max-width: 520px; width: 100%; padding: 40px; margin: auto; color: #fff; box-shadow: 0 20px 50px rgba(0,0,0,0.8); position: relative;">
       <button onclick="closeEventModal()" style="position: absolute; top: 20px; right: 20px; background: transparent; color: #fff; font-size: 1.2rem; cursor: pointer;">✕</button>
@@ -2492,6 +2659,42 @@
       btn.parentElement.classList.toggle('open');
     }
 
+    /* Sleek Acuity Modal Controls */
+    function openAcuityModal(event) {
+      if (event) triggerJumpClick(event.currentTarget);
+      const modal = document.getElementById('acuity-modal-overlay');
+      const iframe = document.getElementById('acuity-booking-iframe');
+      
+      // Lazy-load iframe only when clicked so the initial page stays lightweight
+      if (iframe && !iframe.src) {
+        iframe.src = iframe.getAttribute('data-src');
+      }
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Lock background scroll
+    }
+
+    function closeAcuityModal() {
+      const modal = document.getElementById('acuity-modal-overlay');
+      modal.classList.remove('active');
+      document.body.style.overflow = ''; // Restore background scroll
+    }
+
+    function handleAcuityBackdropClick(e) {
+      if (e.target.id === 'acuity-modal-overlay') {
+        closeAcuityModal();
+      }
+    }
+
+    // Close on Escape key press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAcuityModal();
+        closeAlbumViewer();
+        closeEventModal();
+      }
+    });
+
     /* Swish Vanish & Restore Animations for Market Hub RSVP */
     function handleSwishRsvpSubmit(eventName) {
       document.getElementById('rsvp-confirmed-name').innerText = eventName;
@@ -2515,9 +2718,8 @@
       document.getElementById('form-email-subject').value = `New Hive Market Application: ${selectedText}`;
 
       const btn = document.getElementById('vendor-submit-btn');
-      if (btn) btn.innerText = "SENDING TO GMAIL...";
+      if (btn) btn.innerText = "SENDING...";
 
-      // Send form payload to Formspree endpoint targeting hivemarketusa.info@gmail.com
       fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
@@ -2532,7 +2734,6 @@
           form.reset();
         }, 150);
       }).catch(error => {
-        // Smooth local fallback trigger
         const formPanel = document.getElementById('hub-vendor-form-panel');
         const successPanel = document.getElementById('hub-vendor-success-panel');
         formPanel.classList.add('vanished');
